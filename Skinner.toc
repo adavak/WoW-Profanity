@@ -1,0 +1,81 @@
+﻿## Interface: 30000
+## Title: Skinner
+## Notes: Changes the look of the default UI
+## Notes-esES: Cambia el aspecto del UI predeterminado
+## Notes-zhCN: 更改默认 UI 的视觉样式。
+## Notes-zhTW: 更改預設 UI 的視覺樣式.
+## Author: Jncl
+## Version: @project-version@ 
+## OptionalDeps: Ace3, LibSharedMedia-3.0, AceGUI-3.0-SharedMediaWidgets
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## SavedVariables: SkinnerDB
+
+# LibStub & Callback Handler
+LibStub.lua
+CallbackHandler-1.0.lua
+# LDB Libraries
+LibDataBroker-1.1.lua
+LibDBIcon-1.0.lua
+
+#@no-lib-strip@
+#Ace3 Libraries
+libs\AceAddon-3.0\AceAddon-3.0.xml
+libs\AceConsole-3.0\AceConsole-3.0.xml
+libs\AceEvent-3.0\AceEvent-3.0.xml
+libs\AceHook-3.0\AceHook-3.0.xml
+libs\AceTimer-3.0\AceTimer-3.0.xml 
+libs\AceDB-3.0\AceDB-3.0.xml
+libs\AceDBOptions-3.0\AceDBOptions-3.0.xml
+libs\AceLocale-3.0\AceLocale-3.0.xml
+libs\AceGUI-3.0\AceGUI-3.0.xml
+libs\AceConfig-3.0\AceConfig-3.0.xml
+
+#Other Libraries
+# LSM must be loaded before SMW
+libs\LibSharedMedia-3.0\lib.xml
+libs\AceGUI-3.0-SharedMediaWidgets\widget.xml
+libs\LibBetterBlizzOptions-1.0\lib.xml
+#@end-no-lib-strip@
+
+# Locale files
+Locale_enUS.lua
+Locale_zhCN.lua
+Locale_zhTW.lua
+Locale_koKR.lua
+
+Skinner.lua
+options.lua
+ViewPort.lua
+TMBFrames.lua
+
+#
+# The individual lua files skin the default frames as follows;
+#
+# AddonFrames
+# includes ViewPort, TopFrame, MiddleFrame(s), BottomFrame
+AddonFrames.lua
+#
+# CharacterFrames1
+# includes Character (inc Pet, Reputation, Skill, Token), PVP, PetStable, SpellBook, GlyphUI, TalentUI, DressUp, AchievementUI
+CharacterFrames1.lua
+#
+# CharacterFrames2
+# includes Friends (aka Social), TradeSkillUI, Trade, QuestLog, ResizeQW, RaidUI, ReadyCheck, Buffs
+CharacterFrames2.lua
+#
+# NPCFrames
+# includes Merchant, Gossip, TrainerUI, Taxi, Quest, Battlefields, Arena, ArenaRegistrar, GuildRegistrar, Petition, Tabard, BarberShopUI
+NPCFrames.lua
+#
+# UIElements1
+# includes Tooltips, MirrorTimers, QuestTimers, CastingBar, StaticPopups, ChatMenus, ChatTabs, ChatFrames, ChatConfig, ChatEditBox, Loot, GroupLoot, ContainerFrames, StackSplit, ItemText, ColorPicker, WorldMap, Help, KnowledgeBase, InspectUI, BattleScore, BattlefieldMinimap, ScriptErrors, Tutorial, DropDowns, MinimapButtons, MovieProgress, TimeManager, Calendar
+UIElements1.lua
+#
+# UIElements2
+# includes Menu (inc Video, Sound & Voice, Mac Options, Interface), MacroUI, BindingUI, ModelFrames, Bank, Mail, AuctionUI, MainMenuBar, CoinPickup, GMSurveyUI, LFG, ItemSocketingUI, GuildBankUI, Nameplates, FeedbackUI
+#
+UIElements2.lua
+
+# Addon skins
+skins.xml
