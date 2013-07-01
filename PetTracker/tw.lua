@@ -1,7 +1,7 @@
 local _, Addon = ...
 local L = Addon.Locals
 if GetLocale() ~= 'zhTW' then return end
-	
+
 L.AddWaypoint = '添加路徑點'
 L.BattlePets = '戰鬥寵物'
 L.CapturedPets = '已捕獲寵物'
@@ -9,6 +9,7 @@ L.CommonSearches = '通用搜索'
 L.FilterPets = '過濾寵物'
 L.ShowJournal = '在日誌中顯示'
 L.Maximized = '最大'
+L.ShowStables = '顯示管理員'
 L.StableTip = '|cffffd200到此治療|n寵物，些許花費。 |r'
 L.UpgradeAlert = '野生寵物出現！ '
 L.ZoneTracker = '區域追踪'
