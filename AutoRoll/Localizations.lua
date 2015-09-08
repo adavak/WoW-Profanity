@@ -12,14 +12,14 @@ local L = setmetatable({}, {
 AR.L=L;
 
 if LOCALE_deDE then
-	L["Add an item by name is possible but it works not any time. Reason unknown."] = "Es ist möglich, einen Gegenstand durch seinen Namen hinzuzufügen, doch leider funktioniert das nicht immer. Grund unbekannt.";
+	L["Add an item by name is only possible for items in your bag."] = "Hinzufügen eines Gegenstands by seinem Namen ist nur möglich, wenn der Gegenstand in der Tasche liegt.";
 	L["Add new Item"] = "Neuen Gegenstand hinzufügen";
 	L["Add new item:"] = "Neuen Gegenstand hinzufügen:";
 	L["Adding an item by its item id."] = "Füge einen neuen Gegenstand mit Hilfe der GegenstandsID hinzu.";
 	L["Addon"] = "Addon";
 	L["Addon loaded..."] = "Addon geladen...";
-	--- L["AutoConfirm all"] = "";
-	--- L["AutoRoll all"] = "";
+	L["AutoConfirm all"] = "AutoConfirm alles";
+	L["AutoRoll all"] = "AutoRoll alles";
 	L["AutoRoll's functionality"] = "AutoRoll's Funktionalität";
 	L["Automaticly confirm all"] = "Automatisch alles bestätigen";
 	L["Automaticly confirm all group roll requests"] = "Bestätigt automatisch alle Gruppenwürfel Rückfragen";
@@ -27,16 +27,18 @@ if LOCALE_deDE then
 	L["Automaticly roll on all group roll items"] = "Automatisch würfeln auf alle Gruppenwürfelgegenstände";
 	L["Changed mode for itemId %d (%s) to %s"] = "Modus gewechselt für GegenstandsID %d (%s) zu %s";
 	L["Chat command list for /ar & /autoroll"] = "Chat Befehlsliste für /ar und /autoroll";
+	L["Couldn't find a valid item."] = "Konnte keinen Gegenstand finden.";
 	L["Credit: Azial for initial idea and first piece of code in german WoW forum."] = "Ehrung: Azial für ursprüngliche Idee und ersten Teil des Codes im deutschen WoW Forum.";
 	L["Current item list"] = "Aktuelle Gegenstandsliste";
-	-- L["DebugMode"] = "";
+	--- L["DebugMode"] = "";
 	L["Default:"] = "Standard:";
 	L["Do nothing"] = "Tue nichts";
 	L["Enable AutoRoll"] = "Aktivere AutoRoll";
 	L["Enable/Disable automatic rolling on listed items."] = "Aktiviere/Deaktiviere automatisches Würfeln auf gelistete Gegenstände.";
 	L["Id %d not found in item list."] = "Id %d nicht in Gegenstandliste gefunden.";
 	L["Id: %d (%s), Mode: %s"] = "Id: %d (%s), Modus: %s";
-	-- L["Info message"] = "";
+	L["Info message"] = "Info Nachricht";
+	L["Item already in list."] = "Gegenstand ist bereits in der Liste.";
 	L["Item list resetted..."] = "Gegenstandsliste zurückgesetzt...";
 	L["ItemID %d (%s) removed from AutoRoll's item list"] = "Gegenstand %d (%s) von AutoRoll's Gegenstandsliste entfernt";
 	L["ItemID %d found... %s added to AutoRoll's item list. Mode: %s"] = "GegenstandsID %d gefunden... %s zu AutoRoll's Gegenstandsliste hinzugefügt. Modus: %s";
@@ -49,20 +51,22 @@ if LOCALE_deDE then
 	L["Page %d"] = "Seite %d";
 	L["Pages %d-%d"] = "Seiten %d-%d";
 	L["Press enter or push the Add-Button to add the item to the item list"] = "Drücke die Eingabe-Taste oder betätige den Hinzufügen-Knopf um den Gegenstand der Gegenstandsliste hinzuzufügen";
-	--- L["Print info message on any executed loot roll in chat window."] = "";
-	--- L["Print info messages"] = "";
+	L["Print info message on any executed loot roll in chat window."] = "Schreibe Info Nachrichten zu allen ausgeführten Plünderwürfelungen in dein Chatfenster.";
+	L["Print info messages"] = "Schreibe Info Nachrichten";
 	L["Right-click"] = "Rechts-Klick";
-	-- L["Status"] = "";
+	L["Sorry, it was not able to get more informations to item id %d. Please check the item id."] = "Sorry, es war nicht möglich mehr Informationen zu der GegenstandsID zu bekommen. Bitte prüfen sie die GegenstandsID.";
+	L["Sorry, that is too fast. This addon request the item name and waiting on answer from blizzards item database."] = "Sorry, es war zu schnell. Das Addon wartet noch auf eine Antwort von Blizzards Gegenstandsdatenbank.";
+	--- L["Status"] = "";
 	L["This function use the item list below. For all over items will be roll on greed."] = "Diese function benutzt die Gegenstandsliste unten. Für alle andern Gegenstände wird auf Gier gewürfelt.";
 	L["Version: %s / Author: %s"] = "Version: %s / Autor: %s";
 	L["add <itemId> - add an item to the item list"] = "add <GegenstandsID> - Fügt den Gegenstand der Liste hinzu";
 	L["autoconfirmall - enable/disable AutoConfirm on all items."] = "autoconfirmall - aktiviere/deaktiviere AutoConfirm auf alle Gegenstände.";
-	--- L["autorollall - enable/disable AutoRoll on all items (using item list or greed)."] = "";
-	--- L["debugmode - enable/disable debug messages in chat window"] = "";
+	L["autorollall - enable/disable AutoRoll on all items (using item list or greed)."] = "autorollall - aktiviere/deaktiviere AutoRoll auf alle Gegenstände (nutzt Gegenstandsliste oder Gier).";
+	L["debugmode - enable/disable debug messages in chat window"] = "debugmode - aktiviere/deaktiviere Debug Nachrichten in deinem Chatfenster.";
 	L["del <itemId> - delete an item from the item list"] = "del <GegenstandsID> - Entfernt den Gegenstand von der Liste";
 	L["disabled"] = "deaktiviert";
 	L["enabled"] = "aktiviert";
-	--- L["infomessage - enable/disable info message for any executed loot roll in chat window"] = "";
+	L["infomessage - enable/disable info message for any executed loot roll in chat window"] = "infomessage - aktiviere/deaktiviere Info Nachrichten für alle ausgeführten Plünderwürfelungen in dein Chatfenster.";
 	L["list - list items"] = "list - Listet die Gegenstände auf";
 	L["mode <itemId> - change need/greed/disenchant/pass/do nothing mode for a single item"] = "mode <GegenstandsID> - Wechselt zwischen Bedarf/Gier/Entzaubern/Passen/Tue nichts-Modus bei einem Gegenstand";
 	L["reset - reset the item list to default"] = "reset - Setzt die Gegenstandsliste auf Standard zurück";
@@ -77,7 +81,7 @@ end
 -- if LOCALE_ruRU then end
 
 if LOCALE_zhCN then
-	L["Add an item by name is possible but it works not any time. Reason unknown."] = "添加一个物品使用它的名称并不是每次都管用。原因未知。";
+	L["Add an item by name is only possible for items in your bag."] = "添加一个只在你背包中物品的物品名称。";
 	L["Add new Item"] = "添加新物品";
 	L["Add new item:"] = "添加新物品：";
 	L["Adding an item by its item id."] = "添加一个物品使用它的物品 ID。";
@@ -92,6 +96,7 @@ if LOCALE_zhCN then
 	L["Automaticly roll on all group roll items"] = "队伍物品投点全部自动投点";
 	L["Changed mode for itemId %d (%s) to %s"] = "更改物品 ID %d（%s）到%s";
 	L["Chat command list for /ar & /autoroll"] = "聊天命令行 /ar 或 /autoroll";
+	L["Couldn't find a valid item."] = "未找到有效物品。";
 	L["Credit: Azial for initial idea and first piece of code in german WoW forum."] = "鸣谢：Azial 在德文 WoW 论坛提供最初创意和初始代码。";
 	L["Current item list"] = "当前物品列表";
 	L["DebugMode"] = "除错模式";
@@ -102,6 +107,7 @@ if LOCALE_zhCN then
 	L["Id %d not found in item list."] = "ID %d 未在物品列表中。";
 	L["Id: %d (%s), Mode: %s"] = "ID: %d（%s），模式：%s";
 	L["Info message"] = "提示信息";
+	L["Item already in list."] = "物品已在列表中。";
 	L["Item list resetted..."] = "物品列表已重置…";
 	L["ItemID %d (%s) removed from AutoRoll's item list"] = "物品 ID %d（%s）已从自动投点的物品列表中移除";
 	L["ItemID %d found... %s added to AutoRoll's item list. Mode: %s"] = "找到物品 ID %d…%s已添加到自动投点的物品列表。模式：%s";
@@ -117,6 +123,8 @@ if LOCALE_zhCN then
 	L["Print info message on any executed loot roll in chat window."] = "输出每个进行的拾取提示信息到聊天窗口。";
 	L["Print info messages"] = "输出提示信息";
 	L["Right-click"] = "右击";
+	L["Sorry, it was not able to get more informations to item id %d. Please check the item id."] = "抱歉，不能从此物品 ID %d获取更多信息。请检查物品 ID。";
+	L["Sorry, that is too fast. This addon request the item name and waiting on answer from blizzards item database."] = "抱歉，速度过快。此插件需从暴雪物品数据库中获取物品名称的响应。";
 	L["Status"] = "状态";
 	L["This function use the item list below. For all over items will be roll on greed."] = "以下物品列表使用此功能。其他全部物品将贪婪投点。";
 	L["Version: %s / Author: %s"] = "版本：%s / 作者：%s";
@@ -135,7 +143,7 @@ if LOCALE_zhCN then
 end
 
 if LOCALE_zhTW then
-	L["Add an item by name is possible but it works not any time. Reason unknown."] = "添加一個物品使用它的名稱並不是每次都管用。原因未知。";
+	L["Add an item by name is only possible for items in your bag."] = "添加一個只在你背包中物品的物品名稱。";
 	L["Add new Item"] = "添加新物品";
 	L["Add new item:"] = "添加新物品：";
 	L["Adding an item by its item id."] = "添加一個物品使用它的物品 ID。";
@@ -150,6 +158,7 @@ if LOCALE_zhTW then
 	L["Automaticly roll on all group roll items"] = "隊伍物品投點全部自動投點";
 	L["Changed mode for itemId %d (%s) to %s"] = "更改物品 ID %d（%s）到%s";
 	L["Chat command list for /ar & /autoroll"] = "聊天命令行 /ar 或 /autoroll";
+	L["Couldn't find a valid item."] = "未找到有效物品。";
 	L["Credit: Azial for initial idea and first piece of code in german WoW forum."] = "鳴謝：Azial 在德文 WoW 論壇提供最初創意和初始代碼。";
 	L["Current item list"] = "當前物品列表";
 	L["DebugMode"] = "除錯模式";
@@ -160,6 +169,7 @@ if LOCALE_zhTW then
 	L["Id %d not found in item list."] = "ID %d 未在物品列表中。";
 	L["Id: %d (%s), Mode: %s"] = "ID: %d（%s），模式：%s";
 	L["Info message"] = "提示讯息";
+	L["Item already in list."] = "物品已在列表中。";
 	L["Item list resetted..."] = "物品列表已重置…";
 	L["ItemID %d (%s) removed from AutoRoll's item list"] = "物品 ID %d（%s）已從自動投點的物品列表中移除";
 	L["ItemID %d found... %s added to AutoRoll's item list. Mode: %s"] = "找到物品 ID %d…%s已添加到自動投點的物品列表。模式：%s";
@@ -175,6 +185,8 @@ if LOCALE_zhTW then
 	L["Print info message on any executed loot roll in chat window."] = "輸出每個進行的拾取提示讯息到聊天視窗。";
 	L["Print info messages"] = "輸出提示讯息";
 	L["Right-click"] = "右擊";
+	L["Sorry, it was not able to get more informations to item id %d. Please check the item id."] = "抱歉，不能從此物品 ID %d獲取更多訊息。請檢查物品 ID。";
+	L["Sorry, that is too fast. This addon request the item name and waiting on answer from blizzards item database."] = "抱歉，速度過快。此插件需從暴雪物品數據庫中獲取物品名稱的響應。";
 	L["Status"] = "狀態";
 	L["This function use the item list below. For all over items will be roll on greed."] = "以下物品列表使用此功能。其他全部物品將貪婪投點。";
 	L["Version: %s / Author: %s"] = "版本：%s / 作者：%s";
@@ -195,7 +207,7 @@ end
 --[[
 if LOCALE_<countryCode> then
 	L["add <itemId> - add an item to the item list"] = "";
-	L["Add an item by name is possible but it works not any time. Reason unknown."] = "";
+	L["Add an item by name is only possible for items in your bag."] = "";
 	L["Add new Item"] = "";
 	L["Add new item:"] = "";
 	L["Adding an item by its item id."] = "";
@@ -212,6 +224,7 @@ if LOCALE_<countryCode> then
 	L["autorollall - enable/disable AutoRoll on all items (using item list or greed)."] = "";
 	L["Changed mode for itemId %d (%s) to %s"] = "";
 	L["Chat command list for /ar & /autoroll"] = "";
+	L["Couldn't find a valid item."] = "";
 	L["Credit: Azial for initial idea and first piece of code in german WoW forum."] = "";
 	L["Current item list"] = "";
 	L["debugmode - enable/disable debug messages in chat window"] = "";
@@ -227,6 +240,7 @@ if LOCALE_<countryCode> then
 	L["Id: %d (%s), Mode: %s"] = "";
 	L["Info message"] = "";
 	L["infomessage - enable/disable info message for any executed loot roll in chat window"] = "";
+	L["Item already in list."] = "";
 	L["Item list resetted..."] = "";
 	L["ItemID %d (%s) removed from AutoRoll's item list"] = "";
 	L["ItemID %d found... %s added to AutoRoll's item list. Mode: %s"] = "";
@@ -245,6 +259,8 @@ if LOCALE_<countryCode> then
 	L["Print info messages"] = "";
 	L["reset - reset the item list to default"] = "";
 	L["Right-click"] = "";
+	L["Sorry, it was not able to get more informations to item id %d. Please check the item id."] = "";
+	L["Sorry, that is too fast. This addon request the item name and waiting on answer from blizzards item database."] = "";
 	L["Status"] = "";
 	L["This function use the item list below. For all over items will be roll on greed."] = "";
 	L["toggle - enable/disable AutoRoll's functionality"] = "";
