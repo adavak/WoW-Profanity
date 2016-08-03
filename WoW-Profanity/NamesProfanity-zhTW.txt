@@ -1,4 +1,4 @@
-﻿//TW
+﻿//TW-7.0.3.22345
 \bcervesa\b
 \bchampagne\b
 \bchaseylain\b
@@ -210,7 +210,7 @@ vagina\b
 \bannamalle\b
 \bbeer\b
 \berzengel\b
-k?nig\b
+könig\b
 \beomer\b
 butthhead
 \bslope\b
@@ -274,7 +274,7 @@ king\b
 \bduke
 sucker\b
 \bebola\b
-\beichelk?se\b
+\beichelkäse\b
 f[ue]+rst\b
 muschi\b
 \beternalhoden\b
@@ -294,7 +294,7 @@ tussi\b
 \bgoebbels\b
 \bgott\b
 \bgraftaliban\b
-\bh?gar\b
+\bhägar\b
 \bhanfernte\b
 \bheiland\b
 \bhendrix\b
@@ -318,7 +318,7 @@ fick\b
 \bmilkakuh\b
 \bmistst[ue]+ck\b
 \bmoesen
-\bm?se
+\bmöse
 \bmuschi
 \bnachgeburt\b
 \bnazghul\b
@@ -360,7 +360,7 @@ fick\b
 \bxerox\b
 schlampe\b
 zipfe?l\b
-\bzuh?lter
+\bzuhälter
 \bzwergpimmel\b
 \babsinthe\b
 \babsolut\b
@@ -816,3 +816,6 @@ sexy
 幹你
 幹妳
 blizz
+nigger
+nigga
+niggr
