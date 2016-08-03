@@ -1,3 +1,3 @@
-Ä§ÊŞÊÀ½çÆÁ±Î´Ê
+é­”å…½ä¸–ç•Œå±è”½è¯
 
 A git repo to log the World of Warcraft Profanity.
