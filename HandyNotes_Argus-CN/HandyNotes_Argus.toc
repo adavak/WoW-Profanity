@@ -12,6 +12,6 @@ embeds.xml
 #@end-no-lib-strip@
 
 localization\enUS.lua
-localization\deDE.lua
+localization\esES.lua
 localization\zhCN.lua
 HandyNotes_Argus.lua
