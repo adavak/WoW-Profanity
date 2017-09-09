@@ -63,14 +63,14 @@ local isDBMloaded = false
 local isCanIMogItloaded = false
 
 -- [XXXXYYYY] = { questId, icon, group, label, loot, note, search },
--- /run local find="Maddened Chaosrunner"; for i,mid in ipairs(C_MountJournal.GetMountIDs()) do local n,_,_,_,_,_,_,_,_,_,c,j=C_MountJournal.GetMountInfoByID(mid); if ( n == find ) then print(j .. " " .. n); end end
--- /run local find="Fel-Afflicted Skyfin"; for i=0,2500 do local n=C_PetJournal.GetPetInfoBySpeciesID(i); if ( n == find ) then print(i .. " " .. n); end end
-
+-- /run local find="Grasping Manifestation"; for i,mid in ipairs(C_MountJournal.GetMountIDs()) do local n,_,_,_,_,_,_,_,_,_,c,j=C_MountJournal.GetMountInfoByID(mid); if ( n == find ) then print(j .. " " .. n); end end
+-- /run local find="Grasping Manifestation"; for i=0,2500 do local n=C_PetJournal.GetPetInfoBySpeciesID(i); if ( n == find ) then print(i .. " " .. n); end end
+-- { 152903, itemTypeMount, 981 } Biletooth Gnasher any rare
 -- Antoran Wastes
 nodes["ArgusCore"] = {
 	{ coord=52702950, npcId=127291, questId=48822, icon="skull_grey", group="rare_aw", label="Watcher Aival", search="aival", loot=nil, note=nil },
-	{ coord=63902090, npcId=126040, questId=48809, icon="skull_grey", group="rare_aw", label="Puscilla", search="puscilla", loot={ { 152903, itemTypeMount, 981 } }, note="Entrance to the cave is south east - use the eastern bridge to get there." },
-	{ coord=53103580, npcId=126199, questId=48810, icon="skull_grey", group="rare_aw", label="Vrax'thul", search="vrax", loot={ { 152903, itemTypeMount, 981 } }, note=nil },
+	{ coord=63902090, npcId=126040, questId=48809, icon="skull_grey", group="rare_aw", label="Puscilla", search="puscilla", loot=nil, note="Entrance to the cave is south east - use the eastern bridge to get there." },
+	{ coord=53103580, npcId=126199, questId=48810, icon="skull_grey", group="rare_aw", label="Vrax'thul", search="vrax", loot=nil, note=nil },
 	{ coord=63225754, npcId=126115, questId=48811, icon="skull_grey", group="rare_aw", label="Ven'orn", search="ven", loot=nil, note="The entrance to the cave is north east from here in the spider area at 66, 54.1" },
 	{ coord=64304820, npcId=126208, questId=48812, icon="skull_grey", group="rare_aw", label="Varga", search="varga", loot={ { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note=nil },
 	{ coord=62405380, npcId=126254, questId=48813, icon="skull_grey", group="rare_aw", label="Lieutenant Xakaar", search="xakaar", loot=nil, note=nil },
@@ -88,7 +88,7 @@ nodes["ArgusCore"] = {
 	{ coord=77177319, npcId=nil, questId=48967, icon="portal", group="rare_aw", label="Portal to Squadron Commander Vishax", loot=nil, note="First find a Smashed Portal Generator from Immortal Netherwalker. Then collect Conductive Sheath, Arc Circuit and Power Cell from Eredar War-Mind and Felsworn Myrmidon. Use the Smashed Portal Generator to unlock the portal to Vishax." },
 	{ coord=84368118, npcId=127700, questId=48967, icon="skull_grey", group="rare_aw", label="Squadron Commander Vishax", search="vishax", loot={ { 153253, itemTypeToy } }, note="Use portal at 77.2, 73.2 to get up on the ship" },
 	{ coord=58001200, npcId=127703, questId=48968, icon="skull_grey", group="rare_aw", label="Doomcaster Suprax", search="suprax", loot={ { 153194, itemTypeToy } }, note="Stand on all 3 runes to summon him." },
-	{ coord=66981777, npcId=127705, questId=48970, icon="skull_grey", group="rare_aw", label="Mother Rosula", search="rosula", loot={ { 152903, itemTypeMount, 981 }, { 153252, itemTypePet, 2135 } }, note="Inside cave. Use the eastern bridge. Collect 100 Imp Meat which drop from the imps inside the cave. Use it and place the Disgusting Feast into the green soup at the marked spot." },
+	{ coord=66981777, npcId=127705, questId=48970, icon="skull_grey", group="rare_aw", label="Mother Rosula", search="rosula", loot={ { 153252, itemTypePet, 2135 } }, note="Inside cave. Use the eastern bridge. Collect 100 Imp Meat which drop from the imps inside the cave. Use it and place the Disgusting Feast into the green soup at the marked spot." },
 	{ coord=64948290, npcId=127706, questId=48971, icon="skull_grey", group="rare_aw", label="Rezira the Seer", search="rezira", loot={ { 153293, itemTypeToy } }, note="Use Observer's Locus Resonator to open a portal to him. Orix the All-Seer (60.2, 45.4) sells it for 500 Intact Demon Eyes." },
 	{ coord=61703720, npcId=122958, questId=49183, icon="skull_grey", group="rare_aw", label="Blistermaw", search="blister", loot={ { 152905, itemTypeMount, 979 } }, note=nil },
 	{ coord=57403290, npcId=122947, questId=49240, icon="skull_grey", group="rare_aw", label="Mistress Il'thendra", search="thendra", loot={ { 153327, itemTypeTransmog, "Dagger" } }, note=nil },
@@ -321,7 +321,7 @@ nodes["ArgusMacAree"] = {
 	{ coord=56801450, npcId=126910, questId=48720, icon="skull_grey", group="rare_ma", label="Commander Xethgar", search="xethgar", loot=nil, note=nil },
 	{ coord=49870953, npcId=126912, questId=48721, icon="skull_grey", group="rare_ma", label="Skreeg the Devourer", search="skre", loot=nil, note=nil },
 	{ coord=43846065, npcId=126862, questId=48700, icon="skull_grey", group="rare_ma", label="Baruut the Bloodthirsty", search="baru", loot={ { 153193, itemTypeToy } }, note=nil },
-	{ coord=30124019, npcId=126887, questId=48709, icon="skull_grey", group="rare_ma", label="Ataxon", search="ataxon", loot=nil, note=nil },
+	{ coord=30124019, npcId=126887, questId=48709, icon="skull_grey", group="rare_ma", label="Ataxon", search="ataxon", loot={ 153056, itemTypePet, 2120 }, note=nil },
 	-----------------
 	{ coord=49505280, npcId=126913, questId=48935, icon="skull_grey", group="rare_ma", label="Slithon the Last", search="slithon", loot={ { 153203, itemTypeMisc } }, note=nil },
 	{ coord=44607160, npcId=122838, questId=48692, icon="skull_grey", group="rare_ma", label="Shadowcaster Voruun", search="voruun", loot=nil, note=nil },
@@ -364,7 +364,8 @@ nodes["ArgusMacAree"] = {
 	{ coord=37613608, questId=49264, icon="treasure", group="treasure_ma", label="49264", loot=nil, note=nil },
 	-- 48361
 	{ coord=37664221, questId=48361, icon="treasure", group="treasure_ma", label="48361", loot=nil, note="Behind pillar in cave thingy" },
-	{ coord=25824471, questId=48361, icon="treasure", group="treasure_ma", label="48361", loot=nil, note="" },
+	{ coord=25824471, questId=48361, icon="treasure", group="treasure_ma", label="48361", loot=nil, note=nil },
+	{ coord=29455043, questId=48361, icon="treasure", group="treasure_ma", label="48361", loot=nil, note="Under tree" },
 
 	-- Shoot First, Loot Later
 	{ coord=42900549, objId=276223, questId=48743, icon="starChestBlue", group="sfll_ma", label="Eredar Treasure Cache", loot=nil, note="In a litte cave. Use Lightforged Warframe's jump to remove the blocking boulders." },
@@ -565,8 +566,8 @@ end
 
 local function DisableTreasure(button, mapFile, coord)
 	local node = GetNodeByCoord( mapFile, coord );
-    if ( node["questId"] ~= nil) then
-        Argus.db.char[mapFile .. coord .. node["questId"]] = true;
+    if ( node and node["questId"] ~= nil) then
+        Argus.db.char[mapFile .. "_" .. coord .. "_" .. node["questId"]] = true;
     end
 
     Argus:Refresh()
@@ -1106,7 +1107,7 @@ function Argus:RegisterWithHandyNotes()
 
 			for idx = nextIndex, #t do
 				node = t[idx];
-                if (node["questId"] and self.db.profile[node["group"]] and not Argus:HasBeenLooted(currentMapFile,idx,node)) then
+                if (node["questId"] and self.db.profile[node["group"]] and not Argus:HasBeenLooted(currentMapFile,node)) then
 					-- preload items
 					local allLootKnown = true
                     if ((node["loot"] ~= nil) and (type(node["loot"]) == "table")) then
@@ -1164,12 +1165,12 @@ function Argus:Refresh()
     self:SendMessage("HandyNotes_NotifyUpdate", "HandyNotesArgus")
 end
 
-function Argus:HasBeenLooted(mapFile,coord,node)
+function Argus:HasBeenLooted(mapFile,node)
     if (self.db.profile.alwaysshowtreasures and (string.find(node["group"], "treasure") ~= nil)) then return false end
     if (self.db.profile.alwaysshowrares and (string.find(node["group"], "rare") ~= nil)) then return false end
 	if (self.db.profile.alwaysshowsfll and (string.find(node["group"], "sfll") ~= nil)) then return false end
     -- if (node["questId"] and node["questId"] == 0) then return false end
-    if (Argus.db.char[mapFile .. coord .. node["questId"]] and self.db.profile.save) then return true end
+    if (Argus.db.char[mapFile .. "_" .. node["coord"] .. "_" .. node["questId"]] and self.db.profile.save) then return true end
     if (IsQuestFlaggedCompleted(node["questId"])) then
         return true
     end
