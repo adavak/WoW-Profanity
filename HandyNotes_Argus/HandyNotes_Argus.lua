@@ -321,7 +321,7 @@ nodes["ArgusMacAree"] = {
 	{ coord=56801450, npcId=126910, questId=48720, icon="skull_grey", group="rare_ma", label="Commander Xethgar", search="xethgar", loot=nil, note=nil },
 	{ coord=49870953, npcId=126912, questId=48721, icon="skull_grey", group="rare_ma", label="Skreeg the Devourer", search="skre", loot=nil, note=nil },
 	{ coord=43846065, npcId=126862, questId=48700, icon="skull_grey", group="rare_ma", label="Baruut the Bloodthirsty", search="baru", loot={ { 153193, itemTypeToy } }, note=nil },
-	{ coord=30124019, npcId=126887, questId=48709, icon="skull_grey", group="rare_ma", label="Ataxon", search="ataxon", loot={ 153056, itemTypePet, 2120 }, note=nil },
+	{ coord=30124019, npcId=126887, questId=48709, icon="skull_grey", group="rare_ma", label="Ataxon", search="ataxon", loot={ { 153056, itemTypePet, 2120 } }, note=nil },
 	-----------------
 	{ coord=49505280, npcId=126913, questId=48935, icon="skull_grey", group="rare_ma", label="Slithon the Last", search="slithon", loot={ { 153203, itemTypeMisc } }, note=nil },
 	{ coord=44607160, npcId=122838, questId=48692, icon="skull_grey", group="rare_ma", label="Shadowcaster Voruun", search="voruun", loot=nil, note=nil },
@@ -618,13 +618,13 @@ finderFrame:SetScript("OnEvent", function( self, event )
 	-- LFGListFrame.SearchPanel.SearchBox:SetText(self.search);
 end );
 
-local function LFRsearch( button, search, label )
-	if ( search ~= nil ) then
-		finderFrame.search = search;
+local function LFRsearch( button, node )
+	if ( node ~= nil ) then
+		finderFrame.search = node["search"];
 		local c,zone,_,_,name = C_LFGList.GetActiveEntryInfo();
 		if c == true then
 			if ( UnitIsGroupLeader("player") ) then
-				print( "Old group delisted. Click again to search groups for " .. label .. "." );
+				print( "Old group delisted. Click again to search groups for " .. node["label"] .. "." );
 				C_LFGList.RemoveListing();
 			else
 				print( "Insufficient rights. You are not the group leader." );
@@ -634,11 +634,11 @@ local function LFRsearch( button, search, label )
 				PVEFrame_ShowFrame("GroupFinderFrame");
 			end
 			GroupFinderFrameGroupButton4:Click();
-			LFGListFrame.SearchPanel.SearchBox:SetText( search );
+			LFGListFrame.SearchPanel.SearchBox:SetText( node["search"] );
 			LFGListCategorySelection_SelectCategory( LFGListFrame.CategorySelection, 6, 0 );
-			LFGListFrame.SearchPanel.SearchBox:SetText( search );
+			LFGListFrame.SearchPanel.SearchBox:SetText( node["search"] );
 			LFGListCategorySelectionFindGroupButton_OnClick( LFGListFrame.CategorySelection.FindGroupButton );			
-			LFGListFrame.SearchPanel.SearchBox:SetText( search );
+			LFGListFrame.SearchPanel.SearchBox:SetText( node["search"] );
 			--LFGListFrame.SearchPanel.SearchBox:SetFocus();
 			
 			finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED")
@@ -683,8 +683,7 @@ local function generateMenu(button, level)
 			info.text = "Find group"
 			if ( node["search"] ~= nil ) then
 				info.func = LFRsearch
-				info.arg1 = node["search"]
-				info.arg2 = node["label"]
+				info.arg1 = node
 				UIDropDownMenu_AddButton(info, level)
 			end
 
@@ -756,7 +755,7 @@ function Argus:OnClick(button, down, mapFile, coord)
 		end
 	elseif button == "LeftButton" and down then
 		-- find group
-		LFRsearch( nil, node["search"], node["label"] );
+		LFRsearch( nil, node );
     end
 end
 
@@ -1146,7 +1145,6 @@ function Argus:RegisterWithHandyNotes()
                     return node["coord"], nil, iconPath, iconScale, iconAlpha
                 end
 
-                -- idx, node = next(t, idx)
             end
         end
 
