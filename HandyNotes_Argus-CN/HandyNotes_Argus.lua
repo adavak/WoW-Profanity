@@ -69,8 +69,8 @@ local isCanIMogItloaded = false
 -- Antoran Wastes
 nodes["ArgusCore"] = {
 	{ coord=52702950, npcId=127291, questId=48822, icon="skull_grey", group="rare_aw", label="监视者艾瓦", search="监视者", loot=nil, note=nil },
-	{ coord=63902090, npcId=126040, questId=48809, icon="skull_grey", group="rare_aw", label="普希拉", search="普希拉", loot=nil, note="洞穴入口在东南方 - 从东面的桥到达那里。" },
-	{ coord=53103580, npcId=126199, questId=48810, icon="skull_grey", group="rare_aw", label="弗拉克苏尔", search="弗拉克苏尔", loot=nil, note=nil },
+	{ coord=63902090, npcId=126040, questId=48809, icon="skull_grey", group="rare_aw", label="普希拉", search="普希拉", loot={ { 152903, itemTypeMount, 981 } }, note="洞穴入口在东南方 - 从东面的桥到达那里。" },
+	{ coord=53103580, npcId=126199, questId=48810, icon="skull_grey", group="rare_aw", label="弗拉克苏尔", search="弗拉克苏尔", loot={ { 152903, itemTypeMount, 981 } }, note=nil },
 	{ coord=63225754, npcId=126115, questId=48811, icon="skull_grey", group="rare_aw", label="维农", search="维农", loot=nil, note="洞穴入口在东北方，从蜘蛛区域 66, 54.1" },
 	{ coord=64304820, npcId=126208, questId=48812, icon="skull_grey", group="rare_aw", label="瓦加", search="瓦加", loot={ { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note=nil },
 	{ coord=62405380, npcId=126254, questId=48813, icon="skull_grey", group="rare_aw", label="萨卡尔中尉", search="中尉", loot=nil, note=nil },
@@ -88,7 +88,7 @@ nodes["ArgusCore"] = {
 	{ coord=77177319, npcId=nil, questId=48967, icon="portal", group="rare_aw", label="传送到中队指挥官维沙克斯", loot=nil, note="第一步先从不朽虚无行者身上找到碎裂的传送门发生器。然后从艾瑞达战术顾问、魔誓侍从身上收集导电护套，弧光电路，能量电池，使用碎裂的传送门发生器把它们组合起来打开去往维沙克斯的传送门。" },
 	{ coord=84368118, npcId=127700, questId=48967, icon="skull_grey", group="rare_aw", label="中队指挥官维沙克斯", search="中队指挥官", loot={ { 153253, itemTypeToy } }, note="使用传送门位于 77.2, 73.2 上船" },
 	{ coord=58001200, npcId=127703, questId=48968, icon="skull_grey", group="rare_aw", label="末日法师苏帕克斯", search="末日法师", loot={ { 153194, itemTypeToy } }, note="三个符文上全站人召唤他。" },
-	{ coord=66981777, npcId=127705, questId=48970, icon="skull_grey", group="rare_aw", label="主母罗苏拉", search="主母", loot={ { 153252, itemTypePet, 2135 } }, note="洞穴入口在东南方 - 从东面的桥到达那里。收集洞里小鬼掉的100个小鬼的肉。使用它做一份黑暗料理扔进绿池子里召唤主母。" },
+	{ coord=66981777, npcId=127705, questId=48970, icon="skull_grey", group="rare_aw", label="主母罗苏拉", search="主母", loot={ { 152903, itemTypeMount, 981 }, { 153252, itemTypePet, 2135 } }, note="洞穴入口在东南方 - 从东面的桥到达那里。收集洞里小鬼掉的100个小鬼的肉。使用它做一份黑暗料理扔进绿池子里召唤主母。" },
 	{ coord=64948290, npcId=127706, questId=48971, icon="skull_grey", group="rare_aw", label="先知雷兹拉", search="先知", loot={ { 153293, itemTypeToy } }, note="使用观察者之地共鸣器打开传送门。收集500个恶魔之眼把它交给位于 60.2, 45.4 的全视者奥利克斯换取。" },
 	{ coord=61703720, npcId=122958, questId=49183, icon="skull_grey", group="rare_aw", label="疱喉", search="疱喉", loot={ { 152905, itemTypeMount, 979 } }, note=nil },
 	{ coord=57403290, npcId=122947, questId=49240, icon="skull_grey", group="rare_aw", label="妖女伊森黛拉", search="妖女", loot={ { 153327, itemTypeTransmog, "匕首" } }, note=nil },
