@@ -618,9 +618,9 @@ finderFrame:SetScript("OnEvent", function( self, event )
 	-- LFGListFrame.SearchPanel.SearchBox:SetText(self.search);
 end );
 
-local function LFRsearch( button, search, label )
-	if ( search ~= nil ) then
-		finderFrame.search = search;
+local function LFRsearch( button, node )
+	if ( node ~= nil ) then
+		finderFrame.search = node["search"];
 		local c,zone,_,_,name = C_LFGList.GetActiveEntryInfo();
 		if c == true then
 			if ( UnitIsGroupLeader("player") ) then
@@ -634,11 +634,11 @@ local function LFRsearch( button, search, label )
 				PVEFrame_ShowFrame("GroupFinderFrame");
 			end
 			GroupFinderFrameGroupButton4:Click();
-			LFGListFrame.SearchPanel.SearchBox:SetText( search );
+			LFGListFrame.SearchPanel.SearchBox:SetText( node["search"] );
 			LFGListCategorySelection_SelectCategory( LFGListFrame.CategorySelection, 6, 0 );
-			LFGListFrame.SearchPanel.SearchBox:SetText( search );
+			LFGListFrame.SearchPanel.SearchBox:SetText( node["search"] );
 			LFGListCategorySelectionFindGroupButton_OnClick( LFGListFrame.CategorySelection.FindGroupButton );			
-			LFGListFrame.SearchPanel.SearchBox:SetText( search );
+			LFGListFrame.SearchPanel.SearchBox:SetText( node["search"] );
 			--LFGListFrame.SearchPanel.SearchBox:SetFocus();
 			
 			finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED")
@@ -683,8 +683,7 @@ local function generateMenu(button, level)
 		info.text = "查找队伍"
 			if ( node["search"] ~= nil ) then
 				info.func = LFRsearch
-				info.arg1 = node["search"]
-				info.arg2 = node["label"]
+				info.arg1 = node
 				UIDropDownMenu_AddButton(info, level)
 			end
 
@@ -756,7 +755,7 @@ function Argus:OnClick(button, down, mapFile, coord)
 		end
 	elseif button == "LeftButton" and down then
 		-- find group
-		LFRsearch( nil, node["search"], node["label"] );
+		LFRsearch( nil, node );
     end
 end
 
