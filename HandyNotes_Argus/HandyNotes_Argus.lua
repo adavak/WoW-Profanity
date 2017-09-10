@@ -1232,7 +1232,7 @@ local function cacheItems()
 		end
 	end
 	if ( failed > 0 and precacheIteration < 10 ) then 
-		print( "Failed: " .. failed .. " / " .. total );
+		print( "Ê§°Ü£º" .. failed .. " / " .. total );
 		C_Timer.After(3, function()
 			cacheItems();
 		end );
