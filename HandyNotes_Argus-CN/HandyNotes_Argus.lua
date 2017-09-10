@@ -314,7 +314,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 33654801, npcId = 126867, questId = 48705, icon = "skull_grey", group = "rare_ma", label = "毒尾天鳍鳐", search="毒尾", loot = { { 152844, itemTypeMount, 973 } }, note = nil },
 	{ coord = 38226435, npcId = 126868, questId = 48706, icon = "skull_grey", group = "rare_ma", label = "清醒者图瑞克", search="清醒者", loot = { { 153306, itemTypeTransmog, "单手斧" } }, note = "下楼进入建筑物" },
 	{ coord = 27192995, npcId = 126869, questId = 48707, icon = "skull_grey", group = "rare_ma", label = "法鲁克队长", search="队长", loot = nil, note = nil },
-	{ coord = 34943711, npcId = 126885, questId = 48708, icon = "skull_grey", group = "rare_ma", label = "乌伯拉利斯", search="umbra", loot = nil, note = nil },
+	{ coord = 34943711, npcId = 126885, questId = 48708, icon = "skull_grey", group = "rare_ma", label = "乌伯拉利斯", search="乌伯拉利斯", loot = nil, note = nil },
 	{ coord = 70294598, npcId = 126889, questId = 48710, icon = "skull_grey", group = "rare_ma", label = "厄运者索洛里斯", search="厄运者", loot = { { 153292, itemTypeTransmog, "法杖" } }, note = nil },
 	{ coord = 35965897, npcId = 126896, questId = 48711, icon = "skull_grey", group = "rare_ma", label = "混沌先驱", search="先驱", loot = nil, note = "位于第二层。" },
 	{ coord = 44204980, npcId = 126898, questId = 48712, icon = "skull_grey", group = "rare_ma", label = "沙布尔", search="沙布尔", loot={ { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = nil },
