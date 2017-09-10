@@ -68,7 +68,7 @@ local isCanIMogItloaded = false
 -- { 152903, itemTypeMount, 981 } Biletooth Gnasher any rare
 -- Antoran Wastes
 nodes["ArgusCore"] = {
-	{ coord = 52702950, npcId = 127291, questId = 48822, icon = "skull_grey", group = "rare_aw", label = "监视者艾瓦", search="监视者", loot = nil, note = nil },
+	{ coord = 52702950, npcId = 127291, questId = 48822, icon = "skull_grey", group = "rare_aw", label = "监视者艾瓦", search="艾瓦", loot = nil, note = nil },
 	{ coord = 63902090, npcId = 126040, questId = 48809, icon = "skull_grey", group = "rare_aw", label = "普希拉", search="普希拉", loot={ { 152903, itemTypeMount, 981 } }, note = "洞穴入口在东南方 - 从东面的桥到达那里。" },
 	{ coord = 53103580, npcId = 126199, questId = 48810, icon = "skull_grey", group = "rare_aw", label = "弗拉克苏尔", search="弗拉克苏尔", loot={ { 152903, itemTypeMount, 981 } }, note = nil },
 	{ coord = 63225754, npcId = 126115, questId = 48811, icon = "skull_grey", group = "rare_aw", label = "维农", search="维农", loot = nil, note = "洞穴入口在东北方，从蜘蛛区域 66, 54.1" },
@@ -77,7 +77,7 @@ nodes["ArgusCore"] = {
 	{ coord = 61906430, npcId = 126338, questId = 48814, icon = "skull_grey", group = "rare_aw", label = "愤怒领主亚雷兹", search="愤怒领主", loot={ { 153126, itemTypeToy } }, note = nil },
 	{ coord = 60674831, npcId = 126946, questId = 48815, icon = "skull_grey", group = "rare_aw", label = "审判官维斯洛兹", search="审判官", loot={ { 151543, itemTypeMisc } }, note = nil },
 	{ coord = 80206230, npcId = nil, questId = 48816, icon = "portal", group = "rare_aw", label = "传送到指挥官泰克拉兹", loot = nil, note = nil },
-	{ coord = 82006600, npcId = 127084, questId = 48816, icon = "skull_grey", group = "rare_aw", label = "指挥官泰克拉兹", search="指挥官", loot = nil, note = "使用偏西的传送门位于 80.2, 62.3 到达船上" },
+	{ coord = 82006600, npcId = 127084, questId = 48816, icon = "skull_grey", group = "rare_aw", label = "指挥官泰克拉兹", search="泰克拉兹", loot = nil, note = "使用偏西的传送门位于 80.2, 62.3 到达船上" },
 	{ coord = 73207080, npcId = 127090, questId = 48817, icon = "skull_grey", group = "rare_aw", label = "雷尔瓦将军", search="将军", loot = { { 153324, itemTypeTransmog, "盾牌" }, { 152886, itemTypeTransmog, "布甲" }, { 152888, itemTypeTransmog, "布甲" }, { 152884, itemTypeTransmog, "布甲" }, { 152889, itemTypeTransmog, "布甲" }, { 152885, itemTypeTransmog, "布甲" }, { 152881, itemTypeTransmog, "布甲" }, { 152887, itemTypeTransmog, "布甲" }, { 152883, itemTypeTransmog, "布甲" } }, note = nil },
 	{ coord = 76155614, npcId = 127096, questId = 48818, icon = "skull_grey", group = "rare_aw", label = "全知者萨纳里安", search="全知者", loot = nil, note = nil },
 	{ coord = 50905530, npcId = 127118, questId = 48820, icon = "skull_grey", group = "rare_aw", label = "裂世者斯库尔", search="裂世者", loot = { { 153312, itemTypeTransmog, "双手剑" }, { 152886, itemTypeTransmog, "布甲" }, { 152888, itemTypeTransmog, "布甲" }, { 152884, itemTypeTransmog, "布甲" }, { 152889, itemTypeTransmog, "布甲" }, { 152885, itemTypeTransmog, "布甲" }, { 152881, itemTypeTransmog, "布甲" }, { 152887, itemTypeTransmog, "布甲" }, { 152883, itemTypeTransmog, "布甲" } }, note = "会在天上盘旋。偶尔也会降落。不是每次盘旋都这样。" },
@@ -324,7 +324,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 60982982, npcId = 125498, questId = 48717, icon = "skull_grey", group = "rare_ma", label = "监视者伊莫拉", search="伊莫拉", loot={ { 153257, itemTypeTransmog, "单手锤" } }, note = nil },
 	{ coord = 61575035, npcId = 126900, questId = 48718, icon = "skull_grey", group = "rare_ma", label = "导师塔拉娜", search="导师", loot = { { 153309, itemTypeTransmog, "单手锤" }, { 153179, itemTypeToy }, { 153180, itemTypeToy }, { 153181, itemTypeToy } }, note = nil },
 	{ coord = 66742845, npcId = 126908, questId = 48719, icon = "skull_grey", group = "rare_ma", label = "万千之主祖尔坦", search="万千之主", loot = nil, note = "建筑物内" },
-	{ coord = 56801450, npcId = 126910, questId = 48720, icon = "skull_grey", group = "rare_ma", label = "指挥官泽斯加尔", search="指挥官", loot = nil, note = nil },
+	{ coord = 56801450, npcId = 126910, questId = 48720, icon = "skull_grey", group = "rare_ma", label = "指挥官泽斯加尔", search="泽斯加尔", loot = nil, note = nil },
 	{ coord = 49870953, npcId = 126912, questId = 48721, icon = "skull_grey", group = "rare_ma", label = "吞噬者斯克里格", search="吞噬者", loot = { { 152904, itemTypeMount, 980 } }, note = nil },
 	{ coord = 43846065, npcId = 126862, questId = 48700, icon = "skull_grey", group = "rare_ma", label = "嗜血的巴鲁特", search="巴鲁特", loot={ { 153193, itemTypeToy } }, note = nil },
 	{ coord = 30124019, npcId = 126887, questId = 48709, icon = "skull_grey", group = "rare_ma", label = "阿塔克松", search="阿塔克松", loot={ { 153056, itemTypePet, 2120 } }, note = nil },
