@@ -56,6 +56,21 @@ local itemTypeMount = 2;
 local itemTypeToy = 3;
 local itemTypeTransmog = 4;
 
+local allLanguages = {
+	deDE = true,
+	enGB = true,
+	enUS = true,
+	esES = true,
+	esMX = true,
+	frFR = true,
+	itIT = true,
+	koKR = true,
+	ptBR = true,
+	ruRU = true,
+	zhCN = true,
+	zhTW = true,
+}
+
 Argus.nodes = { }
 
 local nodes = Argus.nodes
@@ -71,7 +86,7 @@ local isCanIMogItloaded = false
 nodes["ArgusCore"] = {
 	{ coord = 52702950, npcId = 127291, questId = 48822, icon = "skull_grey", group = "rare_aw", label = "Watcher Aival", search = { "aival" }, loot = nil, note = nil },
 	{ coord = 63902090, npcId = 126040, questId = 48809, icon = "skull_grey", group = "rare_aw", label = "Puscilla", search = { "puscilla" }, loot = { { 152903, itemTypeMount, 981 } }, note = "Entrance to the cave is south east - use the eastern bridge to get there." },
-	{ coord = 53103580, npcId = 126199, questId = 48810, icon = "skull_grey", group = "rare_aw", label = "Vrax'thul", search = { "vrax" }, loot = { { 152903, itemTypeMount, 981 } }, note = nil },
+	{ coord = 53103580, npcId = 126199, questId = 48810, icon = "skull_grey", group = "rare_aw", label = "Vrax'thul", search = { "vrax'thul", "vraxthul", "vrax thul" }, loot = { { 152903, itemTypeMount, 981 } }, note = nil },
 	{ coord = 63225754, npcId = 126115, questId = 48811, icon = "skull_grey", group = "rare_aw", label = "Ven'orn", search = { "ven'orn", "venorn", "ven orn" }, loot = nil, note = "The entrance to the cave is north east from here in the spider area at 66, 54.1" },
 	{ coord = 64304820, npcId = 126208, questId = 48812, icon = "skull_grey", group = "rare_aw", label = "Varga", search = { "varga" }, loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = nil },
 	{ coord = 62405380, npcId = 126254, questId = 48813, icon = "skull_grey", group = "rare_aw", label = "Lieutenant Xakaar", search = { "xakaar" }, loot = nil, note = nil },
@@ -79,13 +94,13 @@ nodes["ArgusCore"] = {
 	{ coord = 60674831, npcId = 126946, questId = 48815, icon = "skull_grey", group = "rare_aw", label = "Inquisitor Vethroz", search = { "vethroz" }, loot = { { 151543, itemTypeMisc } }, note = nil },
 	{ coord = 80206230, npcId = nil, questId = 48816, icon = "portal", group = "portal_aw", label = "Portal to Commander Texlaz", loot = nil, note = nil },
 	{ coord = 82006600, npcId = 127084, questId = 48816, icon = "skull_grey", group = "rare_aw", label = "Commander Texlaz", search = { "texlaz" }, loot = nil, note = "Use the portal at 80.2, 62.3 to get on the ship" },
-	{ coord = 73207080, npcId = 127090, questId = 48817, icon = "skull_grey", group = "rare_aw", label = "Admiral Rel'var", search = { "rel" }, loot = { { 153324, itemTypeTransmog, "Shield" }, { 152886, itemTypeTransmog, "Cloth" }, { 152888, itemTypeTransmog, "Cloth" }, { 152884, itemTypeTransmog, "Cloth" }, { 152889, itemTypeTransmog, "Cloth" }, { 152885, itemTypeTransmog, "Cloth" }, { 152881, itemTypeTransmog, "Cloth" }, { 152887, itemTypeTransmog, "Cloth" }, { 152883, itemTypeTransmog, "Cloth" } }, note = nil },
-	{ coord = 76155614, npcId = 127096, questId = 48818, icon = "skull_grey", group = "rare_aw", label = "All-Seer Xanarian", search = { "xana" }, loot = nil, note = nil },
+	{ coord = 73207080, npcId = 127090, questId = 48817, icon = "skull_grey", group = "rare_aw", label = "Admiral Rel'var", search = { "rel'var", "relvar", "rel var" }, loot = { { 153324, itemTypeTransmog, "Shield" }, { 152886, itemTypeTransmog, "Cloth" }, { 152888, itemTypeTransmog, "Cloth" }, { 152884, itemTypeTransmog, "Cloth" }, { 152889, itemTypeTransmog, "Cloth" }, { 152885, itemTypeTransmog, "Cloth" }, { 152881, itemTypeTransmog, "Cloth" }, { 152887, itemTypeTransmog, "Cloth" }, { 152883, itemTypeTransmog, "Cloth" } }, note = nil },
+	{ coord = 76155614, npcId = 127096, questId = 48818, icon = "skull_grey", group = "rare_aw", label = "All-Seer Xanarian", search = { "xanarian" }, loot = nil, note = nil },
 	{ coord = 50905530, npcId = 127118, questId = 48820, icon = "skull_grey", group = "rare_aw", label = "Worldsplitter Skuul", search = { "skuul" }, loot = { { 153312, itemTypeTransmog, "2h Sword" }, { 152886, itemTypeTransmog, "Cloth" }, { 152888, itemTypeTransmog, "Cloth" }, { 152884, itemTypeTransmog, "Cloth" }, { 152889, itemTypeTransmog, "Cloth" }, { 152885, itemTypeTransmog, "Cloth" }, { 152881, itemTypeTransmog, "Cloth" }, { 152887, itemTypeTransmog, "Cloth" }, { 152883, itemTypeTransmog, "Cloth" } }, note = "May be flying around in circles. Will be near ground sometimes. Not on every round though." },
-	{ coord = 63812199, npcId = 127288, questId = 48821, icon = "skull_grey", group = "rare_aw", label = "Houndmaster Kerrax", search = { "kerrax" }, loot = { { 152790, itemTypeMount, 955 } }, note = nil },
+	{ coord = 63812199, npcId = 127288, questId = 48821, icon = "skull_grey", group = "rare_aw", label = "Houndmaster Kerrax", search = { "kerrax", "kerax" }, loot = { { 152790, itemTypeMount, 955 } }, note = nil },
 	{ coord = 55702190, npcId = 127300, questId = 48824, icon = "skull_grey", group = "rare_aw", label = "Void Warden Valsuran", search = { "valsuran" }, loot = { { 153319, itemTypeTransmog, "2h Mace" }, { 152886, itemTypeTransmog, "Cloth" }, { 152888, itemTypeTransmog, "Cloth" }, { 152884, itemTypeTransmog, "Cloth" }, { 152889, itemTypeTransmog, "Cloth" }, { 152885, itemTypeTransmog, "Cloth" }, { 152881, itemTypeTransmog, "Cloth" }, { 152887, itemTypeTransmog, "Cloth" }, { 152883, itemTypeTransmog, "Cloth" } }, note = nil },
-	{ coord = 61392095, npcId = 127376, questId = 48865, icon = "skull_grey", group = "rare_aw", label = "Chief Alchemist Munculus", search = { "munculus" }, loot = nil, note = nil },
-	{ coord = 54003800, npcId = 127581, questId = 48966, icon = "skull_grey", group = "rare_aw", label = "The Many-Faced Devourer", search = { "face" }, loot = { { 153195, itemTypePet, 2136 } }, note = "Can always be summoned. However you need to find 'Call of the Devourer' from the enemies around there and then collect 3 more things and return tu the pile of bones to summon him." },
+	{ coord = 61392095, npcId = 127376, questId = 48865, icon = "skull_grey", group = "rare_aw", label = "Chief Alchemist Munculus", search = { "munculus", "muculus" }, loot = nil, note = nil },
+	{ coord = 54003800, npcId = 127581, questId = 48966, icon = "skull_grey", group = "rare_aw", label = "The Many-Faced Devourer", search = { "many.*face", "face.*devourer" }, loot = { { 153195, itemTypePet, 2136 } }, note = "Can always be summoned. However you need to find 'Call of the Devourer' from the enemies around there and then collect 3 more things and return tu the pile of bones to summon him." },
 	{ coord = 77177319, npcId = nil, questId = 48967, icon = "portal", group = "portal_aw", label = "Portal to Squadron Commander Vishax", loot = nil, note = "First find a Smashed Portal Generator from Immortal Netherwalker. Then collect Conductive Sheath, Arc Circuit and Power Cell from Eredar War-Mind and Felsworn Myrmidon. Use the Smashed Portal Generator to unlock the portal to Vishax." },
 	{ coord = 84368118, npcId = 127700, questId = 48967, icon = "skull_grey", group = "rare_aw", label = "Squadron Commander Vishax", search = { "vishax" }, loot = { { 153253, itemTypeToy } }, note = "Use portal at 77.2, 73.2 to get up on the ship" },
 	{ coord = 58001200, npcId = 127703, questId = 48968, icon = "skull_grey", group = "rare_aw", label = "Doomcaster Suprax", search = { "suprax" }, loot = { { 153194, itemTypeToy } }, note = "Stand on all 3 runes to summon him." },
@@ -102,6 +117,17 @@ nodes["ArgusCore"] = {
 	{ coord = 56605420, npcId = 128020, questId = 0, icon = "battle_pet", group = "pet_aw", label = "Bloat", loot = nil, note = nil },
 	{ coord = 56102870, npcId = 128021, questId = 0, icon = "battle_pet", group = "pet_aw", label = "Earseeker", loot = nil, note = nil },
 	{ coord = 64106600, npcId = 128022, questId = 0, icon = "battle_pet", group = "pet_aw", label = "Pilfer", loot = nil, note = nil },
+
+	-- Shoot First, Loot Later
+	-- Requires 48201 Reinforce Light's Purchase
+	-- and 48202 -> followed by 47473 and/or 48929
+	{ coord = 58765894, objId = 277204, questId = 49017, icon = "starChestBlue", group = "sfll_aw", label = "Forgotten Legion Supplies", loot = nil, note = "Rocks block the way. Use Lightforged Warframe Jump to crush the boulders." },
+	{ coord = 65973977, objId = 277205, questId = 49018, icon = "starChestYellow", group = "sfll_aw", label = "Ancient Legion War Cache", loot = { { 153308, itemTypeTransmog, "1h Mace" } }, note = "Carefully jump down to reach the little cave. Gilder helps a lot. Remove rocks with Lights's Judgment." },
+	{ coord = 52192708, objId = 277206, questId = 49019, icon = "starChestYellow", group = "sfll_aw", label = "Fel-Bound Chest", loot = nil, note = "Start a little south east, at 53.7, 30.9. Jump over the rocks to reach the cave. Rocks block the way into the cave. Remove them with Lights's Judgment." },
+	{ coord = 49145940, objId = 277207, questId = 49020, icon = "starChest", group = "sfll_aw", label = "Legion Treasure Hoard", loot = { { 153291, itemTypeTransmog, "Staff" } }, note = "Behind Fel Fall. Just pick it up." },
+	{ coord = 75595267, objId = 277208, questId = 49021, icon = "starChestBlank", group = "sfll_aw", label = "Timeworn Fel Chest", loot = nil, note = "Start at All-Seer Xanarian. Run past his building on the left side. Hop down a few rocks to reach the chest surrounded by green ooze." },
+	-- no loot on wowhead yet
+	{ coord = 57426366, objId = 277346, questId = 49159, icon = "starChestPurple", group = "sfll_aw", label = "Missing Augari Chest", loot = nil, note = "Chest is down by the green ooze. Use Shroud of Arcane Echoes and then open the chest." },
 
 	-- 48382
 	{ coord = 67546980, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = "Inside building" },
@@ -180,32 +206,21 @@ nodes["ArgusCore"] = {
 	{ coord = 71205441, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = "Outside in spider area" },
 	{ coord = 66544668, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = "Exit the spider area north where the green zone is on the ground. Jump up the rocks." },
 
-	-- Shoot First, Loot Later
-	-- Requires 48201 Reinforce Light's Purchase
-	-- and 48202 -> followed by 47473 and/or 48929
-	{ coord = 58765894, objId = 277204, questId = 49017, icon = "starChestBlue", group = "sfll_aw", label = "Forgotten Legion Supplies", loot = nil, note = "Rocks block the way. Use Lightforged Warframe Jump to crush the boulders." },
-	{ coord = 65973977, objId = 277205, questId = 49018, icon = "starChestYellow", group = "sfll_aw", label = "Ancient Legion War Cache", loot = { { 153308, itemTypeTransmog, "1h Mace" } }, note = "Carefully jump down to reach the little cave. Gilder helps a lot. Remove rocks with Lights's Judgment." },
-	{ coord = 52192708, objId = 277206, questId = 49019, icon = "starChestYellow", group = "sfll_aw", label = "Fel-Bound Chest", loot = nil, note = "Start a little south east, at 53.7, 30.9. Jump over the rocks to reach the cave. Rocks block the way into the cave. Remove them with Lights's Judgment." },
-	{ coord = 49145940, objId = 277207, questId = 49020, icon = "starChest", group = "sfll_aw", label = "Legion Treasure Hoard", loot = { { 153291, itemTypeTransmog, "Staff" } }, note = "Behind Fel Fall. Just pick it up." },
-	{ coord = 75595267, objId = 277208, questId = 49021, icon = "starChestBlank", group = "sfll_aw", label = "Timeworn Fel Chest", loot = nil, note = "Start at All-Seer Xanarian. Run past his building on the left side. Hop down a few rocks to reach the chest surrounded by green ooze." },
-	-- no loot on wowhead yet
-	{ coord = 57426366, objId = 277346, questId = 49159, icon = "starChestPurple", group = "sfll_aw", label = "Missing Augari Chest", loot = nil, note = "Chest is down by the green ooze. Use Shroud of Arcane Echoes and then open the chest." },
-
 }
 
 -- Krokuun
 nodes["ArgusSurface"] = {
-	{ coord = 44390734, npcId = 125824, questId = 48561, icon = "skull_grey", group = "rare_kr", label = "Khazaduum", search = { "khaz" }, loot = { { 153316, itemTypeTransmog, "2h Sword" }, { 152946, itemTypeTransmog, "Plate" }, { 152944, itemTypeTransmog, "Plate" }, { 152949, itemTypeTransmog, "Plate" }, { 152942, itemTypeTransmog, "Plate" }, { 152947, itemTypeTransmog, "Plate" }, { 152943, itemTypeTransmog, "Plate" }, { 152945, itemTypeTransmog, "Plate" }, { 152948, itemTypeTransmog, "Plate" } }, note = "Entrance is south east at 50.3, 17.3" },
-	{ coord = 33007600, npcId = 122912, questId = 48562, icon = "skull_grey", group = "rare_kr", label = "Commander Sathrenael", search = { "sathr" }, loot = nil, note = nil },
-	{ coord = 44505870, npcId = 124775, questId = 48564, icon = "skull_grey", group = "rare_kr", label = "Commander Endaxis", search = { "endax" }, loot = { { 153255, itemTypeTransmog, "1h Mace" }, { 152946, itemTypeTransmog, "Plate" }, { 152944, itemTypeTransmog, "Plate" }, { 152949, itemTypeTransmog, "Plate" }, { 152942, itemTypeTransmog, "Plate" }, { 152947, itemTypeTransmog, "Plate" }, { 152943, itemTypeTransmog, "Plate" }, { 152945, itemTypeTransmog, "Plate" }, { 152948, itemTypeTransmog, "Plate" } }, note = nil },
-	{ coord = 53403090, npcId = 123464, questId = 48565, icon = "skull_grey", group = "rare_kr", label = "Sister Subversia", search = { "subv" }, loot = { { 153124, itemTypeToy } }, note = nil },
-	{ coord = 58007480, npcId = 120393, questId = 48627, icon = "skull_grey", group = "rare_kr", label = "Siegemaster Voraan", search = { "vora" }, loot = nil, note = nil },
+	{ coord = 44390734, npcId = 125824, questId = 48561, icon = "skull_grey", group = "rare_kr", label = "Khazaduum", search = { "khazadum", "khazaduum", "kazadum", "kazaduum" }, loot = { { 153316, itemTypeTransmog, "2h Sword" }, { 152946, itemTypeTransmog, "Plate" }, { 152944, itemTypeTransmog, "Plate" }, { 152949, itemTypeTransmog, "Plate" }, { 152942, itemTypeTransmog, "Plate" }, { 152947, itemTypeTransmog, "Plate" }, { 152943, itemTypeTransmog, "Plate" }, { 152945, itemTypeTransmog, "Plate" }, { 152948, itemTypeTransmog, "Plate" } }, note = "Entrance is south east at 50.3, 17.3" },
+	{ coord = 33007600, npcId = 122912, questId = 48562, icon = "skull_grey", group = "rare_kr", label = "Commander Sathrenael", search = { "sathrenael" }, loot = nil, note = nil },
+	{ coord = 44505870, npcId = 124775, questId = 48564, icon = "skull_grey", group = "rare_kr", label = "Commander Endaxis", search = { "endaxis" }, loot = { { 153255, itemTypeTransmog, "1h Mace" }, { 152946, itemTypeTransmog, "Plate" }, { 152944, itemTypeTransmog, "Plate" }, { 152949, itemTypeTransmog, "Plate" }, { 152942, itemTypeTransmog, "Plate" }, { 152947, itemTypeTransmog, "Plate" }, { 152943, itemTypeTransmog, "Plate" }, { 152945, itemTypeTransmog, "Plate" }, { 152948, itemTypeTransmog, "Plate" } }, note = nil },
+	{ coord = 53403090, npcId = 123464, questId = 48565, icon = "skull_grey", group = "rare_kr", label = "Sister Subversia", search = { "subversia" }, loot = { { 153124, itemTypeToy } }, note = nil },
+	{ coord = 58007480, npcId = 120393, questId = 48627, icon = "skull_grey", group = "rare_kr", label = "Siegemaster Voraan", search = { "voran", "voraan" }, loot = nil, note = nil },
 	{ coord = 54688126, npcId = 123689, questId = 48628, icon = "skull_grey", group = "rare_kr", label = "Talestra the Vile", search = { "talestra" }, loot = { { 153329, itemTypeTransmog, "Dagger" }, { 152946, itemTypeTransmog, "Plate" }, { 152944, itemTypeTransmog, "Plate" }, { 152949, itemTypeTransmog, "Plate" }, { 152942, itemTypeTransmog, "Plate" }, { 152947, itemTypeTransmog, "Plate" }, { 152943, itemTypeTransmog, "Plate" }, { 152945, itemTypeTransmog, "Plate" }, { 152948, itemTypeTransmog, "Plate" } }, note = nil },
 	{ coord = 38145920, npcId = 122911, questId = 48563, icon = "skull_grey", group = "rare_kr", label = "Commander Vecaya", search = { "vecaya" }, loot = { { 153299, itemTypeTransmog, "1h Sword" }, { 152946, itemTypeTransmog, "Plate" }, { 152944, itemTypeTransmog, "Plate" }, { 152949, itemTypeTransmog, "Plate" }, { 152942, itemTypeTransmog, "Plate" }, { 152947, itemTypeTransmog, "Plate" }, { 152943, itemTypeTransmog, "Plate" }, { 152945, itemTypeTransmog, "Plate" }, { 152948, itemTypeTransmog, "Plate" } }, note = "The path up to her starts east at 42, 57.1" },
 	{ coord = 60802080, npcId = 125388, questId = 48629, icon = "skull_grey", group = "rare_kr", label = "Vagath the Betrayed", search = { "vagat" }, loot = { { 153114, itemTypeMisc } }, note = nil },
-	{ coord = 69605750, npcId = 124804, questId = 48664, icon = "skull_grey", group = "rare_kr", label = "Tereck the Selector", search = { "tere" }, loot = { { 153263, itemTypeTransmog, "1h Axe" }, { 152946, itemTypeTransmog, "Plate" }, { 152944, itemTypeTransmog, "Plate" }, { 152949, itemTypeTransmog, "Plate" }, { 152942, itemTypeTransmog, "Plate" }, { 152947, itemTypeTransmog, "Plate" }, { 152943, itemTypeTransmog, "Plate" }, { 152945, itemTypeTransmog, "Plate" }, { 152948, itemTypeTransmog, "Plate" } }, note = nil },
-	{ coord = 69708050, npcId = 125479, questId = 48665, icon = "skull_grey", group = "rare_kr", label = "Tar Spitter", search = { "tar" }, loot = nil, note = nil },
-	{ coord = 41707020, npcId = 125820, questId = 48666, icon = "skull_grey", group = "rare_kr", label = "Imp Mother Laglath", search = { "lagla" }, loot = nil, note = nil },
+	{ coord = 69605750, npcId = 124804, questId = 48664, icon = "skull_grey", group = "rare_kr", label = "Tereck the Selector", search = { "tereck", "terek" }, loot = { { 153263, itemTypeTransmog, "1h Axe" }, { 152946, itemTypeTransmog, "Plate" }, { 152944, itemTypeTransmog, "Plate" }, { 152949, itemTypeTransmog, "Plate" }, { 152942, itemTypeTransmog, "Plate" }, { 152947, itemTypeTransmog, "Plate" }, { 152943, itemTypeTransmog, "Plate" }, { 152945, itemTypeTransmog, "Plate" }, { 152948, itemTypeTransmog, "Plate" } }, note = nil },
+	{ coord = 69708050, npcId = 125479, questId = 48665, icon = "skull_grey", group = "rare_kr", label = "Tar Spitter", search = { "tar.*spitter" }, loot = nil, note = nil },
+	{ coord = 41707020, npcId = 125820, questId = 48666, icon = "skull_grey", group = "rare_kr", label = "Imp Mother Laglath", search = { "laglat" }, loot = nil, note = nil },
 	{ coord = 71063274, npcId = 126419, questId = 48667, icon = "skull_grey", group = "rare_kr", label = "Naroua", search = { "naroua" }, loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = nil },
 
 	{ coord = 43005200, npcId = 128009, questId = 0, icon = "battle_pet", group = "pet_kr", label = "Baneglow", loot = nil, note = nil },
@@ -214,6 +229,13 @@ nodes["ArgusSurface"] = {
 	{ coord = 29605790, npcId = 128011, questId = 0, icon = "battle_pet", group = "pet_kr", label = "Deathscreech", loot = nil, note = nil },
 	{ coord = 39606650, npcId = 128012, questId = 0, icon = "battle_pet", group = "pet_kr", label = "Gnasher", loot = nil, note = nil },
 	{ coord = 58302970, npcId = 128010, questId = 0, icon = "battle_pet", group = "pet_kr", label = "Retch", loot = nil, note = nil },
+
+	-- Shoot First, Loot Later
+	{ coord = 51407622, objId = 276490, questId = 48884, icon = "starChestBlue", group = "sfll_kr", label = "Krokul Emergency Cache", loot = { { 153304, itemTypeTransmog, "1h Axe" } }, note = "Cave is up on the cliffs. Rocks block the way. Use Lightforged Warframe's jump ability to shatter the rocks." },
+	{ coord = 62783753, objId = 276489, questId = 48885, icon = "starChestYellow", group = "sfll_kr", label = "Legion Tower Chest", loot = nil, note = "On the path to Naroua there are boulders blocking the way to this chest. Remove them with Light's Judgement." },
+	{ coord = 48555894, objId = 276491, questId = 48886, icon = "starChestYellow", group = "sfll_kr", label = "Lost Krokul Chest", loot = nil, note = "In little cave along the path. Use Light's Judgment to remove the boulders." },
+	{ coord = 75176975, objId = 277343, questId = 49154, icon = "starChestPurple", group = "sfll_kr", label = "Long-Lost Augari Treasure", loot = nil, note = "Use Shroud of Arcane Echoes and then open the chest." },
+	{ coord = 55937428, objId = 277344, questId = 49156, icon = "starChestPurple", group = "sfll_kr", label = "Precious Augari Keepsakes", loot = nil, note = "Use Shroud of Arcane Echoes and then open the chest." },
 
 	-- 47752
 	{ coord = 55555863, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = "Jump on the rocks, start slightly west" },
@@ -292,16 +314,10 @@ nodes["ArgusSurface"] = {
 	{ coord = 67713454, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = nil },
 	{ coord = 72493605, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = nil },
 
-	-- Shoot First, Loot Later
-	{ coord = 51407622, objId = 276490, questId = 48884, icon = "starChestBlue", group = "sfll_kr", label = "Krokul Emergency Cache", loot = { { 153304, itemTypeTransmog, "1h Axe" } }, note = "Cave is up on the cliffs. Rocks block the way. Use Lightforged Warframe's jump ability to shatter the rocks." },
-	{ coord = 62783753, objId = 276489, questId = 48885, icon = "starChestYellow", group = "sfll_kr", label = "Legion Tower Chest", loot = nil, note = "On the path to Naroua there are boulders blocking the way to this chest. Remove them with Light's Judgement." },
-	{ coord = 48555894, objId = 276491, questId = 48886, icon = "starChestYellow", group = "sfll_kr", label = "Lost Krokul Chest", loot = nil, note = "In little cave along the path. Use Light's Judgment to remove the boulders." },
-	{ coord = 75176975, objId = 277343, questId = 49154, icon = "starChestPurple", group = "sfll_kr", label = "Long-Lost Augari Treasure", loot = nil, note = "Use Shroud of Arcane Echoes and then open the chest." },
-	{ coord = 55937428, objId = 277344, questId = 49156, icon = "starChestPurple", group = "sfll_kr", label = "Precious Augari Keepsakes", loot = nil, note = "Use Shroud of Arcane Echoes and then open the chest." },
 }
 
 nodes["ArgusCitadelSpire"] = {
-	{ coord = 38954032, npcId = 125824, questId = 48561, icon = "skull_grey", group = "rare_kr", label = "Khazaduum", search = { "khaz" }, loot = { { 153316, itemTypeTransmog, "2h Sword" }, { 152946, itemTypeTransmog, "Plate" }, { 152944, itemTypeTransmog, "Plate" }, { 152949, itemTypeTransmog, "Plate" }, { 152942, itemTypeTransmog, "Plate" }, { 152947, itemTypeTransmog, "Plate" }, { 152943, itemTypeTransmog, "Plate" }, { 152945, itemTypeTransmog, "Plate" }, { 152948, itemTypeTransmog, "Plate" } }, note = "Entrance is south east at 50.3, 17.3" },
+	{ coord = 38954032, npcId = 125824, questId = 48561, icon = "skull_grey", group = "rare_kr", label = "Khazaduum", search = { "khazadum", "khazaduum", "kazadum", "kazaduum" }, loot = { { 153316, itemTypeTransmog, "2h Sword" }, { 152946, itemTypeTransmog, "Plate" }, { 152944, itemTypeTransmog, "Plate" }, { 152949, itemTypeTransmog, "Plate" }, { 152942, itemTypeTransmog, "Plate" }, { 152947, itemTypeTransmog, "Plate" }, { 152943, itemTypeTransmog, "Plate" }, { 152945, itemTypeTransmog, "Plate" }, { 152948, itemTypeTransmog, "Plate" } }, note = "Entrance is south east at 50.3, 17.3" },
 }
 
 -- Mac'Aree
@@ -313,26 +329,26 @@ nodes["ArgusMacAree"] = {
 	{ coord = 41121149, npcId = 126864, questId = 48702, icon = "skull_grey", group = "rare_ma", label = "Feasel the Muffin Thief", search = { "feasel" }, loot = { { 152998, itemTypeMisc } }, note = "Interrupt burrow" },
 	{ coord = 36682383, npcId = 126865, questId = 48703, icon = "skull_grey", group = "rare_ma", label = "Vigilant Thanos", search = { "thanos" }, loot = { { 153322, itemTypeTransmog, "Shield" } }, note = nil },
 	{ coord = 63806460, npcId = 126866, questId = 48704, icon = "skull_grey", group = "rare_ma", label = "Vigilant Kuro", search = { "kuro" }, loot = { { 153323, itemTypeTransmog, "Shield" }, { 153183, itemTypeToy } }, note = nil },
-	{ coord = 33654801, npcId = 126867, questId = 48705, icon = "skull_grey", group = "rare_ma", label = "Venomtail Skyfin", search = { "venom" }, loot = { { 152844, itemTypeMount, 973 } }, note = nil },
+	{ coord = 33654801, npcId = 126867, questId = 48705, icon = "skull_grey", group = "rare_ma", label = "Venomtail Skyfin", search = { "venomtail", "skyfin" }, loot = { { 152844, itemTypeMount, 973 } }, note = nil },
 	{ coord = 38226435, npcId = 126868, questId = 48706, icon = "skull_grey", group = "rare_ma", label = "Turek the Lucid", search = { "turek" }, loot = { { 153306, itemTypeTransmog, "1h Axe" } }, note = "Down the stairs into the building" },
 	{ coord = 27192995, npcId = 126869, questId = 48707, icon = "skull_grey", group = "rare_ma", label = "Captain Faruq", search = { "faruq" }, loot = nil, note = nil },
-	{ coord = 34943711, npcId = 126885, questId = 48708, icon = "skull_grey", group = "rare_ma", label = "Umbraliss", search = { "umbra" }, loot = nil, note = nil },
+	{ coord = 34943711, npcId = 126885, questId = 48708, icon = "skull_grey", group = "rare_ma", label = "Umbraliss", search = { "umbralis" }, loot = nil, note = nil },
 	{ coord = 70294598, npcId = 126889, questId = 48710, icon = "skull_grey", group = "rare_ma", label = "Sorolis the Ill-Fated", search = { "sorolis" }, loot = { { 153292, itemTypeTransmog, "Staff" } }, note = nil },
 	{ coord = 35965897, npcId = 126896, questId = 48711, icon = "skull_grey", group = "rare_ma", label = "Herald of Chaos", search = { "herald" }, loot = nil, note = "He's on the 2nd floor." },
-	{ coord = 44204980, npcId = 126898, questId = 48712, icon = "skull_grey", group = "rare_ma", label = "Sabuul", search = { "sabu" }, loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = nil },
-	{ coord = 48504090, npcId = 126899, questId = 48713, icon = "skull_grey", group = "rare_ma", label = "Jed'hin Champion Vorusk", search = { "vorusk" }, loot = { { 153302, itemTypeTransmog, "1h Sword" } }, note = nil },
+	{ coord = 44204980, npcId = 126898, questId = 48712, icon = "skull_grey", group = "rare_ma", label = "Sabuul", search = { "sabuul", "sabul" }, loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = nil },
+	{ coord = 48504090, npcId = 126899, questId = 48713, icon = "skull_grey", group = "rare_ma", label = "Jed'hin Champion Vorusk", search = { "vorusk", "jed'hin", "jedhin" }, loot = { { 153302, itemTypeTransmog, "1h Sword" } }, note = nil },
 	{ coord = 58783762, npcId = 124440, questId = 48714, icon = "skull_grey", group = "rare_ma", label = "Overseer Y'Beda", search = { "beda" }, loot = { { 153315, itemTypeTransmog, "2h Sword" } }, note = nil },
 	{ coord = 58003090, npcId = 125497, questId = 48716, icon = "skull_grey", group = "rare_ma", label = "Overseer Y'Sorna", search = { "sorna" }, loot = { { 153268, itemTypeTransmog, "1h Axe" } }, note = nil },
 	{ coord = 60982982, npcId = 125498, questId = 48717, icon = "skull_grey", group = "rare_ma", label = "Overseer Y'Morna", search = { "morna" }, loot = { { 153257, itemTypeTransmog, "1h Mace" } }, note = nil },
-	{ coord = 61575035, npcId = 126900, questId = 48718, icon = "skull_grey", group = "rare_ma", label = "Instructor Tarahna", search = { "tarahna" }, loot = { { 153309, itemTypeTransmog, "1h Mace" }, { 153179, itemTypeToy }, { 153180, itemTypeToy }, { 153181, itemTypeToy } }, note = nil },
-	{ coord = 66742845, npcId = 126908, questId = 48719, icon = "skull_grey", group = "rare_ma", label = "Zul'tan the Numerous", search = { "zul" }, loot = nil, note = "Inside building" },
+	{ coord = 61575035, npcId = 126900, questId = 48718, icon = "skull_grey", group = "rare_ma", label = "Instructor Tarahna", search = { "tarahna", "tarana" }, loot = { { 153309, itemTypeTransmog, "1h Mace" }, { 153179, itemTypeToy }, { 153180, itemTypeToy }, { 153181, itemTypeToy } }, note = nil },
+	{ coord = 66742845, npcId = 126908, questId = 48719, icon = "skull_grey", group = "rare_ma", label = "Zul'tan the Numerous", search = { "zul tan", "zultan", "zul'tan" }, loot = nil, note = "Inside building" },
 	{ coord = 56801450, npcId = 126910, questId = 48720, icon = "skull_grey", group = "rare_ma", label = "Commander Xethgar", search = { "xethgar" }, loot = nil, note = nil },
-	{ coord = 49870953, npcId = 126912, questId = 48721, icon = "skull_grey", group = "rare_ma", label = "Skreeg the Devourer", search = { "skre" }, loot = { { 152904, itemTypeMount, 980 } }, note = nil },
-	{ coord = 43846065, npcId = 126862, questId = 48700, icon = "skull_grey", group = "rare_ma", label = "Baruut the Bloodthirsty", search = { "baru" }, loot = { { 153193, itemTypeToy } }, note = nil },
+	{ coord = 49870953, npcId = 126912, questId = 48721, icon = "skull_grey", group = "rare_ma", label = "Skreeg the Devourer", search = { "skreeg", "skreg" }, loot = { { 152904, itemTypeMount, 980 } }, note = nil },
+	{ coord = 43846065, npcId = 126862, questId = 48700, icon = "skull_grey", group = "rare_ma", label = "Baruut the Bloodthirsty", search = { "baruut", "barut" }, loot = { { 153193, itemTypeToy } }, note = nil },
 	{ coord = 30124019, npcId = 126887, questId = 48709, icon = "skull_grey", group = "rare_ma", label = "Ataxon", search = { "ataxon" }, loot = { { 153056, itemTypePet, 2120 } }, note = nil },
 	-----------------
 	{ coord = 49505280, npcId = 126913, questId = 48935, icon = "skull_grey", group = "rare_ma", label = "Slithon the Last", search = { "slithon" }, loot = { { 153203, itemTypeMisc } }, note = nil },
-	{ coord = 44607160, npcId = 122838, questId = 48692, icon = "skull_grey", group = "rare_ma", label = "Shadowcaster Voruun", search = { "voruun" }, loot = nil, note = nil },
+	{ coord = 44607160, npcId = 122838, questId = 48692, icon = "skull_grey", group = "rare_ma", label = "Shadowcaster Voruun", search = { "voruun", "vorun" }, loot = nil, note = nil },
 
 	{ coord = 60007110, npcId = 128015, questId = 0, icon = "battle_pet", group = "pet_ma", label = "Gloamwing", loot = nil, note = nil },
 	{ coord = 67604390, npcId = 128013, questId = 0, icon = "battle_pet", group = "pet_ma", label = "Bucky", loot = nil, note = nil },
@@ -341,6 +357,19 @@ nodes["ArgusMacAree"] = {
 	{ coord = 31903120, npcId = 128017, questId = 0, icon = "battle_pet", group = "pet_ma", label = "Corrupted Blood of Argus", loot = nil, note = nil },
 	{ coord = 36005410, npcId = 128016, questId = 0, icon = "battle_pet", group = "pet_ma", label = "Shadeflicker", loot = nil, note = nil },
 	
+	-- Shoot First, Loot Later
+	{ coord = 42900549, objId = 276223, questId = 48743, icon = "starChestBlue", group = "sfll_ma", label = "Eredar Treasure Cache", loot = nil, note = "In a litte cave. Use Lightforged Warframe's jump to remove the blocking boulders." },
+	{ coord = 50583838, objId = 276224, questId = 48744, icon = "starChestYellow", group = "sfll_ma", label = "Chest of Ill-Gotten Gains", loot = nil, note = "Use Light's Judgment to shatter the rocks." },
+	{ coord = 61127256, objId = 276225, questId = 48745, icon = "starChestYellow", group = "sfll_ma", label = "Student's Surprising Surplus", loot = nil, note = "Chest is inside a cave. Entrance is at 62.2, 72.2. Use Light's Judgment to shatter the rocks." },
+	{ coord = 40275146, objId = 276226, questId = 48747, icon = "starChestBlue", group = "sfll_ma", label = "Void-Tinged Chest", loot = nil, note = "In underground area. Use Lightforged Warframe's jump to remove the blocking boulders." },
+	{ coord = 70305974, objId = 276227, questId = 48748, icon = "starChestBlank", group = "sfll_ma", label = "Augari Secret Stash", loot = nil, note = "Go to 68.0, 56.9. From here you can see the stash. Mount up and jump towards the chest. Then immediately use a glider to reach the chest safely." },
+	{ coord = 57047684, objId = 276228, questId = 48749, icon = "starChestBlank", group = "sfll_ma", label = "Desperate Eredar's Cache", loot = { { 153267, itemTypeTransmog, "1h Axe" } }, note = "Start at 57.1, 74.3 and jump up around that tower to the back side." },
+	{ coord = 27274014, objId = 276229, questId = 48750, icon = "starChestBlank", group = "sfll_ma", label = "Shattered House Chest", loot = nil, note = "Go to 31.2, 44.9, a little south-east from here. Jump into the abyss and use a glider to reach the chest." },
+	{ coord = 43345447, objId = 276230, questId = 48751, icon = "starChestBlank", group = "sfll_ma", label = "Doomseeker's Treasure", loot = { { 153313, itemTypeTransmog, "2h Sword" } }, note = "Treasure is underground. East of here is a deep hole where the water from the lake falls down. Jump into the hole and hope you hit it right. It is possible to make the jump just with a mount, but a goblin glider helps a lot to reach the small housing with the chest." },
+	{ coord = 70632744, objId = 277327, questId = 49129, icon = "starChestPurple", group = "sfll_ma", label = "Augari-Runed Chest", loot = nil, note = "Chest sits under a tree. Use Shroud of Arcane Echoes and then open the chest." },
+	{ coord = 62132247, objId = 277340, questId = 49151, icon = "starChestPurple", group = "sfll_ma", label = "Secret Augari Chest", loot = nil, note = "Inside small hut. Use Shroud of Arcane Echoes and then open the chest." },
+	{ coord = 40856975, objId = 277342, questId = 49153, icon = "starChestPurple", group = "sfll_ma", label = "Augari Goods", loot = nil, note = "Chest is inside small house. Use Shroud of Arcane Echoes and then open the chest." },
+
 	-- Ancient Eredar Cache
 	-- 48346
 	{ coord = 55167766, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = nil },
@@ -383,69 +412,9 @@ nodes["ArgusMacAree"] = {
 	{ coord = 25824471, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = nil },
 	{ coord = 20674033, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = nil },
 	{ coord = 29455043, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = "Under tree" },
+	{ coord = 18794171, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = "Outside, behind building" },
 
-	-- Shoot First, Loot Later
-	{ coord = 42900549, objId = 276223, questId = 48743, icon = "starChestBlue", group = "sfll_ma", label = "Eredar Treasure Cache", loot = nil, note = "In a litte cave. Use Lightforged Warframe's jump to remove the blocking boulders." },
-	{ coord = 50583838, objId = 276224, questId = 48744, icon = "starChestYellow", group = "sfll_ma", label = "Chest of Ill-Gotten Gains", loot = nil, note = "Use Light's Judgment to shatter the rocks." },
-	{ coord = 61127256, objId = 276225, questId = 48745, icon = "starChestYellow", group = "sfll_ma", label = "Student's Surprising Surplus", loot = nil, note = "Chest is inside a cave. Entrance is at 62.2, 72.2. Use Light's Judgment to shatter the rocks." },
-	{ coord = 40275146, objId = 276226, questId = 48747, icon = "starChestBlue", group = "sfll_ma", label = "Void-Tinged Chest", loot = nil, note = "In underground area. Use Lightforged Warframe's jump to remove the blocking boulders." },
-	{ coord = 70305974, objId = 276227, questId = 48748, icon = "starChestBlank", group = "sfll_ma", label = "Augari Secret Stash", loot = nil, note = "Go to 68.0, 56.9. From here you can see the stash. Mount up and jump towards the chest. Then immediately use a glider to reach the chest safely." },
-	{ coord = 57047684, objId = 276228, questId = 48749, icon = "starChestBlank", group = "sfll_ma", label = "Desperate Eredar's Cache", loot = { { 153267, itemTypeTransmog, "1h Axe" } }, note = "Start at 57.1, 74.3 and jump up around that tower to the back side." },
-	{ coord = 27274014, objId = 276229, questId = 48750, icon = "starChestBlank", group = "sfll_ma", label = "Shattered House Chest", loot = nil, note = "Go to 31.2, 44.9, a little south-east from here. Jump into the abyss and use a glider to reach the chest." },
-	{ coord = 43345447, objId = 276230, questId = 48751, icon = "starChestBlank", group = "sfll_ma", label = "Doomseeker's Treasure", loot = { { 153313, itemTypeTransmog, "2h Sword" } }, note = "Treasure is underground. East of here is a deep hole where the water from the lake falls down. Jump into the hole and hope you hit it right. It is possible to make the jump just with a mount, but a goblin glider helps a lot to reach the small housing with the chest." },
-	{ coord = 70632744, objId = 277327, questId = 49129, icon = "starChestPurple", group = "sfll_ma", label = "Augari-Runed Chest", loot = nil, note = "Chest sits under a tree. Use Shroud of Arcane Echoes and then open the chest." },
-	{ coord = 62132247, objId = 277340, questId = 49151, icon = "starChestPurple", group = "sfll_ma", label = "Secret Augari Chest", loot = nil, note = "Inside small hut. Use Shroud of Arcane Echoes and then open the chest." },
-	{ coord = 40856975, objId = 277342, questId = 49153, icon = "starChestPurple", group = "sfll_ma", label = "Augari Goods", loot = nil, note = "Chest is inside small house. Use Shroud of Arcane Echoes and then open the chest." },
 }
-
----------------------------------------------------------
--- xpcall safecall implementation, copied from AceAddon-3.0.lua
--- (included in distribution), with permission from nevcairiel
-local xpcall = xpcall
-
-local function errorhandler(err)
-	return geterrorhandler()(err)
-end
-
-local function CreateDispatcher(argCount)
-	local code = [[
-		local xpcall, eh = ...
-		local method, ARGS
-		local function call() return method(ARGS) end
-	
-		local function dispatch(func, ...)
-			 method = func
-			 if not method then return end
-			 ARGS = ...
-			 return xpcall(call, eh)
-		end
-	
-		return dispatch
-	]]
-	
-	local ARGS = {}
-	for i = 1, argCount do ARGS[i] = "arg"..i end
-	code = code:gsub("ARGS", tconcat(ARGS, ", "))
-	return assert(loadstring(code, "safecall Dispatcher["..argCount.."]"))(xpcall, errorhandler)
-end
-
-local Dispatchers = setmetatable({}, {__index=function(self, argCount)
-	local dispatcher = CreateDispatcher(argCount)
-	rawset(self, argCount, dispatcher)
-	return dispatcher
-end})
-Dispatchers[0] = function(func)
-	return xpcall(func, errorhandler)
-end
-
-local function safecall(func, ...)
-	-- we check to see if the func is passed is actually a function here and don't error when it isn't
-	-- this safecall is used for optional functions like OnInitialize OnEnable etc. When they are not
-	-- present execution should continue without hinderance
-	if type(func) == "function" then
-		return Dispatchers[select('#', ...)](func, ...)
-	end
-end
 
 -- lazy and inefficient as fuck, i know
 local function GetNodeByCoord( mapFile, coord )
@@ -650,6 +619,7 @@ local function AddDBMArrow(button, mapFile, coord)
 end
 
 -- check all search results for possible rare groups
+
 local numSearches = 0;
 local function resetNPCGroupCounts()
 	numSearches = 0;
@@ -672,7 +642,7 @@ local function updateNPCGroupCount( gName, gLeader )
 		for i,node in ipairs( nodes[mapId] ) do
 			if ( node["group"]:find( "rare" ) ) then
 				for sIdx, search in ipairs( node["search"] ) do
-					if ( gName:find( search ) ) then
+					if ( gName:match( search ) ) then
 						--print( "add " .. gName .. " to " .. node["label"] );
 						node["lfgGroups"][gName.."-"..gLeader] = gName.."-"..gLeader;
 					end
@@ -725,53 +695,17 @@ local function updateFoundRares()
 	end
 end
 
-local finderFrame = CreateFrame("Frame");
-finderFrame:SetScript("OnEvent", function( self, event )
-	self:UnregisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
-    local numResults, resultIds = C_LFGList.GetSearchResults()
-	numSearches = numSearches + 1;
+local menuFrame = CreateFrame("Frame", "ExampleMenuFrame", UIParent, "UIDropDownMenuTemplate")
 
-	for _, resultId in ipairs( resultIds ) do
-
-		local id, activityID, name, comment, voiceChat, iLvl, honorLevel, age, numBNetFriends, numCharFriends, numGuildMates, isDelisted, leaderName, numMembers, isAutoAccept = C_LFGList.GetSearchResultInfo( resultId );
-		updateNPCGroupCount( name, leaderName )
-		
-	end
-	updateFoundRares();
-	Argus:Refresh();
-end );
-
-local function LFGCheckRares( button, node )
-	finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
-	C_LFGList.Search ( 6, LFGListSearchPanel_ParseSearchTerms ("") );
-end
-
-local function LFGsearch( button, node )
-	if ( node ~= nil ) then
-		finderFrame.search = node["search"];
-		local c,zone,_,_,name = C_LFGList.GetActiveEntryInfo();
-		if c == true then
-			if ( UnitIsGroupLeader("player") ) then
-				--print( "Old group delisted. Click again to search groups for " .. node["label"] .. "." );
-				C_LFGList.RemoveListing();
-			else
-				--print( "Insufficient rights. You are not the group leader." );
-			end
-		else
-			if not GroupFinderFrame:IsVisible() then
-				PVEFrame_ShowFrame("GroupFinderFrame");
-			end
-			GroupFinderFrameGroupButton4:Click();
-			LFGListFrame.SearchPanel.SearchBox:SetText( node["search"][1] );
-			LFGListCategorySelection_SelectCategory( LFGListFrame.CategorySelection, 6, 0 );
-			LFGListFrame.SearchPanel.SearchBox:SetText( node["search"][1] );
-			LFGListCategorySelectionFindGroupButton_OnClick( LFGListFrame.CategorySelection.FindGroupButton );			
-			LFGListFrame.SearchPanel.SearchBox:SetText( node["search"][1] );
-			--LFGListFrame.SearchPanel.SearchBox:SetFocus();
-			
-			finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED")
+local function genGroupBrowserOption( option )
+	local opt = {
+		text = option.name .. " - " .. option.numMembers .. " Member (" .. option.age.. "s)",
+		func = function()
+			local tank, heal, dd = C_LFGList.GetAvailableRoles();
+			C_LFGList.ApplyToGroup( option.id, "", tank, heal, dd )	;
 		end
-	end
+	};
+	return opt;
 end
 
 local function LFGcreate( button, label )
@@ -781,13 +715,99 @@ local function LFGcreate( button, label )
 			print( "Old group delisted. Click again to search groups for " .. label .. "." );
 			C_LFGList.RemoveListing();
 		else
-			print( "Insufficient rights. You are not the group leader." );
+			print( "|cFFFF0000Insufficient rights. You are not the group leader." );
 		end
 	elseif ( c == false ) then
 		print( "Created group for " .. label .. "." );
 		-- 16 = custom
 		C_LFGList.CreateListing(16,label,0,0,"","Created with HandyNotes_Argus",true)
 	end
+end
+
+local function LFGbrowseMatches( matches, node )
+	local menu;
+	if ( #matches == 0 ) then
+		menu = {
+			{ text = "Sorry, no groups found!", isTitle = true, notCheckable = true },
+			{ text = "Create new group", func = function() LFGcreate( nil, node["label"] ); end },
+		};
+	else
+		menu = {
+			{ text = "Groups found:", isTitle = true, notCheckable = true },
+		};
+		for k,v in ipairs( matches ) do
+			table.insert( menu, genGroupBrowserOption( v ) );
+			-- print( v["name"] );
+		end
+	end
+	table.insert( menu, { text = "", isTitle = true, notCheckable = true } );
+	table.insert( menu, { text = "Close", notCheckable = true, func = function() CloseDropDownMenus() end } );
+	EasyMenu(menu, menuFrame, "cursor", 0 , 0, "MENU");
+end
+
+local finderFrame = CreateFrame("Frame");
+finderFrame:SetScript("OnEvent", function( self, event )
+	self:UnregisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
+    local numResults, resultIds = C_LFGList.GetSearchResults()
+	numSearches = numSearches + 1;
+	local matches = {};
+
+	for _, resultId in ipairs( resultIds ) do
+
+		local id, activityID, name, comment, voiceChat, iLvl, honorLevel, age, numBNetFriends, numCharFriends, numGuildMates, isDelisted, leaderName, numMembers, isAutoAccept = C_LFGList.GetSearchResultInfo( resultId );
+		updateNPCGroupCount( name, leaderName );
+
+		if ( finderFrame.searchNode and isAutoAccept and numMembers ~= 5 ) then
+			for sIdx, search in ipairs( finderFrame.searchNode["search"] ) do
+				if ( name:lower():match( search ) ) then
+					-- print( "found " .. name .. " ( " .. numMembers .. ")");
+					table.insert( matches, { id = id, name = name, age = age, numMembers = numMembers } );
+				end
+			end
+		end
+	end
+	updateFoundRares();
+	Argus:Refresh();
+	if ( finderFrame.searchNode ) then
+		LFGbrowseMatches( matches, finderFrame.searchNode );
+	end
+end );
+
+local function LFGCheckRares( button, node )
+	finderFrame.searchNode = nil;
+	finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
+	local languages = C_LFGList.GetLanguageSearchFilter();
+	C_LFGList.Search( 6, LFGListSearchPanel_ParseSearchTerms (""), nil, nil, allLanguages );
+end
+
+local function LFGsearch( button, node )
+	if ( node ~= nil ) then
+		local c,zone,_,_,name = C_LFGList.GetActiveEntryInfo();
+		if c == true and name ~= label then
+			if ( UnitIsGroupLeader("player") ) then
+				print( "Old group delisted. Click again to search groups for " .. node["label"] .. "." );
+				C_LFGList.RemoveListing();
+			else
+				print( "|cFFFF0000Insufficient rights. You are not the group leader." );
+			end
+		elseif ( c == false ) then
+			finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
+			finderFrame.searchNode = node;
+			local languages = C_LFGList.GetLanguageSearchFilter();
+			C_LFGList.Search( 6, LFGListSearchPanel_ParseSearchTerms (""), nil, nil, allLanguages );
+		end
+	end
+end
+
+local function generateGroupBrowser()
+	EasyMenu(menu, menuFrame, "cursor", 0 , 0, "MENU");
+end
+
+local function generateMenuBrowseGroups()
+	info.isTitle = 1
+	info.text = "Argus."
+	info.notCheckable = 1
+	UIDropDownMenu_AddButton(info, level)
 end
 
 local function generateMenu(button, level)
@@ -895,6 +915,7 @@ local function generateMenu(button, level)
         info.arg2 = nil
         info.notCheckable = 1
         UIDropDownMenu_AddButton(info, level)
+		
     end
 end
 
@@ -1204,6 +1225,39 @@ local options = {
     },
 }
 
+local updateInvasionPOI = CreateFrame("Frame");
+updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
+	local numPOI = GetNumMapLandmarks();
+	for i = 1, numPOI do
+		local landmarkType, name, description, textureIndex, x, y, maplinkID, showInBattleMap,_,_,poiId,_,something = C_WorldMap.GetMapLandmarkInfo( i );
+		if ( poiId == 5360 or poiId == 5367 or poiId == 5369 ) then
+			local invasionPOI = _G["WorldMapFramePOI" .. i];
+			if ( invasionPOI and not invasionPOI.handyNotesArgus ) then
+				invasionPOI.handyNotesArgus = true;
+				invasionPOI:RegisterForClicks("LeftButtonDown", "LeftButtonUp");
+				invasionPOI:SetScript("OnMouseDown", function(self, button)
+					finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
+					local searchNeedle = "";
+					if ( self.poiID == 5360 ) then
+						finderFrame.searchNode = { label = "Invasion Point: Val", search = { "invasion.*val", "val.*invasion" } };
+						searchNeedle = "val";
+					elseif ( self.poiID == 5367 ) then
+						finderFrame.searchNode = { label = "Invasion Point: Aurinor", search = { "invasion.*aurinor", "aurinor.*invasion" } };
+						searchNeedle = "aurinor";
+					elseif ( self.poiID == 5369 ) then
+						finderFrame.searchNode = { label = "Invasion Point: Sangua", search = { "invasion.*sangua", "sangua.*invasion" } };
+						searchNeedle = "sangua";
+					end
+					
+					local languages = C_LFGList.GetLanguageSearchFilter();
+					C_LFGList.Search( 6, LFGListSearchPanel_ParseSearchTerms ( searchNeedle ), nil, nil, allLanguages );
+					
+				end );
+			end
+		end
+	end
+end );
+
 -- iterate this until we have all items cache. max 10 iterations
 local precacheIteration = 0;
 local function cacheItems()
@@ -1232,12 +1286,12 @@ local function cacheItems()
 		end
 	end
 	if ( failed > 0 and precacheIteration < 10 ) then 
-		print( "Ê§°Ü£º" .. failed .. " / " .. total );
+		--print( "Failed: " .. failed .. " / " .. total );
 		C_Timer.After(3, function()
 			cacheItems();
 		end );
 	else
-		print( "Got all items" );
+		--print( "Got all items" );
 	end
 end
 
@@ -1276,15 +1330,16 @@ function Argus:OnInitialize()
     self.db = LibStub("AceDB-3.0"):New("HandyNotesArgusDB", defaults, "Default")
     self:RegisterEvent("PLAYER_ENTERING_WORLD", "WorldEnter")
 	resetNPCGroupCounts();
+	updateInvasionPOI:RegisterEvent("WORLD_MAP_UPDATE");
 end
 
 function Argus:WorldEnter()
     self:UnregisterEvent("PLAYER_ENTERING_WORLD")
     self:ScheduleTimer("RegisterWithHandyNotes", 8)
 	self:ScheduleTimer("LoadCheck", 6)
-	C_Timer.After(10, function()
-		cacheItems();
-	end );
+	--C_Timer.After(10, function()
+	--	cacheItems();
+	--end );
 end
 
 function Argus:RegisterWithHandyNotes()
