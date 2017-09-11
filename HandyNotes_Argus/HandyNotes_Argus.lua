@@ -124,7 +124,7 @@ nodes["ArgusCore"] = {
 	{ coord = 58765894, objId = 277204, questId = 49017, icon = "starChestBlue", group = "sfll_aw", label = "Forgotten Legion Supplies", loot = nil, note = "Rocks block the way. Use Lightforged Warframe Jump to crush the boulders." },
 	{ coord = 65973977, objId = 277205, questId = 49018, icon = "starChestYellow", group = "sfll_aw", label = "Ancient Legion War Cache", loot = { { 153308, itemTypeTransmog, "1h Mace" } }, note = "Carefully jump down to reach the little cave. Gilder helps a lot. Remove rocks with Lights's Judgment." },
 	{ coord = 52192708, objId = 277206, questId = 49019, icon = "starChestYellow", group = "sfll_aw", label = "Fel-Bound Chest", loot = nil, note = "Start a little south east, at 53.7, 30.9. Jump over the rocks to reach the cave. Rocks block the way into the cave. Remove them with Lights's Judgment." },
-	{ coord = 49145940, objId = 277207, questId = 49020, icon = "starChest", group = "sfll_aw", label = "Legion Treasure Hoard", loot = { { 153291, itemTypeTransmog, "Staff" } }, note = "Behind Fel Fall. Just pick it up." },
+	{ coord = 49145940, objId = 277207, questId = 49020, icon = "starChestBlank", group = "sfll_aw", label = "Legion Treasure Hoard", loot = { { 153291, itemTypeTransmog, "Staff" } }, note = "Behind Fel Fall. Just pick it up." },
 	{ coord = 75595267, objId = 277208, questId = 49021, icon = "starChestBlank", group = "sfll_aw", label = "Timeworn Fel Chest", loot = nil, note = "Start at All-Seer Xanarian. Run past his building on the left side. Hop down a few rocks to reach the chest surrounded by green ooze." },
 	-- no loot on wowhead yet
 	{ coord = 57426366, objId = 277346, questId = 49159, icon = "starChestPurple", group = "sfll_aw", label = "Missing Augari Chest", loot = nil, note = "Chest is down by the green ooze. Use Shroud of Arcane Echoes and then open the chest." },
@@ -416,6 +416,28 @@ nodes["ArgusMacAree"] = {
 	{ coord = 18794171, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = "Outside, behind building" },
 
 }
+
+local function prepareNodesData()
+	numSearches = 0;
+	for mapId,mapFile in pairs( nodes ) do
+		local numNodes = #nodes[mapId];
+		nodes[mapId][1]["lookup"] = {};
+		local lookup = nodes[mapId][1]["lookup"];
+		for i = 1,numNodes do
+			local node = nodes[mapId][i];
+			if ( node["group"]:find( "rare" ) ) then
+				node["lfgGroups"] = {};
+				node["up"] = false;
+			end
+			if ( i < numNodes ) then
+				node["nextNode"] = nodes[mapId][i+1];
+			else
+				node["nextNode"] = nil;
+			end
+			lookup[node["coord"]] = node;
+		end
+	end
+end
 
 -- lazy and inefficient as fuck, i know
 local function GetNodeByCoord( mapFile, coord )
@@ -938,8 +960,10 @@ function Argus:OnClick(button, down, mapFile, coord)
 			LFGcreate( nil, node["label"] );
 		end
 	elseif button == "LeftButton" and down then
-		-- find group
-		LFGsearch( nil, node );
+		if ( (string.find(node["group"], "rare") ~= nil)) then
+			-- find group
+			LFGsearch( nil, node );
+		end
     end
 end
 
@@ -1231,7 +1255,19 @@ updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
 	local numPOI = GetNumMapLandmarks();
 	for i = 1, numPOI do
 		local landmarkType, name, description, textureIndex, x, y, maplinkID, showInBattleMap,_,_,poiId,_,something = C_WorldMap.GetMapLandmarkInfo( i );
-		if ( poiId == 5360 or poiId == 5367 or poiId == 5369 or poiId == 5374 ) then
+		if ( -- val
+			 poiId == 5360 or poiId == 5372	or
+			 -- aurinor
+			 poiId == 5367 or
+			 -- sangua
+			 poiId == 5350 or poiId == 5369 or
+			 -- naigtal
+			 poiId == 5368 or poiId == 5374 or
+			 -- bonich
+			 poiId == 5366 or poiId == 5371 or
+			 -- cen'gar
+			 poiId == 5359
+			) then
 			local invasionPOI = _G["WorldMapFramePOI" .. i];
 			if ( invasionPOI and not invasionPOI.handyNotesArgus ) then
 				invasionPOI.handyNotesArgus = true;
@@ -1239,18 +1275,24 @@ updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
 				invasionPOI:SetScript("OnMouseDown", function(self, button)
 					finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
 					local searchNeedle = "";
-					if ( self.poiID == 5360 ) then
+					if ( self.poiID == 5360 or self.poiID == 5372 ) then
 						finderFrame.searchNode = { label = "Invasion Point: Val", search = { "invasion.*val", "val.*invasion" } };
 						searchNeedle = "val";
 					elseif ( self.poiID == 5367 ) then
 						finderFrame.searchNode = { label = "Invasion Point: Aurinor", search = { "invasion.*aurinor", "aurinor.*invasion" } };
 						searchNeedle = "aurinor";
-					elseif ( self.poiID == 5369 ) then
+					elseif ( self.poiID == 5369 or self.poiID == 5350 ) then
 						finderFrame.searchNode = { label = "Invasion Point: Sangua", search = { "invasion.*sangua", "sangua.*invasion" } };
 						searchNeedle = "sangua";
-					elseif ( self.poiID == 5374 ) then
+					elseif ( self.poiID == 5368 or self.poiID == 5374 ) then
 						finderFrame.searchNode = { label = "Invasion Point: Naigtal", search = { "invasion.*naigtal", "naigtal.*invasion" } };
 						searchNeedle = "naigtal";
+					elseif ( self.poiID == 5366 or self.poiID == 5371 ) then
+						finderFrame.searchNode = { label = "Invasion Point: Bonich", search = { "invasion.*bonich", "bonich.*invasion" } };
+						searchNeedle = "bonich";
+					elseif ( self.poiID == 5359 ) then
+						finderFrame.searchNode = { label = "Invasion Point: Cen'gar", search = { "invasion.*cen.*gar", "cen.*gar.*invasion" } };
+						searchNeedle = "cen";
 					end
 					
 					local languages = C_LFGList.GetLanguageSearchFilter();
@@ -1331,13 +1373,14 @@ function Argus:OnInitialize()
         },
     }
 
-    self.db = LibStub("AceDB-3.0"):New("HandyNotesArgusDB", defaults, "Default")
-    self:RegisterEvent("PLAYER_ENTERING_WORLD", "WorldEnter")
-	resetNPCGroupCounts();
+    self.db = LibStub("AceDB-3.0"):New("HandyNotesArgusDB", defaults, "Default");
+    self:RegisterEvent("PLAYER_ENTERING_WORLD", "WorldEnter");
+	--prepareNodesData();
 	updateInvasionPOI:RegisterEvent("WORLD_MAP_UPDATE");
 end
 
 function Argus:WorldEnter()
+	prepareNodesData();
     self:UnregisterEvent("PLAYER_ENTERING_WORLD")
     self:ScheduleTimer("RegisterWithHandyNotes", 8)
 	self:ScheduleTimer("LoadCheck", 6)
@@ -1351,36 +1394,44 @@ function Argus:RegisterWithHandyNotes()
 		local currentMapFile = "";
         local function iter(t, prestate)
 
-			if not t then return nil end
+		if not t then return nil end
 			
 			-- find next index
-			local nextIndex = nil
-			local c,n
+--			local nextIndex = nil
+--			local c,n
+--			if ( prestate ) then
+--				for c,n in ipairs(t) do
+--					if ( n["coord"] == prestate ) then
+--						nextIndex = c + 1;
+--					end
+--				end
+--			else
+--				nextIndex = 1;
+--			end
+			
+			local node;
 			if ( prestate ) then
-				for c,n in ipairs(t) do
-					if ( n["coord"] == prestate ) then
-						nextIndex = c + 1;
-					end
-				end
+				node = t[1]["lookup"][prestate]["nextNode"];
 			else
-				nextIndex = 1;
+				node = t[1]
 			end
 
-			for idx = nextIndex, #t do
+			--for idx = nextIndex, #t do
+			while node do
 				--if ( idx == 1 ) then print ( "iter" ) end
-				node = t[idx];
+				--node = t[idx];
                 if (node["questId"] and self.db.profile[node["group"]] and not Argus:HasBeenLooted(currentMapFile,node)) then
 					-- preload items
 					-- local allLootKnown = true
-                    if ((node["loot"] ~= nil) and (type(node["loot"]) == "table") and false) then
-						local ii
-						for ii = 1, #node["loot"] do
-							GetIcon(node["loot"][ii][1])
-							if ( not playerHasLoot( node["loot"][ii] ) ) then
-								allLootKnown = false
-							end
-						end
-                    end
+                    --if ( false and (node["loot"] ~= nil) and (type(node["loot"]) == "table") ) then
+					--	local ii
+					--	for ii = 1, #node["loot"] do
+					--		GetIcon(node["loot"][ii][1])
+					--		if ( not playerHasLoot( node["loot"][ii] ) ) then
+					--			allLootKnown = false
+					--		end
+					--	end
+                    --end
 					-- preload localized npc names
 					if ( node["npcId"] ~= nil ) then
 						--getCreatureNamebyID( node["npcId"] );
@@ -1411,7 +1462,7 @@ function Argus:RegisterWithHandyNotes()
 					end
                     return node["coord"], nil, iconPath, iconScale, iconAlpha
                 end
-
+				node = node["nextNode"];
             end
         end
 
