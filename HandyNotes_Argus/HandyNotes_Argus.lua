@@ -1,4 +1,7 @@
 -- Thanks to all who provide usable code
+local ADDON_MSG_PREFIX = "HNA";
+local VERSION = "0.20.0";
+
 local _G = getfenv(0)
 -- Libraries
 local string = _G.string;
@@ -103,7 +106,7 @@ nodes["ArgusCore"] = {
 	{ coord = 54003800, npcId = 127581, questId = 48966, icon = "skull_grey", group = "rare_aw", label = "The Many-Faced Devourer", search = { "many.*face", "face.*devourer" }, loot = { { 153195, itemTypePet, 2136 } }, note = "Can always be summoned. However you need to find 'Call of the Devourer' from the enemies around there and then collect 3 more things and return tu the pile of bones to summon him." },
 	{ coord = 77177319, npcId = nil, questId = 48967, icon = "portal", group = "portal_aw", label = "Portal to Squadron Commander Vishax", loot = nil, note = "First find a Smashed Portal Generator from Immortal Netherwalker. Then collect Conductive Sheath, Arc Circuit and Power Cell from Eredar War-Mind and Felsworn Myrmidon. Use the Smashed Portal Generator to unlock the portal to Vishax." },
 	{ coord = 84368118, npcId = 127700, questId = 48967, icon = "skull_grey", group = "rare_aw", label = "Squadron Commander Vishax", search = { "vishax" }, loot = { { 153253, itemTypeToy } }, note = "Use portal at 77.2, 73.2 to get up on the ship" },
-	{ coord = 58001200, npcId = 127703, questId = 48968, icon = "skull_grey", group = "rare_aw", label = "Doomcaster Suprax", search = { "suprax" }, loot = { { 153194, itemTypeToy } }, note = "Stand on all 3 runes to summon him." },
+	{ coord = 58001200, npcId = 127703, questId = 48968, icon = "skull_grey", group = "rare_aw", label = "Doomcaster Suprax", search = { "suprax" }, loot = { { 153194, itemTypeToy } }, note = "Stand on all 3 runes to summon him. 5 minute respawn timer if you fail!" },
 	{ coord = 66981777, npcId = 127705, questId = 48970, icon = "skull_grey", group = "rare_aw", label = "Mother Rosula", search = { "rosula" }, loot = { { 153252, itemTypePet, 2135 } }, note = "Inside cave. Use the eastern bridge. Collect 100 Imp Meat which drop from the imps inside the cave. Use it and place the Disgusting Feast into the green soup at the marked spot." },
 	{ coord = 64948290, npcId = 127706, questId = 48971, icon = "skull_grey", group = "rare_aw", label = "Rezira the Seer", search = { "rezira" }, loot = { { 153293, itemTypeToy } }, note = "Use Observer's Locus Resonator to open a portal to him. Orix the All-Seer (60.2, 45.4) sells it for 500 Intact Demon Eyes." },
 	{ coord = 61703720, npcId = 122958, questId = 49183, icon = "skull_grey", group = "rare_aw", label = "Blistermaw", search = { "blister" }, loot = { { 152905, itemTypeMount, 979 } }, note = nil },
@@ -194,6 +197,7 @@ nodes["ArgusCore"] = {
 	{ coord = 72527293, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = "Behind Rel'var" },
 	{ coord = 77255876, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = "Down the slope" },
 	{ coord = 72215680, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = "Inside building" },
+	{ coord = 73277299, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = "Behind Rel'var" },
 	-- 48391
 	{ coord = 64135867, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = "In Ven'orn spider cave" },
 	{ coord = 67404790, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = nil },
@@ -322,6 +326,7 @@ nodes["ArgusCitadelSpire"] = {
 
 -- Mac'Aree
 nodes["ArgusMacAree"] = {
+	{ coord = 44607160, npcId = 122838, questId = 48692, icon = "skull_grey", group = "rare_ma", label = "Shadowcaster Voruun", search = { "voruun", "vorun" }, loot = { { 153296, itemTypeTransmog, "1h Sword" } }, note = "5 minute respawn timer!" },
 	{ coord = 52976684, npcId = 126815, questId = 48693, icon = "skull_grey", group = "rare_ma", label = "Soultwisted Monstrosity", search = { "monstro" }, loot = nil, note = nil },
 	{ coord = 55536016, npcId = 126852, questId = 48695, icon = "skull_grey", group = "rare_ma", label = "Wrangler Kravos", search = { "kravos" }, loot = { { 153269, itemTypeTransmog, "1h Axe" }, { 152814, itemTypeMount, 970 } }, note = nil },
 	-- { coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = "Kaara the Pale", search = { "kaara" }, loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = nil },
@@ -348,7 +353,6 @@ nodes["ArgusMacAree"] = {
 	{ coord = 30124019, npcId = 126887, questId = 48709, icon = "skull_grey", group = "rare_ma", label = "Ataxon", search = { "ataxon" }, loot = { { 153056, itemTypePet, 2120 } }, note = nil },
 	-----------------
 	{ coord = 49505280, npcId = 126913, questId = 48935, icon = "skull_grey", group = "rare_ma", label = "Slithon the Last", search = { "slithon" }, loot = { { 153203, itemTypeMisc } }, note = nil },
-	{ coord = 44607160, npcId = 122838, questId = 48692, icon = "skull_grey", group = "rare_ma", label = "Shadowcaster Voruun", search = { "voruun", "vorun" }, loot = nil, note = nil },
 
 	{ coord = 60007110, npcId = 128015, questId = 0, icon = "battle_pet", group = "pet_ma", label = "Gloamwing", loot = nil, note = nil },
 	{ coord = 67604390, npcId = 128013, questId = 0, icon = "battle_pet", group = "pet_ma", label = "Bucky", loot = nil, note = nil },
@@ -393,11 +397,13 @@ nodes["ArgusMacAree"] = {
 	{ coord = 48482115, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = nil },
 	{ coord = 57881053, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = nil },
 	{ coord = 52871676, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = "Up the stairs" },
+	{ coord = 47841956, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = nil },
 	-- 48371
 	{ coord = 48604971, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = nil },
 	{ coord = 49865494, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = nil },
 	{ coord = 47023655, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = "Up the stairs" },
 	{ coord = 51094790, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = "Under tree" },
+	{ coord = 35535718, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = "On 2nd floor, next to Herald of Chaos" },
 	-- 48362
 	{ coord = 66682786, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = "Inside building, next to Zul'tan the Numerous" },
 	{ coord = 62134077, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = "Inside building" },
@@ -408,6 +414,7 @@ nodes["ArgusMacAree"] = {
 	-- 49264
 	{ coord = 38143985, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = nil },
 	{ coord = 37613608, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = nil },
+	{ coord = 37812344, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = nil },
 	-- 48361
 	{ coord = 37664221, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = "Behind pillar in cave thingy" },
 	{ coord = 25824471, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = nil },
@@ -427,6 +434,7 @@ local function prepareNodesData()
 			local node = nodes[mapId][i];
 			if ( node["group"]:find( "rare" ) ) then
 				node["lfgGroups"] = {};
+				node["numLfgGroups"] = 0;
 				node["up"] = false;
 			end
 			if ( i < numNodes ) then
@@ -479,7 +487,11 @@ function Argus:OnEnter(mapFile, coord)
 		tooltip_label = nil;
 		getCreatureNamebyID( node["npcId"] );
 		if ( tooltip_label ) then
-			label = tooltip_label;
+			if ( node["ratioLfgGroups"] ) then
+				label = tooltip_label .. " (" .. string.format("%.2f", node["ratioLfgGroups"] ) .. ")";
+			else
+				label = tooltip_label
+			end
 		end
 	else
 		label = node["label"];
@@ -709,8 +721,11 @@ local function updateFoundRares()
 		for mapId,mapFile in pairs( nodes ) do
 			for i,node in ipairs( nodes[mapId] ) do
 				if ( node["group"]:find( "rare" ) ) then
-					if ( node["numLfgGroups"] > 0 ) then
+					node["ratioLfgGroups"] = node["numLfgGroups"] / avg;
+					if ( node["numLfgGroups"] > 5 or node["ratioLfgGroups"] > 0.6 ) then
 						node["up"] = true;
+					else
+						node["up"] = false;
 					end
 				end
 			end
@@ -820,17 +835,6 @@ local function LFGsearch( button, node )
 			C_LFGList.Search( 6, LFGListSearchPanel_ParseSearchTerms (""), nil, nil, allLanguages );
 		end
 	end
-end
-
-local function generateGroupBrowser()
-	EasyMenu(menu, menuFrame, "cursor", 0 , 0, "MENU");
-end
-
-local function generateMenuBrowseGroups()
-	info.isTitle = 1
-	info.text = "Argus."
-	info.notCheckable = 1
-	UIDropDownMenu_AddButton(info, level)
 end
 
 local function generateMenu(button, level)
@@ -1304,6 +1308,15 @@ updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
 	end
 end );
 
+local communicator = CreateFrame("Frame");
+communicator:SetScript("OnEvent", function( self, event, ... )
+	if ( event == "PLAYER_ENTERING_WORLD" ) then
+		SendAddonMessage( ADDON_MSG_PREFIX, "ver=" .. VERSION, "GUILD" );
+	elseif ( event == "GROUP_JOINED" or event == "GROUP_ROSTER_UPDATE" ) then
+		SendAddonMessage( ADDON_MSG_PREFIX, "ver=" .. VERSION, "RAID" );
+	end
+end );
+
 -- iterate this until we have all items cache. max 10 iterations
 local precacheIteration = 0;
 local function cacheItems()
@@ -1375,8 +1388,10 @@ function Argus:OnInitialize()
 
     self.db = LibStub("AceDB-3.0"):New("HandyNotesArgusDB", defaults, "Default");
     self:RegisterEvent("PLAYER_ENTERING_WORLD", "WorldEnter");
-	--prepareNodesData();
 	updateInvasionPOI:RegisterEvent("WORLD_MAP_UPDATE");
+	communicator:RegisterEvent("PLAYER_ENTERING_WORLD");
+	communicator:RegisterEvent("GROUP_ROSTER_UPDATE");
+	communicator:RegisterEvent("GROUP_JOINED");
 end
 
 function Argus:WorldEnter()
@@ -1396,19 +1411,6 @@ function Argus:RegisterWithHandyNotes()
 
 		if not t then return nil end
 			
-			-- find next index
---			local nextIndex = nil
---			local c,n
---			if ( prestate ) then
---				for c,n in ipairs(t) do
---					if ( n["coord"] == prestate ) then
---						nextIndex = c + 1;
---					end
---				end
---			else
---				nextIndex = 1;
---			end
-			
 			local node;
 			if ( prestate ) then
 				node = t[1]["lookup"][prestate]["nextNode"];
@@ -1416,10 +1418,7 @@ function Argus:RegisterWithHandyNotes()
 				node = t[1]
 			end
 
-			--for idx = nextIndex, #t do
 			while node do
-				--if ( idx == 1 ) then print ( "iter" ) end
-				--node = t[idx];
                 if (node["questId"] and self.db.profile[node["group"]] and not Argus:HasBeenLooted(currentMapFile,node)) then
 					-- preload items
 					-- local allLootKnown = true
