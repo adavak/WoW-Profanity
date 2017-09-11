@@ -124,7 +124,7 @@ nodes["ArgusCore"] = {
 	{ coord = 58765894, objId=277204, questId = 49017, icon = "starChestBlue", group = "sfll_aw", label = "被遗忘的军团补给", loot = nil, note = "岩石挡住了道路。使用破裂的拉迪纳克斯控制宝石通过。（当光铸战争机甲可用时使用。）" },
 	{ coord = 65973977, objId=277205, questId = 49018, icon = "starChestYellow", group = "sfll_aw", label = "古老的军团战争储物箱", loot={ { 153308, itemTypeTransmog, "单手锤" } }, note = "小心跳下到小洞穴。滑翔会很有帮助。使用圣光裁决者移除岩石。" },
 	{ coord = 52192708, objId=277206, questId = 49019, icon = "starChestYellow", group = "sfll_aw", label = "邪能缠绕的宝箱", loot = nil, note = "开始点在东南方一点位于 53.7, 30.9。跳上岩石到达洞穴。岩石挡住了洞穴。使用圣光裁决者移除岩石。" },
-	{ coord = 49145940, objId=277207, questId = 49020, icon = "starChest", group = "sfll_aw", label = "军团财宝", loot={ { 153291, itemTypeTransmog, "法杖" } }, note = "邪能瀑布后面。跳上去。" },
+	{ coord = 49145940, objId=277207, questId = 49020, icon = "starChestBlank", group = "sfll_aw", label = "军团财宝", loot={ { 153291, itemTypeTransmog, "法杖" } }, note = "邪能瀑布后面。跳上去。" },
 	{ coord = 75595267, objId=277208, questId = 49021, icon = "starChestBlank", group = "sfll_aw", label = "历时久远的邪能宝箱", loot = nil, note = "起点位于全知者萨纳里安。从左侧穿过他的建筑物。沿着几块岩石跳下到达被绿色软泥围绕的宝箱。" },
 	-- no loot on wowhead yet
 	{ coord = 57426366, objId=277346, questId = 49159, icon = "starChestPurple", group = "sfll_aw", label = "丢失的奥古雷宝箱", loot = nil, note = "宝箱在下面绿软区域。使用奥术回响遮罩后打开宝箱。" },
@@ -416,6 +416,28 @@ nodes["ArgusMacAree"] = {
 	{ coord = 18794171, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = "外面，建筑物后面" },
 
 }
+
+local function prepareNodesData()
+	numSearches = 0;
+	for mapId,mapFile in pairs( nodes ) do
+		local numNodes = #nodes[mapId];
+		nodes[mapId][1]["lookup"] = {};
+		local lookup = nodes[mapId][1]["lookup"];
+		for i = 1,numNodes do
+			local node = nodes[mapId][i];
+			if ( node["group"]:find( "rare" ) ) then
+				node["lfgGroups"] = {};
+				node["up"] = false;
+			end
+			if ( i < numNodes ) then
+				node["nextNode"] = nodes[mapId][i+1];
+			else
+				node["nextNode"] = nil;
+			end
+			lookup[node["coord"]] = node;
+		end
+	end
+end
 
 -- lazy and inefficient as fuck, i know
 local function GetNodeByCoord( mapFile, coord )
@@ -837,7 +859,7 @@ local function generateMenu(button, level)
 
 			end
 
-			info.text = "创建查找队伍正在列出"
+			info.text = "创建查找队伍并列出"
 			info.func = LFGcreate
 			info.arg1 = node["label"]
 			UIDropDownMenu_AddButton(info, level)
@@ -938,8 +960,10 @@ function Argus:OnClick(button, down, mapFile, coord)
 			LFGcreate( nil, node["label"] );
 		end
 	elseif button == "LeftButton" and down then
-		-- find group
-		LFGsearch( nil, node );
+		if ( (string.find(node["group"], "rare") ~= nil)) then
+			-- find group
+			LFGsearch( nil, node );
+		end
     end
 end
 
@@ -1204,7 +1228,7 @@ local options = {
 		TooltipGroup = {
 			type = "group",
 			order = 20,
-			name = "Tooltip",
+			name = "提示",
 			inline = true,
 			args = {
 				show_loot = {
@@ -1231,7 +1255,7 @@ updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
 	local numPOI = GetNumMapLandmarks();
 	for i = 1, numPOI do
 		local landmarkType, name, description, textureIndex, x, y, maplinkID, showInBattleMap,_,_,poiId,_,something = C_WorldMap.GetMapLandmarkInfo( i );
-		if ( poiId == 5360 or poiId == 5367 or poiId == 5369 or poiId == 5374 ) then
+		if ( poiId == 5360 or poiId == 5367 or poiId == 5369 or poiId == 5374 or poiId == 5350 or poiId == 5366 or poiId == 5372 ) then
 			local invasionPOI = _G["WorldMapFramePOI" .. i];
 			if ( invasionPOI and not invasionPOI.handyNotesArgus ) then
 				invasionPOI.handyNotesArgus = true;
@@ -1251,6 +1275,9 @@ updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
 					elseif ( self.poiID == 5374 ) then
 						finderFrame.searchNode = { label = "侵入点：奈格塔尔", search = { "奈格塔尔" } };
 						searchNeedle = "naigtal";
+					elseif ( self.poiID == 5366 ) then
+						finderFrame.searchNode = { label = "侵入点：博尼克", search = { "博尼克" } };
+						searchNeedle = "bonich";
 					end
 					
 					local languages = C_LFGList.GetLanguageSearchFilter();
@@ -1331,13 +1358,14 @@ function Argus:OnInitialize()
         },
     }
 
-    self.db = LibStub("AceDB-3.0"):New("HandyNotesArgusDB", defaults, "Default")
-    self:RegisterEvent("PLAYER_ENTERING_WORLD", "WorldEnter")
-	resetNPCGroupCounts();
+    self.db = LibStub("AceDB-3.0"):New("HandyNotesArgusDB", defaults, "Default");
+    self:RegisterEvent("PLAYER_ENTERING_WORLD", "WorldEnter");
+	--prepareNodesData();
 	updateInvasionPOI:RegisterEvent("WORLD_MAP_UPDATE");
 end
 
 function Argus:WorldEnter()
+	prepareNodesData();
     self:UnregisterEvent("PLAYER_ENTERING_WORLD")
     self:ScheduleTimer("RegisterWithHandyNotes", 8)
 	self:ScheduleTimer("LoadCheck", 6)
@@ -1351,36 +1379,44 @@ function Argus:RegisterWithHandyNotes()
 		local currentMapFile = "";
         local function iter(t, prestate)
 
-			if not t then return nil end
+		if not t then return nil end
 			
 			-- find next index
-			local nextIndex = nil
-			local c,n
+--			local nextIndex = nil
+--			local c,n
+--			if ( prestate ) then
+--				for c,n in ipairs(t) do
+--					if ( n["coord"] == prestate ) then
+--						nextIndex = c + 1;
+--					end
+--				end
+--			else
+--				nextIndex = 1;
+--			end
+			
+			local node;
 			if ( prestate ) then
-				for c,n in ipairs(t) do
-					if ( n["coord"] == prestate ) then
-						nextIndex = c + 1;
-					end
-				end
+				node = t[1]["lookup"][prestate]["nextNode"];
 			else
-				nextIndex = 1;
+				node = t[1]
 			end
 
-			for idx = nextIndex, #t do
+			--for idx = nextIndex, #t do
+			while node do
 				--if ( idx == 1 ) then print ( "iter" ) end
-				node = t[idx];
+				--node = t[idx];
                 if (node["questId"] and self.db.profile[node["group"]] and not Argus:HasBeenLooted(currentMapFile,node)) then
 					-- preload items
 					-- local allLootKnown = true
-                    if ((node["loot"] ~= nil) and (type(node["loot"]) == "table") and false) then
-						local ii
-						for ii = 1, #node["loot"] do
-							GetIcon(node["loot"][ii][1])
-							if ( not playerHasLoot( node["loot"][ii] ) ) then
-								allLootKnown = false
-							end
-						end
-                    end
+                    --if ( false and (node["loot"] ~= nil) and (type(node["loot"]) == "table") ) then
+					--	local ii
+					--	for ii = 1, #node["loot"] do
+					--		GetIcon(node["loot"][ii][1])
+					--		if ( not playerHasLoot( node["loot"][ii] ) ) then
+					--			allLootKnown = false
+					--		end
+					--	end
+                    --end
 					-- preload localized npc names
 					if ( node["npcId"] ~= nil ) then
 						--getCreatureNamebyID( node["npcId"] );
@@ -1411,7 +1447,7 @@ function Argus:RegisterWithHandyNotes()
 					end
                     return node["coord"], nil, iconPath, iconScale, iconAlpha
                 end
-
+				node = node["nextNode"];
             end
         end
 
