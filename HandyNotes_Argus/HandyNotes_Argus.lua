@@ -386,6 +386,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 34205929, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = "On 2nd floor, where Herald of Chaos resides." },
 	{ coord = 43955630, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = "Under tree" },
 	{ coord = 46917346, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = "Hidden under tree" },
+	{ coord = 36296646, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = nil },
 	-- 48357
 	{ coord = 49412387, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = nil },
 	{ coord = 47672180, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = nil },
@@ -1230,7 +1231,7 @@ updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
 	local numPOI = GetNumMapLandmarks();
 	for i = 1, numPOI do
 		local landmarkType, name, description, textureIndex, x, y, maplinkID, showInBattleMap,_,_,poiId,_,something = C_WorldMap.GetMapLandmarkInfo( i );
-		if ( poiId == 5360 or poiId == 5367 or poiId == 5369 ) then
+		if ( poiId == 5360 or poiId == 5367 or poiId == 5369 or poiId == 5374 ) then
 			local invasionPOI = _G["WorldMapFramePOI" .. i];
 			if ( invasionPOI and not invasionPOI.handyNotesArgus ) then
 				invasionPOI.handyNotesArgus = true;
@@ -1247,6 +1248,9 @@ updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
 					elseif ( self.poiID == 5369 ) then
 						finderFrame.searchNode = { label = "Invasion Point: Sangua", search = { "invasion.*sangua", "sangua.*invasion" } };
 						searchNeedle = "sangua";
+					elseif ( self.poiID == 5374 ) then
+						finderFrame.searchNode = { label = "Invasion Point: Naigtal", search = { "invasion.*naigtal", "naigtal.*invasion" } };
+						searchNeedle = "naigtal";
 					end
 					
 					local languages = C_LFGList.GetLanguageSearchFilter();
@@ -1337,9 +1341,9 @@ function Argus:WorldEnter()
     self:UnregisterEvent("PLAYER_ENTERING_WORLD")
     self:ScheduleTimer("RegisterWithHandyNotes", 8)
 	self:ScheduleTimer("LoadCheck", 6)
-	--C_Timer.After(10, function()
-	--	cacheItems();
-	--end );
+	C_Timer.After(10, function()
+		cacheItems();
+	end );
 end
 
 function Argus:RegisterWithHandyNotes()
