@@ -56,6 +56,21 @@ local itemTypeMount = 2;
 local itemTypeToy = 3;
 local itemTypeTransmog = 4;
 
+local allLanguages = {
+	deDE = true,
+	enGB = true,
+	enUS = true,
+	esES = true,
+	esMX = true,
+	frFR = true,
+	itIT = true,
+	koKR = true,
+	ptBR = true,
+	ruRU = true,
+	zhCN = true,
+	zhTW = true,
+}
+
 Argus.nodes = { }
 
 local nodes = Argus.nodes
@@ -102,6 +117,17 @@ nodes["ArgusCore"] = {
 	{ coord = 56605420, npcId = 128020, questId = 0, icon = "battle_pet", group = "pet_aw", label = "小胖", loot = nil, note = nil },
 	{ coord = 56102870, npcId = 128021, questId = 0, icon = "battle_pet", group = "pet_aw", label = "啮耳者", loot = nil, note = nil },
 	{ coord = 64106600, npcId = 128022, questId = 0, icon = "battle_pet", group = "pet_aw", label = "小贼", loot = nil, note = nil },
+
+	-- Shoot First, Loot Later
+	-- Requires 48201 Reinforce Light's Purchase
+	-- and 48202 -> followed by 47473 and/or 48929
+	{ coord = 58765894, objId=277204, questId = 49017, icon = "starChestBlue", group = "sfll_aw", label = "被遗忘的军团补给", loot = nil, note = "岩石挡住了道路。使用破裂的拉迪纳克斯控制宝石通过。（当光铸战争机甲可用时使用。）" },
+	{ coord = 65973977, objId=277205, questId = 49018, icon = "starChestYellow", group = "sfll_aw", label = "古老的军团战争储物箱", loot={ { 153308, itemTypeTransmog, "单手锤" } }, note = "小心跳下到小洞穴。滑翔会很有帮助。使用圣光裁决者移除岩石。" },
+	{ coord = 52192708, objId=277206, questId = 49019, icon = "starChestYellow", group = "sfll_aw", label = "邪能缠绕的宝箱", loot = nil, note = "开始点在东南方一点位于 53.7, 30.9。跳上岩石到达洞穴。岩石挡住了洞穴。使用圣光裁决者移除岩石。" },
+	{ coord = 49145940, objId=277207, questId = 49020, icon = "starChest", group = "sfll_aw", label = "军团财宝", loot={ { 153291, itemTypeTransmog, "法杖" } }, note = "邪能瀑布后面。跳上去。" },
+	{ coord = 75595267, objId=277208, questId = 49021, icon = "starChestBlank", group = "sfll_aw", label = "历时久远的邪能宝箱", loot = nil, note = "起点位于全知者萨纳里安。从左侧穿过他的建筑物。沿着几块岩石跳下到达被绿色软泥围绕的宝箱。" },
+	-- no loot on wowhead yet
+	{ coord = 57426366, objId=277346, questId = 49159, icon = "starChestPurple", group = "sfll_aw", label = "丢失的奥古雷宝箱", loot = nil, note = "宝箱在下面绿软区域。使用奥术回响遮罩后打开宝箱。" },
 
 	-- 48382
 	{ coord = 67546980, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = "建筑物内" },
@@ -180,17 +206,6 @@ nodes["ArgusCore"] = {
 	{ coord = 71205441, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = "蜘蛛区域外" },
 	{ coord = 66544668, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = "出了蜘蛛区域北面有绿软泥区域。跳上岩石。" },
 
-	-- Shoot First, Loot Later
-	-- Requires 48201 Reinforce Light's Purchase
-	-- and 48202 -> followed by 47473 and/or 48929
-	{ coord = 58765894, objId=277204, questId = 49017, icon = "starChestBlue", group = "sfll_aw", label = "被遗忘的军团补给", loot = nil, note = "岩石挡住了道路。使用破裂的拉迪纳克斯控制宝石通过。（当光铸战争机甲可用时使用。）" },
-	{ coord = 65973977, objId=277205, questId = 49018, icon = "starChestYellow", group = "sfll_aw", label = "古老的军团战争储物箱", loot={ { 153308, itemTypeTransmog, "单手锤" } }, note = "小心跳下到小洞穴。滑翔会很有帮助。使用圣光裁决者移除岩石。" },
-	{ coord = 52192708, objId=277206, questId = 49019, icon = "starChestYellow", group = "sfll_aw", label = "邪能缠绕的宝箱", loot = nil, note = "开始点在东南方一点位于 53.7, 30.9。跳上岩石到达洞穴。岩石挡住了洞穴。使用圣光裁决者移除岩石。" },
-	{ coord = 49145940, objId=277207, questId = 49020, icon = "starChest", group = "sfll_aw", label = "军团财宝", loot={ { 153291, itemTypeTransmog, "法杖" } }, note = "邪能瀑布后面。跳上去。" },
-	{ coord = 75595267, objId=277208, questId = 49021, icon = "starChestBlank", group = "sfll_aw", label = "历时久远的邪能宝箱", loot = nil, note = "起点位于全知者萨纳里安。从左侧穿过他的建筑物。沿着几块岩石跳下到达被绿色软泥围绕的宝箱。" },
-	-- no loot on wowhead yet
-	{ coord = 57426366, objId=277346, questId = 49159, icon = "starChestPurple", group = "sfll_aw", label = "丢失的奥古雷宝箱", loot = nil, note = "宝箱在下面绿软区域。使用奥术回响遮罩后打开宝箱。" },
-
 }
 
 -- Krokuun
@@ -214,6 +229,13 @@ nodes["ArgusSurface"] = {
 	{ coord = 29605790, npcId = 128011, questId = 0, icon = "battle_pet", group = "pet_kr", label = "死亡之啸", loot = nil, note = nil },
 	{ coord = 39606650, npcId = 128012, questId = 0, icon = "battle_pet", group = "pet_kr", label = "小牙", loot = nil, note = nil },
 	{ coord = 58302970, npcId = 128010, questId = 0, icon = "battle_pet", group = "pet_kr", label = "小脏", loot = nil, note = nil },
+
+	-- Shoot First, Loot Later
+	{ coord = 51407622, objId=276490, questId = 48884, icon = "starChestBlue", group = "sfll_kr", label = "克罗库紧急储物箱", loot={ { 153304, itemTypeTransmog, "单手斧" } }, note = "洞穴在悬崖上。岩石挡住了道路。使用破裂的拉迪纳克斯控制宝石通过。（当光铸战争机甲可用时使用。）" },
+	{ coord = 62783753, objId=276489, questId = 48885, icon = "starChestYellow", group = "sfll_kr", label = "军团塔楼宝箱", loot = nil, note = "在通往纳罗瓦的路上有被巨石挡住的宝箱。使用圣光裁决者移除岩石。" },
+	{ coord = 48555894, objId=276491, questId = 48886, icon = "starChestYellow", group = "sfll_kr", label = "丢失的克罗库宝箱", loot = nil, note = "道路延伸到小洞穴。使用圣光裁决者移除岩石。" },
+	{ coord = 75176975, objId=277343, questId = 49154, icon = "starChestPurple", group = "sfll_kr", label = "失落已久的奥古雷宝藏", loot = nil, note = "使用奥术回响遮罩后打开宝箱" },
+	{ coord = 55937428, objId=277344, questId = 49156, icon = "starChestPurple", group = "sfll_kr", label = "珍贵的奥古雷信物", loot = nil, note = "使用奥术回响遮罩后打开宝箱" },
 
 	-- 47752
 	{ coord = 55555863, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = "跳上岩石，起点偏西" },
@@ -269,7 +291,7 @@ nodes["ArgusSurface"] = {
 	{ coord = 67886231, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = "柱子后面" },
 	{ coord = 74996922, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = nil },
 	-- 48336
-	{ coord = 33515510, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = "泽尼达尔内上层，外面" },
+	{ coord = 33575511, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = "泽尼达尔内上层，外面" },
 	{ coord = 32047441, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = nil },
 	{ coord = 27196668, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = nil },
 	{ coord = 31936750, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = nil },
@@ -292,12 +314,6 @@ nodes["ArgusSurface"] = {
 	{ coord = 67713454, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = nil },
 	{ coord = 72493605, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = nil },
 
-	-- Shoot First, Loot Later
-	{ coord = 51407622, objId=276490, questId = 48884, icon = "starChestBlue", group = "sfll_kr", label = "克罗库紧急储物箱", loot={ { 153304, itemTypeTransmog, "单手斧" } }, note = "洞穴在悬崖上。岩石挡住了道路。使用破裂的拉迪纳克斯控制宝石通过。（当光铸战争机甲可用时使用。）" },
-	{ coord = 62783753, objId=276489, questId = 48885, icon = "starChestYellow", group = "sfll_kr", label = "军团塔楼宝箱", loot = nil, note = "在通往纳罗瓦的路上有被巨石挡住的宝箱。使用圣光裁决者移除岩石。" },
-	{ coord = 48555894, objId=276491, questId = 48886, icon = "starChestYellow", group = "sfll_kr", label = "丢失的克罗库宝箱", loot = nil, note = "道路延伸到小洞穴。使用圣光裁决者移除岩石。" },
-	{ coord = 75176975, objId=277343, questId = 49154, icon = "starChestPurple", group = "sfll_kr", label = "失落已久的奥古雷宝藏", loot = nil, note = "使用奥术回响遮罩后打开宝箱" },
-	{ coord = 55937428, objId=277344, questId = 49156, icon = "starChestPurple", group = "sfll_kr", label = "珍贵的奥古雷信物", loot = nil, note = "使用奥术回响遮罩后打开宝箱" },
 }
 
 nodes["ArgusCitadelSpire"] = {
@@ -327,7 +343,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 61575035, npcId = 126900, questId = 48718, icon = "skull_grey", group = "rare_ma", label = "导师塔拉娜", search = { "导师" }, loot ={ { 153309, itemTypeTransmog, "单手锤" }, { 153179, itemTypeToy }, { 153180, itemTypeToy }, { 153181, itemTypeToy } }, note = nil },
 	{ coord = 66742845, npcId = 126908, questId = 48719, icon = "skull_grey", group = "rare_ma", label = "万千之主祖尔坦", search = { "万千之主" }, loot =nil, note = "建筑物内" },
 	{ coord = 56801450, npcId = 126910, questId = 48720, icon = "skull_grey", group = "rare_ma", label = "指挥官泽斯加尔", search = { "泽斯加尔" }, loot =nil, note = nil },
-	{ coord = 49870953, npcId = 126912, questId = 48721, icon = "skull_grey", group = "rare_ma", label = "吞噬者斯克里格", search = { "吞噬者" }, loot ={ { 152904, itemTypeMount, 980 } }, note = nil },
+	{ coord = 49870953, npcId = 126912, questId = 48721, icon = "skull_grey", group = "rare_ma", label = "吞噬者斯克里格", search = { "斯克里格" }, loot ={ { 152904, itemTypeMount, 980 } }, note = nil },
 	{ coord = 43846065, npcId = 126862, questId = 48700, icon = "skull_grey", group = "rare_ma", label = "嗜血的巴鲁特", search = { "巴鲁特" }, loot = { { 153193, itemTypeToy } }, note = nil },
 	{ coord = 30124019, npcId = 126887, questId = 48709, icon = "skull_grey", group = "rare_ma", label = "阿塔克松", search = { "阿塔克松" }, loot = { { 153056, itemTypePet, 2120 } }, note = nil },
 	-----------------
@@ -341,6 +357,19 @@ nodes["ArgusMacAree"] = {
 	{ coord = 31903120, npcId = 128017, questId = 0, icon = "battle_pet", group = "pet_ma", label = "阿古斯的腐化之血", loot = nil, note = nil },
 	{ coord = 36005410, npcId = 128016, questId = 0, icon = "battle_pet", group = "pet_ma", label = "曳影兽", loot = nil, note = nil },
 	
+	-- Shoot First, Loot Later
+	{ coord = 42900549, objId=276223, questId = 48743, icon = "starChestBlue", group = "sfll_ma", label = "艾瑞达宝箱", loot = nil, note = "在小洞穴内。使用光铸战争机甲跳上并移除岩石" },
+	{ coord = 50583838, objId=276224, questId = 48744, icon = "starChestYellow", group = "sfll_ma", label = "来路不明的箱子", loot = nil, note = "使用圣光裁决者移除岩石。" },
+	{ coord = 61127256, objId=276225, questId = 48745, icon = "starChestYellow", group = "sfll_ma", label = "学徒的惊喜留念", loot = nil, note = "宝箱在山洞内。入口在 62.2, 72.2。使用圣光裁决者移除岩石。" },
+	{ coord = 40275146, objId=276226, questId = 48747, icon = "starChestBlue", group = "sfll_ma", label = "虚空回荡的宝箱", loot = nil, note = "在地下区域。使用光铸战争机甲跳上并移除岩石。" },
+	{ coord = 70305974, objId=276227, questId = 48748, icon = "starChestBlank", group = "sfll_ma", label = "奥古雷隐秘存储箱", loot = nil, note = "到 68.0, 56.9。到这里可以看到宝箱。上坐骑跳跃过去。立刻使用滑翔装备到宝箱会更安全些。" },
+	{ coord = 57047684, objId=276228, questId = 48749, icon = "starChestBlank", group = "sfll_ma", label = "绝望的艾瑞达的储物箱", loot={ { 153267, itemTypeTransmog, "单手斧" } }, note = "起点在 57.1, 74.3，接着跳到塔上后到后面。" },
+	{ coord = 27274014, objId=276229, questId = 48750, icon = "starChestBlank", group = "sfll_ma", label = "房屋废墟宝箱", loot = nil, note = "到 to 31.2, 44.9，这里东南一点。跳下深渊并使用滑翔装备到达宝箱。" },
+	{ coord = 43345447, objId=276230, questId = 48751, icon = "starChestBlank", group = "sfll_ma", label = "末日追寻者的宝藏", loot={ { 153313, itemTypeTransmog, "双手剑" } }, note = "宝箱在地下。东面是一个流水瀑布深洞。跳下深洞运气好能到达。可以使用坐骑跳跃，但是滑翔设备会帮你更多到达有宝箱的小屋。" },
+	{ coord = 70632744, objId=277327, questId = 49129, icon = "starChestPurple", group = "sfll_ma", label = "奥古雷符文宝箱", loot = nil, note = "宝箱在树下。使用奥术回响遮罩后打开宝箱。" },
+	{ coord = 62132247, objId=277340, questId = 49151, icon = "starChestPurple", group = "sfll_ma", label = "隐秘奥古雷宝箱", loot = nil, note = "小屋内。使用奥术回响遮罩后打开宝箱。" },
+	{ coord = 40856975, objId=277342, questId = 49153, icon = "starChestPurple", group = "sfll_ma", label = "奥古雷货物", loot = nil, note = "宝箱在小屋内。使用奥术回响遮罩后打开宝箱。" },
+
 	-- Ancient Eredar Cache
 	-- 48346
 	{ coord = 55167766, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = nil },
@@ -357,6 +386,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 34205929, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = "在第二层，混沌先驱旁边。" },
 	{ coord = 43955630, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = "树下" },
 	{ coord = 46917346, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = "藏在树下" },
+	{ coord = 36296646, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = nil },
 	-- 48357
 	{ coord = 49412387, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = nil },
 	{ coord = 47672180, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = nil },
@@ -383,69 +413,9 @@ nodes["ArgusMacAree"] = {
 	{ coord = 25824471, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = nil },
 	{ coord = 20674033, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = nil },
 	{ coord = 29455043, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = "树下" },
+	{ coord = 18794171, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = "外面，建筑物后面" },
 
-	-- Shoot First, Loot Later
-	{ coord = 42900549, objId=276223, questId = 48743, icon = "starChestBlue", group = "sfll_ma", label = "艾瑞达宝箱", loot = nil, note = "在小洞穴内。使用光铸战争机甲跳上并移除岩石" },
-	{ coord = 50583838, objId=276224, questId = 48744, icon = "starChestYellow", group = "sfll_ma", label = "来路不明的箱子", loot = nil, note = "使用圣光裁决者移除岩石。" },
-	{ coord = 61127256, objId=276225, questId = 48745, icon = "starChestYellow", group = "sfll_ma", label = "学徒的惊喜留念", loot = nil, note = "宝箱在山洞内。入口在 62.2, 72.2。使用圣光裁决者移除岩石。" },
-	{ coord = 40275146, objId=276226, questId = 48747, icon = "starChestBlue", group = "sfll_ma", label = "虚空回荡的宝箱", loot = nil, note = "在地下区域。使用光铸战争机甲跳上并移除岩石。" },
-	{ coord = 70305974, objId=276227, questId = 48748, icon = "starChestBlank", group = "sfll_ma", label = "奥古雷隐秘存储箱", loot = nil, note = "到 68.0, 56.9。到这里可以看到宝箱。上坐骑跳跃过去。立刻使用滑翔装备到宝箱会更安全些。" },
-	{ coord = 57047684, objId=276228, questId = 48749, icon = "starChestBlank", group = "sfll_ma", label = "绝望的艾瑞达的储物箱", loot={ { 153267, itemTypeTransmog, "单手斧" } }, note = "起点在 57.1, 74.3，接着跳到塔上后到后面。" },
-	{ coord = 27274014, objId=276229, questId = 48750, icon = "starChestBlank", group = "sfll_ma", label = "房屋废墟宝箱", loot = nil, note = "到 to 31.2, 44.9，这里东南一点。跳下深渊并使用滑翔装备到达宝箱。" },
-	{ coord = 43345447, objId=276230, questId = 48751, icon = "starChestBlank", group = "sfll_ma", label = "末日追寻者的宝藏", loot={ { 153313, itemTypeTransmog, "双手剑" } }, note = "宝箱在地下。东面是一个流水瀑布深洞。跳下深洞运气好能到达。可以使用坐骑跳跃，但是滑翔设备会帮你更多到达有宝箱的小屋。" },
-	{ coord = 70632744, objId=277327, questId = 49129, icon = "starChestPurple", group = "sfll_ma", label = "奥古雷符文宝箱", loot = nil, note = "宝箱在树下。使用奥术回响遮罩后打开宝箱。" },
-	{ coord = 62132247, objId=277340, questId = 49151, icon = "starChestPurple", group = "sfll_ma", label = "隐秘奥古雷宝箱", loot = nil, note = "小屋内。使用奥术回响遮罩后打开宝箱。" },
-	{ coord = 40856975, objId=277342, questId = 49153, icon = "starChestPurple", group = "sfll_ma", label = "奥古雷货物", loot = nil, note = "宝箱在小屋内。使用奥术回响遮罩后打开宝箱。" },
 }
-
----------------------------------------------------------
--- xpcall safecall implementation, copied from AceAddon-3.0.lua
--- (included in distribution), with permission from nevcairiel
-local xpcall = xpcall
-
-local function errorhandler(err)
-	return geterrorhandler()(err)
-end
-
-local function CreateDispatcher(argCount)
-	local code = [[
-		local xpcall, eh = ...
-		local method, ARGS
-		local function call() return method(ARGS) end
-	
-		local function dispatch(func, ...)
-			 method = func
-			 if not method then return end
-			 ARGS = ...
-			 return xpcall(call, eh)
-		end
-	
-		return dispatch
-	]]
-	
-	local ARGS = {}
-	for i = 1, argCount do ARGS[i] = "arg"..i end
-	code = code:gsub("ARGS", tconcat(ARGS, ", "))
-	return assert(loadstring(code, "safecall Dispatcher["..argCount.."]"))(xpcall, errorhandler)
-end
-
-local Dispatchers = setmetatable({}, {__index=function(self, argCount)
-	local dispatcher = CreateDispatcher(argCount)
-	rawset(self, argCount, dispatcher)
-	return dispatcher
-end})
-Dispatchers[0] = function(func)
-	return xpcall(func, errorhandler)
-end
-
-local function safecall(func, ...)
-	-- we check to see if the func is passed is actually a function here and don't error when it isn't
-	-- this safecall is used for optional functions like OnInitialize OnEnable etc. When they are not
-	-- present execution should continue without hinderance
-	if type(func) == "function" then
-		return Dispatchers[select('#', ...)](func, ...)
-	end
-end
 
 -- lazy and inefficient as fuck, i know
 local function GetNodeByCoord( mapFile, coord )
@@ -650,6 +620,7 @@ local function AddDBMArrow(button, mapFile, coord)
 end
 
 -- check all search results for possible rare groups
+
 local numSearches = 0;
 local function resetNPCGroupCounts()
 	numSearches = 0;
@@ -672,7 +643,7 @@ local function updateNPCGroupCount( gName, gLeader )
 		for i,node in ipairs( nodes[mapId] ) do
 			if ( node["group"]:find( "rare" ) ) then
 				for sIdx, search in ipairs( node["search"] ) do
-					if ( gName:find( search ) ) then
+					if ( gName:match( search ) ) then
 						--print( "add " .. gName .. " to " .. node["label"] );
 						node["lfgGroups"][gName.."-"..gLeader] = gName.."-"..gLeader;
 					end
@@ -725,69 +696,119 @@ local function updateFoundRares()
 	end
 end
 
-local finderFrame = CreateFrame("Frame");
-finderFrame:SetScript("OnEvent", function( self, event )
-	self:UnregisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
-    local numResults, resultIds = C_LFGList.GetSearchResults()
-	numSearches = numSearches + 1;
+local menuFrame = CreateFrame("Frame", "ExampleMenuFrame", UIParent, "UIDropDownMenuTemplate")
 
-	for _, resultId in ipairs( resultIds ) do
-
-		local id, activityID, name, comment, voiceChat, iLvl, honorLevel, age, numBNetFriends, numCharFriends, numGuildMates, isDelisted, leaderName, numMembers, isAutoAccept = C_LFGList.GetSearchResultInfo( resultId );
-		updateNPCGroupCount( name, leaderName )
-		
-	end
-	updateFoundRares();
-	Argus:Refresh();
-end );
-
-local function LFGCheckRares( button, node )
-	finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
-	C_LFGList.Search ( 6, LFGListSearchPanel_ParseSearchTerms ("") );
-end
-
-local function LFGsearch( button, node )
-	if ( node ~= nil ) then
-		finderFrame.search = node["search"];
-		local c,zone,_,_,name = C_LFGList.GetActiveEntryInfo();
-		if c == true then
-			if ( UnitIsGroupLeader("player") ) then
-				print( "旧队伍失效。再次点击查找队伍 " .. label .. "." );
-				C_LFGList.RemoveListing();
-			else
-				print( "权限不足。你不是队长。" );
-			end
-		else
-			if not GroupFinderFrame:IsVisible() then
-				PVEFrame_ShowFrame("GroupFinderFrame");
-			end
-			GroupFinderFrameGroupButton4:Click();
-			LFGListFrame.SearchPanel.SearchBox:SetText( node["search"][1] );
-			LFGListCategorySelection_SelectCategory( LFGListFrame.CategorySelection, 6, 0 );
-			LFGListFrame.SearchPanel.SearchBox:SetText( node["search"][1] );
-			LFGListCategorySelectionFindGroupButton_OnClick( LFGListFrame.CategorySelection.FindGroupButton );			
-			LFGListFrame.SearchPanel.SearchBox:SetText( node["search"][1] );
-			--LFGListFrame.SearchPanel.SearchBox:SetFocus();
-			
-			finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED")
+local function genGroupBrowserOption( option )
+	local opt = {
+		text = option.name .. " - " .. option.numMembers .. "人(" .. option.age.. "秒)",
+		func = function()
+			local tank, heal, dd = C_LFGList.GetAvailableRoles();
+			C_LFGList.ApplyToGroup( option.id, "", tank, heal, dd )	;
 		end
-	end
+	};
+	return opt;
 end
 
 local function LFGcreate( button, label )
 	local c,zone,_,_,name = C_LFGList.GetActiveEntryInfo();
 	if c == true and name ~= label then
 		if ( UnitIsGroupLeader("player") ) then
-			print( "旧队伍失效。再次点击查找队伍 " .. label .. "." );
+			print( "旧队伍失效。再次点击查找队伍 - " .. label .. "。" );
 			C_LFGList.RemoveListing();
 		else
-			print( "权限不足。你不是队长。" );
+			print( "|cFFFF0000权限不足。你不是队长。" );
 		end
 	elseif ( c == false ) then
-		print( "创建队伍 " .. label .. "." );
+		print( "创建队伍 - " .. label .. "。" );
 		-- 16 = custom
 		C_LFGList.CreateListing(16,label,0,0,"","由 HandyNotes_Argus 创建",true)
 	end
+end
+
+local function LFGbrowseMatches( matches, node )
+	local menu;
+	if ( #matches == 0 ) then
+		menu = {
+			{ text = "抱歉，没找到队伍！", isTitle = true, notCheckable = true },
+			{ text = "创建新队伍", func = function() LFGcreate( nil, node["label"] ); end },
+		};
+	else
+		menu = {
+			{ text = "找到队伍：", isTitle = true, notCheckable = true },
+		};
+		for k,v in ipairs( matches ) do
+			table.insert( menu, genGroupBrowserOption( v ) );
+			-- print( v["name"] );
+		end
+	end
+	table.insert( menu, { text = "", isTitle = true, notCheckable = true } );
+	table.insert( menu, { text = "关闭", notCheckable = true, func = function() CloseDropDownMenus() end } );
+	EasyMenu(menu, menuFrame, "cursor", 0 , 0, "MENU");
+end
+
+local finderFrame = CreateFrame("Frame");
+finderFrame:SetScript("OnEvent", function( self, event )
+	self:UnregisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
+    local numResults, resultIds = C_LFGList.GetSearchResults()
+	numSearches = numSearches + 1;
+	local matches = {};
+
+	for _, resultId in ipairs( resultIds ) do
+
+		local id, activityID, name, comment, voiceChat, iLvl, honorLevel, age, numBNetFriends, numCharFriends, numGuildMates, isDelisted, leaderName, numMembers, isAutoAccept = C_LFGList.GetSearchResultInfo( resultId );
+		updateNPCGroupCount( name, leaderName );
+
+		if ( finderFrame.searchNode and isAutoAccept and numMembers ~= 5 ) then
+			for sIdx, search in ipairs( finderFrame.searchNode["search"] ) do
+				if ( name:lower():match( search ) ) then
+					-- print( "found " .. name .. " ( " .. numMembers .. ")");
+					table.insert( matches, { id = id, name = name, age = age, numMembers = numMembers } );
+				end
+			end
+		end
+	end
+	updateFoundRares();
+	Argus:Refresh();
+	if ( finderFrame.searchNode ) then
+		LFGbrowseMatches( matches, finderFrame.searchNode );
+	end
+end );
+
+local function LFGCheckRares( button, node )
+	finderFrame.searchNode = nil;
+	finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
+	local languages = C_LFGList.GetLanguageSearchFilter();
+	C_LFGList.Search( 6, LFGListSearchPanel_ParseSearchTerms (""), nil, nil, allLanguages );
+end
+
+local function LFGsearch( button, node )
+	if ( node ~= nil ) then
+		local c,zone,_,_,name = C_LFGList.GetActiveEntryInfo();
+		if c == true and name ~= label then
+			if ( UnitIsGroupLeader("player") ) then
+				print( "旧队伍失效。再次点击查找队伍 - " .. node["label"] .. "。" );
+				C_LFGList.RemoveListing();
+			else
+				print( "|cFFFF0000权限不足。你不是队长。" );
+			end
+		elseif ( c == false ) then
+			finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
+			finderFrame.searchNode = node;
+			local languages = C_LFGList.GetLanguageSearchFilter();
+			C_LFGList.Search( 6, LFGListSearchPanel_ParseSearchTerms (""), nil, nil, allLanguages );
+		end
+	end
+end
+
+local function generateGroupBrowser()
+	EasyMenu(menu, menuFrame, "cursor", 0 , 0, "MENU");
+end
+
+local function generateMenuBrowseGroups()
+	info.isTitle = 1
+	info.text = "阿古斯"
+	info.notCheckable = 1
+	UIDropDownMenu_AddButton(info, level)
 end
 
 local function generateMenu(button, level)
@@ -799,7 +820,7 @@ local function generateMenu(button, level)
 
     if (level == 1) then
         info.isTitle = 1
-        info.text = "Argus"
+        info.text = "阿古斯"
         info.notCheckable = 1
         UIDropDownMenu_AddButton(info, level)
         
@@ -895,6 +916,7 @@ local function generateMenu(button, level)
         info.arg2 = nil
         info.notCheckable = 1
         UIDropDownMenu_AddButton(info, level)
+		
     end
 end
 
@@ -1204,6 +1226,42 @@ local options = {
     },
 }
 
+local updateInvasionPOI = CreateFrame("Frame");
+updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
+	local numPOI = GetNumMapLandmarks();
+	for i = 1, numPOI do
+		local landmarkType, name, description, textureIndex, x, y, maplinkID, showInBattleMap,_,_,poiId,_,something = C_WorldMap.GetMapLandmarkInfo( i );
+		if ( poiId == 5360 or poiId == 5367 or poiId == 5369 or poiId == 5374 ) then
+			local invasionPOI = _G["WorldMapFramePOI" .. i];
+			if ( invasionPOI and not invasionPOI.handyNotesArgus ) then
+				invasionPOI.handyNotesArgus = true;
+				invasionPOI:RegisterForClicks("LeftButtonDown", "LeftButtonUp");
+				invasionPOI:SetScript("OnMouseDown", function(self, button)
+					finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
+					local searchNeedle = "";
+					if ( self.poiID == 5360 ) then
+						finderFrame.searchNode = { label = "侵入点：瓦尔", search = { "瓦尔" } };
+						searchNeedle = "val";
+					elseif ( self.poiID == 5367 ) then
+						finderFrame.searchNode = { label = "侵入点：奥雷诺", search = { "奥雷诺" } };
+						searchNeedle = "aurinor";
+					elseif ( self.poiID == 5369 ) then
+						finderFrame.searchNode = { label = "侵入点：萨古亚", search = { "萨古亚" } };
+						searchNeedle = "sangua";
+					elseif ( self.poiID == 5374 ) then
+						finderFrame.searchNode = { label = "侵入点：奈格塔尔", search = { "奈格塔尔" } };
+						searchNeedle = "naigtal";
+					end
+					
+					local languages = C_LFGList.GetLanguageSearchFilter();
+					C_LFGList.Search( 6, LFGListSearchPanel_ParseSearchTerms ( searchNeedle ), nil, nil, allLanguages );
+					
+				end );
+			end
+		end
+	end
+end );
+
 -- iterate this until we have all items cache. max 10 iterations
 local precacheIteration = 0;
 local function cacheItems()
@@ -1232,12 +1290,12 @@ local function cacheItems()
 		end
 	end
 	if ( failed > 0 and precacheIteration < 10 ) then 
-		print( "失败：" .. failed .. " / " .. total );
+		--print( "失败：" .. failed .. " / " .. total );
 		C_Timer.After(3, function()
 			cacheItems();
 		end );
 	else
-		print( "获取全部物品" );
+		--print( "获取全部物品" );
 	end
 end
 
@@ -1276,6 +1334,7 @@ function Argus:OnInitialize()
     self.db = LibStub("AceDB-3.0"):New("HandyNotesArgusDB", defaults, "Default")
     self:RegisterEvent("PLAYER_ENTERING_WORLD", "WorldEnter")
 	resetNPCGroupCounts();
+	updateInvasionPOI:RegisterEvent("WORLD_MAP_UPDATE");
 end
 
 function Argus:WorldEnter()
