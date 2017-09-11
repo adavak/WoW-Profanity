@@ -1255,7 +1255,19 @@ updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
 	local numPOI = GetNumMapLandmarks();
 	for i = 1, numPOI do
 		local landmarkType, name, description, textureIndex, x, y, maplinkID, showInBattleMap,_,_,poiId,_,something = C_WorldMap.GetMapLandmarkInfo( i );
-		if ( poiId == 5360 or poiId == 5367 or poiId == 5369 or poiId == 5374 or poiId == 5350 or poiId == 5366 or poiId == 5372 ) then
+		if ( -- val
+			 poiId == 5360 or poiId == 5372	or
+			 -- aurinor
+			 poiId == 5367 or
+			 -- sangua
+			 poiId == 5350 or poiId == 5369 or
+			 -- naigtal
+			 poiId == 5368 or poiId == 5374 or
+			 -- bonich
+			 poiId == 5366 or poiId == 5371 or
+			 -- cen'gar
+			 poiId == 5359
+			) then
 			local invasionPOI = _G["WorldMapFramePOI" .. i];
 			if ( invasionPOI and not invasionPOI.handyNotesArgus ) then
 				invasionPOI.handyNotesArgus = true;
@@ -1263,21 +1275,24 @@ updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
 				invasionPOI:SetScript("OnMouseDown", function(self, button)
 					finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
 					local searchNeedle = "";
-					if ( self.poiID == 5360 ) then
+					if ( self.poiID == 5360 or self.poiID == 5372 ) then
 						finderFrame.searchNode = { label = "侵入点：瓦尔", search = { "瓦尔" } };
 						searchNeedle = "val";
 					elseif ( self.poiID == 5367 ) then
 						finderFrame.searchNode = { label = "侵入点：奥雷诺", search = { "奥雷诺" } };
 						searchNeedle = "aurinor";
-					elseif ( self.poiID == 5369 ) then
+					elseif ( self.poiID == 5369 or self.poiID == 5350 ) then
 						finderFrame.searchNode = { label = "侵入点：萨古亚", search = { "萨古亚" } };
 						searchNeedle = "sangua";
-					elseif ( self.poiID == 5374 ) then
+					elseif ( self.poiID == 5368 or self.poiID == 5374 ) then
 						finderFrame.searchNode = { label = "侵入点：奈格塔尔", search = { "奈格塔尔" } };
 						searchNeedle = "naigtal";
-					elseif ( self.poiID == 5366 ) then
+					elseif ( self.poiID == 5366 or self.poiID == 5371 ) then
 						finderFrame.searchNode = { label = "侵入点：博尼克", search = { "博尼克" } };
 						searchNeedle = "bonich";
+					elseif ( self.poiID == 5359 ) then
+						finderFrame.searchNode = { label = "侵入点：森加", search = { "森加" } };
+						searchNeedle = "cen";
 					end
 					
 					local languages = C_LFGList.GetLanguageSearchFilter();
