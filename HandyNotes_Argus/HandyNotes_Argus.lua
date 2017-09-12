@@ -32,6 +32,10 @@ local iconDefaults = {
 	treasure = "Interface\\Addons\\HandyNotes_Argus\\Artwork\\Treasure.blp",
 	portal = "Interface\\Addons\\HandyNotes_Argus\\Artwork\\Portal.blp",
 	default = "Interface\\Icons\\TRADE_ARCHAEOLOGY_CHESTOFTINYGLASSANIMALS",
+	portalGreen = {
+		icon = objAtlas,
+		tCoordLeft = 219/512, tCoordRight = 243/512, tCoordTop = 108/512, tCoordBottom = 129/512,
+	},
 	starChest = {
 		icon = objAtlas,
 		tCoordLeft = 351/512, tCoordRight = 383/512, tCoordTop = 408/512, tCoordBottom = 440/512,
@@ -95,7 +99,7 @@ nodes["ArgusCore"] = {
 	{ coord = 62405380, npcId = 126254, questId = 48813, icon = "skull_grey", group = "rare_aw", label = "Lieutenant Xakaar", search = { "xakaar" }, loot = nil, note = nil },
 	{ coord = 61906430, npcId = 126338, questId = 48814, icon = "skull_grey", group = "rare_aw", label = "Wrath-Lord Yarez", search = { "yarez" }, loot = { { 153126, itemTypeToy } }, note = nil },
 	{ coord = 60674831, npcId = 126946, questId = 48815, icon = "skull_grey", group = "rare_aw", label = "Inquisitor Vethroz", search = { "vethroz" }, loot = { { 151543, itemTypeMisc } }, note = nil },
-	{ coord = 80206230, npcId = nil, questId = 48816, icon = "portal", group = "portal_aw", label = "Portal to Commander Texlaz", loot = nil, note = nil },
+	{ coord = 80206230, npcId = nil, questId = 48816, icon = "portalGreen", group = "portal_aw", label = "Portal to Commander Texlaz", loot = nil, note = nil },
 	{ coord = 82006600, npcId = 127084, questId = 48816, icon = "skull_grey", group = "rare_aw", label = "Commander Texlaz", search = { "texlaz" }, loot = nil, note = "Use the portal at 80.2, 62.3 to get on the ship" },
 	{ coord = 73207080, npcId = 127090, questId = 48817, icon = "skull_grey", group = "rare_aw", label = "Admiral Rel'var", search = { "rel'var", "relvar", "rel var" }, loot = { { 153324, itemTypeTransmog, "Shield" }, { 152886, itemTypeTransmog, "Cloth" }, { 152888, itemTypeTransmog, "Cloth" }, { 152884, itemTypeTransmog, "Cloth" }, { 152889, itemTypeTransmog, "Cloth" }, { 152885, itemTypeTransmog, "Cloth" }, { 152881, itemTypeTransmog, "Cloth" }, { 152887, itemTypeTransmog, "Cloth" }, { 152883, itemTypeTransmog, "Cloth" } }, note = nil },
 	{ coord = 76155614, npcId = 127096, questId = 48818, icon = "skull_grey", group = "rare_aw", label = "All-Seer Xanarian", search = { "xanarian" }, loot = nil, note = nil },
@@ -104,7 +108,7 @@ nodes["ArgusCore"] = {
 	{ coord = 55702190, npcId = 127300, questId = 48824, icon = "skull_grey", group = "rare_aw", label = "Void Warden Valsuran", search = { "valsuran" }, loot = { { 153319, itemTypeTransmog, "2h Mace" }, { 152886, itemTypeTransmog, "Cloth" }, { 152888, itemTypeTransmog, "Cloth" }, { 152884, itemTypeTransmog, "Cloth" }, { 152889, itemTypeTransmog, "Cloth" }, { 152885, itemTypeTransmog, "Cloth" }, { 152881, itemTypeTransmog, "Cloth" }, { 152887, itemTypeTransmog, "Cloth" }, { 152883, itemTypeTransmog, "Cloth" } }, note = nil },
 	{ coord = 61392095, npcId = 127376, questId = 48865, icon = "skull_grey", group = "rare_aw", label = "Chief Alchemist Munculus", search = { "munculus", "muculus" }, loot = nil, note = nil },
 	{ coord = 54003800, npcId = 127581, questId = 48966, icon = "skull_grey", group = "rare_aw", label = "The Many-Faced Devourer", search = { "many.*face", "face.*devourer" }, loot = { { 153195, itemTypePet, 2136 } }, note = "Can always be summoned. However you need to find 'Call of the Devourer' from the enemies around there and then collect 3 more things and return tu the pile of bones to summon him." },
-	{ coord = 77177319, npcId = nil, questId = 48967, icon = "portal", group = "portal_aw", label = "Portal to Squadron Commander Vishax", loot = nil, note = "First find a Smashed Portal Generator from Immortal Netherwalker. Then collect Conductive Sheath, Arc Circuit and Power Cell from Eredar War-Mind and Felsworn Myrmidon. Use the Smashed Portal Generator to unlock the portal to Vishax." },
+	{ coord = 77177319, npcId = nil, questId = 48967, icon = "portalGreen", group = "portal_aw", label = "Portal to Squadron Commander Vishax", loot = nil, note = "First find a Smashed Portal Generator from Immortal Netherwalker. Then collect Conductive Sheath, Arc Circuit and Power Cell from Eredar War-Mind and Felsworn Myrmidon. Use the Smashed Portal Generator to unlock the portal to Vishax." },
 	{ coord = 84368118, npcId = 127700, questId = 48967, icon = "skull_grey", group = "rare_aw", label = "Squadron Commander Vishax", search = { "vishax" }, loot = { { 153253, itemTypeToy } }, note = "Use portal at 77.2, 73.2 to get up on the ship" },
 	{ coord = 58001200, npcId = 127703, questId = 48968, icon = "skull_grey", group = "rare_aw", label = "Doomcaster Suprax", search = { "suprax" }, loot = { { 153194, itemTypeToy } }, note = "Stand on all 3 runes to summon him. 5 minute respawn timer if you fail!" },
 	{ coord = 66981777, npcId = 127705, questId = 48970, icon = "skull_grey", group = "rare_aw", label = "Mother Rosula", search = { "rosula" }, loot = { { 153252, itemTypePet, 2135 } }, note = "Inside cave. Use the eastern bridge. Collect 100 Imp Meat which drop from the imps inside the cave. Use it and place the Disgusting Feast into the green soup at the marked spot." },
@@ -281,6 +285,7 @@ nodes["ArgusSurface"] = {
 	{ coord = 65992286, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = nil },
 	{ coord = 64632319, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = "Inside building" },
 	{ coord = 51533583, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = "Outside building, over the litte ooze lake" },
+	{ coord = 60422354, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = nil },
 	-- 48000
 	{ coord = 70907370, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = nil },
 	{ coord = 74136790, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = nil },
@@ -383,6 +388,7 @@ nodes["ArgusMacAree"] = {
 	-- 48350
 	{ coord = 59622088, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = "Inside building under staircase" },
 	{ coord = 60493338, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = "Inside building" },
+	{ coord = 53912335, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = "Inside building" },
 	{ coord = 55063508, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = nil },
 	{ coord = 62202636, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = "On the balcony. Go into the building and up the stairs to the right." },
 	-- 48351
@@ -402,6 +408,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 48604971, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = nil },
 	{ coord = 49865494, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = nil },
 	{ coord = 47023655, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = "Up the stairs" },
+	{ coord = 49623585, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = "Up the stairs" },
 	{ coord = 51094790, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = "Under tree" },
 	{ coord = 35535718, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = "On 2nd floor, next to Herald of Chaos" },
 	-- 48362
@@ -410,6 +417,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 67254608, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = "Inside building" },
 	{ coord = 68355322, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = "Inside building" },
 	{ coord = 65966017, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = nil },
+	{ coord = 62053268, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = "Upper terrain level" },
 	-- Void-Seeped Cache / Treasure Chest
 	-- 49264
 	{ coord = 38143985, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = nil },
@@ -419,6 +427,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 37664221, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = "Behind pillar in cave thingy" },
 	{ coord = 25824471, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = nil },
 	{ coord = 20674033, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = nil },
+	{ coord = 29503999, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = nil },
 	{ coord = 29455043, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = "Under tree" },
 	{ coord = 18794171, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = "Outside, behind building" },
 
@@ -734,7 +743,6 @@ local function updateFoundRares()
 end
 
 local menuFrame = CreateFrame("Frame", "ExampleMenuFrame", UIParent, "UIDropDownMenuTemplate")
-
 local function genGroupBrowserOption( option )
 	local opt = {
 		text = option.name .. " - " .. option.numMembers .. " Member (" .. option.age.. "s)",
@@ -784,36 +792,46 @@ local function LFGbrowseMatches( matches, node )
 end
 
 local finderFrame = CreateFrame("Frame");
-finderFrame:SetScript("OnEvent", function( self, event )
-	self:UnregisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
-    local numResults, resultIds = C_LFGList.GetSearchResults()
-	numSearches = numSearches + 1;
-	local matches = {};
+finderFrame:SetScript("OnEvent", function( self, event, ... )
+	--self:UnregisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
+	--self:UnregisterEvent("LFG_LIST_SEARCH_FAILED");
+	if ( event == "LFG_LIST_SEARCH_RESULTS_RECEIVED" ) then
+		local numResults, resultIds = C_LFGList.GetSearchResults()
+		numSearches = numSearches + 1;
+		local matches = {};
 
-	for _, resultId in ipairs( resultIds ) do
+		for _, resultId in ipairs( resultIds ) do
 
-		local id, activityID, name, comment, voiceChat, iLvl, honorLevel, age, numBNetFriends, numCharFriends, numGuildMates, isDelisted, leaderName, numMembers, isAutoAccept = C_LFGList.GetSearchResultInfo( resultId );
-		updateNPCGroupCount( name, leaderName );
+			local id, activityID, name, comment, voiceChat, iLvl, honorLevel, age, numBNetFriends, numCharFriends, numGuildMates, isDelisted, leaderName, numMembers, isAutoAccept = C_LFGList.GetSearchResultInfo( resultId );
+			updateNPCGroupCount( name, leaderName );
 
-		if ( finderFrame.searchNode and isAutoAccept and numMembers ~= 5 ) then
-			for sIdx, search in ipairs( finderFrame.searchNode["search"] ) do
-				if ( name:lower():match( search ) ) then
-					-- print( "found " .. name .. " ( " .. numMembers .. ")");
-					table.insert( matches, { id = id, name = name, age = age, numMembers = numMembers } );
+			if ( finderFrame.searchNode and isAutoAccept and numMembers ~= 5 ) then
+				for sIdx, search in ipairs( finderFrame.searchNode["search"] ) do
+					if ( name:lower():match( search ) ) then
+						-- print( "found " .. name .. " ( " .. numMembers .. ")");
+						table.insert( matches, { id = id, name = name, age = age, numMembers = numMembers } );
+					end
 				end
 			end
 		end
-	end
-	updateFoundRares();
-	Argus:Refresh();
-	if ( finderFrame.searchNode ) then
-		LFGbrowseMatches( matches, finderFrame.searchNode );
+		updateFoundRares();
+		Argus:Refresh();
+		if ( finderFrame.searchNode ) then
+			LFGbrowseMatches( matches, finderFrame.searchNode );
+			finderFrame.searchNode = nil;
+		end
+	elseif ( event == "LFG_LIST_SEARCH_FAILED" ) then
+		print( "|cFFFF0000Too many search requests, please try again in a few seconds." );
+	else
+		-- print( event );
+		-- print( ... );
 	end
 end );
 
 local function LFGCheckRares( button, node )
 	finderFrame.searchNode = nil;
-	finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
+	--finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
+	--finderFrame:RegisterEvent("LFG_LIST_SEARCH_FAILED");
 	local languages = C_LFGList.GetLanguageSearchFilter();
 	C_LFGList.Search( 6, LFGListSearchPanel_ParseSearchTerms (""), nil, nil, allLanguages );
 end
@@ -829,7 +847,8 @@ local function LFGsearch( button, node )
 				print( "|cFFFF0000Insufficient rights. You are not the group leader." );
 			end
 		elseif ( c == false ) then
-			finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
+			--finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
+			--finderFrame:RegisterEvent("LFG_LIST_SEARCH_FAILED");
 			finderFrame.searchNode = node;
 			local languages = C_LFGList.GetLanguageSearchFilter();
 			C_LFGList.Search( 6, LFGListSearchPanel_ParseSearchTerms (""), nil, nil, allLanguages );
@@ -1125,6 +1144,13 @@ local options = {
 					order = 4,
 					width = "normal",
 				},
+				portalAW = {
+					type = "toggle",
+					arg = "portal_aw",
+					name = "Portals",
+					order = 5,
+					width = "normal",
+				},
 				groupKR = {
 					type = "header",
 					name = "Krokuun",
@@ -1262,7 +1288,7 @@ updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
 		if ( -- val
 			 poiId == 5360 or poiId == 5372	or
 			 -- aurinor
-			 poiId == 5367 or
+			 poiId == 5367 or poiId == 5373 or
 			 -- sangua
 			 poiId == 5350 or poiId == 5369 or
 			 -- naigtal
@@ -1270,33 +1296,42 @@ updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
 			 -- bonich
 			 poiId == 5366 or poiId == 5371 or
 			 -- cen'gar
-			 poiId == 5359
+			 poiId == 5359 or poiId == 5370 or
+			 -- alluradel
+			 poiId == 5375
 			) then
+			-- print( description );
 			local invasionPOI = _G["WorldMapFramePOI" .. i];
 			if ( invasionPOI and not invasionPOI.handyNotesArgus ) then
 				invasionPOI.handyNotesArgus = true;
 				invasionPOI:RegisterForClicks("LeftButtonDown", "LeftButtonUp");
 				invasionPOI:SetScript("OnMouseDown", function(self, button)
-					finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
+					--finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
+					--finderFrame:RegisterEvent("LFG_LIST_SEARCH_FAILED");
 					local searchNeedle = "";
 					if ( self.poiID == 5360 or self.poiID == 5372 ) then
 						finderFrame.searchNode = { label = "Invasion Point: Val", search = { "invasion.*val", "val.*invasion" } };
 						searchNeedle = "val";
-					elseif ( self.poiID == 5367 ) then
-						finderFrame.searchNode = { label = "Invasion Point: Aurinor", search = { "invasion.*aurinor", "aurinor.*invasion" } };
+					elseif ( self.poiID == 5367 or self.poiID == 5373 ) then
+						finderFrame.searchNode = { label = "Invasion Point: Aurinor", search = { "aurinor" } };
 						searchNeedle = "aurinor";
 					elseif ( self.poiID == 5369 or self.poiID == 5350 ) then
-						finderFrame.searchNode = { label = "Invasion Point: Sangua", search = { "invasion.*sangua", "sangua.*invasion" } };
+						finderFrame.searchNode = { label = "Invasion Point: Sangua", search = { "sangua" } };
 						searchNeedle = "sangua";
 					elseif ( self.poiID == 5368 or self.poiID == 5374 ) then
-						finderFrame.searchNode = { label = "Invasion Point: Naigtal", search = { "invasion.*naigtal", "naigtal.*invasion" } };
+						finderFrame.searchNode = { label = "Invasion Point: Naigtal", search = { "naigtal" } };
 						searchNeedle = "naigtal";
 					elseif ( self.poiID == 5366 or self.poiID == 5371 ) then
-						finderFrame.searchNode = { label = "Invasion Point: Bonich", search = { "invasion.*bonich", "bonich.*invasion" } };
+						finderFrame.searchNode = { label = "Invasion Point: Bonich", search = { "bonich" } };
 						searchNeedle = "bonich";
-					elseif ( self.poiID == 5359 ) then
-						finderFrame.searchNode = { label = "Invasion Point: Cen'gar", search = { "invasion.*cen.*gar", "cen.*gar.*invasion" } };
+					elseif ( self.poiID == 5359 or self.poiID == 5370 ) then
+						finderFrame.searchNode = { label = "Invasion Point: Cen'gar", search = { "cen.*gar" } };
 						searchNeedle = "cen";
+					elseif ( self.poiID == 5375 ) then
+						finderFrame.searchNode = { label = "Greater Invasion Point: Mistress Alluradel", search = { "alluradel" } };
+						searchNeedle = "radel";
+					else
+						return false;
 					end
 					
 					local languages = C_LFGList.GetLanguageSearchFilter();
@@ -1392,6 +1427,10 @@ function Argus:OnInitialize()
 	communicator:RegisterEvent("PLAYER_ENTERING_WORLD");
 	communicator:RegisterEvent("GROUP_ROSTER_UPDATE");
 	communicator:RegisterEvent("GROUP_JOINED");
+	finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
+	finderFrame:RegisterEvent("LFG_LIST_SEARCH_FAILED");
+	finderFrame:RegisterEvent("LFG_LIST_ENTRY_EXPIRED_TIMEOUT");
+	finderFrame:RegisterEvent("LFG_LIST_ENTRY_EXPIRED_TOO_MANY_PLAYERS");
 end
 
 function Argus:WorldEnter()
