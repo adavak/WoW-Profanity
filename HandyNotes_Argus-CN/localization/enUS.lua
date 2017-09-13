@@ -295,9 +295,7 @@ _L["48339_65983499_note"] = "";
 _L["48339_64934217_note"] = "Inside tree trunk";
 _L["48339_67713454_note"] = "";
 _L["48339_72493605_note"] = "";
-
-_L["Khazaduum"] = "Khazaduum";
-_L["Khazaduum_note"] = "Entrance is south east at 50.3, 17.3";
+_L["48339_44864342_note"] = "";
 
 -- Mac'Aree
 _L["Shadowcaster Voruun"] = "Shadowcaster Voruun";
@@ -395,12 +393,14 @@ _L["48346_55167766_note"] = "";
 _L["48346_59386372_note"] = "Inside transparent red tent" ;
 _L["48346_57486159_note"] = "Inside building next to Kravos" ;
 _L["48346_50836729_note"] = "";
+_L["48346_52868241_note"] = "";
 -- 48350
 _L["48350_59622088_note"] = "Inside building under staircase";
 _L["48350_60493338_note"] = "Inside building";
 _L["48350_53912335_note"] = "Inside building";
 _L["48350_55063508_note"] = "";
 _L["48350_62202636_note"] = "On the balcony. Go into the building and up the stairs to the right.";
+_L["48350_53332740_note"] = "Under tree";
 -- 48351
 _L["48351_43637134_note"] = "";
 _L["48351_34205929_note"] = "On 2nd floor, where Herald of Chaos resides.";
@@ -451,6 +451,8 @@ _L["Invasion Point: Naigtal"] = "Invasion Point: Naigtal";
 _L["Invasion Point: Bonich"] = "Invasion Point: Bonich";
 _L["Invasion Point: Cen'gar"] = "Invasion Point: Cen'gar";
 _L["Greater Invasion Point: Mistress Alluradel"] = "Greater Invasion Point: Mistress Alluradel";
+_L["Greater Invasion Point: Matron Folnuna"] = "Greater Invasion Point: Matron Folnuna";
+
 _L["invasion_val_search_1"] = "invasion.*val";
 _L["invasion_val_search_2"] = "val.*invasion";
 _L["invasion_aurinor_search"] = "aurinor";
@@ -459,6 +461,8 @@ _L["invasion_naigtal_search"] = "naigtal";
 _L["invasion_bonich_search"] = "bonich";
 _L["invasion_cengar_search"] = "cen.*gar";
 _L["invasion_alluradel_search"] = "alluradel";
+_L["invasion_folnuna_search"] = "folnuna";
+
 _L["invasion_val_search_needle"] = "val";
 _L["invasion_aurinor_search_needle"] = "aurinor";
 _L["invasion_sangua_search_needle"] = "sangua";
@@ -466,7 +470,7 @@ _L["invasion_naigtal_search_needle"] = "naigtal";
 _L["invasion_bonich_search_needle"] = "bonich";
 _L["invasion_cengar_search_needle"] = "cen";
 _L["invasion_alluradel_search_needle"] = "radel";
-
+_L["invasion_folnuna_search_needle"] = "fol";
 --
 -- interface
 --
@@ -487,6 +491,7 @@ _L["listing_desc_invasion"] = "Doing %s on Argus.";
 
 _L["(Mount known)"] = "(|cFF00FF00Mount known|r)";
 _L["(Mount missing)"] = "(|cFFFF0000Mount missing|r)";
+_L["Pet"] = "Pet";
 _L["(Toy known)"] = "(|cFF00FF00Toy known|r)";
 _L["(Toy missing)"] = " (|cFFFF0000Toy missing|r)";
 _L["(itemLinkGreen)"] = "(|cFF00FF00%s|r)";
@@ -536,6 +541,8 @@ _L["options_toggle_alreadylooted_treasures"] = "Already looted Treasures";
 _L["options_toggle_alreadylooted_treasures_desc"] = "Show every treasure regardless of looted status";
 _L["options_toggle_alreadylooted_sfll"] = "Already looted 'Shoot First, Loot Later' Treasures";
 _L["options_toggle_alreadylooted_sfll_desc"] = "Show every achievement treasure regardless of looted status";
+_L["options_toggle_nodeRareGlow"] = "Rares Icons glow"
+_L["options_toggle_nodeRareGlow_desc"] = "Adds a glow to Rares Icons depending on group availability. No glow = no groups, red glow = low availability, green glow = high availability."
 _L["options_tooltip_settings"] = "Tooltip";
 _L["options_tooltip_settings_desc"] = "Tooltip";
 _L["options_toggle_show_loot"] = "Show Loot";
