@@ -1,6 +1,6 @@
 -- Thanks to all who provide usable code
 local ADDON_MSG_PREFIX = "HNA";
-local VERSION = "0.20.0";
+local VERSION = "0.20.1";
 
 local _G = getfenv(0)
 -- Libraries
@@ -149,7 +149,7 @@ nodes["ArgusCore"] = {
 	{ coord = 56102870, npcId = 128021, questId = 0, icon = "battle_pet", group = "pet_aw", label = _L["Earseeker"], loot = nil, note = _L["Earseeker_note"] },
 	{ coord = 64106600, npcId = 128022, questId = 0, icon = "battle_pet", group = "pet_aw", label = _L["Pilfer"], loot = nil, note = _L["Pilfer_note"] },
 	
-	{ coord = 60214557, npcId = 128134, questId = 0, icon = "eye", group = "npc_aw", label = _L["Orix the All-Seer"], loot = { { 153204, itemTypeToy }, { 153026, itemTypePet, 2115 } }, note = _L["Orix the All-Seer_note"] },
+	{ coord = 60214557, npcId = 128134, questId = 0, icon = "eye", group = "npc_aw", label = "Orix the All-Seer", loot = { { 153204, itemTypeToy }, { 153026, itemTypePet, 2115 } }, note = "Find green demonic eyes. Click them. Lose 90% hp and start farming eyes from all demons in this zone." },
 
 	-- Shoot First, Loot Later
 	-- Requires 48201 Reinforce Light's Purchase
@@ -349,6 +349,7 @@ nodes["ArgusSurface"] = {
 	{ coord = 64934217, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_64934217_note"] },
 	{ coord = 67713454, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_67713454_note"] },
 	{ coord = 72493605, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_72493605_note"] },
+	{ coord = 44864342, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_44864342_note"] },
 
 }
 
@@ -412,12 +413,14 @@ nodes["ArgusMacAree"] = {
 	{ coord = 59386372, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_59386372_note"] },
 	{ coord = 57486159, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_57486159_note"] },
 	{ coord = 50836729, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_50836729_note"] },
+	{ coord = 52868241, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_52868241_note"] },
 	-- 48350
 	{ coord = 59622088, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_59622088_note"] },
 	{ coord = 60493338, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_60493338_note"] },
 	{ coord = 53912335, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_53912335_note"] },
 	{ coord = 55063508, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_55063508_note"] },
 	{ coord = 62202636, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_62202636_note"] },
+	{ coord = 53332740, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_53332740_note"] },
 	-- 48351
 	{ coord = 43637134, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_43637134_note"] },
 	{ coord = 34205929, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_34205929_note"] },
@@ -922,7 +925,9 @@ updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
 			 -- cen'gar
 			 poiId == 5359 or poiId == 5370 or
 			 -- alluradel
-			 poiId == 5375
+			 poiId == 5375 or
+			 -- folnuna
+			 poiId == 5381
 			) then
 			-- print( description );
 			local invasionPOI = _G["WorldMapFramePOI" .. i];
@@ -952,6 +957,9 @@ updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
 					elseif ( self.poiID == 5375 ) then
 						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Greater Invasion Point: Mistress Alluradel"], search = { _L["invasion_alluradel_search"] } };
 						searchNeedle = _L["invasion_alluradel_search_needle"];
+					elseif ( self.poiID == 5381 ) then
+						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Greater Invasion Point: Matron Folnuna"], search = { _L["invasion_folnuna_search"] } };
+						searchNeedle = _L["invasion_folnuna_search_needle"];
 					else
 						return false;
 					end
@@ -1361,6 +1369,14 @@ local options = {
 					order = 33,
 					width = "full",
 				},
+				nodeRareGlow = {
+					type = "toggle",
+					arg = "nodeRareGlow",
+					name = _L["options_toggle_nodeRareGlow"],
+					desc = _L["options_toggle_nodeRareGlow_desc"],
+					order = 33,
+					width = "full",
+				},
 			},
 		},
 		TooltipGroup = {
@@ -1446,6 +1462,7 @@ function Argus:OnInitialize()
             alwaysshowrares = false,
             alwaysshowtreasures = false,
 			alwaysshowsfll = false,
+			nodeRareGlow = true,
             save = true,
             treasure_aw = true,
             treasure_kr = true,
@@ -1525,15 +1542,15 @@ function Argus:RegisterWithHandyNotes()
 						iconScale = Argus.db.profile.icon_scale_rares;
 						iconAlpha = Argus.db.profile.icon_alpha_rares;
 						iconPath = iconDefaults["skullWhite"];
-						if ( not node["allLootKnown"] and node["confUp"] > 0.75 ) then
+						if ( not node["allLootKnown"] and node["confUp"] > 0.75 and self.db.profile.nodeRareGlow ) then
 							iconPath = iconDefaults["skullBlueGreenGlow"];
-						elseif ( not node["allLootKnown"] and node["confUp"] > 0.2 ) then
+						elseif ( not node["allLootKnown"] and node["confUp"] > 0.2 and self.db.profile.nodeRareGlow ) then
 							iconPath = iconDefaults["skullBlueRedGlow"];
 						elseif ( not node["allLootKnown"] ) then
 							iconPath = iconDefaults["skullBlue"];
-						elseif ( node["allLootKnown"] and node["confUp"] > 0.75 ) then
+						elseif ( node["allLootKnown"] and node["confUp"] > 0.75 and self.db.profile.nodeRareGlow ) then
 							iconPath = iconDefaults["skullWhiteGreenGlow"];
-						elseif ( node["allLootKnown"] and node["confUp"] > 0.2 ) then
+						elseif ( node["allLootKnown"] and node["confUp"] > 0.2 and self.db.profile.nodeRareGlow ) then
 							iconPath = iconDefaults["skullWhiteRedGlow"];
 						elseif ( node["allLootKnown"] ) then
 							iconPath = iconDefaults["skullWhite"];

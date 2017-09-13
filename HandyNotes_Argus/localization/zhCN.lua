@@ -24,7 +24,7 @@ _L["Wrath-Lord Yarez"] = "愤怒领主亚雷兹";
 _L["Wrath-Lord Yarez_note"] = "";
 _L["Inquisitor Vethroz"] = "审判官维斯洛兹";
 _L["Inquisitor Vethroz_note"] = "";
-_L["Portal to Commander Texlaz"] = ""传送到指挥官泰克拉兹";
+_L["Portal to Commander Texlaz"] = "传送到指挥官泰克拉兹";
 _L["Portal to Commander Texlaz_note"] = "";
 _L["Commander Texlaz"] = "指挥官泰克拉兹";
 _L["Commander Texlaz_note"] = "使用偏西的传送门位于 80.2, 62.3 到达船上";
@@ -295,13 +295,11 @@ _L["48339_65983499_note"] = "";
 _L["48339_64934217_note"] = "在树干内";
 _L["48339_67713454_note"] = "";
 _L["48339_72493605_note"] = "";
-
-_L["Khazaduum"] = "卡扎杜姆";
-_L["Khazaduum_note"] = "入口在东南位于 50.3, 17.3";
+_L["48339_44864342_note"] = "";
 
 -- Mac'Aree
 _L["Shadowcaster Voruun"] = "暗影法师沃伦";
-_L["Shadowcaster Voruun_note"] = ""5分钟刷新时间！";
+_L["Shadowcaster Voruun_note"] = "5分钟刷新时间！";
 _L["Soultwisted Monstrosity"] = "灵魂扭曲的畸体";
 _L["Soultwisted Monstrosity_note"] = "";
 _L["Wrangler Kravos"] = "牧羊人卡沃斯";
@@ -311,7 +309,7 @@ _L["Kaara the Pale_note"] = "";
 _L["Kaara the Pale"] = "苍白的卡拉";
 _L["Kaara the Pale_note"] = "";
 _L["Feasel the Muffin Thief"] = "麦芬大盗费舍尔";
-_L["Feasel the Muffin Thief_note"] = "打断钻地"";
+_L["Feasel the Muffin Thief_note"] = "打断钻地";
 _L["Vigilant Thanos"] = "警卫泰诺斯";
 _L["Vigilant Thanos_note"] = "";
 _L["Vigilant Kuro"] = "警卫库洛";
@@ -376,7 +374,7 @@ _L["Student's Surprising Surplus_note"] = "宝箱在山洞内。入口在 62.2, 
 _L["Void-Tinged Chest"] = "虚空回荡的宝箱";
 _L["Void-Tinged Chest_note"] = "在地下区域。使用光铸战争机甲跳上并移除岩石。";
 _L["Augari Secret Stash"] = "奥古雷隐秘存储箱";
-_L["Augari Secret Stash_note"] = 到 68.0, 56.9。到这里可以看到宝箱。上坐骑跳跃过去。立刻使用滑翔装备到宝箱会更安全些。";
+_L["Augari Secret Stash_note"] = "到 68.0, 56.9。到这里可以看到宝箱。上坐骑跳跃过去。立刻使用滑翔装备到宝箱会更安全些。";
 _L["Desperate Eredar's Cache"] = "绝望的艾瑞达的储物箱";
 _L["Desperate Eredar's Cache_note"] = "起点在 57.1, 74.3，接着跳到塔上后到后面。";
 _L["Shattered House Chest"] = "房屋废墟宝箱";
@@ -395,12 +393,14 @@ _L["48346_55167766_note"] = "";
 _L["48346_59386372_note"] = "透明的红色帐篷内" ;
 _L["48346_57486159_note"] = "牧羊人卡沃斯旁边的建筑物内" ;
 _L["48346_50836729_note"] = "";
+_L["48346_52868241_note"] = "";
 -- 48350
 _L["48350_59622088_note"] = "建筑物内楼梯下";
 _L["48350_60493338_note"] = "建筑物内";
 _L["48350_53912335_note"] = "建筑物内";
 _L["48350_55063508_note"] = "";
 _L["48350_62202636_note"] = "阳台上。进入建筑物后上楼梯右边。";
+_L["48350_53332740_note"] = "树下";
 -- 48351
 _L["48351_43637134_note"] = "";
 _L["48351_34205929_note"] = "在第二层，混沌先驱旁边。";
@@ -421,7 +421,7 @@ _L["48371_49865494_note"] = "";
 _L["48371_47023655_note"] = "楼梯上";
 _L["48371_49623585_note"] = "楼梯上";
 _L["48371_51094790_note"] = "树下";
-_L["48371_35535718_note"] = "第二层，混沌先驱旁边"";
+_L["48371_35535718_note"] = "第二层，混沌先驱旁边";
 -- 48362
 _L["48362_66682786_note"] = "建筑物内，万千之主祖尔坦旁边";
 _L["48362_62134077_note"] = "建筑物内";
@@ -451,6 +451,8 @@ _L["Invasion Point: Naigtal"] = "侵入点：奈格塔尔";
 _L["Invasion Point: Bonich"] = "侵入点：博尼克";
 _L["Invasion Point: Cen'gar"] = "侵入点：森加";
 _L["Greater Invasion Point: Mistress Alluradel"] = "大型侵入点：妖女奥露拉黛儿";
+_L["Greater Invasion Point: Matron Folnuna"] = "大型侵入点：主母芙努娜";
+
 _L["invasion_val_search_1"] = "侵入点：瓦尔";
 _L["invasion_val_search_2"] = "侵入点瓦尔";
 _L["invasion_aurinor_search"] = "奥雷诺";
@@ -459,6 +461,8 @@ _L["invasion_naigtal_search"] = "奈格塔尔";
 _L["invasion_bonich_search"] = "博尼克";
 _L["invasion_cengar_search"] = "森加";
 _L["invasion_alluradel_search"] = "奥露拉黛儿";
+_L["invasion_folnuna_search"] = "主母芙努娜";
+
 _L["invasion_val_search_needle"] = "瓦尔";
 _L["invasion_aurinor_search_needle"] = "奥雷诺";
 _L["invasion_sangua_search_needle"] = "萨古亚";
@@ -466,7 +470,7 @@ _L["invasion_naigtal_search_needle"] = "奈格塔尔";
 _L["invasion_bonich_search_needle"] = "博尼克";
 _L["invasion_cengar_search_needle"] = "森加";
 _L["invasion_alluradel_search_needle"] = "奥露拉黛儿";
-
+_L["invasion_folnuna_search_needle"] = "主母芙努娜";
 --
 -- interface
 --
@@ -536,6 +540,8 @@ _L["options_toggle_alreadylooted_treasures"] = "已拾取宝箱";
 _L["options_toggle_alreadylooted_treasures_desc"] = "显示每个宝箱无论是否已拾取状态";
 _L["options_toggle_alreadylooted_sfll"] = "已拾取“打砸抢”宝箱";
 _L["options_toggle_alreadylooted_sfll_desc"] = "显示每个成就宝箱忽略已拾取状态";
+_L["options_toggle_nodeRareGlow"] = "稀有图标光晕Rares Icons glow"
+_L["options_toggle_nodeRareGlow_desc"] = "根据队伍可用性添加稀有图标光晕。没光晕 = 没队伍，红光晕 = 低可用性，绿光晕 = 高可用性。"
 _L["options_tooltip_settings"] = "提示";
 _L["options_tooltip_settings_desc"] = "提示";
 _L["options_toggle_show_loot"] = "显示拾取";
