@@ -621,7 +621,7 @@ function Argus:OnEnter(mapFile, coord)
 			elseif ( loot[ii][2] == itemTypePet ) then
 				-- check pet quantity
 				local n,m = C_PetJournal.GetNumCollectedInfo( loot[ii][3] );
-				tooltip:AddLine( itemLink .. " (_L["Pet"] " .. n .. "/" .. m .. ")", nil, nil, nil, true)
+				tooltip:AddLine( itemLink .. " (宠物 " .. n .. "/" .. m .. ")", nil, nil, nil, true)
 			elseif ( loot[ii][2] == itemTypeToy ) then
 				-- check toy known
 				if ( PlayerHasToy( loot[ii][1] ) == true ) then

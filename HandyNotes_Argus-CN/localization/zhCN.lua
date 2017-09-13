@@ -491,7 +491,6 @@ _L["listing_desc_invasion"] = "阿古斯 %s。";
 
 _L["(Mount known)"] = "(|cFF00FF00已学会坐骑|r)";
 _L["(Mount missing)"] = "(|cFFFF0000未学坐骑|r)";
-_L["Pet"] = "宠物";
 _L["(Toy known)"] = "(|cFF00FF00已学会玩具|r)";
 _L["(Toy missing)"] = " (|cFFFF0000未学玩具|r)";
 _L["(itemLinkGreen)"] = "(|cFF00FF00%s|r)";

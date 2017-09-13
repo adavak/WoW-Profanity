@@ -491,7 +491,6 @@ _L["listing_desc_invasion"] = "Doing %s on Argus.";
 
 _L["(Mount known)"] = "(|cFF00FF00Mount known|r)";
 _L["(Mount missing)"] = "(|cFFFF0000Mount missing|r)";
-_L["Pet"] = "Pet";
 _L["(Toy known)"] = "(|cFF00FF00Toy known|r)";
 _L["(Toy missing)"] = " (|cFFFF0000Toy missing|r)";
 _L["(itemLinkGreen)"] = "(|cFF00FF00%s|r)";
