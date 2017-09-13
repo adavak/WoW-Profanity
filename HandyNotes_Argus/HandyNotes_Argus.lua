@@ -149,7 +149,7 @@ nodes["ArgusCore"] = {
 	{ coord = 56102870, npcId = 128021, questId = 0, icon = "battle_pet", group = "pet_aw", label = _L["Earseeker"], loot = nil, note = _L["Earseeker_note"] },
 	{ coord = 64106600, npcId = 128022, questId = 0, icon = "battle_pet", group = "pet_aw", label = _L["Pilfer"], loot = nil, note = _L["Pilfer_note"] },
 	
-	{ coord = 60214557, npcId = 128134, questId = 0, icon = "eye", group = "npc_aw", label = "Orix the All-Seer", loot = { { 153204, itemTypeToy }, { 153026, itemTypePet, 2115 } }, note = "Find green demonic eyes. Click them. Lose 90% hp and start farming eyes from all demons in this zone." },
+	{ coord = 60214557, npcId = 128134, questId = 0, icon = "eye", group = "npc_aw", label = _L["Orix the All-Seer"], loot = { { 153204, itemTypeToy }, { 153026, itemTypePet, 2115 } }, note = _L["Orix the All-Seer_note"] },
 
 	-- Shoot First, Loot Later
 	-- Requires 48201 Reinforce Light's Purchase
