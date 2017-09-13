@@ -32,6 +32,7 @@ local iconDefaults = {
 	treasure = "Interface\\Addons\\HandyNotes_Argus\\Artwork\\Treasure.blp",
 	portal = "Interface\\Addons\\HandyNotes_Argus\\Artwork\\Portal.blp",
 	default = "Interface\\Icons\\TRADE_ARCHAEOLOGY_CHESTOFTINYGLASSANIMALS",
+	eye = "Interface\\Icons\\INV_Misc_Eye_02.blp",
 	portalGreen = {
 		icon = objAtlas,
 		tCoordLeft = 219/512, tCoordRight = 243/512, tCoordTop = 108/512, tCoordBottom = 129/512,
@@ -55,6 +56,30 @@ local iconDefaults = {
 	starChestBlank = {
 		icon = "Interface\\Addons\\HandyNotes_Argus\\Artwork\\shootboxes.blp",
 		tCoordLeft = (192+6)/256, tCoordRight = (192+58)/256, tCoordTop = 6/64, tCoordBottom = 58/64,
+	},
+	skullWhite = {
+		icon = "Interface\\Addons\\HandyNotes_Argus\\Artwork\\skulls.blp",
+		tCoordLeft = 0/256, tCoordRight = 40/256, tCoordTop = 0/256, tCoordBottom = 40/256,
+	},
+	skullWhiteRedGlow = {
+		icon = "Interface\\Addons\\HandyNotes_Argus\\Artwork\\skulls.blp",
+		tCoordLeft = 40/256, tCoordRight = 80/256, tCoordTop = 0/256, tCoordBottom = 40/256,
+	},
+	skullWhiteGreenGlow = {
+		icon = "Interface\\Addons\\HandyNotes_Argus\\Artwork\\skulls.blp",
+		tCoordLeft = 80/256, tCoordRight = 120/256, tCoordTop = 0/256, tCoordBottom = 40/256,
+	},
+	skullBlue = {
+		icon = "Interface\\Addons\\HandyNotes_Argus\\Artwork\\skulls.blp",
+		tCoordLeft = 0/256, tCoordRight = 40/256, tCoordTop = 40/256, tCoordBottom = 80/256,
+	},
+	skullBlueRedGlow = {
+		icon = "Interface\\Addons\\HandyNotes_Argus\\Artwork\\skulls.blp",
+		tCoordLeft = 40/256, tCoordRight = 80/256, tCoordTop = 40/256, tCoordBottom = 80/256,
+	},
+	skullBlueGreenGlow = {
+		icon = "Interface\\Addons\\HandyNotes_Argus\\Artwork\\skulls.blp",
+		tCoordLeft = 80/256, tCoordRight = 120/256, tCoordTop = 40/256, tCoordBottom = 80/256,
 	},
 }
 local itemTypeMisc = 0;
@@ -82,354 +107,358 @@ Argus.nodes = { }
 
 local nodes = Argus.nodes
 local isTomTomloaded = false
-local isDBMloaded = false
 local isCanIMogItloaded = false
 
 -- [XXXXYYYY] = { questId, icon, group, label, loot, note, search },
--- /run local find="Acid Belcher"; for i,mid in ipairs(C_MountJournal.GetMountIDs()) do local n,_,_,_,_,_,_,_,_,_,c,j=C_MountJournal.GetMountInfoByID(mid); if ( n == find ) then print(j .. " " .. n); end end
--- /run local find="Grasping Manifestation"; for i=0,2500 do local n=C_PetJournal.GetPetInfoBySpeciesID(i); if ( n == find ) then print(i .. " " .. n); end end
+-- /run local find="Cross Gazer"; for i,mid in ipairs(C_MountJournal.GetMountIDs()) do local n,_,_,_,_,_,_,_,_,_,c,j=C_MountJournal.GetMountInfoByID(mid); if ( n:match(find)  then print(j .. " " .. n); end end
+-- /run local find="Cross"; for i=0,2200 do local n=C_PetJournal.GetPetInfoBySpeciesID(i); if ( n and string.find(n,find) ) then print(i .. " " .. n); end end
 -- { 152903, itemTypeMount, 981 } Biletooth Gnasher any rare??
 -- Antoran Wastes
 nodes["ArgusCore"] = {
-	{ coord = 52702950, npcId = 127291, questId = 48822, icon = "skull_grey", group = "rare_aw", label = "监视者艾瓦", search = { "艾瓦" }, loot =nil, note = nil },
-	{ coord = 63902090, npcId = 126040, questId = 48809, icon = "skull_grey", group = "rare_aw", label = "普希拉", search = { "普希拉" }, loot = { { 152903, itemTypeMount, 981 } }, note = "洞穴入口在东南方 - 从东面的桥到达那里。" },
-	{ coord = 53103580, npcId = 126199, questId = 48810, icon = "skull_grey", group = "rare_aw", label = "弗拉克苏尔", search = { "弗拉克苏尔" }, loot = { { 152903, itemTypeMount, 981 } }, note = nil },
-	{ coord = 63225754, npcId = 126115, questId = 48811, icon = "skull_grey", group = "rare_aw", label = "维农", search = { "维农" }, loot =nil, note = "洞穴入口在东北方，从蜘蛛区域 66, 54.1" },
-	{ coord = 64304820, npcId = 126208, questId = 48812, icon = "skull_grey", group = "rare_aw", label = "瓦加", search = { "瓦加" }, loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = nil },
-	{ coord = 62405380, npcId = 126254, questId = 48813, icon = "skull_grey", group = "rare_aw", label = "萨卡尔中尉", search = { "中尉" }, loot =nil, note = nil },
-	{ coord = 61906430, npcId = 126338, questId = 48814, icon = "skull_grey", group = "rare_aw", label = "愤怒领主亚雷兹", search = { "愤怒领主" }, loot = { { 153126, itemTypeToy } }, note = nil },
-	{ coord = 60674831, npcId = 126946, questId = 48815, icon = "skull_grey", group = "rare_aw", label = "审判官维斯洛兹", search = { "审判官" }, loot = { { 151543, itemTypeMisc } }, note = nil },
-	{ coord = 80206230, npcId = nil, questId = 48816, icon = "portalGreen", group = "portal_aw", label = "传送到指挥官泰克拉兹", loot =nil, note = nil },
-	{ coord = 82006600, npcId = 127084, questId = 48816, icon = "skull_grey", group = "rare_aw", label = "指挥官泰克拉兹", search = { "泰克拉兹" }, loot =nil, note = "使用偏西的传送门位于 80.2, 62.3 到达船上" },
-	{ coord = 73207080, npcId = 127090, questId = 48817, icon = "skull_grey", group = "rare_aw", label = "雷尔瓦将军", search = { "将军" }, loot ={ { 153324, itemTypeTransmog, "盾牌" }, { 152886, itemTypeTransmog, "布甲" }, { 152888, itemTypeTransmog, "布甲" }, { 152884, itemTypeTransmog, "布甲" }, { 152889, itemTypeTransmog, "布甲" }, { 152885, itemTypeTransmog, "布甲" }, { 152881, itemTypeTransmog, "布甲" }, { 152887, itemTypeTransmog, "布甲" }, { 152883, itemTypeTransmog, "布甲" } }, note = nil },
-	{ coord = 76155614, npcId = 127096, questId = 48818, icon = "skull_grey", group = "rare_aw", label = "全知者萨纳里安", search = { "全知者" }, loot =nil, note = nil },
-	{ coord = 50905530, npcId = 127118, questId = 48820, icon = "skull_grey", group = "rare_aw", label = "裂世者斯库尔", search = { "裂世者" }, loot ={ { 153312, itemTypeTransmog, "双手剑" }, { 152886, itemTypeTransmog, "布甲" }, { 152888, itemTypeTransmog, "布甲" }, { 152884, itemTypeTransmog, "布甲" }, { 152889, itemTypeTransmog, "布甲" }, { 152885, itemTypeTransmog, "布甲" }, { 152881, itemTypeTransmog, "布甲" }, { 152887, itemTypeTransmog, "布甲" }, { 152883, itemTypeTransmog, "布甲" } }, note = "会在天上盘旋。偶尔也会降落。不是每次盘旋都这样。" },
-	{ coord = 63812199, npcId = 127288, questId = 48821, icon = "skull_grey", group = "rare_aw", label = "驯犬大师克拉克斯", search = { "驯犬大师" }, loot = { { 152790, itemTypeMount, 955 } }, note = nil },
-	{ coord = 55702190, npcId = 127300, questId = 48824, icon = "skull_grey", group = "rare_aw", label = "虚空守望者瓦苏拉", search = { "虚空守望者" }, loot = { { 153319, itemTypeTransmog, "双手锤" } }, note = nil },
-	{ coord = 61392095, npcId = 127376, questId = 48865, icon = "skull_grey", group = "rare_aw", label = "首席炼金师蒙库鲁斯", search = { "首席炼金师" }, loot =nil, note = nil },
-	{ coord = 54003800, npcId = 127581, questId = 48966, icon = "skull_grey", group = "rare_aw", label = "千面吞噬者", search = { "千面" }, loot = { { 153195, itemTypePet, 2136 } }, note = "可以永远召唤。但必须从周围怪身上找到“吞噬者的召唤”，然后找到3个骨头才能召唤。" },
-	{ coord = 77177319, npcId = nil, questId = 48967, icon = "portalGreen", group = "portal_aw", label = "传送到中队指挥官维沙克斯", loot =nil, note = "第一步先从不朽虚无行者身上找到碎裂的传送门发生器。然后从艾瑞达战术顾问、魔誓侍从身上收集导电护套，弧光电路，能量电池，使用碎裂的传送门发生器把它们组合起来打开去往维沙克斯的传送门。" },
-	{ coord = 84368118, npcId = 127700, questId = 48967, icon = "skull_grey", group = "rare_aw", label = "中队指挥官维沙克斯", search = { "中队指挥官" }, loot = { { 153253, itemTypeToy } }, note = "使用传送门位于 77.2, 73.2 上船" },
-	{ coord = 58001200, npcId = 127703, questId = 48968, icon = "skull_grey", group = "rare_aw", label = "末日法师苏帕克斯", search = { "末日法师" }, loot = { { 153194, itemTypeToy } }, note = "三个符文上全站人召唤他。如果失败了5分钟后刷新。" },
-	{ coord = 66981777, npcId = 127705, questId = 48970, icon = "skull_grey", group = "rare_aw", label = "主母罗苏拉", search = { "主母" }, loot = { { 152903, itemTypeMount, 981 }, { 153252, itemTypePet, 2135 } }, note = "洞穴入口在东南方 - 从东面的桥到达那里。收集洞里小鬼掉的100个小鬼的肉。使用它做一份黑暗料理扔进绿池子里召唤主母。" },
-	{ coord = 64948290, npcId = 127706, questId = 48971, icon = "skull_grey", group = "rare_aw", label = "先知雷兹拉", search = { "先知" }, loot = { { 153293, itemTypeToy } }, note = "使用观察者之地共鸣器打开传送门。收集500个恶魔之眼把它交给位于 60.2, 45.4 的全视者奥利克斯换取。" },
-	{ coord = 61703720, npcId = 122958, questId = 49183, icon = "skull_grey", group = "rare_aw", label = "疱喉", search = { "疱喉" }, loot = { { 152905, itemTypeMount, 979 } }, note = nil },
-	{ coord = 57403290, npcId = 122947, questId = 49240, icon = "skull_grey", group = "rare_aw", label = "妖女伊森黛拉", search = { "伊森黛拉" }, loot ={ { 153327, itemTypeTransmog, "匕首" }, { 152946, itemTypeTransmog, "板甲" }, { 152944, itemTypeTransmog, "板甲" }, { 152949, itemTypeTransmog, "板甲" }, { 152942, itemTypeTransmog, "板甲" }, { 152947, itemTypeTransmog, "板甲" }, { 152943, itemTypeTransmog, "板甲" }, { 152945, itemTypeTransmog, "板甲" }, { 152948, itemTypeTransmog, "板甲" } }, note = nil },
-	{ coord = 56204550, npcId = 122999, questId = 49241, icon = "skull_grey", group = "rare_aw", label = "加尔佐斯", search = { "加尔佐斯" }, loot =nil, note = nil },
+	{ coord = 52702950, npcId = 127291, questId = 48822, icon = "skull_grey", group = "rare_aw", label = _L["Watcher Aival"], search = { "艾瓦" }, loot = nil, note = _L["Watcher Aival_note"] },
+	{ coord = 63902090, npcId = 126040, questId = 48809, icon = "skull_grey", group = "rare_aw", label = _L["Puscilla"], search = { "普希拉" }, loot = { { 152903, itemTypeMount, 981 } }, note = _L["Puscilla_note"] },
+	{ coord = 53103580, npcId = 126199, questId = 48810, icon = "skull_grey", group = "rare_aw", label = _L["Vrax'thul"], search = { "弗拉克苏尔" }, loot = { { 152903, itemTypeMount, 981 } }, note = _L["Vrax'thul_note"] },
+	{ coord = 63225754, npcId = 126115, questId = 48811, icon = "skull_grey", group = "rare_aw", label = _L["Ven'orn"], search = { "维农" }, loot = nil, note = _L["Ven'orn_note"] },
+	{ coord = 64304820, npcId = 126208, questId = 48812, icon = "skull_grey", group = "rare_aw", label = _L["Varga"], search = { "瓦加" }, loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = _L["Varga_note"] },
+	{ coord = 62405380, npcId = 126254, questId = 48813, icon = "skull_grey", group = "rare_aw", label = _L["Lieutenant Xakaar"], search = { "中尉" }, loot = nil, note = _L["Lieutenant Xakaar_note"] },
+	{ coord = 61906430, npcId = 126338, questId = 48814, icon = "skull_grey", group = "rare_aw", label = _L["Wrath-Lord Yarez"], search = { "愤怒领主" }, loot = { { 153126, itemTypeToy } }, note = _L["Wrath-Lord Yarez_note"] },
+	{ coord = 60674831, npcId = 126946, questId = 48815, icon = "skull_grey", group = "rare_aw", label = _L["Inquisitor Vethroz"], search = { "审判官" }, loot = { { 151543, itemTypeMisc } }, note = _L["Inquisitor Vethroz_note"] },
+	{ coord = 80206230, npcId = nil, questId = 48816, icon = "portalGreen", group = "portal_aw", label = _L["Portal to Commander Texlaz"], loot = nil, note = _L["Portal to Commander Texlaz_note"] },
+	{ coord = 82006600, npcId = 127084, questId = 48816, icon = "skull_grey", group = "rare_aw", label = _L["Commander Texlaz"], search = { "泰克拉兹" }, loot = nil, note = _L["Commander Texlaz_note"] },
+	{ coord = 73207080, npcId = 127090, questId = 48817, icon = "skull_grey", group = "rare_aw", label = _L["Admiral Rel'var"], search = { "将军" }, loot = { { 153324, itemTypeTransmog, "盾牌" }, { 152886, itemTypeTransmog, "布甲" }, { 152888, itemTypeTransmog, "布甲" }, { 152884, itemTypeTransmog, "布甲" }, { 152889, itemTypeTransmog, "布甲" }, { 152885, itemTypeTransmog, "布甲" }, { 152881, itemTypeTransmog, "布甲" }, { 152887, itemTypeTransmog, "布甲" }, { 152883, itemTypeTransmog, "布甲" } }, note = _L["Admiral Rel'var_note"] },
+	{ coord = 76155614, npcId = 127096, questId = 48818, icon = "skull_grey", group = "rare_aw", label = _L["All-Seer Xanarian"], search = { "全知者" }, loot = nil, note = _L["All-Seer Xanarian_note"] },
+	{ coord = 50905530, npcId = 127118, questId = 48820, icon = "skull_grey", group = "rare_aw", label = _L["Worldsplitter Skuul"], search = { "裂世者" }, loot = { { 153312, itemTypeTransmog, "双手剑" }, { 152886, itemTypeTransmog, "布甲" }, { 152888, itemTypeTransmog, "布甲" }, { 152884, itemTypeTransmog, "布甲" }, { 152889, itemTypeTransmog, "布甲" }, { 152885, itemTypeTransmog, "布甲" }, { 152881, itemTypeTransmog, "布甲" }, { 152887, itemTypeTransmog, "布甲" }, { 152883, itemTypeTransmog, "布甲" } }, note = _L["Worldsplitter Skuul_note"] },
+	{ coord = 63042455, npcId = 127288, questId = 48821, icon = "skull_grey", group = "rare_aw", label = _L["Houndmaster Kerrax"], search = { "驯犬大师" }, loot = { { 152790, itemTypeMount, 955 } }, note = _L["Houndmaster Kerrax_note"] },
+	{ coord = 55702190, npcId = 127300, questId = 48824, icon = "skull_grey", group = "rare_aw", label = _L["Void Warden Valsuran"], search = { "虚空守望者" }, loot = { { 153319, itemTypeTransmog, "双手锤" }, { 152886, itemTypeTransmog, "布甲" }, { 152888, itemTypeTransmog, "布甲" }, { 152884, itemTypeTransmog, "布甲" }, { 152889, itemTypeTransmog, "布甲" }, { 152885, itemTypeTransmog, "布甲" }, { 152881, itemTypeTransmog, "布甲" }, { 152887, itemTypeTransmog, "布甲" }, { 152883, itemTypeTransmog, "布甲" } }, note = _L["Void Warden Valsuran_note"] },
+	{ coord = 61392095, npcId = 127376, questId = 48865, icon = "skull_grey", group = "rare_aw", label = _L["Chief Alchemist Munculus"], search = { "首席炼金师" }, note = _L["Chief Alchemist Munculus_note"] },
+	{ coord = 54003800, npcId = 127581, questId = 48966, icon = "skull_grey", group = "rare_aw", label = _L["The Many-Faced Devourer"], search = { "千面" }, loot = { { 153195, itemTypePet, 2136 } }, note = _L["The Many-Faced Devourer_note"] },
+	{ coord = 77177319, npcId = nil, questId = 48967, icon = "portalGreen", group = "portal_aw", label = _L["Portal to Squadron Commander Vishax"], loot = nil, note = _L["Portal to Squadron Commander Vishax_note"] },
+	{ coord = 84368118, npcId = 127700, questId = 48967, icon = "skull_grey", group = "rare_aw", label = _L["Squadron Commander Vishax"], search = { "中队指挥官" }, loot = { { 153253, itemTypeToy } }, note = _L["Squadron Commander Vishax_note"] },
+	{ coord = 58001200, npcId = 127703, questId = 48968, icon = "skull_grey", group = "rare_aw", label = _L["Doomcaster Suprax"], search = { "末日法师" }, loot = { { 153194, itemTypeToy } }, note = _L["Doomcaster Suprax_note" },
+	{ coord = 66981777, npcId = 127705, questId = 48970, icon = "skull_grey", group = "rare_aw", label = _L["Mother Rosula"], search = { "主母" }, loot = { { 153252, itemTypePet, 2135 } }, note = _L["Mother Rosula_note"] },
+	{ coord = 64948290, npcId = 127706, questId = 48971, icon = "skull_grey", group = "rare_aw", label = _L["Rezira the Seer"], search = { "先知" }, loot = { { 153293, itemTypeToy } }, note = _L["Rezira the Seer_note"] },
+	{ coord = 61703720, npcId = 122958, questId = 49183, icon = "skull_grey", group = "rare_aw", label = _L["Blistermaw"], search = { "疱喉" }, loot = { { 152905, itemTypeMount, 979 } }, note = _L["Blistermaw_note"] },
+	{ coord = 57403290, npcId = 122947, questId = 49240, icon = "skull_grey", group = "rare_aw", label = _L["Mistress Il'thendra"], search = { "伊森黛拉" }, loot = { { 153327, itemTypeTransmog, "匕首" }, { 152946, itemTypeTransmog, "板甲" }, { 152944, itemTypeTransmog, "板甲" }, { 152949, itemTypeTransmog, "板甲" }, { 152942, itemTypeTransmog, "板甲" }, { 152947, itemTypeTransmog, "板甲" }, { 152943, itemTypeTransmog, "板甲" }, { 152945, itemTypeTransmog, "板甲" }, { 152948, itemTypeTransmog, "板甲" } }, note = _L["Mistress Il'thendra_note"] },
+	{ coord = 56204550, npcId = 122999, questId = 49241, icon = "skull_grey", group = "rare_aw", label = _L["Gar'zoth"], search = { "加尔佐斯" }, loot = nil, _L["Gar'zoth_note"] },
 
 
-	{ coord = 59804030, npcId = 128024, questId = 0, icon = "battle_pet", group = "pet_aw", label = "小乌祖", loot = nil, note = nil },
-	{ coord = 76707390, npcId = 128023, questId = 0, icon = "battle_pet", group = "pet_aw", label = "小型克西斯号", loot = nil, note = nil },
-	{ coord = 51604140, npcId = 128019, questId = 0, icon = "battle_pet", group = "pet_aw", label = "凝视者", loot = nil, note = nil },
-	{ coord = 56605420, npcId = 128020, questId = 0, icon = "battle_pet", group = "pet_aw", label = "小胖", loot = nil, note = nil },
-	{ coord = 56102870, npcId = 128021, questId = 0, icon = "battle_pet", group = "pet_aw", label = "啮耳者", loot = nil, note = nil },
-	{ coord = 64106600, npcId = 128022, questId = 0, icon = "battle_pet", group = "pet_aw", label = "小贼", loot = nil, note = nil },
+	{ coord = 59804030, npcId = 128024, questId = 0, icon = "battle_pet", group = "pet_aw", label = _L["One-of-Many"], loot = nil, note = _L["One-of-Many_note"] },
+	{ coord = 76707390, npcId = 128023, questId = 0, icon = "battle_pet", group = "pet_aw", label = _L["Minixis"], loot = nil, note = _L["Minixis_note"] },
+	{ coord = 51604140, npcId = 128019, questId = 0, icon = "battle_pet", group = "pet_aw", label = _L["Watcher"], loot = nil, note = _L["Watcher_note"] },
+	{ coord = 56605420, npcId = 128020, questId = 0, icon = "battle_pet", group = "pet_aw", label = _L["Bloat"], loot = nil, note = _L["Bloat_note"] },
+	{ coord = 56102870, npcId = 128021, questId = 0, icon = "battle_pet", group = "pet_aw", label = _L["Earseeker"], loot = nil, note = _L["Earseeker_note"] },
+	{ coord = 64106600, npcId = 128022, questId = 0, icon = "battle_pet", group = "pet_aw", label = _L["Pilfer"], loot = nil, note = _L["Pilfer_note"] },
+	
+	{ coord = 60214557, npcId = 128134, questId = 0, icon = "eye", group = "npc_aw", label = _L["Orix the All-Seer"], loot = { { 153204, itemTypeToy }, { 153026, itemTypePet, 2115 } }, note = _L["Orix the All-Seer_note"] },
 
 	-- Shoot First, Loot Later
 	-- Requires 48201 Reinforce Light's Purchase
 	-- and 48202 -> followed by 47473 and/or 48929
-	{ coord = 58765894, objId=277204, questId = 49017, icon = "starChestBlue", group = "sfll_aw", label = "被遗忘的军团补给", loot = nil, note = "岩石挡住了道路。使用破裂的拉迪纳克斯控制宝石通过。（当光铸战争机甲可用时使用。）" },
-	{ coord = 65973977, objId=277205, questId = 49018, icon = "starChestYellow", group = "sfll_aw", label = "古老的军团战争储物箱", loot={ { 153308, itemTypeTransmog, "单手锤" } }, note = "小心跳下到小洞穴。滑翔会很有帮助。使用圣光裁决者移除岩石。" },
-	{ coord = 52192708, objId=277206, questId = 49019, icon = "starChestYellow", group = "sfll_aw", label = "邪能缠绕的宝箱", loot = nil, note = "开始点在东南方一点位于 53.7, 30.9。跳上岩石到达洞穴。岩石挡住了洞穴。使用圣光裁决者移除岩石。" },
-	{ coord = 49145940, objId=277207, questId = 49020, icon = "starChestBlank", group = "sfll_aw", label = "军团财宝", loot={ { 153291, itemTypeTransmog, "法杖" } }, note = "邪能瀑布后面。跳上去。" },
-	{ coord = 75595267, objId=277208, questId = 49021, icon = "starChestBlank", group = "sfll_aw", label = "历时久远的邪能宝箱", loot = nil, note = "起点位于全知者萨纳里安。从左侧穿过他的建筑物。沿着几块岩石跳下到达被绿色软泥围绕的宝箱。" },
+	{ coord = 58765894, objId = 277204, questId = 49017, icon = "starChestBlue", group = "sfll_aw", label = _L["Forgotten Legion Supplies"], loot = nil, note = _L["Forgotten Legion Supplies_note"] },
+	{ coord = 65973977, objId = 277205, questId = 49018, icon = "starChestYellow", group = "sfll_aw", label = _L["Ancient Legion War Cache"], loot = { { 153308, itemTypeTransmog, "单手锤" } }, note = _L["Ancient Legion War Cache_note"] },
+	{ coord = 52192708, objId = 277206, questId = 49019, icon = "starChestYellow", group = "sfll_aw", label = _L["Fel-Bound Chest"], loot = nil, note = _L["Fel-Bound Chest_note"] },
+	{ coord = 49145940, objId = 277207, questId = 49020, icon = "starChestBlank", group = "sfll_aw", label = _L["Legion Treasure Hoard"], loot = { { 153291, itemTypeTransmog, "法杖" } }, note = _L["Legion Treasure Hoard_note"] },
+	{ coord = 75595267, objId = 277208, questId = 49021, icon = "starChestBlank", group = "sfll_aw", label = _L["Timeworn Fel Chest"], loot = nil, note = _L["Timeworn Fel Chest_note"] },
 	-- no loot on wowhead yet
-	{ coord = 57426366, objId=277346, questId = 49159, icon = "starChestPurple", group = "sfll_aw", label = "丢失的奥古雷宝箱", loot = nil, note = "宝箱在下面绿软区域。使用奥术回响遮罩后打开宝箱。" },
+	{ coord = 57426366, objId = 277346, questId = 49159, icon = "starChestPurple", group = "sfll_aw", label = _L["Missing Augari Chest"], loot = nil, note = _L["Missing Augari Chest_note"] },
 
 	-- 48382
-	{ coord = 67546980, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = "建筑物内" },
-	{ coord = 67466226, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = nil },
-	{ coord = 71326946, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = "在哈多克斯边上" },
-	{ coord = 58066806, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = nil }, -- Doe
-	{ coord = 68026624, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = "军团建筑物内" },
-	{ coord = 64506868, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = "外面" },
+	{ coord = 67546980, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = _L["48382_67546980_note"] },
+	{ coord = 67466226, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = _L["48382_67466226_note"] },
+	{ coord = 71326946, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = _L["48382_71326946_note"] },
+	{ coord = 58066806, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = _L["48382_58066806_note"] },
+	{ coord = 68026624, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = _L["48382_68026624_note"] },
+	{ coord = 64506868, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = _L["48382_64506868_note"] },
 	-- 48383
-	{ coord = 56903570, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = nil },
-	{ coord = 57633179, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = nil },
-	{ coord = 52182918, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = nil },
-	{ coord = 58174021, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = nil },
-	{ coord = 51863409, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = nil },
-	{ coord = 55133930, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = nil },
-	{ coord = 58413097, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = "建筑物内，第一层" },
-	{ coord = 53753556, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = nil },
-	{ coord = 51703529, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = "悬崖的高处" },
+	{ coord = 56903570, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_56903570_note"] },
+	{ coord = 57633179, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_57633179_note"] },
+	{ coord = 52182918, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_52182918_note"] },
+	{ coord = 58174021, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_58174021_note"] },
+	{ coord = 51863409, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_51863409_note"] },
+	{ coord = 55133930, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_55133930_note"] },
+	{ coord = 58413097, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_58413097_note"] },
+	{ coord = 53753556, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_53753556_note"] },
+	{ coord = 51703529, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_51703529_note"] },
+	{ coord = 59853583, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_59853583_note"] },
 	-- 48384
-	{ coord = 60872900, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = nil },
-	{ coord = 61332054, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = "首席炼金师蒙库鲁斯建筑物内" },
-	{ coord = 59081942, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = "建筑物内" },
-	{ coord = 64152305, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = "驯犬大师克拉克斯洞穴内" },
-	{ coord = 66621709, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = "小鬼洞穴内，主母罗苏拉旁边" },
-	{ coord = 63682571, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = "驯犬大师克拉克斯洞穴前面" },
-	{ coord = 61862236, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = "外面，首席炼金师蒙库鲁斯旁边" },
-	{ coord = 64132738, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = nil }, -- Doe
+	{ coord = 60872900, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = _L["48384_60872900_note"] },
+	{ coord = 61332054, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = _L["48384_61332054_note"] },
+	{ coord = 59081942, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = _L["48384_59081942_note"] },
+	{ coord = 64152305, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = _L["48384_64152305_note"] },
+	{ coord = 66621709, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = _L["48384_66621709_note"] },
+	{ coord = 63682571, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = _L["48384_63682571_note"] },
+	{ coord = 61862236, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = _L["48384_61862236_note"] },
+	{ coord = 64132738, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = _L["48384_64132738_note"] },
 	-- 48385
-	{ coord = 50605720, questId = 48385, icon = "treasure", group = "treasure_aw", label = "48385", loot = nil, note = nil },
-	{ coord = 55544743, questId = 48385, icon = "treasure", group = "treasure_aw", label = "48385", loot = nil, note = nil },
-	{ coord = 57135124, questId = 48385, icon = "treasure", group = "treasure_aw", label = "48385", loot = nil, note = nil },
-	{ coord = 55915425, questId = 48385, icon = "treasure", group = "treasure_aw", label = "48385", loot = nil, note = nil }, -- Doe
-	{ coord = 48195451, questId = 48385, icon = "treasure", group = "treasure_aw", label = "48385", loot = nil, note = nil },
+	{ coord = 50605720, questId = 48385, icon = "treasure", group = "treasure_aw", label = "48385", loot = nil, note = _L["48385_50605720_note"] },
+	{ coord = 55544743, questId = 48385, icon = "treasure", group = "treasure_aw", label = "48385", loot = nil, note = _L["48385_55544743_note"] },
+	{ coord = 57135124, questId = 48385, icon = "treasure", group = "treasure_aw", label = "48385", loot = nil, note = _L["48385_57135124_note"] },
+	{ coord = 55915425, questId = 48385, icon = "treasure", group = "treasure_aw", label = "48385", loot = nil, note = _L["48385_55915425_note"] },
+	{ coord = 48195451, questId = 48385, icon = "treasure", group = "treasure_aw", label = "48385", loot = nil, note = _L["48385_48195451_note"] },
 	-- 48387
-	{ coord = 69403965, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = nil },
-	{ coord = 66643654, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = nil },
-	{ coord = 68983342, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = nil },
-	{ coord = 65522831, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = "桥下" },
-	{ coord = 63613643, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = nil }, -- Doe
-	{ coord = 73404669, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = "跳过软泥" },
-	{ coord = 67954006, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = nil },
+	{ coord = 69403965, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_69403965_note"] },
+	{ coord = 66643654, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_66643654_note"] },
+	{ coord = 68983342, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_68983342_note"] },
+	{ coord = 65522831, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_65522831_note"] },
+	{ coord = 63613643, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_63613643_note"] },
+	{ coord = 73404669, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_73404669_note"] },
+	{ coord = 67954006, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_67954006_note"] },
 	-- 48388
-	{ coord = 51502610, questId = 48388, icon = "treasure", group = "treasure_aw", label = "48388", loot = nil, note = nil },
-	{ coord = 59261743, questId = 48388, icon = "treasure", group = "treasure_aw", label = "48388", loot = nil, note = nil },
-	{ coord = 55921387, questId = 48388, icon = "treasure", group = "treasure_aw", label = "48388", loot = nil, note = nil },
-	{ coord = 55841722, questId = 48388, icon = "treasure", group = "treasure_aw", label = "48388", loot = nil, note = nil },
-	{ coord = 55622042, questId = 48388, icon = "treasure", group = "treasure_aw", label = "48388", loot = nil, note = "虚空守望者瓦苏拉边上，条上岩石斜坡" },
-	{ coord = 59661398, questId = 48388, icon = "treasure", group = "treasure_aw", label = "48388", loot = nil, note = nil }, -- Doe
-	{ coord = 54102803, questId = 48388, icon = "treasure", group = "treasure_aw", label = "48388", loot = nil, note = "艾瓦平台旁边" },
+	{ coord = 51502610, questId = 48388, icon = "treasure", group = "treasure_aw", label = "48388", loot = nil, note = _L["48388_51502610_note"] },
+	{ coord = 59261743, questId = 48388, icon = "treasure", group = "treasure_aw", label = "48388", loot = nil, note = _L["48388_59261743_note"] },
+	{ coord = 55921387, questId = 48388, icon = "treasure", group = "treasure_aw", label = "48388", loot = nil, note = _L["48388_55921387_note"] },
+	{ coord = 55841722, questId = 48388, icon = "treasure", group = "treasure_aw", label = "48388", loot = nil, note = _L["48388_55841722_note"] },
+	{ coord = 55622042, questId = 48388, icon = "treasure", group = "treasure_aw", label = "48388", loot = nil, note = _L["48388_55622042_note"] },
+	{ coord = 59661398, questId = 48388, icon = "treasure", group = "treasure_aw", label = "48388", loot = nil, note = _L["48388_59661398_note"] },
+	{ coord = 54102803, questId = 48388, icon = "treasure", group = "treasure_aw", label = "48388", loot = nil, note = _L["48388_54102803_note"] },
 	-- 48389
-	{ coord = 64305040, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = "瓦加洞穴内" },
-	{ coord = 60254351, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = nil },
-	{ coord = 65514081, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = nil },
-	{ coord = 60304675, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = nil },
-	{ coord = 65345192, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = "瓦加后面的洞穴内" },
-	{ coord = 64114242, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = "岩石下" },
-	{ coord = 58734323, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = "软泥之中的小空地上" },
+	{ coord = 64305040, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = _L["48389_64305040_note"] },
+	{ coord = 60254351, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = _L["48389_60254351_note"] },
+	{ coord = 65514081, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = _L["48389_65514081_note"] },
+	{ coord = 60304675, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = _L["48389_60304675_note"] },
+	{ coord = 65345192, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = _L["48389_65345192_note"] },
+	{ coord = 64114242, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = _L["48389_64114242_note"] },
+	{ coord = 58734323, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = _L["48389_58734323_note"] },
 	-- 48390
-	{ coord = 81306860, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = "在船上" },
-	{ coord = 80406152, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = nil },
-	{ coord = 82566503, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = "在船上" },
-	{ coord = 73316858, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = "雷尔瓦将军顶层边上" },
-	{ coord = 77127529, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = "维沙克斯传送门旁边" },
-	{ coord = 72527293, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = "雷尔瓦将军后面" },
-	{ coord = 77255876, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = "斜坡下" },
-	{ coord = 72215680, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = "建筑物内" },
-	{ coord = 73277299, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = "雷尔瓦将军后面" },
+	{ coord = 81306860, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = _L["48390_81306860_note"] },
+	{ coord = 80406152, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = _L["48390_80406152_note"] },
+	{ coord = 82566503, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = _L["48390_82566503_note"] },
+	{ coord = 73316858, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = _L["48390_73316858_note"] },
+	{ coord = 77127529, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = _L["48390_77127529_note"] },
+	{ coord = 72527293, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = _L["48390_72527293_note"] },
+	{ coord = 77255876, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = _L["48390_77255876_note"] },
+	{ coord = 72215680, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = _L["48390_72215680_note"] },
+	{ coord = 73277299, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = _L["48390_73277299_note"] },
 	-- 48391
-	{ coord = 64135867, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = "在维农的巢穴内" },
-	{ coord = 67404790, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = nil },
-	{ coord = 63615622, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = "在维农的巢穴内" },
-	{ coord = 65005049, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = "蜘蛛区域外" },
-	{ coord = 63035762, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = "在维农的巢穴内" },
-	{ coord = 65185507, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = "上面入口到蜘蛛区域" },
-	{ coord = 68095075, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = "蜘蛛区域小洞穴内" },
-	{ coord = 69815522, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = "蜘蛛区域外" },
-	{ coord = 71205441, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = "蜘蛛区域外" },
-	{ coord = 66544668, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = "出了蜘蛛区域北面有绿软泥区域。跳上岩石。" },
+	{ coord = 64135867, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_64135867_note"] },
+	{ coord = 67404790, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_67404790_note"] },
+	{ coord = 63615622, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_63615622_note"] },
+	{ coord = 65005049, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_65005049_note"] },
+	{ coord = 63035762, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_63035762_note"] },
+	{ coord = 65185507, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_65185507_note"] },
+	{ coord = 68095075, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_68095075_note"] },
+	{ coord = 69815522, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_69815522_note"] },
+	{ coord = 71205441, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_71205441_note"] },
+	{ coord = 66544668, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_66544668_note"] },
 
 }
 
 -- Krokuun
 nodes["ArgusSurface"] = {
-	{ coord = 44390734, npcId = 125824, questId = 48561, icon = "skull_grey", group = "rare_kr", label = "卡扎杜姆", search = { "卡扎杜姆" }, loot ={ { 153316, itemTypeTransmog, "双手剑" }, { 152946, itemTypeTransmog, "板甲" }, { 152944, itemTypeTransmog, "板甲" }, { 152949, itemTypeTransmog, "板甲" }, { 152942, itemTypeTransmog, "板甲" }, { 152947, itemTypeTransmog, "板甲" }, { 152943, itemTypeTransmog, "板甲" }, { 152945, itemTypeTransmog, "板甲" }, { 152948, itemTypeTransmog, "板甲" } }, note = "入口在东南位于 50.3, 17.3" },
-	{ coord = 33007600, npcId = 122912, questId = 48562, icon = "skull_grey", group = "rare_kr", label = "指挥官萨森纳尔", search = { "萨森纳尔" }, loot =nil, note = nil },
-	{ coord = 44505870, npcId = 124775, questId = 48564, icon = "skull_grey", group = "rare_kr", label = "指挥官安达西斯", search = { "安达西斯" }, loot ={ { 153255, itemTypeTransmog, "单手锤" }, { 152946, itemTypeTransmog, "板甲" }, { 152944, itemTypeTransmog, "板甲" }, { 152949, itemTypeTransmog, "板甲" }, { 152942, itemTypeTransmog, "板甲" }, { 152947, itemTypeTransmog, "板甲" }, { 152943, itemTypeTransmog, "板甲" }, { 152945, itemTypeTransmog, "板甲" }, { 152948, itemTypeTransmog, "板甲" } }, note = nil },
-	{ coord = 53403090, npcId = 123464, questId = 48565, icon = "skull_grey", group = "rare_kr", label = "苏薇西娅姐妹", search = { "姐妹" }, loot = { { 153124, itemTypeToy } }, note = nil },
-	{ coord = 58007480, npcId = 120393, questId = 48627, icon = "skull_grey", group = "rare_kr", label = "攻城大师沃兰", search = { "攻城大师" }, loot =nil, note = nil },
-	{ coord = 54688126, npcId = 123689, questId = 48628, icon = "skull_grey", group = "rare_kr", label = "恶毒者泰勒斯塔", search = { "恶毒者" }, loot ={ { 153329, itemTypeTransmog, "匕首" }, { 152946, itemTypeTransmog, "板甲" }, { 152944, itemTypeTransmog, "板甲" }, { 152949, itemTypeTransmog, "板甲" }, { 152942, itemTypeTransmog, "板甲" }, { 152947, itemTypeTransmog, "板甲" }, { 152943, itemTypeTransmog, "板甲" }, { 152945, itemTypeTransmog, "板甲" }, { 152948, itemTypeTransmog, "板甲" } }, note = nil },
-	{ coord = 38145920, npcId = 122911, questId = 48563, icon = "skull_grey", group = "rare_kr", label = "指挥官维卡娅", search = { "维卡娅" }, loot ={ { 153299, itemTypeTransmog, "单手剑" }, { 152946, itemTypeTransmog, "板甲" }, { 152944, itemTypeTransmog, "板甲" }, { 152949, itemTypeTransmog, "板甲" }, { 152942, itemTypeTransmog, "板甲" }, { 152947, itemTypeTransmog, "板甲" }, { 152943, itemTypeTransmog, "板甲" }, { 152945, itemTypeTransmog, "板甲" }, { 152948, itemTypeTransmog, "板甲" } }, note = "路径起始点在东，位于 42, 57.1" },
-	{ coord = 60802080, npcId = 125388, questId = 48629, icon = "skull_grey", group = "rare_kr", label = "背弃者瓦加斯", search = { "背弃者" }, loot ={ { 153114, itemTypeMisc } }, note = nil },
-	{ coord = 69605750, npcId = 124804, questId = 48664, icon = "skull_grey", group = "rare_kr", label = "分选者泰瑞克", search = { "分选者" }, loot ={ { 153263, itemTypeTransmog, "单手斧" }, { 152946, itemTypeTransmog, "板甲" }, { 152944, itemTypeTransmog, "板甲" }, { 152949, itemTypeTransmog, "板甲" }, { 152942, itemTypeTransmog, "板甲" }, { 152947, itemTypeTransmog, "板甲" }, { 152943, itemTypeTransmog, "板甲" }, { 152945, itemTypeTransmog, "板甲" }, { 152948, itemTypeTransmog, "板甲" } }, note = nil },
-	{ coord = 69708050, npcId = 125479, questId = 48665, icon = "skull_grey", group = "rare_kr", label = "焦油喷吐者", search = { "焦油" }, loot =nil, note = nil },
-	{ coord = 41707020, npcId = 125820, questId = 48666, icon = "skull_grey", group = "rare_kr", label = "鬼母拉格拉丝", search = { "鬼母" }, loot =nil, note = nil },
-	{ coord = 71063274, npcId = 126419, questId = 48667, icon = "skull_grey", group = "rare_kr", label = "纳罗瓦", search = { "纳罗瓦" }, loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = nil },
+	{ coord = 44390734, npcId = 125824, questId = 48561, icon = "skull_grey", group = "rare_kr", label = _L["Khazaduum"], search = { "卡扎杜姆" }, loot = { { 153316, itemTypeTransmog, "双手剑" }, { 152946, itemTypeTransmog, "板甲" }, { 152944, itemTypeTransmog, "板甲" }, { 152949, itemTypeTransmog, "板甲" }, { 152942, itemTypeTransmog, "板甲" }, { 152947, itemTypeTransmog, "板甲" }, { 152943, itemTypeTransmog, "板甲" }, { 152945, itemTypeTransmog, "板甲" }, { 152948, itemTypeTransmog, "板甲" } }, note = _L["Khazaduum_note"] },
+	{ coord = 33007600, npcId = 122912, questId = 48562, icon = "skull_grey", group = "rare_kr", label = _L["Commander Sathrenael"], search = { "萨森纳尔" }, loot = nil, note = _L["Commander Sathrenael_note"] },
+	{ coord = 44505870, npcId = 124775, questId = 48564, icon = "skull_grey", group = "rare_kr", label = _L["Commander Endaxis"], search = { "安达西斯" }, loot = { { 153255, itemTypeTransmog, "单手锤" }, { 152946, itemTypeTransmog, "板甲" }, { 152944, itemTypeTransmog, "板甲" }, { 152949, itemTypeTransmog, "板甲" }, { 152942, itemTypeTransmog, "板甲" }, { 152947, itemTypeTransmog, "板甲" }, { 152943, itemTypeTransmog, "板甲" }, { 152945, itemTypeTransmog, "板甲" }, { 152948, itemTypeTransmog, "板甲" } }, note = _L["Commander Endaxis_note"] },
+	{ coord = 53403090, npcId = 123464, questId = 48565, icon = "skull_grey", group = "rare_kr", label = _L["Sister Subversia"], search = { "姐妹" }, loot = { { 153124, itemTypeToy } }, note = _L["Sister Subversia_note"] },
+	{ coord = 58007480, npcId = 120393, questId = 48627, icon = "skull_grey", group = "rare_kr", label = _L["Siegemaster Voraan"], search = { "攻城大师" }, loot = nil, note = _L["Siegemaster Voraan_note"] },
+	{ coord = 54688126, npcId = 123689, questId = 48628, icon = "skull_grey", group = "rare_kr", label = _L["Talestra the Vile"], search = { "恶毒者" }, loot = { { 153329, itemTypeTransmog, "匕首" }, { 152946, itemTypeTransmog, "板甲" }, { 152944, itemTypeTransmog, "板甲" }, { 152949, itemTypeTransmog, "板甲" }, { 152942, itemTypeTransmog, "板甲" }, { 152947, itemTypeTransmog, "板甲" }, { 152943, itemTypeTransmog, "板甲" }, { 152945, itemTypeTransmog, "板甲" }, { 152948, itemTypeTransmog, "板甲" } }, note = _L["Talestra the Vile_note"] },
+	{ coord = 38145920, npcId = 122911, questId = 48563, icon = "skull_grey", group = "rare_kr", label = _L["Commander Vecaya"], search = { "维卡娅" }, loot = { { 153299, itemTypeTransmog, "单手剑" }, { 152946, itemTypeTransmog, "板甲" }, { 152944, itemTypeTransmog, "板甲" }, { 152949, itemTypeTransmog, "板甲" }, { 152942, itemTypeTransmog, "板甲" }, { 152947, itemTypeTransmog, "板甲" }, { 152943, itemTypeTransmog, "板甲" }, { 152945, itemTypeTransmog, "板甲" }, { 152948, itemTypeTransmog, "板甲" } }, note = _L["Commander Vecaya_note"] },
+	{ coord = 60802080, npcId = 125388, questId = 48629, icon = "skull_grey", group = "rare_kr", label = _L["Vagath the Betrayed"], search = { "背弃者" }, loot = { { 153114, itemTypeMisc } }, note = _L["Vagath the Betrayed_note"] },
+	{ coord = 69605750, npcId = 124804, questId = 48664, icon = "skull_grey", group = "rare_kr", label = _L["Tereck the Selector"], search = { "分选者" }, loot = { { 153263, itemTypeTransmog, "单手斧" }, { 152946, itemTypeTransmog, "板甲" }, { 152944, itemTypeTransmog, "板甲" }, { 152949, itemTypeTransmog, "板甲" }, { 152942, itemTypeTransmog, "板甲" }, { 152947, itemTypeTransmog, "板甲" }, { 152943, itemTypeTransmog, "板甲" }, { 152945, itemTypeTransmog, "板甲" }, { 152948, itemTypeTransmog, "板甲" } }, note = _L["Tereck the Selector_note"] },
+	{ coord = 69708050, npcId = 125479, questId = 48665, icon = "skull_grey", group = "rare_kr", label = _L["Tar Spitter"], search = { "焦油" }, loot = nil, note = _L["Tar Spitter_note"] },
+	{ coord = 41707020, npcId = 125820, questId = 48666, icon = "skull_grey", group = "rare_kr", label = _L["Imp Mother Laglath"], search = { "鬼母" }, loot = nil, note = _L["Imp Mother Laglath_note"] },
+	{ coord = 71063274, npcId = 126419, questId = 48667, icon = "skull_grey", group = "rare_kr", label = _L["Naroua"], search = { "纳罗瓦" }, loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = _L["Naroua_note"] },
 
-	{ coord = 43005200, npcId = 128009, questId = 0, icon = "battle_pet", group = "pet_kr", label = "梦魇之焰", loot = nil, note = nil },
-	{ coord = 51506380, npcId = 128008, questId = 0, icon = "battle_pet", group = "pet_kr", label = "污染之爪", loot = nil, note = nil },
-	{ coord = 66847263, npcId = 128007, questId = 0, icon = "battle_pet", group = "pet_kr", label = "毁灭之蹄", loot = nil, note = nil },
-	{ coord = 29605790, npcId = 128011, questId = 0, icon = "battle_pet", group = "pet_kr", label = "死亡之啸", loot = nil, note = nil },
-	{ coord = 39606650, npcId = 128012, questId = 0, icon = "battle_pet", group = "pet_kr", label = "小牙", loot = nil, note = nil },
-	{ coord = 58302970, npcId = 128010, questId = 0, icon = "battle_pet", group = "pet_kr", label = "小脏", loot = nil, note = nil },
+	{ coord = 43005200, npcId = 128009, questId = 0, icon = "battle_pet", group = "pet_kr", label = _L["Baneglow"], loot = nil, note = _L["Baneglow_note"] },
+	{ coord = 51506380, npcId = 128008, questId = 0, icon = "battle_pet", group = "pet_kr", label = _L["Foulclaw"], loot = nil, note = _L["Foulclaw_note"] },
+	{ coord = 66847263, npcId = 128007, questId = 0, icon = "battle_pet", group = "pet_kr", label = _L["Ruinhoof"], loot = nil, note = _L["Ruinhoof_note"] },
+	{ coord = 29605790, npcId = 128011, questId = 0, icon = "battle_pet", group = "pet_kr", label = _L["Deathscreech"], loot = nil, note = _L["Deathscreech_note"] },
+	{ coord = 39606650, npcId = 128012, questId = 0, icon = "battle_pet", group = "pet_kr", label = _L["Gnasher"], loot = nil, note = _L["Gnasher_note"] },
+	{ coord = 58302970, npcId = 128010, questId = 0, icon = "battle_pet", group = "pet_kr", label = _L["Retch"], loot = nil, note = _L["Retch_note"] },
 
 	-- Shoot First, Loot Later
-	{ coord = 51407622, objId=276490, questId = 48884, icon = "starChestBlue", group = "sfll_kr", label = "克罗库紧急储物箱", loot={ { 153304, itemTypeTransmog, "单手斧" } }, note = "洞穴在悬崖上。岩石挡住了道路。使用破裂的拉迪纳克斯控制宝石通过。（当光铸战争机甲可用时使用。）" },
-	{ coord = 62783753, objId=276489, questId = 48885, icon = "starChestYellow", group = "sfll_kr", label = "军团塔楼宝箱", loot = nil, note = "在通往纳罗瓦的路上有被巨石挡住的宝箱。使用圣光裁决者移除岩石。" },
-	{ coord = 48555894, objId=276491, questId = 48886, icon = "starChestYellow", group = "sfll_kr", label = "丢失的克罗库宝箱", loot = nil, note = "道路延伸到小洞穴。使用圣光裁决者移除岩石。" },
-	{ coord = 75176975, objId=277343, questId = 49154, icon = "starChestPurple", group = "sfll_kr", label = "失落已久的奥古雷宝藏", loot = nil, note = "使用奥术回响遮罩后打开宝箱" },
-	{ coord = 55937428, objId=277344, questId = 49156, icon = "starChestPurple", group = "sfll_kr", label = "珍贵的奥古雷信物", loot = nil, note = "使用奥术回响遮罩后打开宝箱" },
+	{ coord = 51407622, objId = 276490, questId = 48884, icon = "starChestBlue", group = "sfll_kr", label = _L["Krokul Emergency Cache"], loot = { { 153304, itemTypeTransmog, "单手斧" } }, note = _L["Krokul Emergency Cache_note"] },
+	{ coord = 62783753, objId = 276489, questId = 48885, icon = "starChestYellow", group = "sfll_kr", label = _L["Legion Tower Chest"], loot = nil, note = _L["Legion Tower Chest_note"] },
+	{ coord = 48555894, objId = 276491, questId = 48886, icon = "starChestYellow", group = "sfll_kr", label = _L["Lost Krokul Chest"], loot = nil, note = _L["Lost Krokul Chest_note"] },
+	{ coord = 75176975, objId = 277343, questId = 49154, icon = "starChestPurple", group = "sfll_kr", label = _L["Long-Lost Augari Treasure"], loot = nil, note = _L["Long-Lost Augari Treasure_note"] },
+	{ coord = 55937428, objId = 277344, questId = 49156, icon = "starChestPurple", group = "sfll_kr", label = _L["Precious Augari Keepsakes"], loot = nil, note = _L["Precious Augari Keepsakes_note"] },
 
 	-- 47752
-	{ coord = 55555863, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = "跳上岩石，起点偏西" },
-	{ coord = 52185431, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = "位于第一次看到奥蕾莉亚的上面" },
-	{ coord = 50405122, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = "位于第一次看到奥蕾莉亚的上面" },
-	{ coord = 53265096, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = "位于第一次看到奥蕾莉亚的上面。在绿色软泥的另一边。邪能很疼！" },
-	{ coord = 57005472, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = "岩层下面，窄小地面上" }, -- Doe
-	{ coord = 59695196, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = "泽斯塔尔旁边，岩石后面。" }, -- todo:verify
-	{ coord = 51425958, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = nil },
+	{ coord = 55555863, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = _L["47752_55555863_note"] },
+	{ coord = 52185431, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = _L["47752_52185431_note"] },
+	{ coord = 50405122, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = _L["47752_50405122_note"] },
+	{ coord = 53265096, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = _L["47752_53265096_note"] },
+	{ coord = 57005472, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = _L["47752_57005472_note"] },
+	{ coord = 59695196, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = _L["47752_59695196_note"] },
+	{ coord = 51425958, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = _L["47752_51425958_note"] },
 	-- 47753
-	{ coord = 53137304, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = nil },
-	{ coord = 55228114, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = nil },
-	{ coord = 59267341, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = nil },
-	{ coord = 56118037, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = "恶毒者泰勒斯塔建筑物外" },
-	{ coord = 58597958, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = "恶魔尖塔后面" },
-	{ coord = 58197157, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = nil }, -- Doe
-	{ coord = 52737591, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = "岩石后面" },
-	{ coord = 58048036, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = nil },
+	{ coord = 53137304, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = _L["47753_53137304_note"] },
+	{ coord = 55228114, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = _L["47753_55228114_note"] },
+	{ coord = 59267341, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = _L["47753_59267341_note"] },
+	{ coord = 56118037, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = _L["47753_56118037_note"] },
+	{ coord = 58597958, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = _L["47753_58597958_note"] },
+	{ coord = 58197157, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = _L["47753_58197157_note"] },
+	{ coord = 52737591, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = _L["47753_52737591_note"] },
+	{ coord = 58048036, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = _L["47753_58048036_note"] },
 	-- 47997
-	{ coord = 45876777, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = "岩石下，桥旁边" },
-	{ coord = 45797753, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = nil }, -- Doe
-	{ coord = 43858139, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = "起点位于 49.1, 69.3。沿着向南方的山脊到达宝箱。" },
-	{ coord = 43816689, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = "岩石下。桥旁边跳下。" },
-	{ coord = 40687531, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = nil }, -- Doe
-	{ coord = 46996831, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = "在龙头骨上" },
-	{ coord = 41438003, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = "爬上岩石到达被摧毁的军团战舰" },
-	{ coord = 41548379, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = nil }, -- Doe
-	{ coord = 46458665, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = "跳过岩石到达宝箱。" },
-	{ coord = 40357414, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = nil },
+	{ coord = 45876777, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = _L["47997_45876777_note"] },
+	{ coord = 45797753, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = _L["47997_45797753_note"] },
+	{ coord = 43858139, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = _L["47997_43858139_note"] },
+	{ coord = 43816689, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = _L["47997_43816689_note"] },
+	{ coord = 40687531, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = _L["47997_40687531_note"] },
+	{ coord = 46996831, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = _L["47997_46996831_note"] },
+	{ coord = 41438003, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = _L["47997_41438003_note"] },
+	{ coord = 41548379, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = _L["47997_41548379_note"] },
+	{ coord = 46458665, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = _L["47997_46458665_note"] },
+	{ coord = 40357414, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = _L["47997_40357414_note"] },
 	-- 47999
-	{ coord = 62592581, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = nil },
-	{ coord = 59763951, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = nil },
-	{ coord = 59071884, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = "上面，岩石后面" },
-	{ coord = 61643520, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = nil },
-	{ coord = 61463580, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = "建筑物内" },
-	{ coord = 59603052, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = "桥面上" },
-	{ coord = 60891852, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = "背弃者瓦加斯后面小屋内" },
-	{ coord = 49063350, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = nil },
-	{ coord = 65992286, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = nil },
-	{ coord = 64632319, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = "建筑物内" },
-	{ coord = 51533583, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = "建筑物外，越过小软泥湖" },
-	{ coord = 60422354, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = nil },
+	{ coord = 62592581, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_62592581_note"] },
+	{ coord = 59763951, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_59763951_note"] },
+	{ coord = 59071884, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_59071884_note"] },
+	{ coord = 61643520, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_61643520_note"] },
+	{ coord = 61463580, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_61463580_note"] },
+	{ coord = 59603052, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_59603052_note"] },
+	{ coord = 60891852, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_60891852_note"] },
+	{ coord = 49063350, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_49063350_note"] },
+	{ coord = 65992286, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_65992286_note"] },
+	{ coord = 64632319, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_64632319_note"] },
+	{ coord = 51533583, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_51533583_note"] },
+	{ coord = 60422354, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_60422354_note"] },
 	-- 48000
-	{ coord = 70907370, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = nil },
-	{ coord = 74136790, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = nil },
-	{ coord = 75166435, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = "洞穴尽头" },
-	{ coord = 69605772, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = nil },
-	{ coord = 69787836, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = "跳上斜坡到达" },
-	{ coord = 68566054, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = "分选者泰瑞克洞穴前面" },
-	{ coord = 72896482, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = nil },
-	{ coord = 71827536, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = nil }, -- Doe
-	{ coord = 73577146, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = nil }, -- Doe
-	{ coord = 71846166, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = "爬上斜状柱子" },
-	{ coord = 67886231, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = "柱子后面" },
-	{ coord = 74996922, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = nil },
+	{ coord = 70907370, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_70907370_note"] },
+	{ coord = 74136790, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_74136790_note"] },
+	{ coord = 75166435, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_75166435_note"] },
+	{ coord = 69605772, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_69605772_note"] },
+	{ coord = 69787836, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_69787836_note"] },
+	{ coord = 68566054, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_68566054_note"] },
+	{ coord = 72896482, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_72896482_note"] },
+	{ coord = 71827536, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_71827536_note"] },
+	{ coord = 73577146, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_73577146_note"] },
+	{ coord = 71846166, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_71846166_note"] },
+	{ coord = 67886231, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_67886231_note"] },
+	{ coord = 74996922, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_74996922_note"] },
 	-- 48336
-	{ coord = 33575511, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = "泽尼达尔内上层，外面" },
-	{ coord = 32047441, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = nil },
-	{ coord = 27196668, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = nil },
-	{ coord = 31936750, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = nil },
-	{ coord = 35415637, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = "地面，在去往泽尼达尔入口下面的前方" },
-	{ coord = 29645761, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = "洞穴内" },
-	{ coord = 40526067, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = "黄色小屋内" }, -- Doe
-	{ coord = 36205543, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = "泽尼达尔内，上层" }, -- Doe
-	{ coord = 25996814, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = nil },
-	{ coord = 37176401, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = "残骸下面" },
-	{ coord = 28247134, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = nil },
-	{ coord = 30276403, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = "位于逃生平台" },
+	{ coord = 33575511, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_33575511_note"] },
+	{ coord = 32047441, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_32047441_note"] },
+	{ coord = 27196668, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_27196668_note"] },
+	{ coord = 31936750, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_31936750_note"] },
+	{ coord = 35415637, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_35415637_note"] },
+	{ coord = 29645761, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_29645761_note"] },
+	{ coord = 40526067, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_40526067_note"] },
+	{ coord = 36205543, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_36205543_note"] },
+	{ coord = 25996814, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_25996814_note"] },
+	{ coord = 37176401, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_37176401_note"] },
+	{ coord = 28247134, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_28247134_note"] },
+	{ coord = 30276403, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_30276403_note"] },
 	-- 48339
-	{ coord = 68533891, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = nil },
-	{ coord = 63054240, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = nil },
-	{ coord = 64964156, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = nil },
-	{ coord = 73393438, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = nil },
-	{ coord = 72213234, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = "巨大头骨后面" }, -- Doe
-	{ coord = 65983499, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = nil },
-	{ coord = 64934217, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = "在树干内" },
-	{ coord = 67713454, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = nil },
-	{ coord = 72493605, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = nil },
+	{ coord = 68533891, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_68533891_note"] },
+	{ coord = 63054240, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_63054240_note"] },
+	{ coord = 64964156, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_64964156_note"] },
+	{ coord = 73393438, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_73393438_note"] },
+	{ coord = 72213234, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_72213234_note"] },
+	{ coord = 65983499, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_65983499_note"] },
+	{ coord = 64934217, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_64934217_note"] },
+	{ coord = 67713454, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_67713454_note"] },
+	{ coord = 72493605, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_72493605_note"] },
 
 }
 
 nodes["ArgusCitadelSpire"] = {
-	{ coord = 38954032, npcId = 125824, questId = 48561, icon = "skull_grey", group = "rare_kr", label = "卡扎杜姆", search = { "卡扎杜姆" }, loot ={ { 153316, itemTypeTransmog, "双手剑" }, { 152946, itemTypeTransmog, "板甲" }, { 152944, itemTypeTransmog, "板甲" }, { 152949, itemTypeTransmog, "板甲" }, { 152942, itemTypeTransmog, "板甲" }, { 152947, itemTypeTransmog, "板甲" }, { 152943, itemTypeTransmog, "板甲" }, { 152945, itemTypeTransmog, "板甲" }, { 152948, itemTypeTransmog, "板甲" } }, note = nil },
+	{ coord = 38954032, npcId = 125824, questId = 48561, icon = "skull_grey", group = "rare_kr", label = _L["Khazaduum"], search = { "卡扎杜姆" }, loot = { { 153316, itemTypeTransmog, "双手剑" }, { 152946, itemTypeTransmog, "板甲" }, { 152944, itemTypeTransmog, "板甲" }, { 152949, itemTypeTransmog, "板甲" }, { 152942, itemTypeTransmog, "板甲" }, { 152947, itemTypeTransmog, "板甲" }, { 152943, itemTypeTransmog, "板甲" }, { 152945, itemTypeTransmog, "板甲" }, { 152948, itemTypeTransmog, "板甲" } }, note = _L["Khazaduum_note"] },
 }
 
 -- Mac'Aree
 nodes["ArgusMacAree"] = {
-	{ coord = 44607160, npcId = 122838, questId = 48692, icon = "skull_grey", group = "rare_ma", label = "暗影法师沃伦", search = { "暗影法师" }, loot = { { 153296, itemTypeTransmog, "单手剑" } }, note = "5分钟刷新时间！" },
-	{ coord = 52976684, npcId = 126815, questId = 48693, icon = "skull_grey", group = "rare_ma", label = "灵魂扭曲的畸体", search = { "畸体" }, loot =nil, note = nil },
-	{ coord = 55536016, npcId = 126852, questId = 48695, icon = "skull_grey", group = "rare_ma", label = "牧羊人卡沃斯", search = { "牧羊人" }, loot ={ { 153269, itemTypeTransmog, "单手斧" }, { 152814, itemTypeMount, 970 } }, note = nil },
-	{ coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = "苍白的卡拉", search = { "苍白" }, loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = nil },
-	-- { coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = "苍白的卡拉", search = { "苍白" }, loot =nil, note = nil },
-	{ coord = 41121149, npcId = 126864, questId = 48702, icon = "skull_grey", group = "rare_ma", label = "麦芬大盗费舍尔", search = { "大盗" }, loot ={ { 152998, itemTypeMisc } }, note = "打断钻地" },
-	{ coord = 36682383, npcId = 126865, questId = 48703, icon = "skull_grey", group = "rare_ma", label = "警卫泰诺斯", search = { "泰诺斯" }, loot ={ { 153322, itemTypeTransmog, "盾牌" } }, note = nil },
-	{ coord = 63806460, npcId = 126866, questId = 48704, icon = "skull_grey", group = "rare_ma", label = "警卫库洛", search = { "库洛" }, loot ={ { 153323, itemTypeTransmog, "盾牌" }, { 153183, itemTypeToy } }, note = nil },
-	{ coord = 33654801, npcId = 126867, questId = 48705, icon = "skull_grey", group = "rare_ma", label = "毒尾天鳍鳐", search = { "毒尾" }, loot ={ { 152844, itemTypeMount, 973 } }, note = nil },
-	{ coord = 38226435, npcId = 126868, questId = 48706, icon = "skull_grey", group = "rare_ma", label = "清醒者图瑞克", search = { "清醒者" }, loot ={ { 153306, itemTypeTransmog, "单手斧" } }, note = "下楼进入建筑物" },
-	{ coord = 27192995, npcId = 126869, questId = 48707, icon = "skull_grey", group = "rare_ma", label = "法鲁克队长", search = { "法鲁克" }, loot =nil, note = nil },
-	{ coord = 34943711, npcId = 126885, questId = 48708, icon = "skull_grey", group = "rare_ma", label = "乌伯拉利斯", search = { "乌伯拉利斯" }, loot =nil, note = nil },
-	{ coord = 70294598, npcId = 126889, questId = 48710, icon = "skull_grey", group = "rare_ma", label = "厄运者索洛里斯", search = { "厄运者" }, loot ={ { 153292, itemTypeTransmog, "法杖" } }, note = nil },
-	{ coord = 35965897, npcId = 126896, questId = 48711, icon = "skull_grey", group = "rare_ma", label = "混沌先驱", search = { "先驱" }, loot =nil, note = "位于第二层。" },
-	{ coord = 44204980, npcId = 126898, questId = 48712, icon = "skull_grey", group = "rare_ma", label = "沙布尔", search = { "沙布尔" }, loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = nil },
-	{ coord = 48504090, npcId = 126899, questId = 48713, icon = "skull_grey", group = "rare_ma", label = "杰德尼勇士沃鲁斯克", search = { "杰德尼勇士" }, loot = { { 153302, itemTypeTransmog, "单手剑" } }, note = nil },
-	{ coord = 58783762, npcId = 124440, questId = 48714, icon = "skull_grey", group = "rare_ma", label = "监视者伊比达", search = { "伊比达" }, loot ={ { 153315, itemTypeTransmog, "双手剑" } }, note = nil },
-	{ coord = 58003090, npcId = 125497, questId = 48716, icon = "skull_grey", group = "rare_ma", label = "监视者伊索纳", search = { "伊索纳" }, loot ={ { 153268, itemTypeTransmog, "单手斧" } }, note = nil },
-	{ coord = 60982982, npcId = 125498, questId = 48717, icon = "skull_grey", group = "rare_ma", label = "监视者伊莫拉", search = { "伊莫拉" }, loot = { { 153257, itemTypeTransmog, "单手锤" } }, note = nil },
-	{ coord = 61575035, npcId = 126900, questId = 48718, icon = "skull_grey", group = "rare_ma", label = "导师塔拉娜", search = { "导师" }, loot ={ { 153309, itemTypeTransmog, "单手锤" }, { 153179, itemTypeToy }, { 153180, itemTypeToy }, { 153181, itemTypeToy } }, note = nil },
-	{ coord = 66742845, npcId = 126908, questId = 48719, icon = "skull_grey", group = "rare_ma", label = "万千之主祖尔坦", search = { "万千之主" }, loot =nil, note = "建筑物内" },
-	{ coord = 56801450, npcId = 126910, questId = 48720, icon = "skull_grey", group = "rare_ma", label = "指挥官泽斯加尔", search = { "泽斯加尔" }, loot =nil, note = nil },
-	{ coord = 49870953, npcId = 126912, questId = 48721, icon = "skull_grey", group = "rare_ma", label = "吞噬者斯克里格", search = { "斯克里格" }, loot ={ { 152904, itemTypeMount, 980 } }, note = nil },
-	{ coord = 43846065, npcId = 126862, questId = 48700, icon = "skull_grey", group = "rare_ma", label = "嗜血的巴鲁特", search = { "巴鲁特" }, loot = { { 153193, itemTypeToy } }, note = nil },
-	{ coord = 30124019, npcId = 126887, questId = 48709, icon = "skull_grey", group = "rare_ma", label = "阿塔克松", search = { "阿塔克松" }, loot = { { 153056, itemTypePet, 2120 } }, note = nil },
+	{ coord = 44607160, npcId = 122838, questId = 48692, icon = "skull_grey", group = "rare_ma", label = _L["Shadowcaster Voruun"], search = { "暗影法师" }, loot = { { 153296, itemTypeTransmog, "单手剑" } }, note = _L["Shadowcaster Voruun_note"] },
+	{ coord = 52976684, npcId = 126815, questId = 48693, icon = "skull_grey", group = "rare_ma", label = _L["Soultwisted Monstrosity"], search = { "畸体" }, loot = nil, note = _L["Soultwisted Monstrosity_note"] },
+	{ coord = 55536016, npcId = 126852, questId = 48695, icon = "skull_grey", group = "rare_ma", label = _L["Wrangler Kravos"], search = { "牧羊人" }, loot = { { 153269, itemTypeTransmog, "单手斧" }, { 152814, itemTypeMount, 970 } }, note = _L["Wrangler Kravos_note"] },
+	{ coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = _L["Kaara the Pale"], search = { "苍白" }, loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = _L["Kaara the Pale_note"] },
+	-- { coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = _L["Kaara the Pale"], search = { "苍白" }, loot = nil, note = _L["Kaara the Pale_note"] },
+	{ coord = 41121149, npcId = 126864, questId = 48702, icon = "skull_grey", group = "rare_ma", label = _L["Feasel the Muffin Thief"], search = { "大盗" }, loot = { { 152998, itemTypeMisc } }, note = _L["Feasel the Muffin Thief_note"] },
+	{ coord = 36682383, npcId = 126865, questId = 48703, icon = "skull_grey", group = "rare_ma", label = _L["Vigilant Thanos"], search = { "泰诺斯" }, loot = { { 153322, itemTypeTransmog, "盾牌" } }, note = _L["Vigilant Thanos_note"] },
+	{ coord = 63806460, npcId = 126866, questId = 48704, icon = "skull_grey", group = "rare_ma", label = _L["Vigilant Kuro"], search = { "库洛" }, loot = { { 153323, itemTypeTransmog, "盾牌" }, { 153183, itemTypeToy } }, note = _L["Vigilant Kuro_note"] },
+	{ coord = 33654801, npcId = 126867, questId = 48705, icon = "skull_grey", group = "rare_ma", label = _L["Venomtail Skyfin"], search = { "毒尾" }, loot = { { 152844, itemTypeMount, 973 } }, note = _L["Venomtail Skyfin_note"] },
+	{ coord = 38226435, npcId = 126868, questId = 48706, icon = "skull_grey", group = "rare_ma", label = _L["Turek the Lucid"], search = { "清醒者" }, loot = { { 153306, itemTypeTransmog, "单手斧" } }, note = _L["Turek the Lucid_note"] },
+	{ coord = 27192995, npcId = 126869, questId = 48707, icon = "skull_grey", group = "rare_ma", label = _L["Captain Faruq"], search = { "法鲁克" }, loot = nil, note = _L["Captain Faruq_note"] },
+	{ coord = 34943711, npcId = 126885, questId = 48708, icon = "skull_grey", group = "rare_ma", label = _L["Umbraliss"], search = { "乌伯拉利斯" }, loot = nil, note = _L["Umbraliss_note"] },
+	{ coord = 70294598, npcId = 126889, questId = 48710, icon = "skull_grey", group = "rare_ma", label = _L["Sorolis the Ill-Fated"], search = { "厄运者" }, loot = { { 153292, itemTypeTransmog, "法杖" } }, note = _L["Sorolis the Ill-Fated_note"] },
+	{ coord = 35965897, npcId = 126896, questId = 48711, icon = "skull_grey", group = "rare_ma", label = _L["Herald of Chaos"], search = { "先驱" }, loot = nil,  note = _L["Herald of Chaos_note"] },
+	{ coord = 44204980, npcId = 126898, questId = 48712, icon = "skull_grey", group = "rare_ma", label = _L["Sabuul"], search = { "沙布尔" }, loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = _L["Sabuul_note"] },
+	{ coord = 48504090, npcId = 126899, questId = 48713, icon = "skull_grey", group = "rare_ma", label = _L["Jed'hin Champion Vorusk"], search = { "杰德尼勇士" }, loot = { { 153302, itemTypeTransmog, "单手剑" } }, note = _L["Jed'hin Champion Vorusk_note"] },
+	{ coord = 58783762, npcId = 124440, questId = 48714, icon = "skull_grey", group = "rare_ma", label = _L["Overseer Y'Beda"], search = { "伊比达" }, loot = { { 153315, itemTypeTransmog, "双手剑" } }, note = _L["Overseer Y'Beda_note"] },
+	{ coord = 58003090, npcId = 125497, questId = 48716, icon = "skull_grey", group = "rare_ma", label = _L["Overseer Y'Sorna"], search = { "伊索纳" }, loot = { { 153268, itemTypeTransmog, "单手斧" } }, note = _L["Overseer Y'Sorna_note"] },
+	{ coord = 60982982, npcId = 125498, questId = 48717, icon = "skull_grey", group = "rare_ma", label = _L["Overseer Y'Morna"], search = { "伊莫拉" }, loot = { { 153257, itemTypeTransmog, "单手锤" } }, note = _L["Overseer Y'Morna_note"] },
+	{ coord = 61575035, npcId = 126900, questId = 48718, icon = "skull_grey", group = "rare_ma", label = _L["Instructor Tarahna"], search = { "导师" }, loot = { { 153309, itemTypeTransmog, "单手锤" }, { 153179, itemTypeToy }, { 153180, itemTypeToy }, { 153181, itemTypeToy } }, note = _L["Instructor Tarahna_note"] },
+	{ coord = 66742845, npcId = 126908, questId = 48719, icon = "skull_grey", group = "rare_ma", label = _L["Zul'tan the Numerous"], search = { "万千之主" }, loot = nil, note = _L["Zul'tan the Numerous_note"] },
+	{ coord = 56801450, npcId = 126910, questId = 48720, icon = "skull_grey", group = "rare_ma", label = _L["Commander Xethgar"], search = { "泽斯加尔" }, loot = nil, note = _L["Commander Xethgar_note"] },
+	{ coord = 49870953, npcId = 126912, questId = 48721, icon = "skull_grey", group = "rare_ma", label = _L["Skreeg the Devourer"], search = { "斯克里格" }, loot = { { 152904, itemTypeMount, 980 } }, note = _L["Skreeg the Devourer_note"] },
+	{ coord = 43846065, npcId = 126862, questId = 48700, icon = "skull_grey", group = "rare_ma", label = _L["Baruut the Bloodthirsty"], search = { "巴鲁特" }, loot = { { 153193, itemTypeToy } }, note = _L["Baruut the Bloodthirsty_note"] },
+	{ coord = 30124019, npcId = 126887, questId = 48709, icon = "skull_grey", group = "rare_ma", label = _L["Ataxon"], search = { "阿塔克松" }, loot = { { 153056, itemTypePet, 2120 } }, note = _L["Ataxon_note"] },
 	-----------------
-	{ coord = 49505280, npcId = 126913, questId = 48935, icon = "skull_grey", group = "rare_ma", label = "最后的希里索恩", search = { "希里索恩" }, loot = { { 153203, itemTypeMisc } }, note = nil },
+	{ coord = 49505280, npcId = 126913, questId = 48935, icon = "skull_grey", group = "rare_ma", label = _L["Slithon the Last"], search = { "希里索恩" }, loot = { { 153203, itemTypeMisc } }, note = _L["Slithon the Last_note"] },
 
-	{ coord = 60007110, npcId = 128015, questId = 0, icon = "battle_pet", group = "pet_ma", label = "烁光之翼", loot = nil, note = nil },
-	{ coord = 67604390, npcId = 128013, questId = 0, icon = "battle_pet", group = "pet_ma", label = "巴基", loot = nil, note = nil },
-	{ coord = 74703620, npcId = 128018, questId = 0, icon = "battle_pet", group = "pet_ma", label = "马库斯", loot = nil, note = nil },
-	{ coord = 69705190, npcId = 128014, questId = 0, icon = "battle_pet", group = "pet_ma", label = "鼠鼠", loot = nil, note = nil },
-	{ coord = 31903120, npcId = 128017, questId = 0, icon = "battle_pet", group = "pet_ma", label = "阿古斯的腐化之血", loot = nil, note = nil },
-	{ coord = 36005410, npcId = 128016, questId = 0, icon = "battle_pet", group = "pet_ma", label = "曳影兽", loot = nil, note = nil },
+	{ coord = 60007110, npcId = 128015, questId = 0, icon = "battle_pet", group = "pet_ma", label = _L["Gloamwing"], loot = nil, note = _L["Gloamwing_note"] },
+	{ coord = 67604390, npcId = 128013, questId = 0, icon = "battle_pet", group = "pet_ma", label = _L["Bucky"], loot = nil, note = _L["Bucky_note"] },
+	{ coord = 74703620, npcId = 128018, questId = 0, icon = "battle_pet", group = "pet_ma", label = _L["Mar'cuus"], loot = nil, note = _L["Mar'cuus_note"] },
+	{ coord = 69705190, npcId = 128014, questId = 0, icon = "battle_pet", group = "pet_ma", label = _L["Snozz"], loot = nil, note = _L["Snozz_note"] },
+	{ coord = 31903120, npcId = 128017, questId = 0, icon = "battle_pet", group = "pet_ma", label = _L["Corrupted Blood of Argus"], loot = nil, note = _L["Corrupted Blood of Argus_note"] },
+	{ coord = 36005410, npcId = 128016, questId = 0, icon = "battle_pet", group = "pet_ma", label = _L["Shadeflicker"], loot = nil, note = _L["Shadeflicker_note"] },
 	
 	-- Shoot First, Loot Later
-	{ coord = 42900549, objId=276223, questId = 48743, icon = "starChestBlue", group = "sfll_ma", label = "艾瑞达宝箱", loot = nil, note = "在小洞穴内。使用光铸战争机甲跳上并移除岩石" },
-	{ coord = 50583838, objId=276224, questId = 48744, icon = "starChestYellow", group = "sfll_ma", label = "来路不明的箱子", loot = nil, note = "使用圣光裁决者移除岩石。" },
-	{ coord = 61127256, objId=276225, questId = 48745, icon = "starChestYellow", group = "sfll_ma", label = "学徒的惊喜留念", loot = nil, note = "宝箱在山洞内。入口在 62.2, 72.2。使用圣光裁决者移除岩石。" },
-	{ coord = 40275146, objId=276226, questId = 48747, icon = "starChestBlue", group = "sfll_ma", label = "虚空回荡的宝箱", loot = nil, note = "在地下区域。使用光铸战争机甲跳上并移除岩石。" },
-	{ coord = 70305974, objId=276227, questId = 48748, icon = "starChestBlank", group = "sfll_ma", label = "奥古雷隐秘存储箱", loot = nil, note = "到 68.0, 56.9。到这里可以看到宝箱。上坐骑跳跃过去。立刻使用滑翔装备到宝箱会更安全些。" },
-	{ coord = 57047684, objId=276228, questId = 48749, icon = "starChestBlank", group = "sfll_ma", label = "绝望的艾瑞达的储物箱", loot={ { 153267, itemTypeTransmog, "单手斧" } }, note = "起点在 57.1, 74.3，接着跳到塔上后到后面。" },
-	{ coord = 27274014, objId=276229, questId = 48750, icon = "starChestBlank", group = "sfll_ma", label = "房屋废墟宝箱", loot = nil, note = "到 to 31.2, 44.9，这里东南一点。跳下深渊并使用滑翔装备到达宝箱。" },
-	{ coord = 43345447, objId=276230, questId = 48751, icon = "starChestBlank", group = "sfll_ma", label = "末日追寻者的宝藏", loot={ { 153313, itemTypeTransmog, "双手剑" } }, note = "宝箱在地下。东面是一个流水瀑布深洞。跳下深洞运气好能到达。可以使用坐骑跳跃，但是滑翔设备会帮你更多到达有宝箱的小屋。" },
-	{ coord = 70632744, objId=277327, questId = 49129, icon = "starChestPurple", group = "sfll_ma", label = "奥古雷符文宝箱", loot = nil, note = "宝箱在树下。使用奥术回响遮罩后打开宝箱。" },
-	{ coord = 62132247, objId=277340, questId = 49151, icon = "starChestPurple", group = "sfll_ma", label = "隐秘奥古雷宝箱", loot = nil, note = "小屋内。使用奥术回响遮罩后打开宝箱。" },
-	{ coord = 40856975, objId=277342, questId = 49153, icon = "starChestPurple", group = "sfll_ma", label = "奥古雷货物", loot = nil, note = "宝箱在小屋内。使用奥术回响遮罩后打开宝箱。" },
+	{ coord = 42900549, objId = 276223, questId = 48743, icon = "starChestBlue", group = "sfll_ma", label = _L["Eredar Treasure Cache"], loot = nil, note = _L["Eredar Treasure Cache_note"] },
+	{ coord = 50583838, objId = 276224, questId = 48744, icon = "starChestYellow", group = "sfll_ma", label = _L["Chest of Ill-Gotten Gains"], loot = nil, note = _L["Chest of Ill-Gotten Gains_note"] },
+	{ coord = 61127256, objId = 276225, questId = 48745, icon = "starChestYellow", group = "sfll_ma", label = _L["Student's Surprising Surplus"], loot = nil, note = _L["Student's Surprising Surplus_note"] },
+	{ coord = 40275146, objId = 276226, questId = 48747, icon = "starChestBlue", group = "sfll_ma", label = _L["Void-Tinged Chest"], loot = nil, note = _L["Void-Tinged Chest_note"] },
+	{ coord = 70305974, objId = 276227, questId = 48748, icon = "starChestBlank", group = "sfll_ma", label = _L["Augari Secret Stash"], loot = nil, note = _L["Augari Secret Stash_note"] },
+	{ coord = 57047684, objId = 276228, questId = 48749, icon = "starChestBlank", group = "sfll_ma", label = _L["Desperate Eredar's Cache"], loot = { { 153267, itemTypeTransmog, "1h Axe" } }, note = _L["Desperate Eredar's Cache_note"] },
+	{ coord = 27274014, objId = 276229, questId = 48750, icon = "starChestBlank", group = "sfll_ma", label = _L["Shattered House Chest"], loot = nil, note = _L["Shattered House Chest_note"] },
+	{ coord = 43345447, objId = 276230, questId = 48751, icon = "starChestBlank", group = "sfll_ma", label = _L["Doomseeker's Treasure"], loot = { { 153313, itemTypeTransmog, "2h Sword" } }, note = _L["Doomseeker's Treasure_note"] },
+	{ coord = 70632744, objId = 277327, questId = 49129, icon = "starChestPurple", group = "sfll_ma", label = _L["Augari-Runed Chest"], loot = nil, note = _L["Augari-Runed Chest_note"] },
+	{ coord = 62132247, objId = 277340, questId = 49151, icon = "starChestPurple", group = "sfll_ma", label = _L["Secret Augari Chest"], loot = nil, note = _L["Secret Augari Chest_note"] },
+	{ coord = 40856975, objId = 277342, questId = 49153, icon = "starChestPurple", group = "sfll_ma", label = _L["Augari Goods"], loot = nil, note = _L["Augari Goods_note"] },
 
 	-- Ancient Eredar Cache
 	-- 48346
-	{ coord = 55167766, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = nil },
-	{ coord = 59386372, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = "透明的红色帐篷内"  },
-	{ coord = 57486159, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = "牧羊人卡沃斯旁边的建筑物内"  },
-	{ coord = 50836729, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = nil },
+	{ coord = 55167766, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_55167766_note"] },
+	{ coord = 59386372, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_59386372_note"] },
+	{ coord = 57486159, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_57486159_note"] },
+	{ coord = 50836729, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_50836729_note"] },
 	-- 48350
-	{ coord = 59622088, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = "建筑物内楼梯下" },
-	{ coord = 60493338, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = "建筑物内" },
-	{ coord = 53912335, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = "建筑物内" },
-	{ coord = 55063508, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = nil },
-	{ coord = 62202636, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = "阳台上。进入建筑物后上楼梯右边。" },
+	{ coord = 59622088, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_59622088_note"] },
+	{ coord = 60493338, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_60493338_note"] },
+	{ coord = 53912335, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_53912335_note"] },
+	{ coord = 55063508, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_55063508_note"] },
+	{ coord = 62202636, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_62202636_note"] },
 	-- 48351
-	{ coord = 43637134, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = nil },
-	{ coord = 34205929, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = "在第二层，混沌先驱旁边。" },
-	{ coord = 43955630, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = "树下" },
-	{ coord = 46917346, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = "藏在树下" },
-	{ coord = 36296646, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = nil },
+	{ coord = 43637134, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_43637134_note"] },
+	{ coord = 34205929, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_34205929_note"] },
+	{ coord = 43955630, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_43955630_note"] },
+	{ coord = 46917346, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_46917346_note"] },
+	{ coord = 36296646, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_36296646_note"] },
+	{ coord = 42645361, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_42645361_note"] },
 	-- 48357
-	{ coord = 49412387, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = nil },
-	{ coord = 47672180, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = nil },
-	{ coord = 48482115, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = nil },
-	{ coord = 57881053, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = nil },
-	{ coord = 52871676, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = "楼梯上" },
-	{ coord = 47841956, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = nil },
+	{ coord = 49412387, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_49412387_note"] },
+	{ coord = 47672180, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_47672180_note"] },
+	{ coord = 48482115, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_48482115_note"] },
+	{ coord = 57881053, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_57881053_note"] },
+	{ coord = 52871676, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_52871676_note"] },
+	{ coord = 47841956, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_47841956_note"] },
 	-- 48371
-	{ coord = 48604971, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = nil },
-	{ coord = 49865494, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = nil },
-	{ coord = 47023655, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = "楼梯上" },
-	{ coord = 49623585, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = "楼梯上" },
-	{ coord = 51094790, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = "树下" },
-	{ coord = 35535718, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = "第二层，混沌先驱旁边" },
+	{ coord = 48604971, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_48604971_note"] },
+	{ coord = 49865494, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_49865494_note"] },
+	{ coord = 47023655, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_47023655_note"] },
+	{ coord = 49623585, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_49623585_note"] },
+	{ coord = 51094790, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_51094790_note"] },
+	{ coord = 35535718, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_35535718_note"] },
 	-- 48362
-	{ coord = 66682786, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = "建筑物内，万千之主祖尔坦旁边" },
-	{ coord = 62134077, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = "建筑物内" },
-	{ coord = 67254608, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = "建筑物内" },
-	{ coord = 68355322, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = "建筑物内" },
-	{ coord = 65966017, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = nil },
-	{ coord = 62053268, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = "地面上层" },
+	{ coord = 66682786, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_66682786_note"] },
+	{ coord = 62134077, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_62134077_note"] },
+	{ coord = 67254608, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_67254608_note"] },
+	{ coord = 68355322, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_68355322_note"] },
+	{ coord = 65966017, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_65966017_note"] },
+	{ coord = 62053268, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_62053268_note"] },
 	-- Void-Seeped Cache / Treasure Chest
 	-- 49264
-	{ coord = 38143985, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = nil },
-	{ coord = 37613608, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = nil },
-	{ coord = 37812344, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = nil },
+	{ coord = 38143985, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_38143985_note"] },
+	{ coord = 37613608, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_37613608_note"] },
+	{ coord = 37812344, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_37812344_note"] },
+	{ coord = 33972078, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_33972078_note"] },
 	-- 48361
-	{ coord = 37664221, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = "洞里柱子后面" },
-	{ coord = 25824471, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = nil },
-	{ coord = 20674033, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = nil },
-	{ coord = 29503999, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = nil },
-	{ coord = 29455043, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = "树下" },
-	{ coord = 18794171, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = "外面，建筑物后面" },
+	{ coord = 37664221, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_37664221_note"] },
+	{ coord = 25824471, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_25824471_note"] },
+	{ coord = 20674033, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_20674033_note"] },
+	{ coord = 29503999, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_29503999_note"] },
+	{ coord = 29455043, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_29455043_note"] },
+	{ coord = 18794171, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_18794171_note"] },
 
 }
 
@@ -444,6 +473,8 @@ local function prepareNodesData()
 			if ( node["group"]:find( "rare" ) ) then
 				node["lfgGroups"] = {};
 				node["numLfgGroups"] = 0;
+				node["ratioLfgGroups"] = 0.0;
+				node["confUp"] = 0.0;
 				node["up"] = false;
 			end
 			if ( i < numNodes ) then
@@ -468,7 +499,61 @@ local function GetNodeByCoord( mapFile, coord )
 	return nil
 end
 
--- get npc name
+--
+--
+--	Globals
+--
+--
+
+local clickedMapFile = nil
+local clickedCoord = nil
+local numSearches = 0;
+
+--
+--
+--	Helpers
+--
+--
+
+local function playerHasLoot( loot )
+	if ( loot == nil ) then
+		-- no loot no need
+		return true
+	elseif ( loot[2] == itemTypeMount ) then
+		-- check mount known
+		local n,_,_,_,_,_,_,_,_,_,hasMount,j=C_MountJournal.GetMountInfoByID( loot[3] );
+		return hasMount;
+	elseif ( loot[2] == itemTypePet ) then
+		-- check pet quantity
+		local n,m = C_PetJournal.GetNumCollectedInfo( loot[3] );
+		return n >= 1;
+	elseif ( loot[2] == itemTypeToy ) then
+		-- check toy known
+		return PlayerHasToy( loot[1] );
+	elseif ( isCanIMogItloaded == true and loot[2] == itemTypeTransmog ) then
+		-- check transmog known with canimogit
+		local _,itemLink = GetItemInfo( loot[1] );
+		if ( itemLink ~= nil ) then
+			if ( CanIMogIt:PlayerKnowsTransmog( itemLink ) or not CanIMogIt:CharacterCanLearnTransmog( itemLink ) ) then
+				return true;
+			else
+				return false;
+			end
+		else
+			return true
+		end
+	else
+		-- default assume not needed
+		return true;
+	end
+end
+
+--
+--
+--	Tooltip
+--
+--
+
 local npc_tooltip = CreateFrame("GameTooltip", "HandyNotesArgus_npcToolTip", UIParent, "GameTooltipTemplate")
 local tooltip_label
 
@@ -544,7 +629,7 @@ function Argus:OnEnter(mapFile, coord)
 			elseif ( isCanIMogItloaded == true and loot[ii][2] == itemTypeTransmog ) then
 				-- check transmog known with canimogit
 				-- local _,itemLink = GetItemInfo( loot[ii][1] );
-				if ( itemLink ~= "Retrieving data ..." ) then
+				if ( itemLink ~= _L["Retrieving data ..."] ) then
 					if ( CanIMogIt:PlayerKnowsTransmog( itemLink ) ) then
 						tooltip:AddLine( itemLink .. " " .. string.format( _L["(itemLinkGreen)"], loot[ii][3] ), nil, nil, nil, true)
 					else
@@ -572,49 +657,7 @@ function Argus:OnEnter(mapFile, coord)
 	end
 end
 
-local function playerHasLoot( loot )
-	if ( loot == nil ) then
-		-- no loot no need
-		return true
-	elseif ( loot[2] == itemTypeMount ) then
-		-- check mount known
-		local n,_,_,_,_,_,_,_,_,_,hasMount,j=C_MountJournal.GetMountInfoByID( loot[3] );
-		return hasMount;
-	elseif ( loot[2] == itemTypePet ) then
-		-- check pet quantity
-		local n,m = C_PetJournal.GetNumCollectedInfo( loot[3] );
-		return n >= 1;
-	elseif ( loot[2] == itemTypeToy ) then
-		-- check toy known
-		return PlayerHasToy( loot[1] );
-	elseif ( isCanIMogItloaded == true and loot[2] == itemTypeTransmog ) then
-		-- check transmog known with canimogit
-		local _,itemLink = GetItemInfo( loot[1] );
-		if ( itemLink ~= nil ) then
-			if ( CanIMogIt:PlayerKnowsTransmog( itemLink ) or not CanIMogIt:CharacterCanLearnTransmog( itemLink ) ) then
-				return true;
-			else
-				return false;
-			end
-		else
-			return true
-		end
-	else
-		-- default assume not needed
-		return true;
-	end
-end
-
-local isMoving = false
-local info = {}
-local clickedMapFile = nil
-local clickedCoord = nil
-
-local function HideDBMArrow()
-    DBM.Arrow:Hide(true)
-end
-
-local function DisableTreasure(button, mapFile, coord)
+local function hideNode(button, mapFile, coord)
 	local node = GetNodeByCoord( mapFile, coord );
     if ( node and node["questId"] ~= nil) then
         Argus.db.char[mapFile .. "_" .. coord .. "_" .. node["questId"]] = true;
@@ -644,33 +687,24 @@ local function addtoTomTom(button, mapFile, coord)
 	end
 end
 
-local function AddDBMArrow(button, mapFile, coord)
-	local node = GetNodeByCoord( mapFile, coord );
-	if ( node and isDBMloaded == true ) then
-        local mapId = HandyNotes:GetMapFiletoMapID(mapFile)
-        local x, y = HandyNotes:getXY(coord)
-        local desc = node["label"];
 
-        if not DBMArrow.Desc:IsShown() then
-            DBMArrow.Desc:Show()
-        end
+--
+--
+--	Group finder shit
+--
+--
 
-        x = x*100
-        y = y*100
-        DBMArrow.Desc:SetText(desc)
-        DBM.Arrow:ShowRunTo(x, y, nil, nil, true)
-    end
-end
+local groupBrowserMenuFrame = CreateFrame( "Frame", "groupBrowserMenuFrame", UIParent, "UIDropDownMenuTemplate");
 
--- check all search results for possible rare groups
-
-local numSearches = 0;
 local function resetNPCGroupCounts()
 	numSearches = 0;
 	for mapId,mapFile in pairs( nodes ) do
 		for i,node in ipairs( nodes[mapId] ) do
 			if ( node["group"]:find( "rare" ) ) then
 				node["lfgGroups"] = {};
+				node["numLfgGroups"] = 0;
+				node["ratioLfgGroups"] = 0.0;
+				node["confUp"] = 0.0;
 				node["up"] = false;
 			end
 		end
@@ -731,6 +765,7 @@ local function updateFoundRares()
 			for i,node in ipairs( nodes[mapId] ) do
 				if ( node["group"]:find( "rare" ) ) then
 					node["ratioLfgGroups"] = node["numLfgGroups"] / avg;
+					node["confUp"] = node["ratioLfgGroups"];
 					if ( node["numLfgGroups"] > 5 or node["ratioLfgGroups"] > 0.6 ) then
 						node["up"] = true;
 					else
@@ -742,10 +777,15 @@ local function updateFoundRares()
 	end
 end
 
-local menuFrame = CreateFrame("Frame", "ExampleMenuFrame", UIParent, "UIDropDownMenuTemplate")
 local function genGroupBrowserOption( option )
+	local text;
+	if ( option.numMembers == 1 ) then
+		text = string.format( _L["groupBrowserOptionOne"], option.name, option.numMembers, option.age );
+	else
+		text = string.format( _L["groupBrowserOptionMore"], option.name, option.numMembers, option.age );
+	end
 	local opt = {
-		text = option.name .. " - " .. option.numMembers .. "人(" .. option.age.. "秒)",
+		text = text,
 		func = function()
 			local tank, heal, dd = C_LFGList.GetAvailableRoles();
 			C_LFGList.ApplyToGroup( option.id, "", tank, heal, dd )	;
@@ -754,19 +794,25 @@ local function genGroupBrowserOption( option )
 	return opt;
 end
 
-local function LFGcreate( button, label )
+local function LFGcreate( button, node )
 	local c,zone,_,_,name = C_LFGList.GetActiveEntryInfo();
-	if c == true and name ~= label then
+	if c == true and name ~= node["label"] then
 		if ( UnitIsGroupLeader("player") ) then
-			print( "旧队伍失效。再次点击查找队伍 - " .. label .. "。" );
+			print( string.format( _L["chatmsg_old_group_delisted"], node["label"] ) );
 			C_LFGList.RemoveListing();
 		else
-			print( "|cFFFF0000权限不足。你不是队长。" );
+			print( _L["chatmsg_no_group_priv"] );
 		end
 	elseif ( c == false ) then
-		print( "创建队伍 - " .. label .. "。" );
+		print( string.format( _L["chatmsg_group_created"], node["label"] ) );
 		-- 16 = custom
-		C_LFGList.CreateListing(16,label,0,0,"","由 HandyNotes_Argus 创建",true)
+		local desc;
+		if ( string.find( node["group"], "rare" ) ) then
+			desc = string.format( _L["listing_desc_rare"], node["label"] ) .. " Created with HandyNotes_Argus ##rare:" .. node["npcId"] .. "#hna:" .. VERSION;
+		elseif ( string.find( node["group"], "invasion" ) ) then
+			desc = string.format( _L["listing_desc_invasion"], node["label"] ) .. " Created with HandyNotes_Argus ##invasion:" .. node["invasionId"] .. "#hna:" .. VERSION;
+		end
+		C_LFGList.CreateListing( 16, node["label"], 0, 0, "", desc, true)
 	end
 end
 
@@ -774,12 +820,11 @@ local function LFGbrowseMatches( matches, node )
 	local menu;
 	if ( #matches == 0 ) then
 		menu = {
-			{ text = "抱歉，没找到队伍！", isTitle = true, notCheckable = true },
-			{ text = "创建新队伍", func = function() LFGcreate( nil, node["label"] ); end },
+			{ text = _L["Sorry, no groups found!"], isTitle = true, notCheckable = true }
 		};
 	else
 		menu = {
-			{ text = "找到队伍：", isTitle = true, notCheckable = true },
+			{ text = _L["Groups found:"], isTitle = true, notCheckable = true },
 		};
 		for k,v in ipairs( matches ) do
 			table.insert( menu, genGroupBrowserOption( v ) );
@@ -787,14 +832,14 @@ local function LFGbrowseMatches( matches, node )
 		end
 	end
 	table.insert( menu, { text = "", isTitle = true, notCheckable = true } );
-	table.insert( menu, { text = "关闭", notCheckable = true, func = function() CloseDropDownMenus() end } );
-	EasyMenu(menu, menuFrame, "cursor", 0 , 0, "MENU");
+	table.insert( menu, { text = _L["Create new group"], func = function() LFGcreate( nil, node ); end } );
+	table.insert( menu, { text = "", isTitle = true, notCheckable = true } );
+	table.insert( menu, { text = _L["Close"], notCheckable = true, func = function() CloseDropDownMenus() end } );
+	EasyMenu( menu, groupBrowserMenuFrame, "cursor", 0 , 0, "MENU" );
 end
 
 local finderFrame = CreateFrame("Frame");
 finderFrame:SetScript("OnEvent", function( self, event, ... )
-	--self:UnregisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
-	--self:UnregisterEvent("LFG_LIST_SEARCH_FAILED");
 	if ( event == "LFG_LIST_SEARCH_RESULTS_RECEIVED" ) then
 		local numResults, resultIds = C_LFGList.GetSearchResults()
 		numSearches = numSearches + 1;
@@ -803,7 +848,10 @@ finderFrame:SetScript("OnEvent", function( self, event, ... )
 		for _, resultId in ipairs( resultIds ) do
 
 			local id, activityID, name, comment, voiceChat, iLvl, honorLevel, age, numBNetFriends, numCharFriends, numGuildMates, isDelisted, leaderName, numMembers, isAutoAccept = C_LFGList.GetSearchResultInfo( resultId );
-			updateNPCGroupCount( name, leaderName );
+			if ( age < 300 ) then
+				-- dont count groups older than 5 minutes
+				updateNPCGroupCount( name, leaderName );
+			end
 
 			if ( finderFrame.searchNode and isAutoAccept and numMembers ~= 5 ) then
 				for sIdx, search in ipairs( finderFrame.searchNode["search"] ) do
@@ -821,7 +869,7 @@ finderFrame:SetScript("OnEvent", function( self, event, ... )
 			finderFrame.searchNode = nil;
 		end
 	elseif ( event == "LFG_LIST_SEARCH_FAILED" ) then
-		print( "|cFFFF0000太多查询请求，请稍后尝试。" );
+		print( _L["chatmsg_search_failed"] );
 	else
 		-- print( event );
 		-- print( ... );
@@ -830,8 +878,6 @@ end );
 
 local function LFGCheckRares( button, node )
 	finderFrame.searchNode = nil;
-	--finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
-	--finderFrame:RegisterEvent("LFG_LIST_SEARCH_FAILED");
 	local languages = C_LFGList.GetLanguageSearchFilter();
 	C_LFGList.Search( 6, LFGListSearchPanel_ParseSearchTerms (""), nil, nil, allLanguages );
 end
@@ -841,14 +887,12 @@ local function LFGsearch( button, node )
 		local c,zone,_,_,name = C_LFGList.GetActiveEntryInfo();
 		if c == true and name ~= label then
 			if ( UnitIsGroupLeader("player") ) then
-				print( "旧队伍失效。再次点击查找队伍 - " .. node["label"] .. "。" );
+				print( string.format( _L["chatmsg_old_group_delisted"], node["label"] ) );
 				C_LFGList.RemoveListing();
 			else
-				print( "|cFFFF0000权限不足。你不是队长。" );
+				print( _L["chatmsg_no_group_priv"] );
 			end
 		elseif ( c == false ) then
-			--finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
-			--finderFrame:RegisterEvent("LFG_LIST_SEARCH_FAILED");
 			finderFrame.searchNode = node;
 			local languages = C_LFGList.GetLanguageSearchFilter();
 			C_LFGList.Search( 6, LFGListSearchPanel_ParseSearchTerms (""), nil, nil, allLanguages );
@@ -856,7 +900,97 @@ local function LFGsearch( button, node )
 	end
 end
 
-local function generateMenu(button, level)
+--
+--	Invasions
+--
+
+local updateInvasionPOI = CreateFrame("Frame");
+updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
+	local numPOI = GetNumMapLandmarks();
+	for i = 1, numPOI do
+		local landmarkType, name, description, textureIndex, x, y, maplinkID, showInBattleMap,_,_,poiId,_,something = C_WorldMap.GetMapLandmarkInfo( i );
+		if ( -- val
+			 poiId == 5360 or poiId == 5372	or
+			 -- aurinor
+			 poiId == 5367 or poiId == 5373 or
+			 -- sangua
+			 poiId == 5350 or poiId == 5369 or
+			 -- naigtal
+			 poiId == 5368 or poiId == 5374 or
+			 -- bonich
+			 poiId == 5366 or poiId == 5371 or
+			 -- cen'gar
+			 poiId == 5359 or poiId == 5370 or
+			 -- alluradel
+			 poiId == 5375
+			) then
+			-- print( description );
+			local invasionPOI = _G["WorldMapFramePOI" .. i];
+			if ( invasionPOI and not invasionPOI.handyNotesArgus ) then
+				invasionPOI.handyNotesArgus = true;
+				invasionPOI:RegisterForClicks("LeftButtonDown", "LeftButtonUp");
+				invasionPOI:SetScript("OnMouseDown", function(self, button)
+					local searchNeedle = "";
+					if ( self.poiID == 5360 or self.poiID == 5372 ) then
+						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Invasion Point: Val"], search = { _L["invasion_val_search_1"], _L["invasion_val_search_2"] } };
+						searchNeedle = _L["invasion_val_search_needle"];
+					elseif ( self.poiID == 5367 or self.poiID == 5373 ) then
+						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Invasion Point: Aurinor"], search = { _L["invasion_aurinor_search"] } };
+						searchNeedle = _L["invasion_aurinor_search_needle"];
+					elseif ( self.poiID == 5369 or self.poiID == 5350 ) then
+						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Invasion Point: Sangua"], search = { _L["invasion_sangua_search"] } };
+						searchNeedle = _L["invasion_sangua_search_needle"];
+					elseif ( self.poiID == 5368 or self.poiID == 5374 ) then
+						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Invasion Point: Naigtal"], search = { _L["invasion_naigtal_search"] } };
+						searchNeedle = _L["invasion_naigtal_search_needle"];
+					elseif ( self.poiID == 5366 or self.poiID == 5371 ) then
+						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Invasion Point: Bonich"], search = { _L["invasion_bonich_search"] } };
+						searchNeedle = _L["invasion_bonich_search_needle"];
+					elseif ( self.poiID == 5359 or self.poiID == 5370 ) then
+						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Invasion Point: Cen'gar"], search = { _L["invasion_cengar_search"] } };
+						searchNeedle = _L["invasion_cengar_search_needle"];
+					elseif ( self.poiID == 5375 ) then
+						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Greater Invasion Point: Mistress Alluradel"], search = { _L["invasion_alluradel_search"] } };
+						searchNeedle = _L["invasion_alluradel_search_needle"];
+					else
+						return false;
+					end
+					
+					local languages = C_LFGList.GetLanguageSearchFilter();
+					C_LFGList.Search( 6, LFGListSearchPanel_ParseSearchTerms ( searchNeedle ), nil, nil, allLanguages );
+					
+				end );
+			end
+		end
+	end
+end );
+
+--
+--
+--	Communicator
+--
+--
+
+local communicator = CreateFrame("Frame");
+communicator:SetScript("OnEvent", function( self, event, ... )
+	if ( event == "PLAYER_ENTERING_WORLD" ) then
+		if ( IsInGuild() ) then
+			SendAddonMessage( ADDON_MSG_PREFIX, "ver=" .. VERSION, "GUILD" );
+		end
+	elseif ( event == "GROUP_JOINED" or event == "GROUP_ROSTER_UPDATE" ) then
+		SendAddonMessage( ADDON_MSG_PREFIX, "ver=" .. VERSION, "RAID" );
+	end
+end );
+
+--
+--
+--	Context menu
+--
+--
+
+local function generateMenu( button, level )
+
+	local info = {}
     if ( not level ) then return end
 	local node = GetNodeByCoord( clickedMapFile, clickedCoord );
 	if ( not node ) then return end
@@ -865,7 +999,7 @@ local function generateMenu(button, level)
 
     if (level == 1) then
         info.isTitle = 1
-        info.text = "阿古斯"
+        info.text = _L["context_menu_title"]
         info.notCheckable = 1
         UIDropDownMenu_AddButton(info, level)
         
@@ -874,18 +1008,6 @@ local function generateMenu(button, level)
         info.notCheckable = 1
 		
 		if ( (string.find(node["group"], "rare") ~= nil)) then
-			if ( node["search"] ~= nil ) then
-				info.text = "查找队伍"
-				info.func = LFGsearch
-				info.arg1 = node
-				UIDropDownMenu_AddButton(info, level)
-
-			end
-
-			info.text = "创建查找队伍并列出"
-			info.func = LFGcreate
-			info.arg1 = node["label"]
-			UIDropDownMenu_AddButton(info, level)
 
 			info.disabled = 1
 			info.notClickable = 1
@@ -894,12 +1016,12 @@ local function generateMenu(button, level)
 			info.disabled = nil
 			info.notClickable = nil
 
-			info.text = "检查队伍"
+			info.text = _L["context_menu_check_group_finder"]
 			info.func = LFGCheckRares
 			info.arg1 = node
 			UIDropDownMenu_AddButton(info, level)
 
-			info.text = "重置稀有队伍战斗"
+			info.text = _L["context_menu_reset_rare_counters"]
 			info.func = function()
 				resetNPCGroupCounts();
 				Argus:Refresh();
@@ -916,32 +1038,20 @@ local function generateMenu(button, level)
 		info.notClickable = nil
 
         if isTomTomloaded == true and false then
-            info.text = "在 TomTom 添加此路径点位置"
+            info.text = _L["context_menu_add_tomtom"]
             info.func = addtoTomTom
             info.arg1 = clickedMapFile
             info.arg2 = clickedCoord
             UIDropDownMenu_AddButton(info, level)
         end
 
-        if isDBMloaded == true and false then
-            info.text = "在 DBM 中添加此财宝箭头"
-            info.func = AddDBMArrow
-            info.arg1 = clickedMapFile
-            info.arg2 = clickedCoord
-            UIDropDownMenu_AddButton(info, level)
-            
-            info.text = "隐藏 DBM 箭头"
-            info.func = HideDBMArrow
-            UIDropDownMenu_AddButton(info, level)
-        end
-
-        info.text = "从地图上移除此物件"
-        info.func = DisableTreasure
+        info.text = _L["context_menu_hide_node"]
+        info.func = hideNode
         info.arg1 = clickedMapFile
         info.arg2 = clickedCoord
         UIDropDownMenu_AddButton(info, level)
 
-        info.text = "恢复已移除物件"
+        info.text = _L["context_menu_restore_hidden_nodes"]
         info.func = ResetDB
         info.arg1 = nil
         info.arg2 = nil
@@ -980,7 +1090,7 @@ function Argus:OnClick(button, down, mapFile, coord)
 	elseif button == "MiddleButton" and down then
 		-- create group
 		if ( (string.find(node["group"], "rare") ~= nil)) then
-			LFGcreate( nil, node["label"] );
+			LFGcreate( nil, node );
 		end
 	elseif button == "LeftButton" and down then
 		if ( (string.find(node["group"], "rare") ~= nil)) then
@@ -1000,102 +1110,101 @@ end
 
 local options = {
     type = "group",
-    name = "阿古斯",
-    desc = "阿古斯稀有和财宝",
+    name = _L["Argus"],
     get = function(info) return Argus.db.profile[info.arg] end,
     set = function(info, v) Argus.db.profile[info.arg] = v; Argus:Refresh() end,
     args = {
         IconOptions = {
             type = "group",
-            name = "图标设置",
-            desc = "图标设置",
+            name = _L["options_icon_settings"],
+            desc = _L["options_icon_settings_desc"],
 			inline = true,
 			order = 0,
             args = {
 				groupIconTreasures = {
 					type = "header",
-					name = "宝箱图标",
-					desc = "宝箱图标",
+					name = _L["options_icons_treasures"],
+					desc = _L["options_icons_treasures_desc"],
 					order = 0,
 				},
 				icon_scale_treasures = {
 					type = "range",
-					name = "大小",
-					desc = "1 = 100%",
+					name = _L["options_scale"],
+					desc = _L["options_scale_desc"],
 					min = 0.25, max = 10, step = 0.01,
 					arg = "icon_scale_treasures",
 					order = 1,
 				},
 				icon_alpha_treasures = {
 					type = "range",
-					name = "透明度",
-					desc = "0 = 透明, 1 = 不透明",
+					name = _L["options_opacity"],
+					desc = _L["options_opacity_desc"],
 					min = 0, max = 1, step = 0.01,
 					arg = "icon_alpha_treasures",
 					order = 2,
 				},
 				groupIconRares = {
 					type = "header",
-					name = "稀有图标",
-					desc = "稀有图标",
+					name = _L["options_icons_rares"],
+					desc = _L["options_icons_rares_desc"],
 					order = 10,
 				},
 				icon_scale_rares = {
 					type = "range",
-					name = "大小",
-					desc = "1 = 100%",
+					name = _L["options_scale"],
+					desc = _L["options_scale_desc"],
 					min = 0.25, max = 10, step = 0.01,
 					arg = "icon_scale_rares",
 					order = 11,
 				},
 				icon_alpha_rares = {
 					type = "range",
-					name = "透明度",
-					desc = "0 = 透明, 1 = 不透明",
+					name = _L["options_opacity"],
+					desc = _L["options_opacity_desc"],
 					min = 0, max = 1, step = 0.01,
 					arg = "icon_alpha_rares",
 					order = 12,
 				},
 				groupIconPets = {
 					type = "header",
-					name = "战斗宠物图标",
-					desc = "战斗宠物图标",
+					name = _L["options_icons_pet_battles"],
+					desc = _L["options_icons_pet_battles_desc"],
 					order = 20,
 				},
 				icon_scale_pets = {
 					type = "range",
-					name = "大小",
-					desc = "1 = 100%",
+					name = _L["options_scale"],
+					desc = _L["options_scale_desc"],
 					min = 0.25, max = 10, step = 0.01,
 					arg = "icon_scale_pets",
 					order = 21,
 				},
 				icon_alpha_pets = {
 					type = "range",
-					name = "透明度",
-					desc = "0 = 透明, 1 = 不透明",
+					name = _L["options_opacity"],
+					desc = _L["options_opacity_desc"],
 					min = 0, max = 1, step = 0.01,
 					arg = "icon_alpha_pets",
 					order = 22,
 				},
 				groupIconSfll = {
 					type = "header",
-					name = "打砸抢",
-					desc = "打砸抢",
+					name = _L["options_icons_sfll"],
+					desc = _L["options_icons_sfll_desc"],
 					order = 30,
 				},
 				icon_scale_sfll = {
 					type = "range",
-					name = "大小",
-					desc = "1 = 100%",
+					name = _L["options_scale"],
+					desc = _L["options_scale_desc"],
 					min = 0.25, max = 10, step = 0.01,
 					arg = "icon_scale_sfll",
 					order = 31,
 				},
 				icon_alpha_sfll = {
 					type = "range",
-					name = "透明度",
-					desc = "0 = 透明, 1 = 不透明",
+					name = _L["options_opacity"],
+					desc = _L["options_opacity_desc"],
 					min = 0, max = 1, step = 0.01,
 					arg = "icon_alpha_sfll",
 					order = 32,
@@ -1105,151 +1214,150 @@ local options = {
 		VisibilityGroup = {
 			type = "group",
 			order = 10,
-			name = "选择哪些区域要显示什么：",
+			name = _L["options_visibility_settings"],
+			desc = _L["options_visibility_settings_desc"],
 			inline = true,
 			args = {
 				groupAW = {
 					type = "header",
-					name = "安托兰废土",
-					desc = "安托兰废土",
+					name = _L["Antoran Wastes"],
 					order = 0,
 				},
 				treasureAW = {
 					type = "toggle",
 					arg = "treasure_aw",
-					name = "财宝",
-					desc = "财宝会提供很多物品",
+					name = _L["options_toggle_treasures"],
 					order = 1,
 					width = "normal",
 				},
 				rareAW = {
 					type = "toggle",
 					arg = "rare_aw",
-					name = "稀有",
-					desc = "稀有刷新",
+					name = _L["options_toggle_rares"],
 					order = 2,
 					width = "normal",
 				},
 				petAW = {
 					type = "toggle",
 					arg = "pet_aw",
-					name = "战斗宠物",
+					name = _L["options_toggle_battle_pets"],
 					order = 3,
 					width = "normal",
 				},
 				sfllAW = {
 					type = "toggle",
 					arg = "sfll_aw",
-					name = "打砸抢",
+					name = _L["options_toggle_sfll"],
 					order = 4,
+					width = "normal",
+				},
+				npcAW = {
+					type = "toggle",
+					arg = "npc_aw",
+					name = _L["options_toggle_npcs"],
+					order = 5,
 					width = "normal",
 				},
 				portalAW = {
 					type = "toggle",
 					arg = "portal_aw",
-					name = "传送门",
-					order = 5,
+					name = _L["options_toggle_portals"],
+					order = 6,
 					width = "normal",
 				},
 				groupKR = {
 					type = "header",
-					name = "克罗库恩",
-					desc = "克罗库恩",
+					name = _L["Krokuun"],
 					order = 10,
 				},  
 				treasureKR = {
 					type = "toggle",
 					arg = "treasure_kr",
-					name = "财宝",
-					desc = "财宝会提供很多物品",
+					name = _L["options_toggle_treasures"],
 					width = "normal",
 					order = 11,
 				},
 				rareKR = {
 					type = "toggle",
 					arg = "rare_kr",
-					name = "稀有",
-					desc = "稀有刷新",
+					name = _L["options_toggle_rares"],
 					width = "normal",
 					order = 12,
 				},
 				petKR = {
 					type = "toggle",
 					arg = "pet_kr",
-					name = "战斗宠物",
+					name = _L["options_toggle_battle_pets"],
 					width = "normal",
 					order = 13,
 				},
 				sfllKR = {
 					type = "toggle",
 					arg = "sfll_kr",
-					name = "打砸抢",
+					name = _L["options_toggle_sfll"],
 					order = 14,
 					width = "normal",
 				},
 				groupMA = {
 					type = "header",
-					name = "玛凯雷",
-					desc = "玛凯雷",
+					name = _L["Mac'Aree"],
 					order = 20,
 				},  
 				treasureMA = {
 					type = "toggle",
 					arg = "treasure_ma",
-					name = "财宝",
-					desc = "财宝会提供很多物品",
+					name = _L["options_toggle_treasures"],
 					width = "normal",
 					order = 21,
 				},
 				rareMA = {
 					type = "toggle",
 					arg = "rare_ma",
-					name = "稀有",
-					desc = "稀有刷新",
+					name = _L["options_toggle_rares"],
 					width = "normal",
 					order = 22,
 				},  
 				petMA = {
 					type = "toggle",
 					arg = "pet_ma",
-					name = "战斗宠物",
+					name = _L["options_toggle_battle_pets"],
 					width = "normal",
 					order = 23,
 				},  
 				sfllMA = {
 					type = "toggle",
 					arg = "sfll_ma",
-					name = "打砸抢",
+					name = _L["options_toggle_sfll"],
 					order = 24,
 					width = "normal",
 				},
 				groupGeneral = {
 					type = "header",
-					name = "通用",
-					desc = "通用",
+					name = _L["options_general_settings"],
+					desc = _L["options_general_settings_desc"],
 					order = 30,
 				},  
 				alwaysshowrares = {
 					type = "toggle",
 					arg = "alwaysshowrares",
-					name = "总是显示已拾取的稀有",
-					desc = "显示每个稀有无论是否已拾取状态",
+					name = _L["options_toggle_alreadylooted_rares"],
+					desc = _L["options_toggle_alreadylooted_rares_desc"],
 					order = 31,
 					width = "full",
 				},
 				alwaysshowtreasures = {
 					type = "toggle",
 					arg = "alwaysshowtreasures",
-					name = "总是显示已拾取的财宝",
-					desc = "显示每个财宝无论是否已拾取状态",
+					name = _L["options_toggle_alreadylooted_treasures"],
+					desc = _L["options_toggle_alreadylooted_treasures_desc"],
 					order = 32,
 					width = "full",
 				},
 				alwaysshowsfll = {
 					type = "toggle",
 					arg = "alwaysshowsfll",
-					name = "已拾取“打砸抢”宝箱",
-					desc = "显示每个成就宝箱忽略已拾取状态",
+					name = _L["options_toggle_alreadylooted_sfll"],
+					desc = _L["options_toggle_alreadylooted_sfll_desc"],
 					order = 33,
 					width = "full",
 				},
@@ -1258,99 +1366,28 @@ local options = {
 		TooltipGroup = {
 			type = "group",
 			order = 20,
-			name = "提示",
+			name = _L["options_tooltip_settings"],
+			desc = _L["options_tooltip_settings_desc"],
 			inline = true,
 			args = {
 				show_loot = {
 					type = "toggle",
 					arg = "show_loot",
-					name = "显示掉落",
-					desc = "显示每个财宝/稀有的掉落",
+					name = _L["options_toggle_show_loot"],
+					desc = _L["options_toggle_show_loot_desc"],
 					order = 102,
 				},
 				show_notes = {
 					type = "toggle",
 					arg = "show_notes",
-					name = "显示注释",
-					desc = "当可用时显示每个财宝/稀有的注释",
+					name = _L["options_toggle_show_notes"],
+					desc = _L["options_toggle_show_notes_desc"],
 					order = 103,
 				},
 			},
 		},
     },
 }
-
-local updateInvasionPOI = CreateFrame("Frame");
-updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
-	local numPOI = GetNumMapLandmarks();
-	for i = 1, numPOI do
-		local landmarkType, name, description, textureIndex, x, y, maplinkID, showInBattleMap,_,_,poiId,_,something = C_WorldMap.GetMapLandmarkInfo( i );
-		if ( -- val
-			 poiId == 5360 or poiId == 5372	or
-			 -- aurinor
-			 poiId == 5367 or poiId == 5373 or
-			 -- sangua
-			 poiId == 5350 or poiId == 5369 or
-			 -- naigtal
-			 poiId == 5368 or poiId == 5374 or
-			 -- bonich
-			 poiId == 5366 or poiId == 5371 or
-			 -- cen'gar
-			 poiId == 5359 or poiId == 5370 or
-			 -- alluradel
-			 poiId == 5375
-			) then
-			-- print( description );
-			local invasionPOI = _G["WorldMapFramePOI" .. i];
-			if ( invasionPOI and not invasionPOI.handyNotesArgus ) then
-				invasionPOI.handyNotesArgus = true;
-				invasionPOI:RegisterForClicks("LeftButtonDown", "LeftButtonUp");
-				invasionPOI:SetScript("OnMouseDown", function(self, button)
-					--finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
-					--finderFrame:RegisterEvent("LFG_LIST_SEARCH_FAILED");
-					local searchNeedle = "";
-					if ( self.poiID == 5360 or self.poiID == 5372 ) then
-						finderFrame.searchNode = { label = "侵入点：瓦尔", search = { "瓦尔" } };
-						searchNeedle = "val";
-					elseif ( self.poiID == 5367 ) then
-						finderFrame.searchNode = { label = "侵入点：奥雷诺", search = { "奥雷诺" } };
-						searchNeedle = "aurinor";
-					elseif ( self.poiID == 5369 or self.poiID == 5350 ) then
-						finderFrame.searchNode = { label = "侵入点：萨古亚", search = { "萨古亚" } };
-						searchNeedle = "sangua";
-					elseif ( self.poiID == 5368 or self.poiID == 5374 ) then
-						finderFrame.searchNode = { label = "侵入点：奈格塔尔", search = { "奈格塔尔" } };
-						searchNeedle = "naigtal";
-					elseif ( self.poiID == 5366 or self.poiID == 5371 ) then
-						finderFrame.searchNode = { label = "侵入点：博尼克", search = { "博尼克" } };
-						searchNeedle = "bonich";
-					elseif ( self.poiID == 5359 ) then
-						finderFrame.searchNode = { label = "侵入点：森加", search = { "森加" } };
-						searchNeedle = "cen";
-					elseif ( self.poiID == 5375 ) then
-						finderFrame.searchNode = { label = "大型侵入点：妖女奥露拉黛儿", search = { "妖女奥露拉黛儿" } };
-						searchNeedle = "radel";
-					else
-						return false;
-					end
-					
-					local languages = C_LFGList.GetLanguageSearchFilter();
-					C_LFGList.Search( 6, LFGListSearchPanel_ParseSearchTerms ( searchNeedle ), nil, nil, allLanguages );
-					
-				end );
-			end
-		end
-	end
-end );
-
-local communicator = CreateFrame("Frame");
-communicator:SetScript("OnEvent", function( self, event, ... )
-	if ( event == "PLAYER_ENTERING_WORLD" ) then
-		SendAddonMessage( ADDON_MSG_PREFIX, "ver=" .. VERSION, "GUILD" );
-	elseif ( event == "GROUP_JOINED" or event == "GROUP_ROSTER_UPDATE" ) then
-		SendAddonMessage( ADDON_MSG_PREFIX, "ver=" .. VERSION, "RAID" );
-	end
-end );
 
 -- iterate this until we have all items cache. max 10 iterations
 local precacheIteration = 0;
@@ -1389,11 +1426,17 @@ local function cacheItems()
 	end
 end
 
+--
+--
+--	Main
+--
+--
+
 function Argus:OnInitialize()
     local defaults = {
         profile = {
-            icon_scale_treasures = 2,
-            icon_scale_rares = 1.5,
+            icon_scale_treasures = 2.0,
+            icon_scale_rares = 1.875,
             icon_scale_pets = 1.5,
 			icon_scale_sfll = 3.25,
             icon_alpha_treasures = 0.5,
@@ -1481,12 +1524,19 @@ function Argus:RegisterWithHandyNotes()
 					if ( (string.find(node["group"], "rare") ~= nil)) then
 						iconScale = Argus.db.profile.icon_scale_rares;
 						iconAlpha = Argus.db.profile.icon_alpha_rares;
-						if ( not node["allLootKnown"] and node["up"] == true ) then
-							iconPath = iconDefaults["skull_purple"];
-						elseif ( not node["allLootKnown"] and not node["up"] ) then
-							iconPath = iconDefaults["skull_blue"];
-						elseif ( node["allLootKnown"] and node["up"] ) then
-							iconPath = iconDefaults["skull_yellow"];
+						iconPath = iconDefaults["skullWhite"];
+						if ( not node["allLootKnown"] and node["confUp"] > 0.75 ) then
+							iconPath = iconDefaults["skullBlueGreenGlow"];
+						elseif ( not node["allLootKnown"] and node["confUp"] > 0.2 ) then
+							iconPath = iconDefaults["skullBlueRedGlow"];
+						elseif ( not node["allLootKnown"] ) then
+							iconPath = iconDefaults["skullBlue"];
+						elseif ( node["allLootKnown"] and node["confUp"] > 0.75 ) then
+							iconPath = iconDefaults["skullWhiteGreenGlow"];
+						elseif ( node["allLootKnown"] and node["confUp"] > 0.2 ) then
+							iconPath = iconDefaults["skullWhiteRedGlow"];
+						elseif ( node["allLootKnown"] ) then
+							iconPath = iconDefaults["skullWhite"];
 						end
 					elseif ( (string.find(node["group"], "treasure") ~= nil)) then
 						iconScale = Argus.db.profile.icon_scale_treasures;
@@ -1533,25 +1583,13 @@ function Argus:HasBeenLooted(mapFile,node)
 end
 
 function Argus:LoadCheck()
+
 	if (IsAddOnLoaded("TomTom")) then 
 		isTomTomloaded = true
-	end
-
-	if (IsAddOnLoaded("DBM-Core")) then 
-		isDBMloaded = true
 	end
 
 	if (IsAddOnLoaded("CanIMogIt")) then 
 		isCanIMogItloaded = true
 	end
 
-	if isDBMloaded == true then
-		local ArrowDesc = DBMArrow:CreateFontString(nil, "OVERLAY", "GameTooltipText")
-		ArrowDesc:SetWidth(400)
-		ArrowDesc:SetHeight(100)
-		ArrowDesc:SetPoint("CENTER", DBMArrow, "CENTER", 0, -35)
-		ArrowDesc:SetTextColor(1, 1, 1, 1)
-		ArrowDesc:SetJustifyH("CENTER")
-		DBMArrow.Desc = ArrowDesc
-	end
 end

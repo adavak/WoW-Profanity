@@ -1,4 +1,4 @@
-local _L = LibStub("AceLocale-3.0"):NewLocale("HandyNotes_Argus", "enUS", true, true)
+local _L = LibStub("AceLocale-3.0"):NewLocale("HandyNotes_Argus", "deDE")
 
 if not _L then return end
 
@@ -8,6 +8,10 @@ if _L then
 -- data
 --
 
+--
+-- DO NOT TRANSLATE THE RARE NAMES HERE UNLESS YOU HAVE A GOOD REASON!!!
+-- Edit only the notes for the rares!
+--
 _L["Watcher Aival"] = "Watcher Aival";
 _L["Watcher Aival_note"] = "";
 _L["Puscilla"] = "Puscilla";
@@ -476,33 +480,33 @@ _L["Antoran Wastes"] = "Antoran Wastes";
 _L["Krokuun"] = "Krokuun";
 _L["Mac'Aree"] = "Mac'Aree";
 
-_L["groupBrowserOptionOne"] = "%s - %s Member (%ds)";
-_L["groupBrowserOptionMore"] = "%s - %s Members (%ds)";
-_L["chatmsg_old_group_delisted"] = "|cFFf7c92aOld group delisted. Click again to search groups for %s."
-_L["chatmsg_no_group_priv"] = "|cFFFF0000Insufficient rights. You are not the group leader.";
-_L["chatmsg_group_created"] = "Created group for %s.";
-_L["chatmsg_search_failed"] = "|cFFFF0000Too many search requests, please try again in a few seconds.";
+_L["groupBrowserOptionOne"] = "%s - %s Spieler (%ds)";
+_L["groupBrowserOptionMore"] = "%s - %s Spieler (%ds)";
+_L["chatmsg_old_group_delisted"] = "|cFFf7c92aAlte Gruppe abgemeldet. Klicke nochmal, um nach Gruppen für %s zu suchen."
+_L["chatmsg_no_group_priv"] = "|cFFFF0000Unzureichend Berechtigungen. Du bist nicht der Gruppenleiter.";
+_L["chatmsg_group_created"] = "Gruppe erstellt für %s.";
+_L["chatmsg_search_failed"] = "|cFFFF0000Zu viele Suchanfragen, versuche es bitte in einigen Sekunden noch einmal.";
 _L["listing_desc_rare"] = "Doing rare encounter against %s on Argus.";
 _L["listing_desc_invasion"] = "Doing %s on Argus.";
 
-_L["(Mount known)"] = "(|cFF00FF00Mount known|r)";
-_L["(Mount missing)"] = "(|cFFFF0000Mount missing|r)";
-_L["(Toy known)"] = "(|cFF00FF00Toy known|r)";
-_L["(Toy missing)"] = " (|cFFFF0000Toy missing|r)";
+_L["(Mount known)"] = "(|cFF00FF00Reittier bekannt|r)";
+_L["(Mount missing)"] = "(|cFFFF0000Reittier fehlt|r)";
+_L["(Toy known)"] = "(|cFF00FF00Spielzeug bekannt|r)";
+_L["(Toy missing)"] = " (|cFFFF0000Spielzeug fehlt|r)";
 _L["(itemLinkGreen)"] = "(|cFF00FF00%s|r)";
 _L["(itemLinkRed)"] = "(|cFFFF0000%s|r)";
-_L["Retrieving data ..."] = "Retrieving data ...";
-_L["Sorry, no groups found!"] = "Sorry, no groups found!";
-_L["Groups found:"] = "Groups found:";
-_L["Create new group"] = "Create new group";
-_L["Close"] = "Close";
+_L["Retrieving data ..."] = "Frage Daten ab ...";
+_L["Sorry, no groups found!"] = "Leider keine Gruppe gefunden!";
+_L["Groups found:"] = "Gruppen gefunden:";
+_L["Create new group"] = "Erstelle neue Gruppe";
+_L["Close"] = "Schließen";
 
 _L["context_menu_title"] = "Handynotes Argus";
-_L["context_menu_check_group_finder"] = "Check group finder";
-_L["context_menu_reset_rare_counters"] = "Reset Rare Group Counters";
-_L["context_menu_add_tomtom"] = "Add this location to TomTom waypoints";
-_L["context_menu_hide_node"] = "Hide this node";
-_L["context_menu_restore_hidden_nodes"] = "Restore all hidden nodes";
+_L["context_menu_check_group_finder"] = "Suche nach Gruppen für Rares";
+_L["context_menu_reset_rare_counters"] = "Rare Gruppenzähler zurücksetzen";
+_L["context_menu_add_tomtom"] = "Zu TomTom hinzufügen";
+_L["context_menu_hide_node"] = "Verstecke diesen Punkt";
+_L["context_menu_restore_hidden_nodes"] = "Versteckte Punkte wiederherstellen";
 
 _L["options_title"] = "Argus";
 
@@ -516,9 +520,9 @@ _L["options_icons_pet_battles"] = "Pet Battle Icons";
 _L["options_icons_pet_battles_desc"] = "Pet Battle Icons";
 _L["options_icons_sfll"] = "Shoot First, Loot Later Icons";
 _L["options_icons_sfll_desc"] = "Shoot First, Loot Later Icons";
-_L["options_scale"] = "Scale";
+_L["options_scale"] = "Skalierung";
 _L["options_scale_desc"] = "1 = 100%";
-_L["options_opacity"] = "Opacity";
+_L["options_opacity"] = "Opazität";
 _L["options_opacity_desc"] = "0 = transparent, 1 = opaque";
 _L["options_visibility_settings"] = "Visibility";
 _L["options_visibility_settings_desc"] = "Visibility";
