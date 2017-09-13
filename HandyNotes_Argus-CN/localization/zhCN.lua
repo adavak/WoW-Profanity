@@ -540,7 +540,7 @@ _L["options_toggle_alreadylooted_treasures"] = "已拾取宝箱";
 _L["options_toggle_alreadylooted_treasures_desc"] = "显示每个宝箱无论是否已拾取状态";
 _L["options_toggle_alreadylooted_sfll"] = "已拾取“打砸抢”宝箱";
 _L["options_toggle_alreadylooted_sfll_desc"] = "显示每个成就宝箱忽略已拾取状态";
-_L["options_toggle_nodeRareGlow"] = "稀有图标光晕Rares Icons glow"
+_L["options_toggle_nodeRareGlow"] = "稀有图标光晕"
 _L["options_toggle_nodeRareGlow_desc"] = "根据队伍可用性添加稀有图标光晕。没光晕 = 没队伍，红光晕 = 低可用性，绿光晕 = 高可用性。"
 _L["options_tooltip_settings"] = "提示";
 _L["options_tooltip_settings_desc"] = "提示";
