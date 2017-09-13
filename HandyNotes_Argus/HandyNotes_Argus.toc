@@ -1,7 +1,7 @@
 ## Interface: 70300
 ## Title: HandyNotes_Argus
-## Version: 0.00
-## Notes: Shows location of treasures and rares in Argus
+## Version: 0.20.0
+## Notes: Shows location of treasures and rares in Argus & more
 ## OptionalDeps: Ace3
 ## RequiredDeps: HandyNotes
 ## X-Embeds: Ace3
