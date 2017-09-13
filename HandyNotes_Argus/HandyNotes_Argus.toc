@@ -13,4 +13,5 @@ embeds.xml
 
 localization\enUS.lua
 localization\deDE.lua
+localization\zhCN.lua
 HandyNotes_Argus.lua
