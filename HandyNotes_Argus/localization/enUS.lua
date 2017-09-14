@@ -5,58 +5,93 @@ if not _L then return end
 if _L then
 
 --
--- data
+-- DATA
+--
+
+--
+--	READ THIS BEFORE YOU TRANSLATE !!!
+-- 
+--	DO NOT TRANSLATE THE RARE NAMES HERE UNLESS YOU HAVE A GOOD REASON!!!
+--	FOR EU KEEP THE RARE PART AS IT IS. CHINA & CO MAY NEED TO ADJUST!!!
+--
+--	_L["Rarename_search"] must have at least 2 Elements! First is the hardfilter, >=2nd are softfilters
+--	Keep the hardfilter as general as possible. If you must, set it to "".
+--	These Names are only used for the Group finder!
+--	Tooltip names are already localized!
 --
 
 _L["Watcher Aival"] = "Watcher Aival";
+_L["Watcher Aival_search"] = { "aival", "aival" };
 _L["Watcher Aival_note"] = "";
 _L["Puscilla"] = "Puscilla";
+_L["Puscilla_search"] = { "pus", "puscilla" };
 _L["Puscilla_note"] = "Entrance to the cave is south east - use the eastern bridge to get there.";
 _L["Vrax'thul"] = "Vrax'thul";
+_L["Vrax'thul_search"] = { "vrax", "vrax'thul", "vraxthul", "vrax thul" };
 _L["Vrax'thul_note"] = "";
 _L["Ven'orn"] = "Ven'orn";
+_L["Ven'orn_search"] = { "ven", "ven'orn", "venorn", "ven orn" };
 _L["Ven'orn_note"] = "The entrance to the cave is north east from here in the spider area at 66, 54.1";
 _L["Varga"] = "Varga";
+_L["Varga_search"] = { "var", "varga" };
 _L["Varga_note"] = "";
 _L["Lieutenant Xakaar"] = "Lieutenant Xakaar";
+_L["Lieutenant Xakaar_search"] = { "xa", "xakaar" };
 _L["Lieutenant Xakaar_note"] = "";
 _L["Wrath-Lord Yarez"] = "Wrath-Lord Yarez";
+_L["Wrath-Lord Yarez_search"] = { "ya", "yarez" };
 _L["Wrath-Lord Yarez_note"] = "";
 _L["Inquisitor Vethroz"] = "Inquisitor Vethroz";
+_L["Inquisitor Vethroz_search"] = { "vet", "vethroz", "vetroz" };
 _L["Inquisitor Vethroz_note"] = "";
 _L["Portal to Commander Texlaz"] = "Portal to Commander Texlaz";
 _L["Portal to Commander Texlaz_note"] = "";
 _L["Commander Texlaz"] = "Commander Texlaz";
+_L["Commander Texlaz_search"] = { "tex", "texlaz" };
 _L["Commander Texlaz_note"] = "Use the portal at 80.2, 62.3 to get on the ship";
 _L["Admiral Rel'var"] = "Admiral Rel'var";
+_L["Admiral Rel'var_search"] = { "rel", "rel.?var" };
 _L["Admiral Rel'var_note"] = "";
 _L["All-Seer Xanarian"] = "All-Seer Xanarian";
+_L["All-Seer Xanarian_search"] = { "xa", "xanar" };
 _L["All-Seer Xanarian_note"] = "";
 _L["Worldsplitter Skuul"] = "Worldsplitter Skuul";
+_L["Worldsplitter Skuul_search"] = { "sku", "skuul", "skul" };
 _L["Worldsplitter Skuul_note"] = "May be flying around in circles. Will be near ground sometimes. Not on every round though.";
 _L["Houndmaster Kerrax"] = "Houndmaster Kerrax";
+_L["Houndmaster Kerrax_search"] = { "ker", "kerrax", "kerax" };
 _L["Houndmaster Kerrax_note"] = "";
 _L["Void Warden Valsuran"] = "Void Warden Valsuran";
+_L["Void Warden Valsuran_search"] = { "val", "valsuran" };
 _L["Void Warden Valsuran_note"] = "";
 _L["Chief Alchemist Munculus"] = "Chief Alchemist Munculus";
+_L["Chief Alchemist Munculus_search"] = { "mun", "munculus", "muculus" };
 _L["Chief Alchemist Munculus_note"] = "";
 _L["The Many-Faced Devourer"] = "The Many-Faced Devourer";
+_L["The Many-Faced Devourer_search"] = { "face", "many.*face", "face.*devourer" };
 _L["The Many-Faced Devourer_note"] = "Can always be summoned. However you need to find 'Call of the Devourer' from the enemies around there and then collect 3 more things and return tu the pile of bones to summon him.";
 _L["Portal to Squadron Commander Vishax"] = "Portal to Squadron Commander Vishax";
 _L["Portal to Squadron Commander Vishax_note"] = "First find a Smashed Portal Generator from Immortal Netherwalker. Then collect Conductive Sheath, Arc Circuit and Power Cell from Eredar War-Mind and Felsworn Myrmidon. Use the Smashed Portal Generator to unlock the portal to Vishax.";
 _L["Squadron Commander Vishax"] = "Squadron Commander Vishax";
+_L["Squadron Commander Vishax_search"] = { "vis", "vishax", "visax" };
 _L["Squadron Commander Vishax_note"] = "Use portal at 77.2, 73.2 to get up on the ship";
 _L["Doomcaster Suprax"] = "Doomcaster Suprax";
+_L["Doomcaster Suprax_search"] = { "sup", "suprax" };
 _L["Doomcaster Suprax_note"] = "Stand on all 3 runes to summon him. 5 minute respawn timer if you fail!";
 _L["Mother Rosula"] = "Mother Rosula";
+_L["Mother Rosula_search"] = { "ros", "rosula" };
 _L["Mother Rosula_note"] = "Inside cave. Use the eastern bridge. Collect 100 Imp Meat which drop from the imps inside the cave. Use it and place the Disgusting Feast into the green soup at the marked spot.";
 _L["Rezira the Seer"] = "Rezira the Seer";
+_L["Rezira the Seer_search"] = { "rez", "rezira" };
 _L["Rezira the Seer_note"] = "Use Observer's Locus Resonator to open a portal to him. Orix the All-Seer (60.2, 45.4) sells it for 500 Intact Demon Eyes.";
 _L["Blistermaw"] = "Blistermaw";
+_L["Blistermaw_search"] = { "blis", "blister" };
 _L["Blistermaw_note"] = "";
 _L["Mistress Il'thendra"] = "Mistress Il'thendra";
+_L["Mistress Il'thendra_search"] = { "then", "thendra" };
 _L["Mistress Il'thendra_note"] = "";
 _L["Gar'zoth"] = "Gar'zoth";
+_L["Gar'zoth_search"] = { "gar", "gar.?zot" };
 _L["Gar'zoth_note"] = "";
 
 _L["One-of-Many"] = "One-of-Many";
@@ -155,6 +190,7 @@ _L["48390_72527293_note"] = "Behind Rel'var";
 _L["48390_77255876_note"] = "Down the slope";
 _L["48390_72215680_note"] = "Inside building";
 _L["48390_73277299_note"] = "Behind Rel'var";
+_L["48390_77975620_note"] = "Down the slope and further over the cliffs"
 -- 48391
 _L["48391_64135867_note"] = "In Ven'orn spider cave";
 _L["48391_67404790_note"] = "";
@@ -169,28 +205,40 @@ _L["48391_66544668_note"] = "Exit the spider area north where the green zone is 
 
 -- Krokuun
 _L["Khazaduum"] = "Khazaduum";
+_L["Khazaduum_search"] = { "aza", "khazadum", "khazaduum", "kazadum", "kazaduum" };
 _L["Khazaduum_note"] = "Entrance is south east at 50.3, 17.3";
 _L["Commander Sathrenael"] = "Commander Sathrenael";
+_L["Commander Sathrenael_search"] = { "sat", "sathrenael" };
 _L["Commander Sathrenael_note"] = "";
 _L["Commander Endaxis"] = "Commander Endaxis";
+_L["Commander Endaxis_search"] = { "end", "endaxis" };
 _L["Commander Endaxis_note"] = "";
 _L["Sister Subversia"] = "Sister Subversia";
+_L["Sister Subversia_search"] = { "sub", "subversia" };
 _L["Sister Subversia_note"] = "";
 _L["Siegemaster Voraan"] = "Siegemaster Voraan";
+_L["Siegemaster Voraan_search"] = { "vor", "voran", "voraan" };
 _L["Siegemaster Voraan_note"] = "";
 _L["Talestra the Vile"] = "Talestra the Vile";
+_L["Talestra the Vile_search"] = { "tal", "talestra" };
 _L["Talestra the Vile_note"] = "";
 _L["Commander Vecaya"] = "Commander Vecaya";
+_L["Commander Vecaya_search"] = { "vec", "veca[yj]a" };
 _L["Commander Vecaya_note"] = "The path up to her starts east at 42, 57.1";
 _L["Vagath the Betrayed"] = "Vagath the Betrayed";
+_L["Vagath the Betrayed_search"] = { "vag", "vagat" };
 _L["Vagath the Betrayed_note"] = "";
 _L["Tereck the Selector"] = "Tereck the Selector";
+_L["Tereck the Selector_search"] = { "ter", "tereck", "terek" };
 _L["Tereck the Selector_note"] = "";
 _L["Tar Spitter"] = "Tar Spitter";
+_L["Tar Spitter_search"] = { "tar", "tar.*spitter" };
 _L["Tar Spitter_note"] = "";
 _L["Imp Mother Laglath"] = "Imp Mother Laglath";
+_L["Imp Mother Laglath_search"] = { "lag", "laglat" };
 _L["Imp Mother Laglath_note"] = "";
 _L["Naroua"] = "Naroua";
+_L["Naroua_search"] = { "nar", "naroua" };
 _L["Naroua_note"] = "";
 
 _L["Baneglow"] = "Baneglow";
@@ -299,56 +347,79 @@ _L["48339_44864342_note"] = "";
 
 -- Mac'Aree
 _L["Shadowcaster Voruun"] = "Shadowcaster Voruun";
+_L["Shadowcaster Voruun_search"] = { "vor", "voruun", "vorun" };
 _L["Shadowcaster Voruun_note"] = "5 minute respawn timer!";
 _L["Soultwisted Monstrosity"] = "Soultwisted Monstrosity";
+_L["Soultwisted Monstrosity_search"] = { "mon", "monstro" };
 _L["Soultwisted Monstrosity_note"] = "";
 _L["Wrangler Kravos"] = "Wrangler Kravos";
+_L["Wrangler Kravos_search"] = { "kra", "kravos" };
 _L["Wrangler Kravos_note"] = "";
 _L["Kaara the Pale"] = "Kaara the Pale";
-_L["Kaara the Pale_note"] = "";
-_L["Kaara the Pale"] = "Kaara the Pale";
+_L["Kaara the Pale_search"] = { "ka", "ka?ara" };
 _L["Kaara the Pale_note"] = "";
 _L["Feasel the Muffin Thief"] = "Feasel the Muffin Thief";
+_L["Feasel the Muffin Thief_search"] = { "f", "feasel", "muffin" };
 _L["Feasel the Muffin Thief_note"] = "Interrupt burrow";
 _L["Vigilant Thanos"] = "Vigilant Thanos";
+_L["Vigilant Thanos_search"] = { "ano", "th?anos" };
 _L["Vigilant Thanos_note"] = "";
 _L["Vigilant Kuro"] = "Vigilant Kuro";
+_L["Vigilant Kuro_search"] = { "kuro", "kuro" };
 _L["Vigilant Kuro_note"] = "";
 _L["Venomtail Skyfin"] = "Venomtail Skyfin";
+_L["Venomtail Skyfin_search"] = { "i", "venomtail", "skyfin" };
 _L["Venomtail Skyfin_note"] = "";
 _L["Turek the Lucid"] = "Turek the Lucid";
+_L["Turek the Lucid_search"] = { "tur", "turek" };
 _L["Turek the Lucid_note"] = "Down the stairs into the building";
 _L["Captain Faruq"] = "Captain Faruq";
+_L["Captain Faruq_search"] = { "far", "faruq" };
 _L["Captain Faruq_note"] = "";
 _L["Umbraliss"] = "Umbraliss";
+_L["Umbraliss_search"] = { "umb", "umbralis" };
 _L["Umbraliss_note"] = "";
 _L["Sorolis the Ill-Fated"] = "Sorolis the Ill-Fated";
+_L["Sorolis the Ill-Fated_search"] = { "sor", "sorolis" };
 _L["Sorolis the Ill-Fated_note"] = "";
 _L["Herald of Chaos"] = "Herald of Chaos";
+_L["Herald of Chaos_search"] = { "a", "herald", "harald" };
 _L["Herald of Chaos_note"] = "He's on the 2nd floor.";
 _L["Sabuul"] = "Sabuul";
+_L["Sabuul_search"] = { "sab", "sabuul", "sabul" };
 _L["Sabuul_note"] = "";
 _L["Jed'hin Champion Vorusk"] = "Jed'hin Champion Vorusk";
+_L["Jed'hin Champion Vorusk_search"] = { "", "vorusk", "jed.?hin" };
 _L["Jed'hin Champion Vorusk_note"] = "";
 _L["Overseer Y'Beda"] = "Overseer Y'Beda";
+_L["Overseer Y'Beda_search"] = { "beda", "beda" };
 _L["Overseer Y'Beda_note"] = "";
 _L["Overseer Y'Sorna"] = "Overseer Y'Sorna";
+_L["Overseer Y'Sorna_search"] = { "sor", "sorna" };
 _L["Overseer Y'Sorna_note"] = "";
 _L["Overseer Y'Morna"] = "Overseer Y'Morna";
+_L["Overseer Y'Morna_search"] = { "mor", "morna" };
 _L["Overseer Y'Morna_note"] = "";
 _L["Instructor Tarahna"] = "Instructor Tarahna";
+_L["Instructor Tarahna_search"] = { "tara", "tarahna", "tarana" };
 _L["Instructor Tarahna_note"] = "";
 _L["Zul'tan the Numerous"] = "Zul'tan the Numerous";
+_L["Zul'tan the Numerous_search"] = { "zul", "zul.?tan" };
 _L["Zul'tan the Numerous_note"] = "Inside building";
 _L["Commander Xethgar"] = "Commander Xethgar";
+_L["Commander Xethgar_search"] = { "xet", "xethgar" };
 _L["Commander Xethgar_note"] = "";
 _L["Skreeg the Devourer"] = "Skreeg the Devourer";
+_L["Skreeg the Devourer_search"] = { "skr", "skreeg", "skreg" };
 _L["Skreeg the Devourer_note"] = "";
 _L["Baruut the Bloodthirsty"] = "Baruut the Bloodthirsty";
+_L["Baruut the Bloodthirsty_search"] = { "ba", "baruut", "barut" };
 _L["Baruut the Bloodthirsty_note"] = "";
 _L["Ataxon"] = "Ataxon";
+_L["Ataxon_search"] = { "ata", "ataxon" };
 _L["Ataxon_note"] = "";
 _L["Slithon the Last"] = "Slithon the Last";
+_L["Slithon the Last_search"] = { "sli", "slithon" };
 _L["Slithon the Last_note"] = "";
 
 _L["Gloamwing"] = "Gloamwing";
@@ -394,6 +465,7 @@ _L["48346_59386372_note"] = "Inside transparent red tent" ;
 _L["48346_57486159_note"] = "Inside building next to Kravos" ;
 _L["48346_50836729_note"] = "";
 _L["48346_52868241_note"] = "";
+_L["48346_47186234_note"] = "";
 -- 48350
 _L["48350_59622088_note"] = "Inside building under staircase";
 _L["48350_60493338_note"] = "Inside building";
@@ -435,6 +507,7 @@ _L["49264_38143985_note"] = "";
 _L["49264_37613608_note"] = "";
 _L["49264_37812344_note"] = "";
 _L["49264_33972078_note"] = "";
+_L["49264_33312952_note"] = "";
 -- 48361
 _L["48361_37664221_note"] = "Behind pillar in cave thingy";
 _L["48361_25824471_note"] = "";
@@ -443,7 +516,11 @@ _L["48361_29503999_note"] = "";
 _L["48361_29455043_note"] = "Under tree";
 _L["48361_18794171_note"] = "Outside, behind building";
 
--- keep these english for the group browser!
+--
+--	KEEP THESE ENGLISH FOR THE GROUP BROWSER IN EU/US!! CHINA & CO ADJUST
+--	SEARCH ARRAY AS BEFORE, MUST HAVE MINIMUM 2 ELEMENTS
+--
+
 _L["Invasion Point: Val"] = "Invasion Point: Val";
 _L["Invasion Point: Aurinor"] = "Invasion Point: Aurinor";
 _L["Invasion Point: Sangua"] = "Invasion Point: Sangua";
@@ -453,26 +530,19 @@ _L["Invasion Point: Cen'gar"] = "Invasion Point: Cen'gar";
 _L["Greater Invasion Point: Mistress Alluradel"] = "Greater Invasion Point: Mistress Alluradel";
 _L["Greater Invasion Point: Matron Folnuna"] = "Greater Invasion Point: Matron Folnuna";
 
-_L["invasion_val_search_1"] = "invasion.*val";
-_L["invasion_val_search_2"] = "val.*invasion";
-_L["invasion_aurinor_search"] = "aurinor";
-_L["invasion_sangua_search"] = "sangua";
-_L["invasion_naigtal_search"] = "naigtal";
-_L["invasion_bonich_search"] = "bonich";
-_L["invasion_cengar_search"] = "cen.*gar";
-_L["invasion_alluradel_search"] = "alluradel";
-_L["invasion_folnuna_search"] = "folnuna";
+_L["invasion_val_search"] = { "val", "invasion.*val", "val.*invasion" };
+_L["invasion_aurinor_search"] = { "aurinor", "aurinor" };
+_L["invasion_sangua_search"] = { "sangua", "sangua" };
+_L["invasion_naigtal_search"] = { "naigtal", "naigtal" };
+_L["invasion_bonich_search"] = { "bonich", "bonich" };
+_L["invasion_cengar_search"] = { "cen", "cen.*gar" };
+_L["invasion_alluradel_search"] = { "radel", "alluradel" };
+_L["invasion_folnuna_search"] = { "fol", "folnuna" };
 
-_L["invasion_val_search_needle"] = "val";
-_L["invasion_aurinor_search_needle"] = "aurinor";
-_L["invasion_sangua_search_needle"] = "sangua";
-_L["invasion_naigtal_search_needle"] = "naigtal";
-_L["invasion_bonich_search_needle"] = "bonich";
-_L["invasion_cengar_search_needle"] = "cen";
-_L["invasion_alluradel_search_needle"] = "radel";
-_L["invasion_folnuna_search_needle"] = "fol";
 --
--- interface
+--
+-- INTERFACE
+--
 --
 
 _L["Argus"] = "Argus";
@@ -486,9 +556,12 @@ _L["chatmsg_old_group_delisted"] = "|cFFf7c92aOld group delisted. Click again to
 _L["chatmsg_no_group_priv"] = "|cFFFF0000Insufficient rights. You are not the group leader.";
 _L["chatmsg_group_created"] = "Created group for %s.";
 _L["chatmsg_search_failed"] = "|cFFFF0000Too many search requests, please try again in a few seconds.";
+
+-- KEEP THESE 2 ENGLISH IN EU/US
 _L["listing_desc_rare"] = "Doing rare encounter against %s on Argus.";
 _L["listing_desc_invasion"] = "Doing %s on Argus.";
 
+_L["Pet"] = "Pet";
 _L["(Mount known)"] = "(|cFF00FF00Mount known|r)";
 _L["(Mount missing)"] = "(|cFFFF0000Mount missing|r)";
 _L["(Toy known)"] = "(|cFF00FF00Toy known|r)";
@@ -497,6 +570,7 @@ _L["(itemLinkGreen)"] = "(|cFF00FF00%s|r)";
 _L["(itemLinkRed)"] = "(|cFFFF0000%s|r)";
 _L["Retrieving data ..."] = "Retrieving data ...";
 _L["Sorry, no groups found!"] = "Sorry, no groups found!";
+_L["Search in Quests"] = "Search in Quests";
 _L["Groups found:"] = "Groups found:";
 _L["Create new group"] = "Create new group";
 _L["Close"] = "Close";
