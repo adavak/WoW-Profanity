@@ -561,7 +561,6 @@ _L["chatmsg_search_failed"] = "|cFFFF0000Too many search requests, please try ag
 _L["listing_desc_rare"] = "Doing rare encounter against %s on Argus.";
 _L["listing_desc_invasion"] = "Doing %s on Argus.";
 
-_L["Pet"] = "Pet";
 _L["(Mount known)"] = "(|cFF00FF00Mount known|r)";
 _L["(Mount missing)"] = "(|cFFFF0000Mount missing|r)";
 _L["(Toy known)"] = "(|cFF00FF00Toy known|r)";
