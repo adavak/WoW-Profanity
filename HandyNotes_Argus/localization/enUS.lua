@@ -564,7 +564,6 @@ _L["1h Axe"] = "1h Axe";
 _L["2h Mace"] = "2h Mace";
 _L["2h Sword"] = "2h Sword";
 _L["2h Axe"] = "2h Axe";
-_L["2h Sword"] = "2h Sword";
 _L["Dagger"] = "Dagger";
 _L["Staff"] = "Staff";
 _L["Fist"] = "Fist";
