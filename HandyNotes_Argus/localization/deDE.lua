@@ -1,4 +1,4 @@
-local _L = LibStub("AceLocale-3.0"):NewLocale("HandyNotes_Argus", "enUS", true, true)
+local _L = LibStub("AceLocale-3.0"):NewLocale("HandyNotes_Argus", "deDE")
 
 if not _L then return end
 
@@ -130,6 +130,7 @@ _L["48382_71326946_note"] = "Next to Hadrox";
 _L["48382_58066806_note"] = "";
 _L["48382_68026624_note"] = "Inside legion structure";
 _L["48382_64506868_note"] = "Outside";
+_L["48382_62666823_note"] = "Inside Building";
 -- 48383
 _L["48383_56903570_note"] = "";
 _L["48383_57633179_note"] = "";
@@ -550,6 +551,26 @@ _L["Antoran Wastes"] = "Antoran Wastes";
 _L["Krokuun"] = "Krokuun";
 _L["Mac'Aree"] = "Mac'Aree";
 
+_L["Shield"] = "Schild";
+_L["Cloth"] = "Stoff";
+_L["Leather"] = "Leder";
+_L["Mail"] = "Kette";
+_L["Plate"] = "Platte";
+_L["1h Mace"] = "1h Hammer";
+_L["1h Sword"] = "1h Schwert";
+_L["1h Axe"] = "1h Axt";
+_L["2h Mace"] = "2h Hammer";
+_L["2h Sword"] = "2h Schwert";
+_L["2h Axe"] = "2h Axt";
+_L["2h Sword"] = "2h Schwert";
+_L["Dagger"] = "Dolch";
+_L["Staff"] = "Stab";
+_L["Fist"] = "Faust";
+_L["Polearm"] = "Stange";
+_L["Bow"] = "Bogen";
+_L["Gun"] = "Schußwaffe";
+_L["Crossbow"] = "Armbrust";
+
 _L["groupBrowserOptionOne"] = "%s - %s Spieler (%ds)";
 _L["groupBrowserOptionMore"] = "%s - %s Spieler (%ds)";
 _L["chatmsg_old_group_delisted"] = "|cFFf7c92aAlte Gruppe abgemeldet. Klicke nochmal, um nach Gruppen für %s zu suchen."
@@ -576,7 +597,7 @@ _L["Create new group"] = "Erstelle neue Gruppe";
 _L["Close"] = "Schließen";
 
 _L["context_menu_title"] = "Handynotes Argus";
-_L["context_menu_check_group_finder"] = "Suche nach Gruppen für Rares";
+_L["context_menu_check_group_finder"] = "Prüfe Gruppenverfügbarkeit für Rares";
 _L["context_menu_reset_rare_counters"] = "Rare Gruppenzähler zurücksetzen";
 _L["context_menu_add_tomtom"] = "Zu TomTom hinzufügen";
 _L["context_menu_hide_node"] = "Verstecke diesen Punkt";
@@ -614,8 +635,8 @@ _L["options_toggle_alreadylooted_treasures"] = "Bereits geplünderte Schatztruhe
 _L["options_toggle_alreadylooted_treasures_desc"] = "Zeige alle Schatztruhen, auch wenn heute bereits geplündert";
 _L["options_toggle_alreadylooted_sfll"] = "Bereits geplünderte 'Erst schießen, dann plündern' Schatztruhen";
 _L["options_toggle_alreadylooted_sfll_desc"] = "Zeige alle Erfolgsschatztruhen, selbst, wenn diese bereits geplündert wurden.";
-_L["options_toggle_nodeRareGlow"] = "Rares Icons Glow"
-_L["options_toggle_nodeRareGlow_desc"] = "Adds a glow to Rares Icons depending on group availability. No glow = no groups, red glow = low availability, green glow = high availability."
+_L["options_toggle_nodeRareGlow"] = "Rares Icons Schein"
+_L["options_toggle_nodeRareGlow_desc"] = "Fügt den Rare Icons einen roten/grünen Schein hinzu. Die Farbe ist abhängig von der Anzahl an verfügbaren Gruppen. Kein Schein = keine Gruppen, roter Schein = (relativ) wenig Gruppen, grüner Schein = (relativ) viele Gruppen."
 _L["options_tooltip_settings"] = "Tooltip";
 _L["options_tooltip_settings_desc"] = "Tooltip";
 _L["options_toggle_show_loot"] = "Zeige Loot";

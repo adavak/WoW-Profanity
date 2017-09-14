@@ -113,7 +113,7 @@ _L["Orix the All-Seer_note"] = "Find green demonic eyes. Click them. Lose 90% hp
 _L["Forgotten Legion Supplies"] = "Forgotten Legion Supplies";
 _L["Forgotten Legion Supplies_note"] = "Rocks block the way. Use Lightforged Warframe Jump to crush the boulders.";
 _L["Ancient Legion War Cache"] = "Ancient Legion War Cache";
-_L["Ancient Legion War Cache_note"] = "Carefully jump down to reach the little cave. Gilder helps a lot. Remove rocks with Lights's Judgment.";
+_L["Ancient Legion War Cache_note"] = "Carefully jump down to reach the little cave. Glider helps a lot. Remove rocks with Lights's Judgment.";
 _L["Fel-Bound Chest"] = "Fel-Bound Chest";
 _L["Fel-Bound Chest_note"] = "Start a little south east, at 53.7, 30.9. Jump over the rocks to reach the cave. Rocks block the way into the cave. Remove them with Lights's Judgment.";
 _L["Legion Treasure Hoard"] = "Legion Treasure Hoard";
@@ -130,6 +130,7 @@ _L["48382_71326946_note"] = "Next to Hadrox";
 _L["48382_58066806_note"] = "";
 _L["48382_68026624_note"] = "Inside legion structure";
 _L["48382_64506868_note"] = "Outside";
+_L["48382_62666823_note"] = "Inside Building";
 -- 48383
 _L["48383_56903570_note"] = "";
 _L["48383_57633179_note"] = "";
@@ -193,7 +194,7 @@ _L["48390_73277299_note"] = "Behind Rel'var";
 _L["48390_77975620_note"] = "Down the slope and further over the cliffs"
 -- 48391
 _L["48391_64135867_note"] = "In Ven'orn spider cave";
-_L["48391_67404790_note"] = "";
+_L["48391_67404790_note"] = "Spider area, in a small cave next to the northern exit";
 _L["48391_63615622_note"] = "In Ven'orn spider cave";
 _L["48391_65005049_note"] = "Outside in spider area";
 _L["48391_63035762_note"] = "In Ven'orn spider cave";
@@ -480,6 +481,7 @@ _L["48351_43955630_note"] = "Under tree";
 _L["48351_46917346_note"] = "Hidden under tree";
 _L["48351_36296646_note"] = "";
 _L["48351_42645361_note"] = "In a cave. Entrance is southwest from here.";
+_L["48351_38126342_note"] = "Inside Tureks cellar";
 -- 48357
 _L["48357_49412387_note"] = "";
 _L["48357_47672180_note"] = "";
@@ -501,6 +503,7 @@ _L["48362_67254608_note"] = "Inside building";
 _L["48362_68355322_note"] = "Inside building";
 _L["48362_65966017_note"] = "";
 _L["48362_62053268_note"] = "Upper terrain level";
+_L["48362_60964354_note"] = "Inside building";
 -- Void-Seeped Cache / Treasure Chest
 -- 49264
 _L["49264_38143985_note"] = "";
@@ -550,6 +553,26 @@ _L["Antoran Wastes"] = "Antoran Wastes";
 _L["Krokuun"] = "Krokuun";
 _L["Mac'Aree"] = "Mac'Aree";
 
+_L["Shield"] = "Shield";
+_L["Cloth"] = "Cloth";
+_L["Leather"] = "Leather";
+_L["Mail"] = "Mail";
+_L["Plate"] = "Plate";
+_L["1h Mace"] = "1h Mace";
+_L["1h Sword"] = "1h Sword";
+_L["1h Axe"] = "1h Axe";
+_L["2h Mace"] = "2h Mace";
+_L["2h Sword"] = "2h Sword";
+_L["2h Axe"] = "2h Axe";
+_L["2h Sword"] = "2h Sword";
+_L["Dagger"] = "Dagger";
+_L["Staff"] = "Staff";
+_L["Fist"] = "Fist";
+_L["Polearm"] = "Polearm";
+_L["Bow"] = "Bow";
+_L["Gun"] = "Gun";
+_L["Crossbow"] = "Crossbow";
+
 _L["groupBrowserOptionOne"] = "%s - %s Member (%ds)";
 _L["groupBrowserOptionMore"] = "%s - %s Members (%ds)";
 _L["chatmsg_old_group_delisted"] = "|cFFf7c92aOld group delisted. Click again to search groups for %s."
@@ -561,6 +584,7 @@ _L["chatmsg_search_failed"] = "|cFFFF0000Too many search requests, please try ag
 _L["listing_desc_rare"] = "Doing rare encounter against %s on Argus.";
 _L["listing_desc_invasion"] = "Doing %s on Argus.";
 
+_L["Pet"] = "Pet";
 _L["(Mount known)"] = "(|cFF00FF00Mount known|r)";
 _L["(Mount missing)"] = "(|cFFFF0000Mount missing|r)";
 _L["(Toy known)"] = "(|cFF00FF00Toy known|r)";
@@ -575,8 +599,8 @@ _L["Create new group"] = "Create new group";
 _L["Close"] = "Close";
 
 _L["context_menu_title"] = "Handynotes Argus";
-_L["context_menu_check_group_finder"] = "Check group finder";
-_L["context_menu_reset_rare_counters"] = "Reset Rare Group Counters";
+_L["context_menu_check_group_finder"] = "Check group availability";
+_L["context_menu_reset_rare_counters"] = "Reset group counters";
 _L["context_menu_add_tomtom"] = "Add this location to TomTom waypoints";
 _L["context_menu_hide_node"] = "Hide this node";
 _L["context_menu_restore_hidden_nodes"] = "Restore all hidden nodes";

@@ -5,58 +5,93 @@ if not _L then return end
 if _L then
 
 --
--- data
+-- DATA
+--
+
+--
+--	READ THIS BEFORE YOU TRANSLATE !!!
+-- 
+--	DO NOT TRANSLATE THE RARE NAMES HERE UNLESS YOU HAVE A GOOD REASON!!!
+--	FOR EU KEEP THE RARE PART AS IT IS. CHINA & CO MAY NEED TO ADJUST!!!
+--
+--	_L["Rarename_search"] must have at least 2 Elements! First is the hardfilter, >=2nd are softfilters
+--	Keep the hardfilter as general as possible. If you must, set it to "".
+--	These Names are only used for the Group finder!
+--	Tooltip names are already localized!
 --
 
 _L["Watcher Aival"] = "监视者艾瓦";
+_L["Watcher Aival_search"] = { "监视者艾瓦", "艾瓦" };
 _L["Watcher Aival_note"] = "";
 _L["Puscilla"] = "普希拉";
+_L["Puscilla_search"] = { "普希拉", "" };
 _L["Puscilla_note"] = "洞穴入口在东南方 - 从东面的桥到达那里。";
 _L["Vrax'thul"] = "弗拉克苏尔";
+_L["Vrax'thul_search"] = { "弗拉克苏尔", "" };
 _L["Vrax'thul_note"] = "";
 _L["Ven'orn"] = "维农";
+_L["Ven'orn_search"] = { "维农", "" };
 _L["Ven'orn_note"] = "洞穴入口在东北方，从蜘蛛区域 66, 54.1";
 _L["Varga"] = "瓦加";
+_L["Varga_search"] = { "瓦加", "" };
 _L["Varga_note"] = "";
 _L["Lieutenant Xakaar"] = "萨卡尔中尉";
+_L["Lieutenant Xakaar_search"] = { "萨卡尔中尉", "中尉" };
 _L["Lieutenant Xakaar_note"] = "";
 _L["Wrath-Lord Yarez"] = "愤怒领主亚雷兹";
+_L["Wrath-Lord Yarez_search"] = { "愤怒领主亚雷兹", "愤怒领主" };
 _L["Wrath-Lord Yarez_note"] = "";
 _L["Inquisitor Vethroz"] = "审判官维斯洛兹";
+_L["Inquisitor Vethroz_search"] = { "审判官维斯洛兹", "审判官" };
 _L["Inquisitor Vethroz_note"] = "";
 _L["Portal to Commander Texlaz"] = "传送到指挥官泰克拉兹";
 _L["Portal to Commander Texlaz_note"] = "";
 _L["Commander Texlaz"] = "指挥官泰克拉兹";
+_L["Commander Texlaz_search"] = { "指挥官泰克拉兹", "泰克拉兹" };
 _L["Commander Texlaz_note"] = "使用偏西的传送门位于 80.2, 62.3 到达船上";
 _L["Admiral Rel'var"] = "雷尔瓦将军";
+_L["Admiral Rel'var_search"] = { "雷尔瓦将军", "将军" };
 _L["Admiral Rel'var_note"] = "";
 _L["All-Seer Xanarian"] = "全知者萨纳里安";
+_L["All-Seer Xanarian_search"] = { "全知者萨纳里安", "全知者" };
 _L["All-Seer Xanarian_note"] = "";
 _L["Worldsplitter Skuul"] = "裂世者斯库尔";
+_L["Worldsplitter Skuul_search"] = { "裂世者斯库尔", "裂世者" };
 _L["Worldsplitter Skuul_note"] = "会在天上盘旋。偶尔也会降落。不是每次盘旋都这样。";
 _L["Houndmaster Kerrax"] = "驯犬大师克拉克斯";
+_L["Houndmaster Kerrax_search"] = { "驯犬大师克拉克斯", "驯犬大师" };
 _L["Houndmaster Kerrax_note"] = "";
 _L["Void Warden Valsuran"] = "虚空守望者瓦苏";
+_L["Void Warden Valsuran_search"] = { "虚空守望者瓦苏", "虚空守望者" };
 _L["Void Warden Valsuran_note"] = "";
 _L["Chief Alchemist Munculus"] = "首席炼金师蒙库鲁斯";
+_L["Chief Alchemist Munculus_search"] = { "首席炼金师蒙库鲁斯", "首席炼金师" };
 _L["Chief Alchemist Munculus_note"] = "";
 _L["The Many-Faced Devourer"] = "千面吞噬者";
+_L["The Many-Faced Devourer_search"] = { "千面吞噬者", "千面" };
 _L["The Many-Faced Devourer_note"] = "可以永远召唤。但必须从周围怪身上找到“吞噬者的召唤”，然后找到3个骨头才能召唤。";
 _L["Portal to Squadron Commander Vishax"] = "传送到中队指挥官维沙克斯";
 _L["Portal to Squadron Commander Vishax_note"] = "第一步先从不朽虚无行者身上找到碎裂的传送门发生器。然后从艾瑞达战术顾问、魔誓侍从身上收集导电护套，弧光电路，能量电池，使用碎裂的传送门发生器把它们组合起来打开去往维沙克斯的传送门。";
 _L["Squadron Commander Vishax"] = "中队指挥官维沙克斯";
+_L["Squadron Commander Vishax_search"] = { "中队指挥官维沙克斯", "中队指挥官" };
 _L["Squadron Commander Vishax_note"] = "使用传送门位于 77.2, 73.2 上船";
 _L["Doomcaster Suprax"] = "末日法师苏帕克斯";
+_L["Doomcaster Suprax_search"] = { "末日法师苏帕克斯", "末日法师" };
 _L["Doomcaster Suprax_note"] = "三个符文上站人召唤他。如果失败了5分钟后刷新！";
 _L["Mother Rosula"] = "主母罗苏拉";
+_L["Mother Rosula_search"] = { "主母罗苏拉", "主母" };
 _L["Mother Rosula_note"] = "洞穴内 - 从东面的桥到达那里。收集洞里小鬼掉的100个小鬼的肉。使用它做一份黑暗料理扔进绿池子里召唤主母。";
 _L["Rezira the Seer"] = "先知雷兹拉";
+_L["Rezira the Seer_search"] = { "先知雷兹拉", "先知" };
 _L["Rezira the Seer_note"] = "使用观察者之地共鸣器打开传送门。收集500个恶魔之眼把它交给位于 60.2, 45.4 的全视者奥利克斯换取。";
 _L["Blistermaw"] = "疱喉";
+_L["Blistermaw_search"] = { "疱喉", "" };
 _L["Blistermaw_note"] = "";
 _L["Mistress Il'thendra"] = "妖女伊森黛拉";
+_L["Mistress Il'thendra_search"] = { "妖女伊森黛拉", "伊森黛拉" };
 _L["Mistress Il'thendra_note"] = "";
 _L["Gar'zoth"] = "加尔佐斯";
+_L["Gar'zoth_search"] = { "加尔佐斯", "" };
 _L["Gar'zoth_note"] = "";
 
 _L["One-of-Many"] = "小乌祖";
@@ -155,6 +190,7 @@ _L["48390_72527293_note"] = "雷尔瓦将军后面";
 _L["48390_77255876_note"] = "斜坡";
 _L["48390_72215680_note"] = "建筑物内";
 _L["48390_73277299_note"] = "雷尔瓦将军后面";
+_L["48390_77975620_note"] = "下斜坡到更远的悬崖上"
 -- 48391
 _L["48391_64135867_note"] = "在维农的巢穴内";
 _L["48391_67404790_note"] = "";
@@ -169,28 +205,40 @@ _L["48391_66544668_note"] = "出了蜘蛛区域北面有绿软泥区域。跳上
 
 -- Krokuun
 _L["Khazaduum"] = "卡扎杜姆";
+_L["Khazaduum_search"] = { "卡扎杜姆", "" };
 _L["Khazaduum_note"] = "入口在东南位于 50.3, 17.3";
 _L["Commander Sathrenael"] = "指挥官萨森纳尔";
+_L["Commander Sathrenael_search"] = { "指挥官萨森纳尔", "萨森纳尔" };
 _L["Commander Sathrenael_note"] = "";
 _L["Commander Endaxis"] = "指挥官安达西斯";
+_L["Commander Endaxis_search"] = { "指挥官安达西斯", "安达西斯" };
 _L["Commander Endaxis_note"] = "";
 _L["Sister Subversia"] = "苏薇西娅姐妹";
+_L["Sister Subversia_search"] = { "苏薇西娅姐妹", "姐妹" };
 _L["Sister Subversia_note"] = "";
 _L["Siegemaster Voraan"] = "攻城大师沃兰";
+_L["Siegemaster Voraan_search"] = { "攻城大师沃兰", "攻城大师" };
 _L["Siegemaster Voraan_note"] = "";
 _L["Talestra the Vile"] = "恶毒者泰勒斯塔";
+_L["Talestra the Vile_search"] = { "恶毒者泰勒斯塔", "恶毒者" };
 _L["Talestra the Vile_note"] = "";
 _L["Commander Vecaya"] = "指挥官维卡娅";
+_L["Commander Vecaya_search"] = { "指挥官维卡娅", "维卡娅" };
 _L["Commander Vecaya_note"] = "路径起始点在东，位于 42, 57.1";
 _L["Vagath the Betrayed"] = "背弃者瓦加斯";
+_L["Vagath the Betrayed_search"] = { "背弃者瓦加斯", "背弃者" };
 _L["Vagath the Betrayed_note"] = "";
 _L["Tereck the Selector"] = "分选者泰瑞克";
+_L["Tereck the Selector_search"] = { "分选者泰瑞克", "分选者" };
 _L["Tereck the Selector_note"] = "";
 _L["Tar Spitter"] = "焦油喷吐者";
+_L["Tar Spitter_search"] = { "焦油喷吐者", "焦油" };
 _L["Tar Spitter_note"] = "";
 _L["Imp Mother Laglath"] = "鬼母拉格拉丝";
+_L["Imp Mother Laglath_search"] = { "鬼母拉格拉丝", "鬼母" };
 _L["Imp Mother Laglath_note"] = "";
 _L["Naroua"] = "纳罗瓦";
+_L["Naroua_search"] = { "纳罗瓦", "" };
 _L["Naroua_note"] = "";
 
 _L["Baneglow"] = "梦魇之焰";
@@ -299,56 +347,79 @@ _L["48339_44864342_note"] = "";
 
 -- Mac'Aree
 _L["Shadowcaster Voruun"] = "暗影法师沃伦";
+_L["Shadowcaster Voruun_search"] = { "暗影法师沃伦", "暗影法师" };
 _L["Shadowcaster Voruun_note"] = "5分钟刷新时间！";
 _L["Soultwisted Monstrosity"] = "灵魂扭曲的畸体";
+_L["Soultwisted Monstrosity_search"] = { "灵魂扭曲的畸体", "畸体" };
 _L["Soultwisted Monstrosity_note"] = "";
 _L["Wrangler Kravos"] = "牧羊人卡沃斯";
+_L["Wrangler Kravos_search"] = { "牧羊人卡沃斯", "牧羊人" };
 _L["Wrangler Kravos_note"] = "";
 _L["Kaara the Pale"] = "苍白的卡拉";
-_L["Kaara the Pale_note"] = "";
-_L["Kaara the Pale"] = "苍白的卡拉";
+_L["Kaara the Pale_search"] = { "苍白的卡拉", "苍白" };
 _L["Kaara the Pale_note"] = "";
 _L["Feasel the Muffin Thief"] = "麦芬大盗费舍尔";
+_L["Feasel the Muffin Thief_search"] = { "麦芬大盗费舍尔", "大盗" };
 _L["Feasel the Muffin Thief_note"] = "打断钻地";
 _L["Vigilant Thanos"] = "警卫泰诺斯";
+_L["Vigilant Thanos_search"] = { "警卫泰诺斯", "泰诺斯" };
 _L["Vigilant Thanos_note"] = "";
 _L["Vigilant Kuro"] = "警卫库洛";
+_L["Vigilant Kuro_search"] = { "警卫库洛", "库洛" };
 _L["Vigilant Kuro_note"] = "";
 _L["Venomtail Skyfin"] = "毒尾天鳍鳐";
+_L["Venomtail Skyfin_search"] = { "毒尾天鳍鳐", "毒尾" };
 _L["Venomtail Skyfin_note"] = "";
 _L["Turek the Lucid"] = "清醒者图瑞克";
+_L["Turek the Lucid_search"] = { "清醒者图瑞克", "清醒者" };
 _L["Turek the Lucid_note"] = "下楼进入建筑物";
 _L["Captain Faruq"] = "法鲁克队长";
+_L["Captain Faruq_search"] = { "法鲁克队长", "法鲁克" };
 _L["Captain Faruq_note"] = "";
 _L["Umbraliss"] = "乌伯拉利斯";
+_L["Umbraliss_search"] = { "乌伯拉利斯", "" };
 _L["Umbraliss_note"] = "";
 _L["Sorolis the Ill-Fated"] = "厄运者索洛里斯";
+_L["Sorolis the Ill-Fated_search"] = { "厄运者索洛里斯", "厄运者" };
 _L["Sorolis the Ill-Fated_note"] = "";
 _L["Herald of Chaos"] = "混沌先驱";
+_L["Herald of Chaos_search"] = { "混沌先驱", "" };
 _L["Herald of Chaos_note"] = "位于第二层。";
 _L["Sabuul"] = "沙布尔";
+_L["Sabuul_search"] = { "沙布尔", "" };
 _L["Sabuul_note"] = "";
 _L["Jed'hin Champion Vorusk"] = "杰德尼勇士沃鲁斯克";
+_L["Jed'hin Champion Vorusk_search"] = { "杰德尼勇士沃鲁斯克", "杰德尼勇士" };
 _L["Jed'hin Champion Vorusk_note"] = "";
 _L["Overseer Y'Beda"] = "监视者伊比达";
+_L["Overseer Y'Beda_search"] = { "监视者伊比达", "伊比达" };
 _L["Overseer Y'Beda_note"] = "";
 _L["Overseer Y'Sorna"] = "监视者伊索纳";
+_L["Overseer Y'Sorna_search"] = { "监视者伊索纳", "伊索纳" };
 _L["Overseer Y'Sorna_note"] = "";
 _L["Overseer Y'Morna"] = "监视者伊莫拉";
+_L["Overseer Y'Morna_search"] = { "监视者伊莫拉", "伊莫拉" };
 _L["Overseer Y'Morna_note"] = "";
 _L["Instructor Tarahna"] = "导师塔拉娜";
+_L["Instructor Tarahna_search"] = { "导师塔拉娜", "导师" };
 _L["Instructor Tarahna_note"] = "";
 _L["Zul'tan the Numerous"] = "万千之主祖尔坦";
+_L["Zul'tan the Numerous_search"] = { "万千之主祖尔坦", "万千之主" };
 _L["Zul'tan the Numerous_note"] = "建筑物内";
 _L["Commander Xethgar"] = "指挥官泽斯加尔";
+_L["Commander Xethgar_search"] = { "指挥官泽斯加尔", "泽斯加尔" };
 _L["Commander Xethgar_note"] = "";
 _L["Skreeg the Devourer"] = "吞噬者斯克里格";
+_L["Skreeg the Devourer_search"] = { "吞噬者斯克里格", "吞噬者" };
 _L["Skreeg the Devourer_note"] = "";
 _L["Baruut the Bloodthirsty"] = "嗜血的巴鲁特";
+_L["Baruut the Bloodthirsty_search"] = { "嗜血的巴鲁特", "巴鲁特" };
 _L["Baruut the Bloodthirsty_note"] = "";
 _L["Ataxon"] = "阿塔克松";
+_L["Ataxon_search"] = { "阿塔克松", "" };
 _L["Ataxon_note"] = "";
 _L["Slithon the Last"] = "最后的希里索恩";
+_L["Slithon the Last_search"] = { "最后的希里索恩", "希里索恩" };
 _L["Slithon the Last_note"] = "";
 
 _L["Gloamwing"] = "烁光之翼";
@@ -394,6 +465,7 @@ _L["48346_59386372_note"] = "透明的红色帐篷内" ;
 _L["48346_57486159_note"] = "牧羊人卡沃斯旁边的建筑物内" ;
 _L["48346_50836729_note"] = "";
 _L["48346_52868241_note"] = "";
+_L["48346_47186234_note"] = "";
 -- 48350
 _L["48350_59622088_note"] = "建筑物内楼梯下";
 _L["48350_60493338_note"] = "建筑物内";
@@ -435,6 +507,7 @@ _L["49264_38143985_note"] = "";
 _L["49264_37613608_note"] = "";
 _L["49264_37812344_note"] = "";
 _L["49264_33972078_note"] = "";
+_L["49264_33312952_note"] = "";
 -- 48361
 _L["48361_37664221_note"] = "洞里柱子后面";
 _L["48361_25824471_note"] = "";
@@ -443,7 +516,11 @@ _L["48361_29503999_note"] = "";
 _L["48361_29455043_note"] = "树下";
 _L["48361_18794171_note"] = "外面，建筑物后面";
 
--- keep these english for the group browser!
+--
+--	KEEP THESE ENGLISH FOR THE GROUP BROWSER IN EU/US!! CHINA & CO ADJUST
+--	SEARCH ARRAY AS BEFORE, MUST HAVE MINIMUM 2 ELEMENTS
+--
+
 _L["Invasion Point: Val"] = "侵入点：瓦尔";
 _L["Invasion Point: Aurinor"] = "侵入点：奥雷诺";
 _L["Invasion Point: Sangua"] = "侵入点：萨古亚";
@@ -453,26 +530,19 @@ _L["Invasion Point: Cen'gar"] = "侵入点：森加";
 _L["Greater Invasion Point: Mistress Alluradel"] = "大型侵入点：妖女奥露拉黛儿";
 _L["Greater Invasion Point: Matron Folnuna"] = "大型侵入点：主母芙努娜";
 
-_L["invasion_val_search_1"] = "侵入点：瓦尔";
-_L["invasion_val_search_2"] = "侵入点瓦尔";
-_L["invasion_aurinor_search"] = "奥雷诺";
-_L["invasion_sangua_search"] = "萨古亚";
-_L["invasion_naigtal_search"] = "奈格塔尔";
-_L["invasion_bonich_search"] = "博尼克";
-_L["invasion_cengar_search"] = "森加";
-_L["invasion_alluradel_search"] = "奥露拉黛儿";
-_L["invasion_folnuna_search"] = "主母芙努娜";
+_L["invasion_val_search"] = { "侵入点：瓦尔", "瓦尔" };
+_L["invasion_aurinor_search"] = { "侵入点：奥雷诺", "奥雷诺" };
+_L["invasion_sangua_search"] = { "侵入点：萨古亚", "萨古亚" };
+_L["invasion_naigtal_search"] = { "侵入点：奈格塔尔", "奈格塔尔" };
+_L["invasion_bonich_search"] = { "侵入点：博尼克", "博尼克" };
+_L["invasion_cengar_search"] = { "侵入点：森加", "森加" };
+_L["invasion_alluradel_search"] = { "大型侵入点：妖女奥露拉黛儿", "妖女奥露拉黛儿" };
+_L["invasion_folnuna_search"] = { "大型侵入点：主母芙努娜", "主母芙努娜" };
 
-_L["invasion_val_search_needle"] = "瓦尔";
-_L["invasion_aurinor_search_needle"] = "奥雷诺";
-_L["invasion_sangua_search_needle"] = "萨古亚";
-_L["invasion_naigtal_search_needle"] = "奈格塔尔";
-_L["invasion_bonich_search_needle"] = "博尼克";
-_L["invasion_cengar_search_needle"] = "森加";
-_L["invasion_alluradel_search_needle"] = "奥露拉黛儿";
-_L["invasion_folnuna_search_needle"] = "主母芙努娜";
 --
--- interface
+--
+-- INTERFACE
+--
 --
 
 _L["Argus"] = "阿古斯";
@@ -480,12 +550,34 @@ _L["Antoran Wastes"] = "安托兰废土";
 _L["Krokuun"] = "克罗库恩";
 _L["Mac'Aree"] = "玛凯雷";
 
+_L["Shield"] = "Shield";
+_L["Cloth"] = "Cloth";
+_L["Leather"] = "Leather";
+_L["Mail"] = "Mail";
+_L["Plate"] = "Plate";
+_L["1h Mace"] = "1h Mace";
+_L["1h Sword"] = "1h Sword";
+_L["1h Axe"] = "1h Axe";
+_L["2h Mace"] = "2h Mace";
+_L["2h Sword"] = "2h Sword";
+_L["2h Axe"] = "2h Axe";
+_L["2h Sword"] = "2h Sword";
+_L["Dagger"] = "Dagger";
+_L["Staff"] = "Staff";
+_L["Fist"] = "Fist";
+_L["Polearm"] = "Polearm";
+_L["Bow"] = "Bow";
+_L["Gun"] = "Gun";
+_L["Crossbow"] = "Crossbow";
+
 _L["groupBrowserOptionOne"] = "%s - %s 人(%d秒)";
 _L["groupBrowserOptionMore"] = "%s - %s 人(%d秒)";
 _L["chatmsg_old_group_delisted"] = "|cFFf7c92a旧队伍已移除。再次点击搜索队伍：%s。"
 _L["chatmsg_no_group_priv"] = "|cFFFF0000权限不足。你不是队长。";
 _L["chatmsg_group_created"] = "创建队伍：%s。";
 _L["chatmsg_search_failed"] = "|cFFFF0000太多查询请求，请稍后尝试。";
+
+-- KEEP THESE 2 ENGLISH IN EU/US
 _L["listing_desc_rare"] = "阿古斯稀有“%s”的战斗。";
 _L["listing_desc_invasion"] = "阿古斯 %s。";
 
@@ -497,6 +589,7 @@ _L["(itemLinkGreen)"] = "(|cFF00FF00%s|r)";
 _L["(itemLinkRed)"] = "(|cFFFF0000%s|r)";
 _L["Retrieving data ..."] = "检索数据…";
 _L["Sorry, no groups found!"] = "抱歉，没找到队伍！";
+_L["Search in Quests"] = "在任务中查找";
 _L["Groups found:"] = "找到队伍：";
 _L["Create new group"] = "创建新队伍";
 _L["Close"] = "关闭";
