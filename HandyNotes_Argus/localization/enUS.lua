@@ -474,6 +474,7 @@ _L["48350_53912335_note"] = "Inside building";
 _L["48350_55063508_note"] = "";
 _L["48350_62202636_note"] = "On the balcony. Go into the building and up the stairs to the right.";
 _L["48350_53332740_note"] = "Under tree";
+_L["48350_58574078_note"] = "";
 -- 48351
 _L["48351_43637134_note"] = "";
 _L["48351_34205929_note"] = "On 2nd floor, where Herald of Chaos resides.";
@@ -511,6 +512,7 @@ _L["49264_37613608_note"] = "";
 _L["49264_37812344_note"] = "";
 _L["49264_33972078_note"] = "";
 _L["49264_33312952_note"] = "";
+_L["49264_37102005_note"] = "";
 -- 48361
 _L["48361_37664221_note"] = "Behind pillar in cave thingy";
 _L["48361_25824471_note"] = "";
@@ -562,8 +564,8 @@ _L["1h Mace"] = "1h Mace";
 _L["1h Sword"] = "1h Sword";
 _L["1h Axe"] = "1h Axe";
 _L["2h Mace"] = "2h Mace";
-_L["2h Sword"] = "2h Sword";
 _L["2h Axe"] = "2h Axe";
+_L["2h Sword"] = "2h Sword";
 _L["Dagger"] = "Dagger";
 _L["Staff"] = "Staff";
 _L["Fist"] = "Fist";
@@ -572,12 +574,15 @@ _L["Bow"] = "Bow";
 _L["Gun"] = "Gun";
 _L["Crossbow"] = "Crossbow";
 
-_L["groupBrowserOptionOne"] = "%s - %s Member (%ds)";
-_L["groupBrowserOptionMore"] = "%s - %s Members (%ds)";
+_L["groupBrowserOptionOne"] = "%s - %s Member (%s)";
+_L["groupBrowserOptionMore"] = "%s - %s Members (%s)";
 _L["chatmsg_old_group_delisted"] = "|cFFf7c92aOld group delisted. Click again to search groups for %s."
 _L["chatmsg_no_group_priv"] = "|cFFFF0000Insufficient rights. You are not the group leader.";
 _L["chatmsg_group_created"] = "Created group for %s.";
 _L["chatmsg_search_failed"] = "|cFFFF0000Too many search requests, please try again in a few seconds.";
+_L["hour_short"] = "h";
+_L["minute_short"] = "m";
+_L["second_short"] = "s";
 
 -- KEEP THESE 2 ENGLISH IN EU/US
 _L["listing_desc_rare"] = "Doing rare encounter against %s on Argus.";

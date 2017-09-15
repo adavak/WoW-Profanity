@@ -562,7 +562,6 @@ _L["1h Axe"] = "1h Axt";
 _L["2h Mace"] = "2h Hammer";
 _L["2h Sword"] = "2h Schwert";
 _L["2h Axe"] = "2h Axt";
-_L["2h Sword"] = "2h Schwert";
 _L["Dagger"] = "Dolch";
 _L["Staff"] = "Stab";
 _L["Fist"] = "Faust";
@@ -571,12 +570,15 @@ _L["Bow"] = "Bogen";
 _L["Gun"] = "Schußwaffe";
 _L["Crossbow"] = "Armbrust";
 
-_L["groupBrowserOptionOne"] = "%s - %s Spieler (%ds)";
-_L["groupBrowserOptionMore"] = "%s - %s Spieler (%ds)";
+_L["groupBrowserOptionOne"] = "%s - %s Spieler (%s)";
+_L["groupBrowserOptionMore"] = "%s - %s Spieler (%s)";
 _L["chatmsg_old_group_delisted"] = "|cFFf7c92aAlte Gruppe abgemeldet. Klicke nochmal, um nach Gruppen für %s zu suchen."
 _L["chatmsg_no_group_priv"] = "|cFFFF0000Unzureichend Berechtigungen. Du bist nicht der Gruppenleiter.";
 _L["chatmsg_group_created"] = "Gruppe erstellt für %s.";
 _L["chatmsg_search_failed"] = "|cFFFF0000Zu viele Suchanfragen, versuche es bitte in einigen Sekunden noch einmal.";
+_L["hour_short"] = "h";
+_L["minute_short"] = "m";
+_L["second_short"] = "s";
 
 -- KEEP THESE 2 ENGLISH IN EU/US
 _L["listing_desc_rare"] = "Doing rare encounter against %s on Argus.";

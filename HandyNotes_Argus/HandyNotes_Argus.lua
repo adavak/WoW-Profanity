@@ -1,6 +1,6 @@
 -- Thanks to all who provide usable code
 local ADDON_MSG_PREFIX = "HNA";
-local VERSION = "0.21.1";
+local VERSION = "0.21.2";
 
 local _G = getfenv(0)
 -- Libraries
@@ -364,8 +364,8 @@ nodes["ArgusMacAree"] = {
 	{ coord = 44607160, npcId = 122838, questId = 48692, icon = "skull_grey", group = "rare_ma", label = _L["Shadowcaster Voruun"], search = _L["Shadowcaster Voruun_search"], loot = { { 153296, itemTypeTransmog, _L["1h Sword"] } }, note = _L["Shadowcaster Voruun_note"] },
 	{ coord = 52976684, npcId = 126815, questId = 48693, icon = "skull_grey", group = "rare_ma", label = _L["Soultwisted Monstrosity"], search = _L["Soultwisted Monstrosity_search"], loot = nil, note = _L["Soultwisted Monstrosity_note"] },
 	{ coord = 55536016, npcId = 126852, questId = 48695, icon = "skull_grey", group = "rare_ma", label = _L["Wrangler Kravos"], search = _L["Wrangler Kravos_search"], loot = { { 153269, itemTypeTransmog, _L["1h Axe"] }, { 152814, itemTypeMount, 970 } }, note = _L["Wrangler Kravos_note"] },
-	-- { coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = _L["Kaara the Pale"], search = _L["Kaara the Pale_search"], loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = _L["Kaara the Pale_note"] },
-	{ coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = _L["Kaara the Pale"], search = _L["Kaara the Pale_search"], loot = nil, note = _L["Kaara the Pale_note"] },
+	{ coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = _L["Kaara the Pale"], search = _L["Kaara the Pale_search"], loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = _L["Kaara the Pale_note"] },
+	-- { coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = _L["Kaara the Pale"], search = _L["Kaara the Pale_search"], loot = nil, note = _L["Kaara the Pale_note"] },
 	{ coord = 41121149, npcId = 126864, questId = 48702, icon = "skull_grey", group = "rare_ma", label = _L["Feasel the Muffin Thief"], search = _L["Feasel the Muffin Thief_search"], loot = { { 152998, itemTypeMisc } }, note = _L["Feasel the Muffin Thief_note"] },
 	{ coord = 36682383, npcId = 126865, questId = 48703, icon = "skull_grey", group = "rare_ma", label = _L["Vigilant Thanos"], search = _L["Vigilant Thanos_search"], loot = { { 153322, itemTypeTransmog, _L["Shield"] } }, note = _L["Vigilant Thanos_note"] },
 	{ coord = 63806460, npcId = 126866, questId = 48704, icon = "skull_grey", group = "rare_ma", label = _L["Vigilant Kuro"], search = _L["Vigilant Kuro_search"], loot = { { 153323, itemTypeTransmog, _L["Shield"] }, { 153183, itemTypeToy } }, note = _L["Vigilant Kuro_note"] },
@@ -423,6 +423,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 55063508, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_55063508_note"] },
 	{ coord = 62202636, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_62202636_note"] },
 	{ coord = 53332740, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_53332740_note"] },
+	{ coord = 58574078, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_58574078_note"] },
 	-- 48351
 	{ coord = 43637134, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_43637134_note"] },
 	{ coord = 34205929, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_34205929_note"] },
@@ -460,6 +461,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 37812344, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_37812344_note"] },
 	{ coord = 33972078, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_33972078_note"] },
 	{ coord = 33312952, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_33312952_note"] },
+	{ coord = 37102005, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_37102005_note"] },
 	-- 48361
 	{ coord = 37664221, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_37664221_note"] },
 	{ coord = 25824471, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_25824471_note"] },
@@ -559,6 +561,15 @@ local function playerHasLoot( loot )
 	end
 end
 
+local function formatAge( age )
+	if age > 3600 then
+		return string.format( "%.0f", age / 3600 ) .. _L["hour_short"];
+	elseif age > 60 then
+		return string.format( "%.0f", age / 60 ) .. _L["minute_short"];
+	else
+		return age .. _L["second_short"];
+	end
+end
 --
 --
 --	Tooltip
@@ -797,9 +808,9 @@ local function genGroupBrowserOption( option )
 		color = "|cFF00FF00";
 	end
 	if ( option.numMembers == 1 ) then
-		text = string.format( color .. _L["groupBrowserOptionOne"], option.name, option.numMembers, option.age );
+		text = string.format( color .. _L["groupBrowserOptionOne"], option.name, option.numMembers, formatAge( option.age ) );
 	else
-		text = string.format( color .. _L["groupBrowserOptionMore"], option.name, option.numMembers, option.age );
+		text = string.format( color .. _L["groupBrowserOptionMore"], option.name, option.numMembers, formatAge( option.age ) );
 	end
 	local opt = {
 		text = text,

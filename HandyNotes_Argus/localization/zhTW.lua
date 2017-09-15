@@ -130,6 +130,7 @@ _L["48382_71326946_note"] = "在哈卓克斯旁邊";
 _L["48382_58066806_note"] = "";
 _L["48382_68026624_note"] = "在軍團建築物裡";
 _L["48382_64506868_note"] = "在外面";
+_L["48382_62666823_note"] = "在房子裡";
 -- 48383
 _L["48383_56903570_note"] = "";
 _L["48383_57633179_note"] = "";
@@ -193,7 +194,7 @@ _L["48390_73277299_note"] = "在瑞爾法上將後面";
 _L["48390_77975620_note"] = "下斜坡再走過懸崖"
 -- 48391
 _L["48391_64135867_note"] = "在威諾恩的蜘蛛洞裡";
-_L["48391_67404790_note"] = "";
+_L["48391_67404790_note"] = "在蜘蛛區北邊出口旁的小洞穴內";
 _L["48391_63615622_note"] = "在威諾恩的蜘蛛洞裡";
 _L["48391_65005049_note"] = "在蜘蛛區的外面";
 _L["48391_63035762_note"] = "在威諾恩的蜘蛛洞裡";
@@ -465,6 +466,7 @@ _L["48346_59386372_note"] = "在透明的紅色帳篷裡" ;
 _L["48346_57486159_note"] = "在馴獸師克拉弗斯旁邊的房子內" ;
 _L["48346_50836729_note"] = "";
 _L["48346_52868241_note"] = "";
+_L["48346_47186234_note"] = "";
 -- 48350
 _L["48350_59622088_note"] = "在房子內的樓梯下";
 _L["48350_60493338_note"] = "在房子裡";
@@ -524,7 +526,7 @@ _L["Invasion Point: Val"] = "侵略點：衛爾";
 _L["Invasion Point: Aurinor"] = "侵略點：奧里諾";
 _L["Invasion Point: Sangua"] = "侵略點：薩恩古瓦";
 _L["Invasion Point: Naigtal"] = "侵略點：奈格塔";
-_L["Invasion Point: Bonich"] = "Invasion Point: Bonich";
+_L["Invasion Point: Bonich"] = "侵略點：波尼克";
 _L["Invasion Point: Cen'gar"] = "侵略點：申迦爾";
 _L["Greater Invasion Point: Mistress Alluradel"] = "大型侵略點：魔女雅露拉黛兒";
 _L["Greater Invasion Point: Matron Folnuna"] = "大型侵略點：鬼母佛努娜";
@@ -533,14 +535,15 @@ _L["invasion_val_search"] = { "衛爾", "侵略點.*衛爾" };
 _L["invasion_aurinor_search"] = "奧里諾";
 _L["invasion_sangua_search"] = "薩恩古瓦";
 _L["invasion_naigtal_search"] = "奈格塔";
-_L["invasion_bonich_search"] = "bonich";
+_L["invasion_bonich_search"] = "波尼克";
 _L["invasion_cengar_search"] = "申迦爾";
 _L["invasion_alluradel_search"] = "雅露拉黛兒";
 _L["invasion_folnuna_search"] = "鬼母佛努娜";
 
 --
 --
--- interface
+-- INTERFACE
+--
 --
 
 _L["Argus"] = "阿古斯稀有和寶藏";
@@ -548,32 +551,34 @@ _L["Antoran Wastes"] = "安托洛斯荒原";
 _L["Krokuun"] = "克庫恩";
 _L["Mac'Aree"] = "麥克艾瑞";
 
-_L["Shield"] = "Shield";
-_L["Cloth"] = "Cloth";
-_L["Leather"] = "Leather";
-_L["Mail"] = "Mail";
-_L["Plate"] = "Plate";
-_L["1h Mace"] = "1h Mace";
-_L["1h Sword"] = "1h Sword";
-_L["1h Axe"] = "1h Axe";
-_L["2h Mace"] = "2h Mace";
-_L["2h Sword"] = "2h Sword";
-_L["2h Axe"] = "2h Axe";
-_L["2h Sword"] = "2h Sword";
-_L["Dagger"] = "Dagger";
-_L["Staff"] = "Staff";
-_L["Fist"] = "Fist";
-_L["Polearm"] = "Polearm";
-_L["Bow"] = "Bow";
-_L["Gun"] = "Gun";
-_L["Crossbow"] = "Crossbow";
+_L["Shield"] = "盾牌";
+_L["Cloth"] = "布甲";
+_L["Leather"] = "皮甲";
+_L["Mail"] = "鎖甲";
+_L["Plate"] = "鎧甲";
+_L["1h Mace"] = "單手錘";
+_L["1h Sword"] = "單手劍";
+_L["1h Axe"] = "單手斧";
+_L["2h Mace"] = "雙手錘";
+_L["2h Sword"] = "雙手劍";
+_L["2h Axe"] = "雙手斧";
+_L["Dagger"] = "匕首";
+_L["Staff"] = "法杖";
+_L["Fist"] = "拳套";
+_L["Polearm"] = "長柄武器";
+_L["Bow"] = "弓";
+_L["Gun"] = "槍械";
+_L["Crossbow"] = "弩";
 
-_L["groupBrowserOptionOne"] = "%s - %s 人 (%ds)";
-_L["groupBrowserOptionMore"] = "%s - %s 人 (%ds)";
+_L["groupBrowserOptionOne"] = "%s - %s 人 (%d秒)";
+_L["groupBrowserOptionMore"] = "%s - %s 人 (%d秒)";
 _L["chatmsg_old_group_delisted"] = "|cFFf7c92a舊隊伍已失效，再次點擊搜尋隊伍 - %s."
 _L["chatmsg_no_group_priv"] = "|cFFFF0000權限不足，你不是隊長";
 _L["chatmsg_group_created"] = "編組隊伍 - %s.";
 _L["chatmsg_search_failed"] = "|cFFFF0000過多搜尋指令，請再幾秒後再嘗試";
+_L["hour_short"] = "h";
+_L["minute_short"] = "m";
+_L["second_short"] = "s";
 
 -- KEEP THESE 2 ENGLISH IN EU/US
 _L["listing_desc_rare"] = "檢查阿古斯 - %s 的稀有隊伍中";
@@ -594,8 +599,8 @@ _L["Create new group"] = "編組隊伍";
 _L["Close"] = "關閉";
 
 _L["context_menu_title"] = "Handynotes Argus";
-_L["context_menu_check_group_finder"] = "搜尋隊伍";
-_L["context_menu_reset_rare_counters"] = "重置稀有隊伍搜尋器";
+_L["context_menu_check_group_finder"] = "搜尋隊伍可用性";
+_L["context_menu_reset_rare_counters"] = "重置隊伍搜尋器";
 _L["context_menu_add_tomtom"] = "為這地點增加TomTom航點";
 _L["context_menu_hide_node"] = "從地圖上移除此圖標";
 _L["context_menu_restore_hidden_nodes"] = "還原已移除的圖標";
