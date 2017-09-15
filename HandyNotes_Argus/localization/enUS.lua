@@ -436,6 +436,9 @@ _L["Corrupted Blood of Argus_note"] = "";
 _L["Shadeflicker"] = "Shadeflicker";
 _L["Shadeflicker_note"] = "";
 
+_L["Nabiru"] = "Nabiru"
+_L["Nabiru_note"] = "He is in a cave. Turn in 900 resources for an Order Hall follower.";
+
 -- Shoot First, Loot Later
 _L["Eredar Treasure Cache"] = "Eredar Treasure Cache";
 _L["Eredar Treasure Cache_note"] = "In a litte cave. Use Lightforged Warframe's jump to remove the blocking boulders.";
@@ -475,6 +478,7 @@ _L["48350_55063508_note"] = "";
 _L["48350_62202636_note"] = "On the balcony. Go into the building and up the stairs to the right.";
 _L["48350_53332740_note"] = "Under tree";
 _L["48350_58574078_note"] = "";
+_L["48350_63262000_note"] = "Inside building";
 -- 48351
 _L["48351_43637134_note"] = "";
 _L["48351_34205929_note"] = "On 2nd floor, where Herald of Chaos resides.";
@@ -490,6 +494,7 @@ _L["48357_48482115_note"] = "";
 _L["48357_57881053_note"] = "";
 _L["48357_52871676_note"] = "Up the stairs";
 _L["48357_47841956_note"] = "";
+_L["48357_51802871_note"] = "In the area up the northern stairs"
 -- 48371
 _L["48371_48604971_note"] = "";
 _L["48371_49865494_note"] = "";
@@ -497,6 +502,7 @@ _L["48371_47023655_note"] = "Up the stairs";
 _L["48371_49623585_note"] = "Up the stairs";
 _L["48371_51094790_note"] = "Under tree";
 _L["48371_35535718_note"] = "On 2nd floor, next to Herald of Chaos";
+_L["48371_25383016_note"] = "";
 -- 48362
 _L["48362_66682786_note"] = "Inside building, next to Zul'tan the Numerous";
 _L["48362_62134077_note"] = "Inside building";
@@ -520,6 +526,7 @@ _L["48361_20674033_note"] = "";
 _L["48361_29503999_note"] = "";
 _L["48361_29455043_note"] = "Under tree";
 _L["48361_18794171_note"] = "Outside, behind building";
+_L["48361_25293498_note"] = "";
 
 --
 --	KEEP THESE ENGLISH FOR THE GROUP BROWSER IN EU/US!! CHINA & CO ADJUST
@@ -576,9 +583,8 @@ _L["Crossbow"] = "Crossbow";
 
 _L["groupBrowserOptionOne"] = "%s - %s Member (%s)";
 _L["groupBrowserOptionMore"] = "%s - %s Members (%s)";
-_L["chatmsg_old_group_delisted"] = "|cFFf7c92aOld group delisted. Click again to search groups for %s."
 _L["chatmsg_no_group_priv"] = "|cFFFF0000Insufficient rights. You are not the group leader.";
-_L["chatmsg_group_created"] = "Created group for %s.";
+_L["chatmsg_group_created"] = "|cFF6cf70fCreated group for %s.";
 _L["chatmsg_search_failed"] = "|cFFFF0000Too many search requests, please try again in a few seconds.";
 _L["hour_short"] = "h";
 _L["minute_short"] = "m";
@@ -649,5 +655,14 @@ _L["options_toggle_show_loot"] = "Show Loot";
 _L["options_toggle_show_loot_desc"] = "Add loot information to the tooltip";
 _L["options_toggle_show_notes"] = "Show Notes";
 _L["options_toggle_show_notes_desc"] = "Add helpful notes to the tooltip where available";
+
+_L["options_general_settings"] = "General";
+_L["options_general_settings_desc"] = "General settings";
+_L["options_toggle_leave_group_on_search"] = "Leave groups";
+_L["options_toggle_leave_group_on_search_desc"] = "Leave groups when trying to search while grouped. Use with care!";
+_L["chatmsg_old_group_delisted_create"] = "|cFFf7c92aOld group delisted. Please click again to create a new group for %s."
+_L["chatmsg_left_group_create"] = "|cFFf7c92aLeft group. Please click again to create a new group for %s.";
+_L["chatmsg_old_group_delisted_search"] = "|cFFf7c92aOld group delisted. Please click again to search groups for %s."
+_L["chatmsg_left_group_search"] = "|cFFf7c92aLeft group. Please click again to search groups for %s.";
 
 end

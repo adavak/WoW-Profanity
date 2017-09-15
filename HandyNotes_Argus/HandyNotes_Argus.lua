@@ -1,6 +1,6 @@
 -- Thanks to all who provide usable code
 local ADDON_MSG_PREFIX = "HNA";
-local VERSION = "0.21.2";
+local VERSION = "0.21.3";
 
 local _G = getfenv(0)
 -- Libraries
@@ -33,6 +33,7 @@ local iconDefaults = {
 	portal = "Interface\\Addons\\HandyNotes_Argus\\Artwork\\Portal.blp",
 	default = "Interface\\Icons\\TRADE_ARCHAEOLOGY_CHESTOFTINYGLASSANIMALS",
 	eye = "Interface\\Icons\\INV_Misc_Eye_02.blp",
+	shadowmend = "Interface\\Icons\\Spell_Priest_Shadow Mend.blp",
 	portalGreen = {
 		icon = objAtlas,
 		tCoordLeft = 219/512, tCoordRight = 243/512, tCoordTop = 108/512, tCoordBottom = 129/512,
@@ -395,6 +396,8 @@ nodes["ArgusMacAree"] = {
 	{ coord = 31903120, npcId = 128017, questId = 0, icon = "battle_pet", group = "pet_ma", label = _L["Corrupted Blood of Argus"], loot = nil, note = _L["Corrupted Blood of Argus_note"] },
 	{ coord = 36005410, npcId = 128016, questId = 0, icon = "battle_pet", group = "pet_ma", label = _L["Shadeflicker"], loot = nil, note = _L["Shadeflicker_note"] },
 	
+	{ coord = 42316334, npcId = 127037, questId = 0, icon = "shadowmend", group = "npc_ma", label = _L["Nabiru"], loot = { { 152096, itemTypeMisc } }, note = _L["Nabiru_note"] },
+	
 	-- Shoot First, Loot Later
 	{ coord = 42900549, objId = 276223, questId = 48743, icon = "starChestBlue", group = "sfll_ma", label = _L["Eredar Treasure Cache"], loot = nil, note = _L["Eredar Treasure Cache_note"] },
 	{ coord = 50583838, objId = 276224, questId = 48744, icon = "starChestYellow", group = "sfll_ma", label = _L["Chest of Ill-Gotten Gains"], loot = nil, note = _L["Chest of Ill-Gotten Gains_note"] },
@@ -424,6 +427,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 62202636, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_62202636_note"] },
 	{ coord = 53332740, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_53332740_note"] },
 	{ coord = 58574078, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_58574078_note"] },
+	{ coord = 63262000, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_63262000_note"] },
 	-- 48351
 	{ coord = 43637134, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_43637134_note"] },
 	{ coord = 34205929, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_34205929_note"] },
@@ -439,6 +443,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 57881053, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_57881053_note"] },
 	{ coord = 52871676, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_52871676_note"] },
 	{ coord = 47841956, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_47841956_note"] },
+	{ coord = 51802871, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_51802871_note"] },
 	-- 48371
 	{ coord = 48604971, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_48604971_note"] },
 	{ coord = 49865494, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_49865494_note"] },
@@ -446,6 +451,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 49623585, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_49623585_note"] },
 	{ coord = 51094790, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_51094790_note"] },
 	{ coord = 35535718, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_35535718_note"] },
+	{ coord = 25383016, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_25383016_note"] },
 	-- 48362
 	{ coord = 66682786, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_66682786_note"] },
 	{ coord = 62134077, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_62134077_note"] },
@@ -469,6 +475,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 29503999, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_29503999_note"] },
 	{ coord = 29455043, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_29455043_note"] },
 	{ coord = 18794171, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_18794171_note"] },
+	{ coord = 25293498, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_25293498_note"] },
 
 }
 
@@ -815,32 +822,45 @@ local function genGroupBrowserOption( option )
 	local opt = {
 		text = text,
 		func = function()
-			local tank, heal, dd = C_LFGList.GetAvailableRoles();
-			C_LFGList.ApplyToGroup( option.id, "", tank, heal, dd )	;
+			--local d = LFGListApplicationDialog;
+			--local tank = d.TankButton.CheckButton:GetChecked();
+			--local heal = d.HealerButton.CheckButton:GetChecked();
+			--local dps = d.DamagerButton.CheckButton:GetChecked();
+			--if ( not tank and not heal and not dps ) then
+			--	dps = true;
+			--end
+			--local tank, heal, dps = C_LFGList.GetAvailableRoles();
+			local _, _, _, _, role = GetSpecializationInfo( GetSpecialization() );
+			C_LFGList.ApplyToGroup( option.id, "", role == "TANK", role == "HEALER", role == "DAMAGER" );
 		end
 	};
 	return opt;
 end
 
 local function LFGcreate( button, node )
-	local c,zone,_,_,name = C_LFGList.GetActiveEntryInfo();
-	if c == true and name ~= node["label"] then
-		if ( UnitIsGroupLeader("player") ) then
-			print( string.format( _L["chatmsg_old_group_delisted"], node["label"] ) );
-			C_LFGList.RemoveListing();
-		else
-			print( _L["chatmsg_no_group_priv"] );
+	if ( node ~= nil ) then
+		local c,zone,_,_,name = C_LFGList.GetActiveEntryInfo();
+		if c == true and name ~= node["label"] then
+			if ( UnitIsGroupLeader("player") ) then
+				print( string.format( _L["chatmsg_old_group_delisted_create"], node["label"] ) );
+				C_LFGList.RemoveListing();
+			elseif ( Argus.db.profile.leave_group_on_search ) then
+				LeaveParty();
+				print( string.format( _L["chatmsg_left_group_create"], node["label"] ) );
+			else
+				print( _L["chatmsg_no_group_priv"] );
+			end
+		elseif ( c == false ) then
+			print( string.format( _L["chatmsg_group_created"], node["label"] ) );
+			-- 16 = custom
+			local desc;
+			if ( string.find( node["group"], "rare" ) ) then
+				desc = string.format( _L["listing_desc_rare"], node["label"] ) .. " Created with HandyNotes_Argus ##rare:" .. node["npcId"] .. "#hna:" .. VERSION;
+			elseif ( string.find( node["group"], "invasion" ) ) then
+				desc = string.format( _L["listing_desc_invasion"], node["label"] ) .. " Created with HandyNotes_Argus ##invasion:" .. node["invasionId"] .. "#hna:" .. VERSION;
+			end
+			C_LFGList.CreateListing( 16, node["label"], 0, 0, "", desc, true)
 		end
-	elseif ( c == false ) then
-		print( string.format( _L["chatmsg_group_created"], node["label"] ) );
-		-- 16 = custom
-		local desc;
-		if ( string.find( node["group"], "rare" ) ) then
-			desc = string.format( _L["listing_desc_rare"], node["label"] ) .. " Created with HandyNotes_Argus ##rare:" .. node["npcId"] .. "#hna:" .. VERSION;
-		elseif ( string.find( node["group"], "invasion" ) ) then
-			desc = string.format( _L["listing_desc_invasion"], node["label"] ) .. " Created with HandyNotes_Argus ##invasion:" .. node["invasionId"] .. "#hna:" .. VERSION;
-		end
-		C_LFGList.CreateListing( 16, node["label"], 0, 0, "", desc, true)
 	end
 end
 
@@ -852,8 +872,11 @@ local function LFGsearch( button, node, lfgcat )
 		local c,zone,_,_,name = C_LFGList.GetActiveEntryInfo();
 		if c == true and name ~= label then
 			if ( UnitIsGroupLeader("player") ) then
-				print( string.format( _L["chatmsg_old_group_delisted"], node["label"] ) );
+				print( string.format( _L["chatmsg_old_group_delisted_search"], node["label"] ) );
 				C_LFGList.RemoveListing();
+			elseif ( Argus.db.profile.leave_group_on_search ) then
+				LeaveParty();
+				print( string.format( _L["chatmsg_left_group_search"], node["label"] ) );
 			else
 				print( _L["chatmsg_no_group_priv"] );
 			end
@@ -1380,6 +1403,13 @@ local options = {
 					order = 24,
 					width = "normal",
 				},
+				npcMA = {
+					type = "toggle",
+					arg = "npc_ma",
+					name = _L["options_toggle_npcs"],
+					order = 25,
+					width = "normal",
+				},
 				groupGeneral = {
 					type = "header",
 					name = _L["options_general_settings"],
@@ -1440,6 +1470,22 @@ local options = {
 					name = _L["options_toggle_show_notes"],
 					desc = _L["options_toggle_show_notes_desc"],
 					order = 103,
+				},
+			},
+		},
+		GeneralGroup = {
+			type = "group",
+			order = 30,
+			name = _L["options_general_settings"],
+			desc = _L["options_general_settings_desc"],
+			inline = true,
+			args = {
+				show_loot = {
+					type = "toggle",
+					arg = "leave_group_on_search",
+					name = _L["options_toggle_leave_group_on_search"],
+					desc = _L["options_toggle_leave_group_on_search_desc"],
+					order = 102,
 				},
 			},
 		},
@@ -1519,6 +1565,7 @@ function Argus:OnInitialize()
 			sfll_ma = true,
             show_loot = true,
             show_notes = true,
+			leave_group_on_search = false,
         },
     }
 

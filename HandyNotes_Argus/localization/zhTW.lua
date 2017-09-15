@@ -572,9 +572,8 @@ _L["Crossbow"] = "弩";
 
 _L["groupBrowserOptionOne"] = "%s - %s 人 (%d秒)";
 _L["groupBrowserOptionMore"] = "%s - %s 人 (%d秒)";
-_L["chatmsg_old_group_delisted"] = "|cFFf7c92a舊隊伍已失效，再次點擊搜尋隊伍 - %s."
 _L["chatmsg_no_group_priv"] = "|cFFFF0000權限不足，你不是隊長";
-_L["chatmsg_group_created"] = "編組隊伍 - %s.";
+_L["chatmsg_group_created"] = "|cFF6cf70編組隊伍 - %s.";
 _L["chatmsg_search_failed"] = "|cFFFF0000過多搜尋指令，請再幾秒後再嘗試";
 _L["hour_short"] = "h";
 _L["minute_short"] = "m";
@@ -645,5 +644,14 @@ _L["options_toggle_show_loot"] = "顯示掉落";
 _L["options_toggle_show_loot_desc"] = "顯示每個寶藏/稀有怪物的掉落";
 _L["options_toggle_show_notes"] = "顯示註記";
 _L["options_toggle_show_notes_desc"] = "顯示每個寶藏/稀有怪物的註記如果可用的話";
+
+_L["options_general_settings"] = "General";
+_L["options_general_settings_desc"] = "General settings";
+_L["options_toggle_leave_group_on_search"] = "Leave groups";
+_L["options_toggle_leave_group_on_search_desc"] = "Leave groups when trying to search while grouped. Use with care!";
+_L["chatmsg_old_group_delisted_create"] = "|cFFf7c92aOld group delisted. Please click again to create a new group for %s."
+_L["chatmsg_left_group_create"] = "|cFFf7c92aLeft group. Please click again to create a new group for %s.";
+_L["chatmsg_old_group_delisted_search"] = "|cFFf7c92a舊隊伍已失效，再次點擊搜尋隊伍 - %s."
+_L["chatmsg_left_group_search"] = "|cFFf7c92aLeft group. Please click again to search groups for %s.";
 
 end

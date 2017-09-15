@@ -436,6 +436,9 @@ _L["Corrupted Blood of Argus_note"] = "";
 _L["Shadeflicker"] = "曳影兽";
 _L["Shadeflicker_note"] = "";
 
+_L["Nabiru"] = "纳毕鲁"
+_L["Nabiru_note"] = "他在洞穴里。上缴900资源换取职业大厅追随者。";
+
 -- Shoot First, Loot Later
 _L["Eredar Treasure Cache"] = "艾瑞达宝箱";
 _L["Eredar Treasure Cache_note"] = "在小洞穴内。使用光铸战争机甲跳上并移除岩石。";
@@ -475,6 +478,7 @@ _L["48350_55063508_note"] = "";
 _L["48350_62202636_note"] = "阳台上。进入建筑物后上楼梯右边。";
 _L["48350_53332740_note"] = "树下";
 _L["48350_58574078_note"] = "";
+_L["48350_63262000_note"] = "建筑物内";
 -- 48351
 _L["48351_43637134_note"] = "";
 _L["48351_34205929_note"] = "在第二层，混沌先驱旁边。";
@@ -490,6 +494,7 @@ _L["48357_48482115_note"] = "";
 _L["48357_57881053_note"] = "";
 _L["48357_52871676_note"] = "楼梯上";
 _L["48357_47841956_note"] = "";
+_L["48357_51802871_note"] = "在北边楼梯上面区域"
 -- 48371
 _L["48371_48604971_note"] = "";
 _L["48371_49865494_note"] = "";
@@ -497,6 +502,7 @@ _L["48371_47023655_note"] = "楼梯上";
 _L["48371_49623585_note"] = "楼梯上";
 _L["48371_51094790_note"] = "树下";
 _L["48371_35535718_note"] = "第二层，混沌先驱旁边";
+_L["48371_25383016_note"] = "";
 -- 48362
 _L["48362_66682786_note"] = "建筑物内，万千之主祖尔坦旁边";
 _L["48362_62134077_note"] = "建筑物内";
@@ -520,6 +526,7 @@ _L["48361_20674033_note"] = "";
 _L["48361_29503999_note"] = "";
 _L["48361_29455043_note"] = "树下";
 _L["48361_18794171_note"] = "外面，建筑物后面";
+_L["48361_25293498_note"] = "";
 
 --
 --	KEEP THESE ENGLISH FOR THE GROUP BROWSER IN EU/US!! CHINA & CO ADJUST
@@ -576,9 +583,8 @@ _L["Crossbow"] = "弩";
 
 _L["groupBrowserOptionOne"] = "%s - %s 人(%d秒)";
 _L["groupBrowserOptionMore"] = "%s - %s 人(%d秒)";
-_L["chatmsg_old_group_delisted"] = "|cFFf7c92a旧队伍已移除。再次点击搜索队伍：%s。"
 _L["chatmsg_no_group_priv"] = "|cFFFF0000权限不足。你不是队长。";
-_L["chatmsg_group_created"] = "创建队伍：%s。";
+_L["chatmsg_group_created"] = "|cFF6cf70创建队伍：%s。";
 _L["chatmsg_search_failed"] = "|cFFFF0000太多查询请求，请稍后尝试。";
 _L["hour_short"] = "时";
 _L["minute_short"] = "分";
@@ -649,5 +655,14 @@ _L["options_toggle_show_loot"] = "显示拾取";
 _L["options_toggle_show_loot_desc"] = "在提示上添加拾取信息";
 _L["options_toggle_show_notes"] = "显示注释";
 _L["options_toggle_show_notes_desc"] = "当可用时在提示上添加有帮助的注释";
+
+_L["options_general_settings"] = "通用";
+_L["options_general_settings_desc"] = "通用设置";
+_L["options_toggle_leave_group_on_search"] = "离开队伍";
+_L["options_toggle_leave_group_on_search_desc"] = "退出队伍并尝试查找队伍。小心使用！";
+_L["chatmsg_old_group_delisted_create"] = "|cFFf7c92a旧队伍已从列表移除。再次点击创建一个新的队伍：%s。"
+_L["chatmsg_left_group_create"] = "|cFFf7c92离开队伍。再次点击创建一个新的队伍：%s。";
+_L["chatmsg_old_group_delisted_search"] = "|cFFf7c92a旧队伍已移除。次点击搜索队伍：%s。"
+_L["chatmsg_left_group_search"] = "|cFFf7c92a离开队伍。再次点击搜索队伍：%s。";
 
 end
