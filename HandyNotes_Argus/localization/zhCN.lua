@@ -470,6 +470,7 @@ _L["48346_57486159_note"] = "牧羊人卡沃斯旁边的建筑物内" ;
 _L["48346_50836729_note"] = "";
 _L["48346_52868241_note"] = "";
 _L["48346_47186234_note"] = "";
+_L["48346_50107580_note"] = "";
 -- 48350
 _L["48350_59622088_note"] = "建筑物内楼梯下";
 _L["48350_60493338_note"] = "建筑物内";
@@ -487,6 +488,7 @@ _L["48351_46917346_note"] = "藏在树下";
 _L["48351_36296646_note"] = "";
 _L["48351_42645361_note"] = "洞穴内。入口在西南。";
 _L["48351_38126342_note"] = "清醒者图瑞克地下室内";
+_L["48351_42395752_note"] = "建筑物内";
 -- 48357
 _L["48357_49412387_note"] = "";
 _L["48357_47672180_note"] = "";
@@ -494,7 +496,8 @@ _L["48357_48482115_note"] = "";
 _L["48357_57881053_note"] = "";
 _L["48357_52871676_note"] = "楼梯上";
 _L["48357_47841956_note"] = "";
-_L["48357_51802871_note"] = "在北边楼梯上面区域"
+_L["48357_51802871_note"] = "在北边楼梯上面区域";
+_L["48357_49912946_note"] = "";
 -- 48371
 _L["48371_48604971_note"] = "";
 _L["48371_49865494_note"] = "";
@@ -519,6 +522,7 @@ _L["49264_37812344_note"] = "";
 _L["49264_33972078_note"] = "";
 _L["49264_33312952_note"] = "";
 _L["49264_37102005_note"] = "";
+_L["49264_33592361_note"] = "藏在树下"
 -- 48361
 _L["48361_37664221_note"] = "洞里柱子后面";
 _L["48361_25824471_note"] = "";
@@ -584,7 +588,7 @@ _L["Crossbow"] = "弩";
 _L["groupBrowserOptionOne"] = "%s - %s 人(%d秒)";
 _L["groupBrowserOptionMore"] = "%s - %s 人(%d秒)";
 _L["chatmsg_no_group_priv"] = "|cFFFF0000权限不足。你不是队长。";
-_L["chatmsg_group_created"] = "|cFF6cf70创建队伍：%s。";
+_L["chatmsg_group_created"] = "|cFF6CF70F创建队伍：%s。";
 _L["chatmsg_search_failed"] = "|cFFFF0000太多查询请求，请稍后尝试。";
 _L["hour_short"] = "时";
 _L["minute_short"] = "分";
@@ -660,9 +664,9 @@ _L["options_general_settings"] = "通用";
 _L["options_general_settings_desc"] = "通用设置";
 _L["options_toggle_leave_group_on_search"] = "离开队伍";
 _L["options_toggle_leave_group_on_search_desc"] = "退出队伍并尝试查找队伍。小心使用！";
-_L["chatmsg_old_group_delisted_create"] = "|cFFf7c92a旧队伍已从列表移除。再次点击创建一个新的队伍：%s。"
-_L["chatmsg_left_group_create"] = "|cFFf7c92离开队伍。再次点击创建一个新的队伍：%s。";
-_L["chatmsg_old_group_delisted_search"] = "|cFFf7c92a旧队伍已移除。次点击搜索队伍：%s。"
-_L["chatmsg_left_group_search"] = "|cFFf7c92a离开队伍。再次点击搜索队伍：%s。";
+_L["chatmsg_old_group_delisted_create"] = "|cFFF7C92A旧队伍已从列表移除。再次点击创建一个新的队伍：%s。"
+_L["chatmsg_left_group_create"] = "|cFFF7C92A离开队伍。再次点击创建一个新的队伍：%s。";
+_L["chatmsg_old_group_delisted_search"] = "|cFFF7C92A旧队伍已移除。次点击搜索队伍：%s。"
+_L["chatmsg_left_group_search"] = "|cFFF7C92A离开队伍。再次点击搜索队伍：%s。";
 
 end

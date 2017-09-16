@@ -470,6 +470,7 @@ _L["48346_57486159_note"] = "Inside building next to Kravos" ;
 _L["48346_50836729_note"] = "";
 _L["48346_52868241_note"] = "";
 _L["48346_47186234_note"] = "";
+_L["48346_50107580_note"] = "";
 -- 48350
 _L["48350_59622088_note"] = "Inside building under staircase";
 _L["48350_60493338_note"] = "Inside building";
@@ -487,6 +488,7 @@ _L["48351_46917346_note"] = "Hidden under tree";
 _L["48351_36296646_note"] = "";
 _L["48351_42645361_note"] = "In a cave. Entrance is southwest from here.";
 _L["48351_38126342_note"] = "Inside Tureks cellar";
+_L["48351_42395752_note"] = "Inside building";
 -- 48357
 _L["48357_49412387_note"] = "";
 _L["48357_47672180_note"] = "";
@@ -494,7 +496,8 @@ _L["48357_48482115_note"] = "";
 _L["48357_57881053_note"] = "";
 _L["48357_52871676_note"] = "Up the stairs";
 _L["48357_47841956_note"] = "";
-_L["48357_51802871_note"] = "In the area up the northern stairs"
+_L["48357_51802871_note"] = "In the area up the northern stairs";
+_L["48357_49912946_note"] = "";
 -- 48371
 _L["48371_48604971_note"] = "";
 _L["48371_49865494_note"] = "";
@@ -519,6 +522,7 @@ _L["49264_37812344_note"] = "";
 _L["49264_33972078_note"] = "";
 _L["49264_33312952_note"] = "";
 _L["49264_37102005_note"] = "";
+_L["49264_33592361_note"] = "Hidden under tree"
 -- 48361
 _L["48361_37664221_note"] = "Behind pillar in cave thingy";
 _L["48361_25824471_note"] = "";
@@ -584,7 +588,7 @@ _L["Crossbow"] = "Crossbow";
 _L["groupBrowserOptionOne"] = "%s - %s Member (%s)";
 _L["groupBrowserOptionMore"] = "%s - %s Members (%s)";
 _L["chatmsg_no_group_priv"] = "|cFFFF0000Insufficient rights. You are not the group leader.";
-_L["chatmsg_group_created"] = "|cFF6cf70fCreated group for %s.";
+_L["chatmsg_group_created"] = "|cFF6CF70FCreated group for %s.";
 _L["chatmsg_search_failed"] = "|cFFFF0000Too many search requests, please try again in a few seconds.";
 _L["hour_short"] = "h";
 _L["minute_short"] = "m";
@@ -611,7 +615,7 @@ _L["Close"] = "Close";
 _L["context_menu_title"] = "Handynotes Argus";
 _L["context_menu_check_group_finder"] = "Check group availability";
 _L["context_menu_reset_rare_counters"] = "Reset group counters";
-_L["context_menu_add_tomtom"] = "Add this location to TomTom waypoints";
+_L["context_menu_add_tomtom"] = "Add to TomTom";
 _L["context_menu_hide_node"] = "Hide this node";
 _L["context_menu_restore_hidden_nodes"] = "Restore all hidden nodes";
 
@@ -660,9 +664,9 @@ _L["options_general_settings"] = "General";
 _L["options_general_settings_desc"] = "General settings";
 _L["options_toggle_leave_group_on_search"] = "Leave groups";
 _L["options_toggle_leave_group_on_search_desc"] = "Leave groups when trying to search while grouped. Use with care!";
-_L["chatmsg_old_group_delisted_create"] = "|cFFf7c92aOld group delisted. Please click again to create a new group for %s."
-_L["chatmsg_left_group_create"] = "|cFFf7c92aLeft group. Please click again to create a new group for %s.";
-_L["chatmsg_old_group_delisted_search"] = "|cFFf7c92aOld group delisted. Please click again to search groups for %s."
-_L["chatmsg_left_group_search"] = "|cFFf7c92aLeft group. Please click again to search groups for %s.";
+_L["chatmsg_old_group_delisted_create"] = "|cFFF7C92AOld group delisted. Please click again to create a new group for %s."
+_L["chatmsg_left_group_create"] = "|cFFF7C92ALeft group. Please click again to create a new group for %s.";
+_L["chatmsg_old_group_delisted_search"] = "|cFFF7C92AOld group delisted. Please click again to search groups for %s."
+_L["chatmsg_left_group_search"] = "|cFFF7C92ALeft group. Please click again to search groups for %s.";
 
 end

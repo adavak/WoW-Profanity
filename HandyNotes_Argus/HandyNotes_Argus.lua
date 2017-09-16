@@ -1,6 +1,6 @@
 -- Thanks to all who provide usable code
 local ADDON_MSG_PREFIX = "HNA";
-local VERSION = "0.21.3";
+local VERSION = "0.21.5";
 
 local _G = getfenv(0)
 -- Libraries
@@ -419,6 +419,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 50836729, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_50836729_note"] },
 	{ coord = 52868241, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_52868241_note"] },
 	{ coord = 47186234, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_47186234_note"] },
+	{ coord = 50107580, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_50107580_note"] },
 	-- 48350
 	{ coord = 59622088, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_59622088_note"] },
 	{ coord = 60493338, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_60493338_note"] },
@@ -436,6 +437,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 36296646, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_36296646_note"] },
 	{ coord = 42645361, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_42645361_note"] },
 	{ coord = 38126342, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_38126342_note"] },
+	{ coord = 42395752, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_42395752_note"] },
 	-- 48357
 	{ coord = 49412387, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_49412387_note"] },
 	{ coord = 47672180, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_47672180_note"] },
@@ -444,6 +446,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 52871676, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_52871676_note"] },
 	{ coord = 47841956, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_47841956_note"] },
 	{ coord = 51802871, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_51802871_note"] },
+	{ coord = 49912946, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_49912946_note"] },
 	-- 48371
 	{ coord = 48604971, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_48604971_note"] },
 	{ coord = 49865494, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_49865494_note"] },
@@ -468,6 +471,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 33972078, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_33972078_note"] },
 	{ coord = 33312952, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_33312952_note"] },
 	{ coord = 37102005, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_37102005_note"] },
+	{ coord = 33592361, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_33592361_note"] },
 	-- 48361
 	{ coord = 37664221, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_37664221_note"] },
 	{ coord = 25824471, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_25824471_note"] },
@@ -528,6 +532,7 @@ local numSearches = 0;
 local lastSearchTerm = "";
 local LFG_CAT_CUSTOM = 6;
 local LFG_CAT_QUESTS = 1;
+local lastRareResetSlot = -1;
 
 --
 --
@@ -577,6 +582,22 @@ local function formatAge( age )
 		return age .. _L["second_short"];
 	end
 end
+
+local function getCurrentTimeSlot()
+	-- 09:02 - 13:02 = 0
+	-- 13:02 - 17:02 = 1
+	-- 17:02 - 21:02 = 2
+	-- 21:02 - 01:02 = 3
+	-- 01:02 - 05:02 = 4
+	-- 05:02 - 09:02 = 5
+	local h, m = GetGameTime();
+	local slot = ((h*60+m-2) - 7*60) / (4*60);
+	if slot < 0 then
+		slot = slot + 6;
+	end
+	return floor( slot );
+end
+
 --
 --
 --	Tooltip
@@ -703,8 +724,8 @@ end
 local function addtoTomTom(button, mapFile, coord)
 	local node = GetNodeByCoord( mapFile, coord );
 	if ( node and isTomTomloaded == true ) then
-		local mapId = HandyNotes:GetMapFiletoMapID(mapFile)
-		local x, y = HandyNotes:getXY(coord)
+		local mapId = HandyNotes:GetMapFiletoMapID( mapFile );
+		local x, y = HandyNotes:getXY(  coord );
 		local desc = node["label"];
 
 		TomTom:AddMFWaypoint(mapId, nil, x, y, {
@@ -738,6 +759,14 @@ local function resetNPCGroupCounts()
 				node["up"] = false;
 			end
 		end
+	end
+end
+
+local function checkResetNPCGroupCounts()
+	local currentTimeSlot = getCurrentTimeSlot();
+	if ( lastRareResetSlot ~= currentTimeSlot ) then
+		resetNPCGroupCounts();
+		lastRareResetSlot = currentTimeSlot;
 	end
 end
 
@@ -881,10 +910,11 @@ local function LFGsearch( button, node, lfgcat )
 				print( _L["chatmsg_no_group_priv"] );
 			end
 		elseif ( c == false ) then
+			checkResetNPCGroupCounts();
 			finderFrame.searchNode = node;
 			finderFrame.searchCat = lfgcat;
 			local languages = C_LFGList.GetLanguageSearchFilter();
-			if ( numSearches < 10 or numSearches % 5 == 0 ) then
+			if ( numSearches < 5 or numSearches % 5 == 0 ) then
 				lastSearchTerm = "";
 			else
 				lastSearchTerm = node["search"][1];
@@ -1109,7 +1139,7 @@ local function generateMenu( button, level )
 		info.disabled = nil
 		info.notClickable = nil
 
-        if isTomTomloaded == true and false then
+        if isTomTomloaded == true then
             info.text = _L["context_menu_add_tomtom"]
             info.func = addtoTomTom
             info.arg1 = clickedMapFile
