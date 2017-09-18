@@ -1,6 +1,5 @@
 -- Thanks to all who provide usable code
-local ADDON_MSG_PREFIX = "HNA";
-local VERSION = "0.21.5";
+local VERSION = "0.22.0";
 
 local _G = getfenv(0)
 -- Libraries
@@ -104,11 +103,11 @@ local allLanguages = {
 	zhTW = true,
 }
 
-Argus.nodes = { }
-
-local nodes = Argus.nodes
-local isTomTomloaded = false
-local isCanIMogItloaded = false
+Argus.nodes = {};
+local nodes = Argus.nodes;
+local nodeRef = {
+	rares = {}
+};
 
 -- [XXXXYYYY] = { questId, icon, group, label, loot, note, search },
 -- /run local find="Cross Gazer"; for i,mid in ipairs(C_MountJournal.GetMountIDs()) do local n,_,_,_,_,_,_,_,_,_,c,j=C_MountJournal.GetMountInfoByID(mid); if ( n:match(find)  then print(j .. " " .. n); end end
@@ -171,6 +170,7 @@ nodes["ArgusCore"] = {
 	{ coord = 68026624, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = _L["48382_68026624_note"] },
 	{ coord = 64506868, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = _L["48382_64506868_note"] },
 	{ coord = 62666823, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = _L["48382_62666823_note"] },
+	{ coord = 60096945, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = _L["48382_60096945_note"] },
 	-- 48383
 	{ coord = 56903570, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_56903570_note"] },
 	{ coord = 57633179, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_57633179_note"] },
@@ -182,6 +182,7 @@ nodes["ArgusCore"] = {
 	{ coord = 53753556, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_53753556_note"] },
 	{ coord = 51703529, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_51703529_note"] },
 	{ coord = 59853583, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_59853583_note"] },
+	{ coord = 58273570, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_58273570_note"] },
 	-- 48384
 	{ coord = 60872900, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = _L["48384_60872900_note"] },
 	{ coord = 61332054, questId = 48384, icon = "treasure", group = "treasure_aw", label = "48384", loot = nil, note = _L["48384_61332054_note"] },
@@ -205,6 +206,7 @@ nodes["ArgusCore"] = {
 	{ coord = 63613643, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_63613643_note"] },
 	{ coord = 73404669, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_73404669_note"] },
 	{ coord = 67954006, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_67954006_note"] },
+	{ coord = 63603642, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_63603642_note"] },
 	-- 48388
 	{ coord = 51502610, questId = 48388, icon = "treasure", group = "treasure_aw", label = "48388", loot = nil, note = _L["48388_51502610_note"] },
 	{ coord = 59261743, questId = 48388, icon = "treasure", group = "treasure_aw", label = "48388", loot = nil, note = _L["48388_59261743_note"] },
@@ -221,6 +223,7 @@ nodes["ArgusCore"] = {
 	{ coord = 65345192, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = _L["48389_65345192_note"] },
 	{ coord = 64114242, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = _L["48389_64114242_note"] },
 	{ coord = 58734323, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = _L["48389_58734323_note"] },
+	{ coord = 62955007, questId = 48389, icon = "treasure", group = "treasure_aw", label = "48389", loot = nil, note = _L["48389_62955007_note"] },
 	-- 48390
 	{ coord = 81306860, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = _L["48390_81306860_note"] },
 	{ coord = 80406152, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = _L["48390_80406152_note"] },
@@ -232,6 +235,7 @@ nodes["ArgusCore"] = {
 	{ coord = 72215680, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = _L["48390_72215680_note"] },
 	{ coord = 73277299, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = _L["48390_73277299_note"] },
 	{ coord = 77975620, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = _L["48390_77975620_note"] },
+	{ coord = 77246412, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = _L["48390_77246412_note"] },
 	-- 48391
 	{ coord = 64135867, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_64135867_note"] },
 	{ coord = 67424761, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_67404790_note"] },
@@ -243,6 +247,7 @@ nodes["ArgusCore"] = {
 	{ coord = 69815522, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_69815522_note"] },
 	{ coord = 71205441, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_71205441_note"] },
 	{ coord = 66544668, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_66544668_note"] },
+	{ coord = 65164951, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_65164951_note"] },
 
 }
 
@@ -316,6 +321,7 @@ nodes["ArgusSurface"] = {
 	{ coord = 64632319, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_64632319_note"] },
 	{ coord = 51533583, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_51533583_note"] },
 	{ coord = 60422354, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_60422354_note"] },
+	{ coord = 62763812, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_62763812_note"] },
 	-- 48000
 	{ coord = 70907370, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_70907370_note"] },
 	{ coord = 74136790, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_74136790_note"] },
@@ -368,7 +374,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = _L["Kaara the Pale"], search = _L["Kaara the Pale_search"], loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = _L["Kaara the Pale_note"] },
 	-- { coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = _L["Kaara the Pale"], search = _L["Kaara the Pale_search"], loot = nil, note = _L["Kaara the Pale_note"] },
 	{ coord = 41121149, npcId = 126864, questId = 48702, icon = "skull_grey", group = "rare_ma", label = _L["Feasel the Muffin Thief"], search = _L["Feasel the Muffin Thief_search"], loot = { { 152998, itemTypeMisc } }, note = _L["Feasel the Muffin Thief_note"] },
-	{ coord = 36682383, npcId = 126865, questId = 48703, icon = "skull_grey", group = "rare_ma", label = _L["Vigilant Thanos"], search = _L["Vigilant Thanos_search"], loot = { { 153322, itemTypeTransmog, _L["Shield"] } }, note = _L["Vigilant Thanos_note"] },
+	{ coord = 36682383, npcId = 126865, questId = 48703, icon = "skull_grey", group = "rare_ma", label = _L["Vigilant Thanos"], search = _L["Vigilant Thanos_search"], loot = { { 153322, itemTypeTransmog, _L["Shield"] }, { 153183, itemTypeToy } }, note = _L["Vigilant Thanos_note"] },
 	{ coord = 63806460, npcId = 126866, questId = 48704, icon = "skull_grey", group = "rare_ma", label = _L["Vigilant Kuro"], search = _L["Vigilant Kuro_search"], loot = { { 153323, itemTypeTransmog, _L["Shield"] }, { 153183, itemTypeToy } }, note = _L["Vigilant Kuro_note"] },
 	{ coord = 33654801, npcId = 126867, questId = 48705, icon = "skull_grey", group = "rare_ma", label = _L["Venomtail Skyfin"], search = _L["Venomtail Skyfin_search"], loot = { { 152844, itemTypeMount, 973 } }, note = _L["Venomtail Skyfin_note"] },
 	{ coord = 38226435, npcId = 126868, questId = 48706, icon = "skull_grey", group = "rare_ma", label = _L["Turek the Lucid"], search = _L["Turek the Lucid_search"], loot = { { 153306, itemTypeTransmog, _L["1h Axe"] } }, note = _L["Turek the Lucid_note"] },
@@ -429,6 +435,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 53332740, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_53332740_note"] },
 	{ coord = 58574078, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_58574078_note"] },
 	{ coord = 63262000, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_63262000_note"] },
+	{ coord = 54952484, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_54952484_note"] },
 	-- 48351
 	{ coord = 43637134, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_43637134_note"] },
 	{ coord = 34205929, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_34205929_note"] },
@@ -447,6 +454,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 47841956, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_47841956_note"] },
 	{ coord = 51802871, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_51802871_note"] },
 	{ coord = 49912946, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_49912946_note"] },
+	{ coord = 54951750, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_54951750_note"] },
 	-- 48371
 	{ coord = 48604971, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_48604971_note"] },
 	{ coord = 49865494, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_49865494_note"] },
@@ -455,6 +463,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 51094790, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_51094790_note"] },
 	{ coord = 35535718, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_35535718_note"] },
 	{ coord = 25383016, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_25383016_note"] },
+	{ coord = 53594211, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_53594211_note"] },
 	-- 48362
 	{ coord = 66682786, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_66682786_note"] },
 	{ coord = 62134077, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_62134077_note"] },
@@ -463,6 +472,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 65966017, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_65966017_note"] },
 	{ coord = 62053268, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_62053268_note"] },
 	{ coord = 60964354, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_60964354_note"] },
+	{ coord = 64445956, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_64445956_note"] },
 	-- Void-Seeped Cache / Treasure Chest
 	-- 49264
 	{ coord = 38143985, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_38143985_note"] },
@@ -472,6 +482,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 33312952, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_33312952_note"] },
 	{ coord = 37102005, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_37102005_note"] },
 	{ coord = 33592361, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_33592361_note"] },
+	{ coord = 31582553, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_31582553_note"] },
 	-- 48361
 	{ coord = 37664221, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_37664221_note"] },
 	{ coord = 25824471, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_25824471_note"] },
@@ -480,6 +491,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 29455043, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_29455043_note"] },
 	{ coord = 18794171, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_18794171_note"] },
 	{ coord = 25293498, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_25293498_note"] },
+	{ coord = 35283586, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_35283586_note"] },
 
 }
 
@@ -491,12 +503,15 @@ local function prepareNodesData()
 		local lookup = nodes[mapId][1]["lookup"];
 		for i = 1,numNodes do
 			local node = nodes[mapId][i];
+			node["allLootKnown"] = true;
 			if ( node["group"]:find( "rare" ) ) then
 				node["lfgGroups"] = {};
 				node["numLfgGroups"] = 0;
 				node["ratioLfgGroups"] = 0.0;
 				node["confUp"] = 0.0;
 				node["up"] = false;
+				node["seen"] = false;
+				nodeRef.rares[node["npcId"]] = node;
 			end
 			if ( i < numNodes ) then
 				node["nextNode"] = nodes[mapId][i+1];
@@ -526,6 +541,8 @@ end
 --
 --
 
+local isTomTomloaded = false
+local isCanIMogItloaded = false
 local clickedMapFile = nil
 local clickedCoord = nil
 local numSearches = 0;
@@ -533,6 +550,14 @@ local lastSearchTerm = "";
 local LFG_CAT_CUSTOM = 6;
 local LFG_CAT_QUESTS = 1;
 local lastRareResetSlot = -1;
+local MYSELF = nil;
+local ADDON_MSG_PREFIX = "HNA";
+local ADDON_MSG_CMD = {
+	getVer = "GV",
+	sendVer = "SV",
+	getRares = "GR",
+	sendRares = "SR"
+}
 
 --
 --
@@ -583,7 +608,7 @@ local function formatAge( age )
 	end
 end
 
-local function getCurrentTimeSlot()
+local function getCurrentTimeSlot( decimals )
 	-- 09:02 - 13:02 = 0
 	-- 13:02 - 17:02 = 1
 	-- 17:02 - 21:02 = 2
@@ -591,11 +616,15 @@ local function getCurrentTimeSlot()
 	-- 01:02 - 05:02 = 4
 	-- 05:02 - 09:02 = 5
 	local h, m = GetGameTime();
-	local slot = ((h*60+m-2) - 7*60) / (4*60);
+	local slot = ((h*60+m-2) - 9*60) / (4*60);
 	if slot < 0 then
 		slot = slot + 6;
 	end
-	return floor( slot );
+	if ( decimals ) then
+		return slot;
+	else
+		return floor( slot );
+	end
 end
 
 --
@@ -757,8 +786,15 @@ local function resetNPCGroupCounts()
 				node["ratioLfgGroups"] = 0.0;
 				node["confUp"] = 0.0;
 				node["up"] = false;
+				node["seen"] = false;
 			end
 		end
+	end
+	if ( IsInGuild() ) then
+		SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.getRares .. "=" .. VERSION, "GUILD" );
+	end
+	if ( IsInGroup() ) then
+		SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.getRares .. "=" .. VERSION, "RAID" );
 	end
 end
 
@@ -791,6 +827,7 @@ local function updateNPCGroupCount( gName, gLeader )
 end
 
 local function countTable( t )
+	if ( not t ) then return 0; end
 	local c = 0;
 	for k, v in pairs( t ) do
 	   c = c + 1;
@@ -799,8 +836,8 @@ local function countTable( t )
 end
 
 local function updateFoundRares()
-	local sum = 0;
-	local div = 0;
+	local sumGroups = 0;
+	local numRares = 0;
 	-- calc the average first and reset up status
 	for mapId,mapFile in pairs( nodes ) do
 		for i,node in ipairs( nodes[mapId] ) do
@@ -809,8 +846,8 @@ local function updateFoundRares()
 				local c = countTable( node["lfgGroups"] );
 				node["numLfgGroups"] = c;
 				if ( c > 0 ) then
-					sum = sum + c;
-					div = div + 1;
+					sumGroups = sumGroups + c;
+					numRares = numRares + 1;
 					-- print( node["label"] .. " : " .. c );
 					for k,v in pairs( node["lfgGroups"] ) do
 						--print( k .. " : " .. v );
@@ -819,8 +856,9 @@ local function updateFoundRares()
 			end
 		end
 	end
-	if ( div > 0 ) then
-		local avg = sum / div;
+	if ( numRares > 0 ) then
+		local avg = sumGroups / numRares;
+		--print( "sumGroups:" .. sumGroups .. " numRares:" .. numRares .. " avg:" .. avg );
 		for mapId,mapFile in pairs( nodes ) do
 			for i,node in ipairs( nodes[mapId] ) do
 				if ( node["group"]:find( "rare" ) ) then
@@ -914,13 +952,20 @@ local function LFGsearch( button, node, lfgcat )
 			finderFrame.searchNode = node;
 			finderFrame.searchCat = lfgcat;
 			local languages = C_LFGList.GetLanguageSearchFilter();
-			if ( numSearches < 5 or numSearches % 5 == 0 ) then
+			if ( numSearches < 5 or ( numSearches % 2 ) == 0 ) then
+				-- first 5 and every 2nd should refine globally
 				lastSearchTerm = "";
 			else
+				-- every 2nd search may give more results
+				-- needs more testing
+				--lastSearchTerm = node["search"][1];
+				lastSearchTerm = "";
+			end
+			if ( IsShiftKeyDown() ) then
 				lastSearchTerm = node["search"][1];
 			end
 			C_LFGList.Search( lfgcat, LFGListSearchPanel_ParseSearchTerms ( lastSearchTerm ), nil, nil, allLanguages );
-			-- print( "Search in " .. lfgcat .. " '" .. lastSearchTerm .. "'" );
+			--print( "Search in " .. lfgcat .. " '" .. lastSearchTerm .. "'" );
 		end
 	end
 end
@@ -957,9 +1002,7 @@ end
 finderFrame:SetScript("OnEvent", function( self, event, ... )
 	if ( event == "LFG_LIST_SEARCH_RESULTS_RECEIVED" ) then
 		local numResults, resultIds = C_LFGList.GetSearchResults()
-		if ( lastSearchTerm == "" ) then
-			numSearches = numSearches + 1;
-		end
+		numSearches = numSearches + 1;
 		local matches = {};
 
 		for _, resultId in ipairs( resultIds ) do
@@ -988,6 +1031,34 @@ finderFrame:SetScript("OnEvent", function( self, event, ... )
 		end
 	elseif ( event == "LFG_LIST_SEARCH_FAILED" ) then
 		print( _L["chatmsg_search_failed"] );
+	elseif ( event == "PLAYER_TARGET_CHANGED" ) then
+		if ( UnitHealth("target") > 0 ) then
+			local guid = UnitGUID("target");
+			if ( guid ) then
+				local npcId = guid:match( 'Creature%-%d+%-%d+%-%d+%-%d+%-(%d+)%-.*' );
+				if ( npcId ) then
+					npcId = tonumber( npcId );
+					if ( nodeRef.rares[npcId] ) then
+						local node = nodeRef.rares[npcId];
+						local name = UnitName("player");
+						local realm = GetRealmName();
+						if ( node.seen == false ) then
+							node.seen = {};
+						end
+						node.seen["player"] = name .. "-" .. realm;
+						node.seen["timeSlot"] = getCurrentTimeSlot();
+						--print( "rare seen: " .. node["label"] .. " - " .. node.seen["timeSlot"] );
+						local msg = npcId .. ':' .. node.seen["timeSlot"] .. ';';
+						if ( IsInGuild() ) then
+							SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.sendRares .. "=" .. msg, "GUILD" );
+						end
+						if ( IsInGroup() ) then
+							SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.sendRares .. "=" .. msg, "RAID" );
+						end
+					end
+				end
+			end
+		end
 	else
 		-- print( event );
 		-- print( ... );
@@ -1071,14 +1142,81 @@ end );
 --
 --
 
+local commGetRares = function( channel )
+	SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.getRares, channel );
+end
+
+local commSendRares = function( channel )
+	local s = "";
+	local now = getCurrentTimeSlot();
+	for npcId, node in pairs( nodeRef.rares ) do
+		if ( node["seen"] ~= false and node["seen"]["timeSlot"] == now ) then
+			s = s .. npcId .. ":" .. node["seen"]["timeSlot"] .. ";";
+		end
+		if ( s:len() > 200 ) then
+			SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.sendRares .. "=" .. s, channel );
+			s = "";
+		end
+	end
+	if ( s ~= "" ) then
+		SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.sendRares .. "=" .. s, channel );
+	end
+end
+
+local commSendVersion = function( channel )
+	SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.sendVer .. "=" .. VERSION, channel );
+end
+
 local communicator = CreateFrame("Frame");
 communicator:SetScript("OnEvent", function( self, event, ... )
 	if ( event == "PLAYER_ENTERING_WORLD" ) then
 		if ( IsInGuild() ) then
-			SendAddonMessage( ADDON_MSG_PREFIX, "ver=" .. VERSION, "GUILD" );
+			commSendVersion( "GUILD" );
+			commGetRares( "GUILD" );
 		end
-	elseif ( event == "GROUP_JOINED" or event == "GROUP_ROSTER_UPDATE" ) then
-		SendAddonMessage( ADDON_MSG_PREFIX, "ver=" .. VERSION, "RAID" );
+	elseif ( event == "GROUP_JOINED" or event == "__GROUP_ROSTER_UPDATE" ) then
+		commSendVersion( "RAID" );
+		commGetRares( "RAID" );
+	elseif ( event == "CHAT_MSG_ADDON" ) then
+		local prefix, rawmsg, channel, playerRealm, player = ...
+		if ( playerRealm == MYSELF ) then
+			-- ignore myself
+			return;
+		end
+		local cmd = rawmsg:sub(1,2);
+		local msg = "";
+		if ( rawmsg:len() >= 4 ) then
+			msg = rawmsg:sub(4,-1);
+		end
+		if ( cmd == ADDON_MSG_CMD.getRares ) then
+			commSendRares( channel );
+		elseif ( cmd == ADDON_MSG_CMD.sendRares ) then
+			--print( ... );
+			--print( "parseRares:" .. msg );
+			local now = getCurrentTimeSlot();
+			msg:gsub("(%d+):(%d);", function ( npcId, timeSlot )
+				npcId = tonumber( npcId );
+				timeSlot = tonumber( timeSlot );
+				--print( "parse:" .. npcId .. ":" .. timeSlot );
+				if ( nodeRef.rares[npcId] ) then
+					local node = nodeRef.rares[npcId];
+					if ( node.seen == false ) then
+						-- new rare
+						node.seen = { player = playerRealm, timeSlot = timeSlot };
+						--print( "got new rare: " .. node["label"] .. " - " .. node.seen["timeSlot"] );
+					elseif ( timeSlot == now ) then
+						-- update rare
+						node.seen["player"] = playerRealm;
+						node.seen["timeSlot"] = timeSlot;
+						--print( "got rare: " .. node["label"] .. " - " .. node.seen["timeSlot"] );
+					else
+						--print("nothing");
+					end
+				else
+					--print("unknown npcid " .. npcId);
+				end
+			end );
+		end
 	end
 end );
 
@@ -1601,21 +1739,32 @@ function Argus:OnInitialize()
 
     self.db = LibStub("AceDB-3.0"):New("HandyNotesArgusDB", defaults, "Default");
     self:RegisterEvent("PLAYER_ENTERING_WORLD", "WorldEnter");
+	local name = UnitName("player");
+	local realm = GetRealmName();
+	MYSELF = name .. "-" .. realm;
+	lastRareResetSlot = getCurrentTimeSlot();
 	updateInvasionPOI:RegisterEvent("WORLD_MAP_UPDATE");
 	communicator:RegisterEvent("PLAYER_ENTERING_WORLD");
 	communicator:RegisterEvent("GROUP_ROSTER_UPDATE");
 	communicator:RegisterEvent("GROUP_JOINED");
+	communicator:RegisterEvent("CHAT_MSG_ADDON");
+	finderFrame:RegisterEvent("PLAYER_TARGET_CHANGED");
 	finderFrame:RegisterEvent("LFG_LIST_SEARCH_RESULTS_RECEIVED");
 	finderFrame:RegisterEvent("LFG_LIST_SEARCH_FAILED");
 	finderFrame:RegisterEvent("LFG_LIST_ENTRY_EXPIRED_TIMEOUT");
 	finderFrame:RegisterEvent("LFG_LIST_ENTRY_EXPIRED_TOO_MANY_PLAYERS");
+	RegisterAddonMessagePrefix( ADDON_MSG_PREFIX );
+	for k,v in pairs( ADDON_MSG_CMD ) do
+		print( "register " .. v);
+		RegisterAddonMessagePrefix( ADDON_MSG_PREFIX .. v );
+	end
 end
 
 function Argus:WorldEnter()
 	prepareNodesData();
-    self:UnregisterEvent("PLAYER_ENTERING_WORLD")
-    self:ScheduleTimer("RegisterWithHandyNotes", 8)
-	self:ScheduleTimer("LoadCheck", 6)
+    self:UnregisterEvent("PLAYER_ENTERING_WORLD");
+    self:ScheduleTimer("RegisterWithHandyNotes", 8);
+	self:ScheduleTimer("LoadCheck", 6);
 	C_Timer.After(10, function()
 		cacheItems();
 	end );
@@ -1629,6 +1778,7 @@ function Argus:RegisterWithHandyNotes()
 		if not t then return nil end
 			
 			local node;
+			local now = getCurrentTimeSlot();
 			if ( prestate ) then
 				node = t[1]["lookup"][prestate]["nextNode"];
 			else
@@ -1660,13 +1810,13 @@ function Argus:RegisterWithHandyNotes()
 						iconScale = Argus.db.profile.icon_scale_rares;
 						iconAlpha = Argus.db.profile.icon_alpha_rares;
 						iconPath = iconDefaults["skullWhite"];
-						if ( not node["allLootKnown"] and node["confUp"] > 0.75 and self.db.profile.nodeRareGlow ) then
+						if ( not node["allLootKnown"] and ( node["confUp"] > 0.75 or ( node["seen"] and node["seen"]["timeSlot"] == now ) ) and self.db.profile.nodeRareGlow ) then
 							iconPath = iconDefaults["skullBlueGreenGlow"];
 						elseif ( not node["allLootKnown"] and node["confUp"] > 0.2 and self.db.profile.nodeRareGlow ) then
 							iconPath = iconDefaults["skullBlueRedGlow"];
 						elseif ( not node["allLootKnown"] ) then
 							iconPath = iconDefaults["skullBlue"];
-						elseif ( node["allLootKnown"] and node["confUp"] > 0.75 and self.db.profile.nodeRareGlow ) then
+						elseif ( node["allLootKnown"] and ( node["confUp"] > 0.75 or ( node["seen"] and node["seen"]["timeSlot"] == now ) ) and self.db.profile.nodeRareGlow ) then
 							iconPath = iconDefaults["skullWhiteGreenGlow"];
 						elseif ( node["allLootKnown"] and node["confUp"] > 0.2 and self.db.profile.nodeRareGlow ) then
 							iconPath = iconDefaults["skullWhiteRedGlow"];

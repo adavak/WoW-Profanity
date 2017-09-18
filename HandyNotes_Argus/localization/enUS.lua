@@ -131,6 +131,7 @@ _L["48382_58066806_note"] = "";
 _L["48382_68026624_note"] = "Inside legion structure";
 _L["48382_64506868_note"] = "Outside";
 _L["48382_62666823_note"] = "Inside Building";
+_L["48382_60096945_note"] = "Outside, behind building";
 -- 48383
 _L["48383_56903570_note"] = "";
 _L["48383_57633179_note"] = "";
@@ -142,6 +143,7 @@ _L["48383_58413097_note"] = "Inside building, floor level";
 _L["48383_53753556_note"] = "";
 _L["48383_51703529_note"] = "High up on the cliffs";
 _L["48383_59853583_note"] = "";
+_L["48383_58273570_note"] = "Inside building, entrance from Il'thendra platform"
 -- 48384
 _L["48384_60872900_note"] = "";
 _L["48384_61332054_note"] = "Inside Munculus building";
@@ -165,6 +167,7 @@ _L["48387_65522831_note"] = "Under the bridge";
 _L["48387_63613643_note"] = "";
 _L["48387_73404669_note"] = "Jump over the ooze";
 _L["48387_67954006_note"] = "";
+_L["48387_63603642_note"] = "";
 -- 48388
 _L["48388_51502610_note"] = "";
 _L["48388_59261743_note"] = "";
@@ -181,6 +184,7 @@ _L["48389_60304675_note"] = "";
 _L["48389_65345192_note"] = "In cave behind Varga";
 _L["48389_64114242_note"] = "Under rocks";
 _L["48389_58734323_note"] = "On small piece of land within ooze";
+_L["48389_62955007_note"] = "On green ooze shore";
 -- 48390
 _L["48390_81306860_note"] = "On ship";
 _L["48390_80406152_note"] = "";
@@ -192,6 +196,7 @@ _L["48390_77255876_note"] = "Down the slope";
 _L["48390_72215680_note"] = "Inside building";
 _L["48390_73277299_note"] = "Behind Rel'var";
 _L["48390_77975620_note"] = "Down the slope and further over the cliffs"
+_L["48390_77246412_note"] = "Be careful on the way back. Don't jump down the cliffs!";
 -- 48391
 _L["48391_64135867_note"] = "In Ven'orn spider cave";
 _L["48391_67404790_note"] = "Spider area, in a small cave next to the northern exit";
@@ -203,6 +208,7 @@ _L["48391_68095075_note"] = "Inside small cave in spider area";
 _L["48391_69815522_note"] = "Outside in spider area";
 _L["48391_71205441_note"] = "Outside in spider area";
 _L["48391_66544668_note"] = "Exit the spider area north where the green zone is on the ground. Jump up the rocks.";
+_L["48391_65164951_note"] = "Inside small cave in spider area"
 
 -- Krokuun
 _L["Khazaduum"] = "Khazaduum";
@@ -308,6 +314,7 @@ _L["47999_65992286_note"] = "";
 _L["47999_64632319_note"] = "Inside building";
 _L["47999_51533583_note"] = "Outside building, over the litte ooze lake";
 _L["47999_60422354_note"] = "";
+_L["47999_62763812_note"] = "Inside building";
 -- 48000
 _L["48000_70907370_note"] = "";
 _L["48000_74136790_note"] = "";
@@ -480,6 +487,7 @@ _L["48350_62202636_note"] = "On the balcony. Go into the building and up the sta
 _L["48350_53332740_note"] = "Under tree";
 _L["48350_58574078_note"] = "";
 _L["48350_63262000_note"] = "Inside building";
+_L["48350_54952484_note"] = "";
 -- 48351
 _L["48351_43637134_note"] = "";
 _L["48351_34205929_note"] = "On 2nd floor, where Herald of Chaos resides.";
@@ -498,6 +506,7 @@ _L["48357_52871676_note"] = "Up the stairs";
 _L["48357_47841956_note"] = "";
 _L["48357_51802871_note"] = "In the area up the northern stairs";
 _L["48357_49912946_note"] = "";
+_L["48357_54951750_note"] = "";
 -- 48371
 _L["48371_48604971_note"] = "";
 _L["48371_49865494_note"] = "";
@@ -506,6 +515,7 @@ _L["48371_49623585_note"] = "Up the stairs";
 _L["48371_51094790_note"] = "Under tree";
 _L["48371_35535718_note"] = "On 2nd floor, next to Herald of Chaos";
 _L["48371_25383016_note"] = "";
+_L["48371_53594211_note"] = "";
 -- 48362
 _L["48362_66682786_note"] = "Inside building, next to Zul'tan the Numerous";
 _L["48362_62134077_note"] = "Inside building";
@@ -514,6 +524,7 @@ _L["48362_68355322_note"] = "Inside building";
 _L["48362_65966017_note"] = "";
 _L["48362_62053268_note"] = "Upper terrain level";
 _L["48362_60964354_note"] = "Inside building";
+_L["48362_64445956_note"] = "Inside building";
 -- Void-Seeped Cache / Treasure Chest
 -- 49264
 _L["49264_38143985_note"] = "";
@@ -523,6 +534,7 @@ _L["49264_33972078_note"] = "";
 _L["49264_33312952_note"] = "";
 _L["49264_37102005_note"] = "";
 _L["49264_33592361_note"] = "Hidden under tree"
+_L["49264_31582553_note"] = "";
 -- 48361
 _L["48361_37664221_note"] = "Behind pillar in cave thingy";
 _L["48361_25824471_note"] = "";
@@ -531,6 +543,7 @@ _L["48361_29503999_note"] = "";
 _L["48361_29455043_note"] = "Under tree";
 _L["48361_18794171_note"] = "Outside, behind building";
 _L["48361_25293498_note"] = "";
+_L["48361_35283586_note"] = "Behind Umbraliss"
 
 --
 --	KEEP THESE ENGLISH FOR THE GROUP BROWSER IN EU/US!! CHINA & CO ADJUST

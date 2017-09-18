@@ -575,9 +575,9 @@ _L["groupBrowserOptionMore"] = "%s - %s 人 (%d秒)";
 _L["chatmsg_no_group_priv"] = "|cFFFF0000權限不足，你不是隊長";
 _L["chatmsg_group_created"] = "|cFF6CF70F編組隊伍 - %s.";
 _L["chatmsg_search_failed"] = "|cFFFF0000過多搜尋指令，請再幾秒後再嘗試";
-_L["hour_short"] = "h";
-_L["minute_short"] = "m";
-_L["second_short"] = "s";
+_L["hour_short"] = "時";
+_L["minute_short"] = "分";
+_L["second_short"] = "秒";
 
 -- KEEP THESE 2 ENGLISH IN EU/US
 _L["listing_desc_rare"] = "檢查阿古斯 - %s 的稀有隊伍中";
