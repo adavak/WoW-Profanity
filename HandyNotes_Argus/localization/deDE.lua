@@ -653,4 +653,9 @@ _L["options_general_settings_desc"] = "Allgemeine Einstellungen";
 _L["options_toggle_leave_group_on_search"] = "Verlasse Gruppen";
 _L["options_toggle_leave_group_on_search_desc"] = "Verlasse Gruppen vor Gruppensuche / -erstellung. Mit Vorsicht nutzen!";
 
+_L["options_toggle_include_player_seen"] = "Include player seen rares";
+_L["options_toggle_include_player_seen_desc"] = "Don't use this yet.";
+_L["options_toggle_show_debug"] = "Debug";
+_L["options_toggle_show_debug_desc"] = "Show debug stuff";
+
 end

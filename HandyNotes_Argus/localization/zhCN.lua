@@ -497,6 +497,7 @@ _L["48351_36296646_note"] = "";
 _L["48351_42645361_note"] = "洞穴内。入口在西南。";
 _L["48351_38126342_note"] = "清醒者图瑞克地下室内";
 _L["48351_42395752_note"] = "建筑物内";
+_L["48351_39175934_note"] = "建筑物废墟内";
 -- 48357
 _L["48357_49412387_note"] = "";
 _L["48357_47672180_note"] = "";
@@ -507,6 +508,8 @@ _L["48357_47841956_note"] = "";
 _L["48357_51802871_note"] = "在北边楼梯上面区域";
 _L["48357_49912946_note"] = "";
 _L["48357_54951750_note"] = "";
+_L["48357_46381509_note"] = "";
+_L["48357_50021442_note"] = "";
 -- 48371
 _L["48371_48604971_note"] = "";
 _L["48371_49865494_note"] = "";
@@ -516,6 +519,7 @@ _L["48371_51094790_note"] = "树下";
 _L["48371_35535718_note"] = "第二层，混沌先驱旁边";
 _L["48371_25383016_note"] = "";
 _L["48371_53594211_note"] = "";
+_L["48371_59405863_note"] = "";
 -- 48362
 _L["48362_66682786_note"] = "建筑物内，万千之主祖尔坦旁边";
 _L["48362_62134077_note"] = "建筑物内";
@@ -535,6 +539,7 @@ _L["49264_33312952_note"] = "";
 _L["49264_37102005_note"] = "";
 _L["49264_33592361_note"] = "藏在树下"
 _L["49264_31582553_note"] = "";
+_L["49264_32332131_note"] = "藏在角落里";
 -- 48361
 _L["48361_37664221_note"] = "洞里柱子后面";
 _L["48361_25824471_note"] = "";
@@ -565,8 +570,8 @@ _L["invasion_sangua_search"] = { "侵入点：萨古亚", "萨古亚" };
 _L["invasion_naigtal_search"] = { "侵入点：奈格塔尔", "奈格塔尔" };
 _L["invasion_bonich_search"] = { "侵入点：博尼克", "博尼克" };
 _L["invasion_cengar_search"] = { "侵入点：森加", "森加" };
-_L["invasion_alluradel_search"] = { "大型侵入点：妖女奥露拉黛儿", "妖女奥露拉黛儿" };
-_L["invasion_folnuna_search"] = { "大型侵入点：主母芙努娜", "主母芙努娜" };
+_L["invasion_alluradel_search"] = { "大型侵入点：妖女奥露拉黛儿", "妖女奥露拉黛儿", "mistress alluradel" };
+_L["invasion_folnuna_search"] = { "大型侵入点：主母芙努娜", "主母芙努娜", "matron folnuna" };
 
 --
 --
@@ -681,5 +686,10 @@ _L["chatmsg_old_group_delisted_create"] = "|cFFF7C92A旧队伍已从列表移除
 _L["chatmsg_left_group_create"] = "|cFFF7C92A离开队伍。再次点击创建一个新的队伍：%s。";
 _L["chatmsg_old_group_delisted_search"] = "|cFFF7C92A旧队伍已移除。次点击搜索队伍：%s。"
 _L["chatmsg_left_group_search"] = "|cFFF7C92A离开队伍。再次点击搜索队伍：%s。";
+
+_L["options_toggle_include_player_seen"] = "包含玩家见到稀有";
+_L["options_toggle_include_player_seen_desc"] = "不要使用。";
+_L["options_toggle_show_debug"] = "除错";
+_L["options_toggle_show_debug_desc"] = "显示除错信息";
 
 end

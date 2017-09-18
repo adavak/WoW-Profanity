@@ -497,6 +497,7 @@ _L["48351_36296646_note"] = "";
 _L["48351_42645361_note"] = "In a cave. Entrance is southwest from here.";
 _L["48351_38126342_note"] = "Inside Tureks cellar";
 _L["48351_42395752_note"] = "Inside building";
+_L["48351_39175934_note"] = "Inside building ruin";
 -- 48357
 _L["48357_49412387_note"] = "";
 _L["48357_47672180_note"] = "";
@@ -507,6 +508,8 @@ _L["48357_47841956_note"] = "";
 _L["48357_51802871_note"] = "In the area up the northern stairs";
 _L["48357_49912946_note"] = "";
 _L["48357_54951750_note"] = "";
+_L["48357_46381509_note"] = "";
+_L["48357_50021442_note"] = "";
 -- 48371
 _L["48371_48604971_note"] = "";
 _L["48371_49865494_note"] = "";
@@ -516,6 +519,7 @@ _L["48371_51094790_note"] = "Under tree";
 _L["48371_35535718_note"] = "On 2nd floor, next to Herald of Chaos";
 _L["48371_25383016_note"] = "";
 _L["48371_53594211_note"] = "";
+_L["48371_59405863_note"] = "";
 -- 48362
 _L["48362_66682786_note"] = "Inside building, next to Zul'tan the Numerous";
 _L["48362_62134077_note"] = "Inside building";
@@ -535,6 +539,7 @@ _L["49264_33312952_note"] = "";
 _L["49264_37102005_note"] = "";
 _L["49264_33592361_note"] = "Hidden under tree"
 _L["49264_31582553_note"] = "";
+_L["49264_32332131_note"] = "Kind of hidden in a corner";
 -- 48361
 _L["48361_37664221_note"] = "Behind pillar in cave thingy";
 _L["48361_25824471_note"] = "";
@@ -681,5 +686,10 @@ _L["chatmsg_old_group_delisted_create"] = "|cFFF7C92AOld group delisted. Please 
 _L["chatmsg_left_group_create"] = "|cFFF7C92ALeft group. Please click again to create a new group for %s.";
 _L["chatmsg_old_group_delisted_search"] = "|cFFF7C92AOld group delisted. Please click again to search groups for %s."
 _L["chatmsg_left_group_search"] = "|cFFF7C92ALeft group. Please click again to search groups for %s.";
+
+_L["options_toggle_include_player_seen"] = "Include player seen rares";
+_L["options_toggle_include_player_seen_desc"] = "Don't use this yet.";
+_L["options_toggle_show_debug"] = "Debug";
+_L["options_toggle_show_debug_desc"] = "Show debug stuff";
 
 end

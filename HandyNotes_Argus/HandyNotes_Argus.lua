@@ -1,5 +1,5 @@
 -- Thanks to all who provide usable code
-local VERSION = "0.22.0";
+local VERSION = "0.22.2";
 
 local _G = getfenv(0)
 -- Libraries
@@ -445,6 +445,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 42645361, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_42645361_note"] },
 	{ coord = 38126342, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_38126342_note"] },
 	{ coord = 42395752, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_42395752_note"] },
+	{ coord = 39175934, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_39175934_note"] },
 	-- 48357
 	{ coord = 49412387, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_49412387_note"] },
 	{ coord = 47672180, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_47672180_note"] },
@@ -455,6 +456,8 @@ nodes["ArgusMacAree"] = {
 	{ coord = 51802871, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_51802871_note"] },
 	{ coord = 49912946, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_49912946_note"] },
 	{ coord = 54951750, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_54951750_note"] },
+	{ coord = 46381509, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_46381509_note"] },
+	{ coord = 50021442, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_50021442_note"] },
 	-- 48371
 	{ coord = 48604971, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_48604971_note"] },
 	{ coord = 49865494, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_49865494_note"] },
@@ -464,6 +467,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 35535718, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_35535718_note"] },
 	{ coord = 25383016, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_25383016_note"] },
 	{ coord = 53594211, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_53594211_note"] },
+	{ coord = 59405863, questId = 48371, icon = "treasure", group = "treasure_ma", label = "48371", loot = nil, note = _L["48371_59405863_note"] },
 	-- 48362
 	{ coord = 66682786, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_66682786_note"] },
 	{ coord = 62134077, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_62134077_note"] },
@@ -483,6 +487,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 37102005, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_37102005_note"] },
 	{ coord = 33592361, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_33592361_note"] },
 	{ coord = 31582553, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_31582553_note"] },
+	{ coord = 32332131, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_32332131_note"] },
 	-- 48361
 	{ coord = 37664221, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_37664221_note"] },
 	{ coord = 25824471, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_25824471_note"] },
@@ -660,14 +665,18 @@ function Argus:OnEnter(mapFile, coord)
 		tooltip_label = nil;
 		getCreatureNamebyID( node["npcId"] );
 		if ( tooltip_label ) then
-			if ( node["ratioLfgGroups"] ) then
-				label = tooltip_label .. " (" .. string.format("%.2f", node["ratioLfgGroups"] ) .. ")";
-			else
-				label = tooltip_label
-			end
+			label = tooltip_label
 		end
 	else
 		label = node["label"];
+	end
+	if ( Argus.db.profile.show_debug ) then
+		if ( node["ratioLfgGroups"] ) then
+			label = label .. " (" .. string.format("%.2f", node["ratioLfgGroups"] ) .. ")";
+		end
+		if ( node["seen"] and node["seen"]["timeSlot"] == getCurrentTimeSlot() ) then
+			label = label .. " +";
+		end
 	end
 	tooltip:SetText( label );
 	if ( Argus.db.profile.show_notes == true and node["note"] and node["note"] ~= nil ) then
@@ -1008,8 +1017,8 @@ finderFrame:SetScript("OnEvent", function( self, event, ... )
 		for _, resultId in ipairs( resultIds ) do
 
 			local id, activityID, name, comment, voiceChat, iLvl, honorLevel, age, numBNetFriends, numCharFriends, numGuildMates, isDelisted, leaderName, numMembers, isAutoAccept = C_LFGList.GetSearchResultInfo( resultId );
-			if ( age < 300 and lastSearchTerm == "" ) then
-				-- dont count groups older than 5 minutes
+			if ( age < 150 and lastSearchTerm == "" ) then
+				-- dont count groups older than 2.5 minutes
 				updateNPCGroupCount( name, leaderName );
 			end
 
@@ -1143,7 +1152,7 @@ end );
 --
 
 local commGetRares = function( channel )
-	SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.getRares, channel );
+	SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.getRares .. "=" .. VERSION, channel );
 end
 
 local commSendRares = function( channel )
@@ -1648,11 +1657,25 @@ local options = {
 			desc = _L["options_general_settings_desc"],
 			inline = true,
 			args = {
-				show_loot = {
+				leave_group_on_search = {
 					type = "toggle",
 					arg = "leave_group_on_search",
 					name = _L["options_toggle_leave_group_on_search"],
 					desc = _L["options_toggle_leave_group_on_search_desc"],
+					order = 102,
+				},
+				include_player_seen = {
+					type = "toggle",
+					arg = "include_player_seen",
+					name = _L["options_toggle_include_player_seen"],
+					desc = _L["options_toggle_include_player_seen_desc"],
+					order = 102,
+				},
+				show_debug = {
+					type = "toggle",
+					arg = "show_debug",
+					name = _L["options_toggle_show_debug"],
+					desc = _L["options_toggle_show_debug_desc"],
 					order = 102,
 				},
 			},
@@ -1734,6 +1757,8 @@ function Argus:OnInitialize()
             show_loot = true,
             show_notes = true,
 			leave_group_on_search = false,
+			show_debug = false,
+			include_player_seen = false,
         },
     }
 
@@ -1754,10 +1779,10 @@ function Argus:OnInitialize()
 	finderFrame:RegisterEvent("LFG_LIST_ENTRY_EXPIRED_TIMEOUT");
 	finderFrame:RegisterEvent("LFG_LIST_ENTRY_EXPIRED_TOO_MANY_PLAYERS");
 	RegisterAddonMessagePrefix( ADDON_MSG_PREFIX );
-	for k,v in pairs( ADDON_MSG_CMD ) do
-		print( "register " .. v);
-		RegisterAddonMessagePrefix( ADDON_MSG_PREFIX .. v );
-	end
+	--for k,v in pairs( ADDON_MSG_CMD ) do
+		-- print( "register " .. v);
+		--RegisterAddonMessagePrefix( ADDON_MSG_PREFIX .. v );
+	--end
 end
 
 function Argus:WorldEnter()
@@ -1782,6 +1807,7 @@ function Argus:RegisterWithHandyNotes()
 			if ( prestate ) then
 				node = t[1]["lookup"][prestate]["nextNode"];
 			else
+				checkResetNPCGroupCounts();
 				node = t[1]
 			end
 
@@ -1807,16 +1833,16 @@ function Argus:RegisterWithHandyNotes()
 					local iconAlpha = 1;
 					local iconPath = iconDefaults[node["icon"]];
 					if ( (string.find(node["group"], "rare") ~= nil)) then
-						iconScale = Argus.db.profile.icon_scale_rares;
-						iconAlpha = Argus.db.profile.icon_alpha_rares;
+						iconScale = self.db.profile.icon_scale_rares;
+						iconAlpha = self.db.profile.icon_alpha_rares;
 						iconPath = iconDefaults["skullWhite"];
-						if ( not node["allLootKnown"] and ( node["confUp"] > 0.75 or ( node["seen"] and node["seen"]["timeSlot"] == now ) ) and self.db.profile.nodeRareGlow ) then
+						if ( not node["allLootKnown"] and ( node["confUp"] > 0.75 or ( self.db.profile.include_player_seen and node["seen"] and node["seen"]["timeSlot"] == now ) ) and self.db.profile.nodeRareGlow ) then
 							iconPath = iconDefaults["skullBlueGreenGlow"];
 						elseif ( not node["allLootKnown"] and node["confUp"] > 0.2 and self.db.profile.nodeRareGlow ) then
 							iconPath = iconDefaults["skullBlueRedGlow"];
 						elseif ( not node["allLootKnown"] ) then
 							iconPath = iconDefaults["skullBlue"];
-						elseif ( node["allLootKnown"] and ( node["confUp"] > 0.75 or ( node["seen"] and node["seen"]["timeSlot"] == now ) ) and self.db.profile.nodeRareGlow ) then
+						elseif ( node["allLootKnown"] and ( node["confUp"] > 0.75 or ( self.db.profile.include_player_seen and node["seen"] and node["seen"]["timeSlot"] == now ) ) and self.db.profile.nodeRareGlow ) then
 							iconPath = iconDefaults["skullWhiteGreenGlow"];
 						elseif ( node["allLootKnown"] and node["confUp"] > 0.2 and self.db.profile.nodeRareGlow ) then
 							iconPath = iconDefaults["skullWhiteRedGlow"];
@@ -1824,14 +1850,14 @@ function Argus:RegisterWithHandyNotes()
 							iconPath = iconDefaults["skullWhite"];
 						end
 					elseif ( (string.find(node["group"], "treasure") ~= nil)) then
-						iconScale = Argus.db.profile.icon_scale_treasures;
-						iconAlpha = Argus.db.profile.icon_alpha_treasures;
+						iconScale = self.db.profile.icon_scale_treasures;
+						iconAlpha = self.db.profile.icon_alpha_treasures;
 					elseif ( (string.find(node["group"], "pet") ~= nil)) then
-						iconScale = Argus.db.profile.icon_scale_pets;
-						iconAlpha = Argus.db.profile.icon_alpha_pets;
+						iconScale = self.db.profile.icon_scale_pets;
+						iconAlpha = self.db.profile.icon_alpha_pets;
 					elseif ( (string.find(node["group"], "sfll") ~= nil)) then
-						iconScale = Argus.db.profile.icon_scale_sfll;
-						iconAlpha = Argus.db.profile.icon_alpha_sfll;
+						iconScale = self.db.profile.icon_scale_sfll;
+						iconAlpha = self.db.profile.icon_alpha_sfll;
 					end
                     return node["coord"], nil, iconPath, iconScale, iconAlpha
                 end
