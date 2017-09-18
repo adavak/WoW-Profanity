@@ -1,5 +1,5 @@
 -- Thanks to all who provide usable code
-local VERSION = "0.22.2";
+local VERSION = "0.22.3";
 
 local _G = getfenv(0)
 -- Libraries
@@ -131,7 +131,7 @@ nodes["ArgusCore"] = {
 	{ coord = 63042455, npcId = 127288, questId = 48821, icon = "skull_grey", group = "rare_aw", label = _L["Houndmaster Kerrax"], search = _L["Houndmaster Kerrax_search"], loot = { { 152790, itemTypeMount, 955 } }, note = _L["Houndmaster Kerrax_note"] },
 	{ coord = 55702190, npcId = 127300, questId = 48824, icon = "skull_grey", group = "rare_aw", label = _L["Void Warden Valsuran"], search = _L["Void Warden Valsuran_search"], loot = { { 153319, itemTypeTransmog, _L["2h Mace"] }, { 152886, itemTypeTransmog, _L["Cloth"] }, { 152888, itemTypeTransmog, _L["Cloth"] }, { 152884, itemTypeTransmog, _L["Cloth"] }, { 152889, itemTypeTransmog, _L["Cloth"] }, { 152885, itemTypeTransmog, _L["Cloth"] }, { 152881, itemTypeTransmog, _L["Cloth"] }, { 152887, itemTypeTransmog, _L["Cloth"] }, { 152883, itemTypeTransmog, _L["Cloth"] } }, note = _L["Void Warden Valsuran_note"] },
 	{ coord = 61392095, npcId = 127376, questId = 48865, icon = "skull_grey", group = "rare_aw", label = _L["Chief Alchemist Munculus"], search = _L["Chief Alchemist Munculus_search"], loot = nil, note = _L["Chief Alchemist Munculus_note"] },
-	{ coord = 54003800, npcId = 127581, questId = 48966, icon = "skull_grey", group = "rare_aw", label = _L["The Many-Faced Devourer"], search = _L["The Many-Faced Devourer_search"], loot = { { 153195, itemTypePet, 2136 } }, note = _L["The Many-Faced Devourer_note"] },
+	{ coord = 54823915, npcId = 127581, questId = 48966, icon = "skull_grey", group = "rare_aw", label = _L["The Many-Faced Devourer"], search = _L["The Many-Faced Devourer_search"], loot = { { 153195, itemTypePet, 2136 } }, note = _L["The Many-Faced Devourer_note"] },
 	{ coord = 77177319, npcId = nil, questId = 48967, icon = "portalGreen", group = "portal_aw", label = _L["Portal to Squadron Commander Vishax"], loot = nil, note = _L["Portal to Squadron Commander Vishax_note"] },
 	{ coord = 84368118, npcId = 127700, questId = 48967, icon = "skull_grey", group = "rare_aw", label = _L["Squadron Commander Vishax"], search = _L["Squadron Commander Vishax_search"], loot = { { 153253, itemTypeToy } }, note = _L["Squadron Commander Vishax_note"] },
 	{ coord = 58001200, npcId = 127703, questId = 48968, icon = "skull_grey", group = "rare_aw", label = _L["Doomcaster Suprax"], search = _L["Doomcaster Suprax_search"], loot = { { 153194, itemTypeToy } }, note = _L["Doomcaster Suprax_note"] },
@@ -288,6 +288,7 @@ nodes["ArgusSurface"] = {
 	{ coord = 57005472, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = _L["47752_57005472_note"] },
 	{ coord = 59695196, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = _L["47752_59695196_note"] },
 	{ coord = 51425958, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = _L["47752_51425958_note"] },
+	{ coord = 55525237, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = _L["47752_55525237_note"] },
 	-- 47753
 	{ coord = 53137304, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = _L["47753_53137304_note"] },
 	{ coord = 55228114, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = _L["47753_55228114_note"] },
@@ -308,6 +309,7 @@ nodes["ArgusSurface"] = {
 	{ coord = 41548379, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = _L["47997_41548379_note"] },
 	{ coord = 46458665, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = _L["47997_46458665_note"] },
 	{ coord = 40357414, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = _L["47997_40357414_note"] },
+	{ coord = 44198653, questId = 47997, icon = "treasure", group = "treasure_kr", label = "47997", loot = nil, note = _L["47997_44198653_note"] },
 	-- 47999
 	{ coord = 62592581, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_62592581_note"] },
 	{ coord = 59763951, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_59763951_note"] },
@@ -348,6 +350,7 @@ nodes["ArgusSurface"] = {
 	{ coord = 37176401, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_37176401_note"] },
 	{ coord = 28247134, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_28247134_note"] },
 	{ coord = 30276403, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_30276403_note"] },
+	{ coord = 34566305, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_34566305_note"] },
 	-- 48339
 	{ coord = 68533891, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_68533891_note"] },
 	{ coord = 63054240, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_63054240_note"] },
@@ -426,6 +429,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 52868241, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_52868241_note"] },
 	{ coord = 47186234, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_47186234_note"] },
 	{ coord = 50107580, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_50107580_note"] },
+	{ coord = 53328001, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_53328001_note"] },
 	-- 48350
 	{ coord = 59622088, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_59622088_note"] },
 	{ coord = 60493338, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_60493338_note"] },
@@ -613,7 +617,7 @@ local function formatAge( age )
 	end
 end
 
-local function getCurrentTimeSlot( decimals )
+local function getCurrentTimeSlot( decimals, offset )
 	-- 09:02 - 13:02 = 0
 	-- 13:02 - 17:02 = 1
 	-- 17:02 - 21:02 = 2
@@ -621,7 +625,10 @@ local function getCurrentTimeSlot( decimals )
 	-- 01:02 - 05:02 = 4
 	-- 05:02 - 09:02 = 5
 	local h, m = GetGameTime();
-	local slot = ((h*60+m-2) - 9*60) / (4*60);
+	if ( not offset ) then
+		offset = 4;
+	end
+	local slot = ((h*60+m-offset) - 9*60) / (4*60);
 	if slot < 0 then
 		slot = slot + 6;
 	end
@@ -1041,7 +1048,7 @@ finderFrame:SetScript("OnEvent", function( self, event, ... )
 	elseif ( event == "LFG_LIST_SEARCH_FAILED" ) then
 		print( _L["chatmsg_search_failed"] );
 	elseif ( event == "PLAYER_TARGET_CHANGED" ) then
-		if ( UnitHealth("target") > 0 ) then
+		if ( UnitHealth("target") == UnitHealthMax("target") and not UnitAffectingCombat("target") ) then
 			local guid = UnitGUID("target");
 			if ( guid ) then
 				local npcId = guid:match( 'Creature%-%d+%-%d+%-%d+%-%d+%-(%d+)%-.*' );

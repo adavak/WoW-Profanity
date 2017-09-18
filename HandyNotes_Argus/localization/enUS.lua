@@ -281,6 +281,7 @@ _L["47752_53265096_note"] = "Run the path up to the top where you've first seen 
 _L["47752_57005472_note"] = "Under the rock outcropping, on the tiny lip of land";
 _L["47752_59695196_note"] = "Near to Xeth'tal, behind the rocks.";
 _L["47752_51425958_note"] = "";
+_L["47752_55525237_note"] = "Lower level in the area. Need to jump through green shit. Annoying chest. Start at Xeth'tal.";
 -- 47753
 _L["47753_53137304_note"] = "";
 _L["47753_55228114_note"] = "";
@@ -301,6 +302,7 @@ _L["47997_41438003_note"] = "Climb up the rocks to the crashed legion ship";
 _L["47997_41548379_note"] = "";
 _L["47997_46458665_note"] = "Jump over the rocks to reach this chest.";
 _L["47997_40357414_note"] = "";
+_L["47997_44198653_note"] = "";
 -- 47999
 _L["47999_62592581_note"] = "";
 _L["47999_59763951_note"] = "";
@@ -341,6 +343,7 @@ _L["48336_25996814_note"] = "";
 _L["48336_37176401_note"] = "Under debris";
 _L["48336_28247134_note"] = "";
 _L["48336_30276403_note"] = "Inside escape pod";
+_L["48336_34566305_note"] = "";
 -- 48339
 _L["48339_68533891_note"] = "";
 _L["48339_63054240_note"] = "";
@@ -478,6 +481,7 @@ _L["48346_50836729_note"] = "";
 _L["48346_52868241_note"] = "";
 _L["48346_47186234_note"] = "";
 _L["48346_50107580_note"] = "";
+_L["48346_53328001_note"] = "In cellar"
 -- 48350
 _L["48350_59622088_note"] = "Inside building under staircase";
 _L["48350_60493338_note"] = "Inside building";
