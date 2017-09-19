@@ -628,7 +628,7 @@ local function getCurrentTimeSlot( decimals, offset )
 	if ( not offset ) then
 		offset = 4;
 	end
-	local slot = ((h*60+m-offset) - 9*60) / (4*60);
+	local slot = ((h*60+m-offset) - 7*60) / (4*60);
 	if slot < 0 then
 		slot = slot + 6;
 	end
