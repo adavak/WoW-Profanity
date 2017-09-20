@@ -533,6 +533,7 @@ _L["48362_65966017_note"] = "";
 _L["48362_62053268_note"] = "地面上层";
 _L["48362_60964354_note"] = "建筑物内";
 _L["48362_64445956_note"] = "建筑物内";
+_L["48362_65354194_note"] = "";
 -- Void-Seeped Cache / Treasure Chest
 -- 49264
 _L["49264_38143985_note"] = "";
@@ -553,6 +554,7 @@ _L["48361_29455043_note"] = "树下";
 _L["48361_18794171_note"] = "外面，建筑物后面";
 _L["48361_25293498_note"] = "";
 _L["48361_35283586_note"] = "乌伯拉利斯后面"
+_L["48361_24654126_note"] = "";
 
 --
 --	KEEP THESE ENGLISH FOR THE GROUP BROWSER IN EU/US!! CHINA & CO ADJUST
@@ -695,5 +697,8 @@ _L["options_toggle_include_player_seen"] = "包含玩家见到稀有";
 _L["options_toggle_include_player_seen_desc"] = "不要使用。";
 _L["options_toggle_show_debug"] = "除错";
 _L["options_toggle_show_debug_desc"] = "显示除错信息";
+
+_L["options_toggle_hideKnowLoot"] = "隐藏稀有，如果全部拾取收集完毕";
+_L["options_toggle_hideKnowLoot_desc"] = "当全部拾取收集完毕时隐藏全部稀有。";
 
 end

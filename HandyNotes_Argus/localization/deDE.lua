@@ -658,4 +658,7 @@ _L["options_toggle_include_player_seen_desc"] = "Don't use this yet.";
 _L["options_toggle_show_debug"] = "Debug";
 _L["options_toggle_show_debug_desc"] = "Show debug stuff";
 
+_L["options_toggle_hideKnowLoot"] = "Verstecke Rare, falls Loot bekannt";
+_L["options_toggle_hideKnowLoot_desc"] = "Verstecke alle Rares für die sämtlicher Loot bekannt ist.";
+
 end

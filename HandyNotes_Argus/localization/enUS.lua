@@ -533,6 +533,7 @@ _L["48362_65966017_note"] = "";
 _L["48362_62053268_note"] = "Upper terrain level";
 _L["48362_60964354_note"] = "Inside building";
 _L["48362_64445956_note"] = "Inside building";
+_L["48362_65354194_note"] = "";
 -- Void-Seeped Cache / Treasure Chest
 -- 49264
 _L["49264_38143985_note"] = "";
@@ -553,6 +554,7 @@ _L["48361_29455043_note"] = "Under tree";
 _L["48361_18794171_note"] = "Outside, behind building";
 _L["48361_25293498_note"] = "";
 _L["48361_35283586_note"] = "Behind Umbraliss"
+_L["48361_24654126_note"] = "";
 
 --
 --	KEEP THESE ENGLISH FOR THE GROUP BROWSER IN EU/US!! CHINA & CO ADJUST
@@ -695,5 +697,8 @@ _L["options_toggle_include_player_seen"] = "Include player seen rares";
 _L["options_toggle_include_player_seen_desc"] = "Don't use this yet.";
 _L["options_toggle_show_debug"] = "Debug";
 _L["options_toggle_show_debug_desc"] = "Show debug stuff";
+
+_L["options_toggle_hideKnowLoot"] = "Hide rare, if all loot known";
+_L["options_toggle_hideKnowLoot_desc"] = "Hide all rares for which all loot is known.";
 
 end

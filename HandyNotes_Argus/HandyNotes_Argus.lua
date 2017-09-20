@@ -1,5 +1,5 @@
 -- Thanks to all who provide usable code
-local VERSION = "0.22.3";
+local VERSION = "0.22.5";
 
 local _G = getfenv(0)
 -- Libraries
@@ -112,34 +112,34 @@ local nodeRef = {
 -- [XXXXYYYY] = { questId, icon, group, label, loot, note, search },
 -- /run local find="Cross Gazer"; for i,mid in ipairs(C_MountJournal.GetMountIDs()) do local n,_,_,_,_,_,_,_,_,_,c,j=C_MountJournal.GetMountInfoByID(mid); if ( n:match(find)  then print(j .. " " .. n); end end
 -- /run local find="Cross"; for i=0,2200 do local n=C_PetJournal.GetPetInfoBySpeciesID(i); if ( n and string.find(n,find) ) then print(i .. " " .. n); end end
--- { 152903, itemTypeMount, 981 } Biletooth Gnasher any rare??
+-- { itemId = 152903, itemType = itemTypeMount, mountId = 981 } Biletooth Gnasher any rare??
 -- Antoran Wastes
 nodes["ArgusCore"] = {
-	{ coord = 52702950, npcId = 127291, questId = 48822, icon = "skull_grey", group = "rare_aw", label = _L["Watcher Aival"], search = _L["Watcher Aival_search"], loot = nil, note = _L["Watcher Aival_note"] },
-	{ coord = 63902090, npcId = 126040, questId = 48809, icon = "skull_grey", group = "rare_aw", label = _L["Puscilla"], search = _L["Puscilla_search"], loot = { { 152903, itemTypeMount, 981 } }, note = _L["Puscilla_note"] },
-	{ coord = 53103580, npcId = 126199, questId = 48810, icon = "skull_grey", group = "rare_aw", label = _L["Vrax'thul"], search = _L["Vrax'thul_search"], loot = { { 152903, itemTypeMount, 981 } }, note = _L["Vrax'thul_note"] },
-	{ coord = 63225754, npcId = 126115, questId = 48811, icon = "skull_grey", group = "rare_aw", label = _L["Ven'orn"], search = _L["Ven'orn_search"], loot = nil, note = _L["Ven'orn_note"] },
-	{ coord = 64304820, npcId = 126208, questId = 48812, icon = "skull_grey", group = "rare_aw", label = _L["Varga"], search = _L["Varga_search"], loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = _L["Varga_note"] },
-	{ coord = 62405380, npcId = 126254, questId = 48813, icon = "skull_grey", group = "rare_aw", label = _L["Lieutenant Xakaar"], search = _L["Lieutenant Xakaar_search"], loot = nil, note = _L["Lieutenant Xakaar_note"] },
-	{ coord = 61336518, npcId = 126338, questId = 48814, icon = "skull_grey", group = "rare_aw", label = _L["Wrath-Lord Yarez"], search = _L["Wrath-Lord Yarez_search"], loot = { { 153126, itemTypeToy } }, note = _L["Wrath-Lord Yarez_note"] },
-	{ coord = 60674831, npcId = 126946, questId = 48815, icon = "skull_grey", group = "rare_aw", label = _L["Inquisitor Vethroz"], search = _L["Inquisitor Vethroz_search"], loot = { { 151543, itemTypeMisc } }, note = _L["Inquisitor Vethroz_note"] },
-	{ coord = 80206230, npcId = nil, questId = 48816, icon = "portalGreen", group = "portal_aw", label = _L["Portal to Commander Texlaz"], loot = nil, note = _L["Portal to Commander Texlaz_note"] },
-	{ coord = 82006600, npcId = 127084, questId = 48816, icon = "skull_grey", group = "rare_aw", label = _L["Commander Texlaz"], search = _L["Commander Texlaz_search"], loot = nil, note = _L["Commander Texlaz_note"] },
-	{ coord = 73207080, npcId = 127090, questId = 48817, icon = "skull_grey", group = "rare_aw", label = _L["Admiral Rel'var"], search = _L["Admiral Rel'var_search"], loot = { { 153324, itemTypeTransmog, _L["Shield"] }, { 152886, itemTypeTransmog, _L["Cloth"] }, { 152888, itemTypeTransmog, _L["Cloth"] }, { 152884, itemTypeTransmog, _L["Cloth"] }, { 152889, itemTypeTransmog, _L["Cloth"] }, { 152885, itemTypeTransmog, _L["Cloth"] }, { 152881, itemTypeTransmog, _L["Cloth"] }, { 152887, itemTypeTransmog, _L["Cloth"] }, { 152883, itemTypeTransmog, _L["Cloth"] } }, note = _L["Admiral Rel'var_note"] },
-	{ coord = 76155614, npcId = 127096, questId = 48818, icon = "skull_grey", group = "rare_aw", label = _L["All-Seer Xanarian"], search = _L["All-Seer Xanarian_search"], loot = nil, note = _L["All-Seer Xanarian_note"] },
-	{ coord = 50905530, npcId = 127118, questId = 48820, icon = "skull_grey", group = "rare_aw", label = _L["Worldsplitter Skuul"], search = _L["Worldsplitter Skuul_search"], loot = { { 153312, itemTypeTransmog, _L["2h Sword"] }, { 152886, itemTypeTransmog, _L["Cloth"] }, { 152888, itemTypeTransmog, _L["Cloth"] }, { 152884, itemTypeTransmog, _L["Cloth"] }, { 152889, itemTypeTransmog, _L["Cloth"] }, { 152885, itemTypeTransmog, _L["Cloth"] }, { 152881, itemTypeTransmog, _L["Cloth"] }, { 152887, itemTypeTransmog, _L["Cloth"] }, { 152883, itemTypeTransmog, _L["Cloth"] } }, note = _L["Worldsplitter Skuul_note"] },
-	{ coord = 63042455, npcId = 127288, questId = 48821, icon = "skull_grey", group = "rare_aw", label = _L["Houndmaster Kerrax"], search = _L["Houndmaster Kerrax_search"], loot = { { 152790, itemTypeMount, 955 } }, note = _L["Houndmaster Kerrax_note"] },
-	{ coord = 55702190, npcId = 127300, questId = 48824, icon = "skull_grey", group = "rare_aw", label = _L["Void Warden Valsuran"], search = _L["Void Warden Valsuran_search"], loot = { { 153319, itemTypeTransmog, _L["2h Mace"] }, { 152886, itemTypeTransmog, _L["Cloth"] }, { 152888, itemTypeTransmog, _L["Cloth"] }, { 152884, itemTypeTransmog, _L["Cloth"] }, { 152889, itemTypeTransmog, _L["Cloth"] }, { 152885, itemTypeTransmog, _L["Cloth"] }, { 152881, itemTypeTransmog, _L["Cloth"] }, { 152887, itemTypeTransmog, _L["Cloth"] }, { 152883, itemTypeTransmog, _L["Cloth"] } }, note = _L["Void Warden Valsuran_note"] },
-	{ coord = 61392095, npcId = 127376, questId = 48865, icon = "skull_grey", group = "rare_aw", label = _L["Chief Alchemist Munculus"], search = _L["Chief Alchemist Munculus_search"], loot = nil, note = _L["Chief Alchemist Munculus_note"] },
-	{ coord = 54823915, npcId = 127581, questId = 48966, icon = "skull_grey", group = "rare_aw", label = _L["The Many-Faced Devourer"], search = _L["The Many-Faced Devourer_search"], loot = { { 153195, itemTypePet, 2136 } }, note = _L["The Many-Faced Devourer_note"] },
-	{ coord = 77177319, npcId = nil, questId = 48967, icon = "portalGreen", group = "portal_aw", label = _L["Portal to Squadron Commander Vishax"], loot = nil, note = _L["Portal to Squadron Commander Vishax_note"] },
-	{ coord = 84368118, npcId = 127700, questId = 48967, icon = "skull_grey", group = "rare_aw", label = _L["Squadron Commander Vishax"], search = _L["Squadron Commander Vishax_search"], loot = { { 153253, itemTypeToy } }, note = _L["Squadron Commander Vishax_note"] },
-	{ coord = 58001200, npcId = 127703, questId = 48968, icon = "skull_grey", group = "rare_aw", label = _L["Doomcaster Suprax"], search = _L["Doomcaster Suprax_search"], loot = { { 153194, itemTypeToy } }, note = _L["Doomcaster Suprax_note"] },
-	{ coord = 66981777, npcId = 127705, questId = 48970, icon = "skull_grey", group = "rare_aw", label = _L["Mother Rosula"], search = _L["Mother Rosula_search"], loot = { { 153252, itemTypePet, 2135 } }, note = _L["Mother Rosula_note"] },
-	{ coord = 64948290, npcId = 127706, questId = 48971, icon = "skull_grey", group = "rare_aw", label = _L["Rezira the Seer"], search = _L["Rezira the Seer_search"], loot = { { 153293, itemTypeToy } }, note = _L["Rezira the Seer_note"] },
-	{ coord = 61703720, npcId = 122958, questId = 49183, icon = "skull_grey", group = "rare_aw", label = _L["Blistermaw"], search = _L["Blistermaw_search"], loot = { { 152905, itemTypeMount, 979 } }, note = _L["Blistermaw_note"] },
-	{ coord = 57403290, npcId = 122947, questId = 49240, icon = "skull_grey", group = "rare_aw", label = _L["Mistress Il'thendra"], search = _L["Mistress Il'thendra_search"], loot = { { 153327, itemTypeTransmog, _L["Dagger"] }, { 152946, itemTypeTransmog, _L["Plate"] }, { 152944, itemTypeTransmog, _L["Plate"] }, { 152949, itemTypeTransmog, _L["Plate"] }, { 152942, itemTypeTransmog, _L["Plate"] }, { 152947, itemTypeTransmog, _L["Plate"] }, { 152943, itemTypeTransmog, _L["Plate"] }, { 152945, itemTypeTransmog, _L["Plate"] }, { 152948, itemTypeTransmog, _L["Plate"] } }, note = _L["Mistress Il'thendra_note"] },
-	{ coord = 56204550, npcId = 122999, questId = 49241, icon = "skull_grey", group = "rare_aw", label = _L["Gar'zoth"], search = _L["Gar'zoth_search"], loot = nil, note = _L["Gar'zoth_note"] },
+	{ coord = 52702950, npcId = 127291, questId = 48822, icon = "skull_grey", group = "rare_aw", label = _L["Watcher Aival"], search = _L["Watcher Aival_search"], loot = {}, note = _L["Watcher Aival_note"] },
+	{ coord = 63902090, npcId = 126040, questId = 48809, icon = "skull_grey", group = "rare_aw", label = _L["Puscilla"], search = _L["Puscilla_search"], loot = { { itemId = 152903, itemType = itemTypeMount, mountId = 981 } }, note = _L["Puscilla_note"] },
+	{ coord = 53103580, npcId = 126199, questId = 48810, icon = "skull_grey", group = "rare_aw", label = _L["Vrax'thul"], search = _L["Vrax'thul_search"], loot = { { itemId = 152903, itemType = itemTypeMount, mountId = 981 } }, note = _L["Vrax'thul_note"] },
+	{ coord = 63225754, npcId = 126115, questId = 48811, icon = "skull_grey", group = "rare_aw", label = _L["Ven'orn"], search = _L["Ven'orn_search"], loot = {}, note = _L["Ven'orn_note"] },
+	{ coord = 64304820, npcId = 126208, questId = 48812, icon = "skull_grey", group = "rare_aw", label = _L["Varga"], search = _L["Varga_search"], loot = { { itemId = 153190, itemType = itemTypeMisc }, { itemId = 153054, itemType = itemTypePet, speciesId = 2118 }, { itemId = 153055, itemType = itemTypePet, speciesId = 2119 }, { itemId = 152841, itemType = itemTypeMount, mountId = 975 }, { itemId = 152843, itemType = itemTypeMount, mountId = 906 }, { itemId = 152842, itemType = itemTypeMount, mountId = 974 }, { itemId = 152840, itemType = itemTypeMount, mountId = 976 } }, note = _L["Varga_note"] },
+	{ coord = 62405380, npcId = 126254, questId = 48813, icon = "skull_grey", group = "rare_aw", label = _L["Lieutenant Xakaar"], search = _L["Lieutenant Xakaar_search"], loot = {}, note = _L["Lieutenant Xakaar_note"] },
+	{ coord = 61336518, npcId = 126338, questId = 48814, icon = "skull_grey", group = "rare_aw", label = _L["Wrath-Lord Yarez"], search = _L["Wrath-Lord Yarez_search"], loot = { { itemId = 153126, itemType = itemTypeToy } }, note = _L["Wrath-Lord Yarez_note"] },
+	{ coord = 60674831, npcId = 126946, questId = 48815, icon = "skull_grey", group = "rare_aw", label = _L["Inquisitor Vethroz"], search = _L["Inquisitor Vethroz_search"], loot = { { itemId = 151543, itemType = itemTypeMisc } }, note = _L["Inquisitor Vethroz_note"] },
+	{ coord = 80206230, npcId = nil, questId = 48816, icon = "portalGreen", group = "portal_aw", label = _L["Portal to Commander Texlaz"], loot = {}, note = _L["Portal to Commander Texlaz_note"] },
+	{ coord = 82006600, npcId = 127084, questId = 48816, icon = "skull_grey", group = "rare_aw", label = _L["Commander Texlaz"], search = _L["Commander Texlaz_search"], loot = {}, note = _L["Commander Texlaz_note"] },
+	{ coord = 73207080, npcId = 127090, questId = 48817, icon = "skull_grey", group = "rare_aw", label = _L["Admiral Rel'var"], search = _L["Admiral Rel'var_search"], loot = { { itemId = 153324, itemType = itemTypeTransmog, slot = _L["Shield"] }, { itemId = 152886, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152888, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152884, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152889, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152885, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152881, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152887, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152883, itemType = itemTypeTransmog, slot = _L["Cloth"] } }, note = _L["Admiral Rel'var_note"] },
+	{ coord = 76155614, npcId = 127096, questId = 48818, icon = "skull_grey", group = "rare_aw", label = _L["All-Seer Xanarian"], search = _L["All-Seer Xanarian_search"], loot = {}, note = _L["All-Seer Xanarian_note"] },
+	{ coord = 50905530, npcId = 127118, questId = 48820, icon = "skull_grey", group = "rare_aw", label = _L["Worldsplitter Skuul"], search = _L["Worldsplitter Skuul_search"], loot = { { itemId = 153312, itemType = itemTypeTransmog, slot = _L["2h Sword"] }, { itemId = 152886, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152888, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152884, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152889, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152885, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152881, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152887, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152883, itemType = itemTypeTransmog, slot = _L["Cloth"] } }, note = _L["Worldsplitter Skuul_note"] },
+	{ coord = 63042455, npcId = 127288, questId = 48821, icon = "skull_grey", group = "rare_aw", label = _L["Houndmaster Kerrax"], search = _L["Houndmaster Kerrax_search"], loot = { { itemId = 152790, itemType = itemTypeMount, mountId = 955 } }, note = _L["Houndmaster Kerrax_note"] },
+	{ coord = 55702190, npcId = 127300, questId = 48824, icon = "skull_grey", group = "rare_aw", label = _L["Void Warden Valsuran"], search = _L["Void Warden Valsuran_search"], loot = { { itemId = 153319, itemType = itemTypeTransmog, slot = _L["2h Mace"] }, { itemId = 152886, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152888, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152884, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152889, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152885, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152881, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152887, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152883, itemType = itemTypeTransmog, slot = _L["Cloth"] } }, note = _L["Void Warden Valsuran_note"] },
+	{ coord = 61392095, npcId = 127376, questId = 48865, icon = "skull_grey", group = "rare_aw", label = _L["Chief Alchemist Munculus"], search = _L["Chief Alchemist Munculus_search"], loot = {}, note = _L["Chief Alchemist Munculus_note"] },
+	{ coord = 54823915, npcId = 127581, questId = 48966, icon = "skull_grey", group = "rare_aw", label = _L["The Many-Faced Devourer"], search = _L["The Many-Faced Devourer_search"], loot = { { itemId = 153195, itemType = itemTypePet, speciesId = 2136 } }, note = _L["The Many-Faced Devourer_note"] },
+	{ coord = 77177319, npcId = nil, questId = 48967, icon = "portalGreen", group = "portal_aw", label = _L["Portal to Squadron Commander Vishax"], loot = {}, note = _L["Portal to Squadron Commander Vishax_note"] },
+	{ coord = 84368118, npcId = 127700, questId = 48967, icon = "skull_grey", group = "rare_aw", label = _L["Squadron Commander Vishax"], search = _L["Squadron Commander Vishax_search"], loot = { { itemId = 153253, itemType = itemTypeToy } }, note = _L["Squadron Commander Vishax_note"] },
+	{ coord = 58001200, npcId = 127703, questId = 48968, icon = "skull_grey", group = "rare_aw", label = _L["Doomcaster Suprax"], search = _L["Doomcaster Suprax_search"], loot = { { itemId = 153194, itemType = itemTypeToy } }, note = _L["Doomcaster Suprax_note"] },
+	{ coord = 66981777, npcId = 127705, questId = 48970, icon = "skull_grey", group = "rare_aw", label = _L["Mother Rosula"], search = _L["Mother Rosula_search"], loot = { { itemId = 153252, itemType = itemTypePet, speciesId = 2135 } }, note = _L["Mother Rosula_note"] },
+	{ coord = 64948290, npcId = 127706, questId = 48971, icon = "skull_grey", group = "rare_aw", label = _L["Rezira the Seer"], search = _L["Rezira the Seer_search"], loot = { { itemId = 153293, itemType = itemTypeToy } }, note = _L["Rezira the Seer_note"] },
+	{ coord = 61703720, npcId = 122958, questId = 49183, icon = "skull_grey", group = "rare_aw", label = _L["Blistermaw"], search = _L["Blistermaw_search"], loot = { { itemId = 152905, itemType = itemTypeMount, mountId = 979 } }, note = _L["Blistermaw_note"] },
+	{ coord = 57403290, npcId = 122947, questId = 49240, icon = "skull_grey", group = "rare_aw", label = _L["Mistress Il'thendra"], search = _L["Mistress Il'thendra_search"], loot = { { itemId = 153327, itemType = itemTypeTransmog, slot = _L["Dagger"] }, { itemId = 152946, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152944, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152949, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152942, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152947, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152943, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152945, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152948, itemType = itemTypeTransmog, slot = _L["Plate"] } }, note = _L["Mistress Il'thendra_note"] },
+	{ coord = 56204550, npcId = 122999, questId = 49241, icon = "skull_grey", group = "rare_aw", label = _L["Gar'zoth"], search = _L["Gar'zoth_search"], loot = {}, note = _L["Gar'zoth_note"] },
 
 
 	{ coord = 59804030, npcId = 128024, questId = 0, icon = "battle_pet", group = "pet_aw", label = _L["One-of-Many"], loot = nil, note = _L["One-of-Many_note"] },
@@ -149,15 +149,15 @@ nodes["ArgusCore"] = {
 	{ coord = 56102870, npcId = 128021, questId = 0, icon = "battle_pet", group = "pet_aw", label = _L["Earseeker"], loot = nil, note = _L["Earseeker_note"] },
 	{ coord = 64106600, npcId = 128022, questId = 0, icon = "battle_pet", group = "pet_aw", label = _L["Pilfer"], loot = nil, note = _L["Pilfer_note"] },
 	
-	{ coord = 60214557, npcId = 128134, questId = 0, icon = "eye", group = "npc_aw", label = _L["Orix the All-Seer"], loot = { { 153204, itemTypeToy }, { 153026, itemTypePet, 2115 } }, note = _L["Orix the All-Seer_note"] },
+	{ coord = 60214557, npcId = 128134, questId = 0, icon = "eye", group = "npc_aw", label = _L["Orix the All-Seer"], loot = { { itemId = 153204, itemType = itemTypeToy }, { itemId = 153026, itemType = itemTypePet, speciesId = 2115 } }, note = _L["Orix the All-Seer_note"] },
 
 	-- Shoot First, Loot Later
 	-- Requires 48201 Reinforce Light's Purchase
 	-- and 48202 -> followed by 47473 and/or 48929
 	{ coord = 58765894, objId = 277204, questId = 49017, icon = "starChestBlue", group = "sfll_aw", label = _L["Forgotten Legion Supplies"], loot = nil, note = _L["Forgotten Legion Supplies_note"] },
-	{ coord = 65973977, objId = 277205, questId = 49018, icon = "starChestYellow", group = "sfll_aw", label = _L["Ancient Legion War Cache"], loot = { { 153308, itemTypeTransmog, _L["1h Mace"] } }, note = _L["Ancient Legion War Cache_note"] },
+	{ coord = 65973977, objId = 277205, questId = 49018, icon = "starChestYellow", group = "sfll_aw", label = _L["Ancient Legion War Cache"], loot = { { itemId = 153308, itemType = itemTypeTransmog, slot = _L["1h Mace"] } }, note = _L["Ancient Legion War Cache_note"] },
 	{ coord = 52192708, objId = 277206, questId = 49019, icon = "starChestYellow", group = "sfll_aw", label = _L["Fel-Bound Chest"], loot = nil, note = _L["Fel-Bound Chest_note"] },
-	{ coord = 49145940, objId = 277207, questId = 49020, icon = "starChestBlank", group = "sfll_aw", label = _L["Legion Treasure Hoard"], loot = { { 153291, itemTypeTransmog, _L["Staff"] } }, note = _L["Legion Treasure Hoard_note"] },
+	{ coord = 49145940, objId = 277207, questId = 49020, icon = "starChestBlank", group = "sfll_aw", label = _L["Legion Treasure Hoard"], loot = { { itemId = 153291, itemType = itemTypeTransmog, slot = _L["Staff"] } }, note = _L["Legion Treasure Hoard_note"] },
 	{ coord = 75595267, objId = 277208, questId = 49021, icon = "starChestBlank", group = "sfll_aw", label = _L["Timeworn Fel Chest"], loot = nil, note = _L["Timeworn Fel Chest_note"] },
 	-- no loot on wowhead yet
 	{ coord = 57426366, objId = 277346, questId = 49159, icon = "starChestPurple", group = "sfll_aw", label = _L["Missing Augari Chest"], loot = nil, note = _L["Missing Augari Chest_note"] },
@@ -253,18 +253,18 @@ nodes["ArgusCore"] = {
 
 -- Krokuun
 nodes["ArgusSurface"] = {
-	{ coord = 44390734, npcId = 125824, questId = 48561, icon = "skull_grey", group = "rare_kr", label = _L["Khazaduum"], search = _L["Khazaduum_search"], loot = { { 153316, itemTypeTransmog, _L["2h Sword"] }, { 152946, itemTypeTransmog, _L["Plate"] }, { 152944, itemTypeTransmog, _L["Plate"] }, { 152949, itemTypeTransmog, _L["Plate"] }, { 152942, itemTypeTransmog, _L["Plate"] }, { 152947, itemTypeTransmog, _L["Plate"] }, { 152943, itemTypeTransmog, _L["Plate"] }, { 152945, itemTypeTransmog, _L["Plate"] }, { 152948, itemTypeTransmog, _L["Plate"] } }, note = _L["Khazaduum_note"] },
-	{ coord = 33007600, npcId = 122912, questId = 48562, icon = "skull_grey", group = "rare_kr", label = _L["Commander Sathrenael"], search = _L["Commander Sathrenael_search"], loot = nil, note = _L["Commander Sathrenael_note"] },
-	{ coord = 44505870, npcId = 124775, questId = 48564, icon = "skull_grey", group = "rare_kr", label = _L["Commander Endaxis"], search = _L["Commander Endaxis_search"], loot = { { 153255, itemTypeTransmog, _L["1h Mace"] }, { 152946, itemTypeTransmog, _L["Plate"] }, { 152944, itemTypeTransmog, _L["Plate"] }, { 152949, itemTypeTransmog, _L["Plate"] }, { 152942, itemTypeTransmog, _L["Plate"] }, { 152947, itemTypeTransmog, _L["Plate"] }, { 152943, itemTypeTransmog, _L["Plate"] }, { 152945, itemTypeTransmog, _L["Plate"] }, { 152948, itemTypeTransmog, _L["Plate"] } }, note = _L["Commander Endaxis_note"] },
-	{ coord = 53403090, npcId = 123464, questId = 48565, icon = "skull_grey", group = "rare_kr", label = _L["Sister Subversia"], search = _L["Sister Subversia_search"], loot = { { 153124, itemTypeToy } }, note = _L["Sister Subversia_note"] },
-	{ coord = 58007480, npcId = 120393, questId = 48627, icon = "skull_grey", group = "rare_kr", label = _L["Siegemaster Voraan"], search = _L["Siegemaster Voraan_search"], loot = nil, note = _L["Siegemaster Voraan_note"] },
-	{ coord = 54688126, npcId = 123689, questId = 48628, icon = "skull_grey", group = "rare_kr", label = _L["Talestra the Vile"], search = _L["Talestra the Vile_search"], loot = { { 153329, itemTypeTransmog, _L["Dagger"] }, { 152946, itemTypeTransmog, _L["Plate"] }, { 152944, itemTypeTransmog, _L["Plate"] }, { 152949, itemTypeTransmog, _L["Plate"] }, { 152942, itemTypeTransmog, _L["Plate"] }, { 152947, itemTypeTransmog, _L["Plate"] }, { 152943, itemTypeTransmog, _L["Plate"] }, { 152945, itemTypeTransmog, _L["Plate"] }, { 152948, itemTypeTransmog, _L["Plate"] } }, note = _L["Talestra the Vile_note"] },
-	{ coord = 38145920, npcId = 122911, questId = 48563, icon = "skull_grey", group = "rare_kr", label = _L["Commander Vecaya"], search = _L["Commander Vecaya_search"], loot = { { 153299, itemTypeTransmog, _L["1h Sword"] }, { 152946, itemTypeTransmog, _L["Plate"] }, { 152944, itemTypeTransmog, _L["Plate"] }, { 152949, itemTypeTransmog, _L["Plate"] }, { 152942, itemTypeTransmog, _L["Plate"] }, { 152947, itemTypeTransmog, _L["Plate"] }, { 152943, itemTypeTransmog, _L["Plate"] }, { 152945, itemTypeTransmog, _L["Plate"] }, { 152948, itemTypeTransmog, _L["Plate"] } }, note = _L["Commander Vecaya_note"] },
-	{ coord = 60802080, npcId = 125388, questId = 48629, icon = "skull_grey", group = "rare_kr", label = _L["Vagath the Betrayed"], search = _L["Vagath the Betrayed_search"], loot = { { 153114, itemTypeMisc } }, note = _L["Vagath the Betrayed_note"] },
-	{ coord = 69605750, npcId = 124804, questId = 48664, icon = "skull_grey", group = "rare_kr", label = _L["Tereck the Selector"], search = _L["Tereck the Selector_search"], loot = { { 153263, itemTypeTransmog, _L["1h Axe"] }, { 152946, itemTypeTransmog, _L["Plate"] }, { 152944, itemTypeTransmog, _L["Plate"] }, { 152949, itemTypeTransmog, _L["Plate"] }, { 152942, itemTypeTransmog, _L["Plate"] }, { 152947, itemTypeTransmog, _L["Plate"] }, { 152943, itemTypeTransmog, _L["Plate"] }, { 152945, itemTypeTransmog, _L["Plate"] }, { 152948, itemTypeTransmog, _L["Plate"] } }, note = _L["Tereck the Selector_note"] },
-	{ coord = 69708050, npcId = 125479, questId = 48665, icon = "skull_grey", group = "rare_kr", label = _L["Tar Spitter"], search = _L["Tar Spitter_search"], loot = nil, note = _L["Tar Spitter_note"] },
-	{ coord = 41707020, npcId = 125820, questId = 48666, icon = "skull_grey", group = "rare_kr", label = _L["Imp Mother Laglath"], search = _L["Imp Mother Laglath_search"], loot = nil, note = _L["Imp Mother Laglath_note"] },
-	{ coord = 71063274, npcId = 126419, questId = 48667, icon = "skull_grey", group = "rare_kr", label = _L["Naroua"], search = _L["Naroua_search"], loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = _L["Naroua_note"] },
+	{ coord = 44390734, npcId = 125824, questId = 48561, icon = "skull_grey", group = "rare_kr", label = _L["Khazaduum"], search = _L["Khazaduum_search"], loot = { { itemId = 153316, itemType = itemTypeTransmog, slot = _L["2h Sword"] }, { itemId = 152946, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152944, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152949, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152942, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152947, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152943, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152945, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152948, itemType = itemTypeTransmog, slot = _L["Plate"] } }, note = _L["Khazaduum_note"] },
+	{ coord = 33007600, npcId = 122912, questId = 48562, icon = "skull_grey", group = "rare_kr", label = _L["Commander Sathrenael"], search = _L["Commander Sathrenael_search"], loot = {}, note = _L["Commander Sathrenael_note"] },
+	{ coord = 44505870, npcId = 124775, questId = 48564, icon = "skull_grey", group = "rare_kr", label = _L["Commander Endaxis"], search = _L["Commander Endaxis_search"], loot = { { itemId = 153255, itemType = itemTypeTransmog, slot = _L["1h Mace"] }, { itemId = 152946, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152944, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152949, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152942, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152947, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152943, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152945, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152948, itemType = itemTypeTransmog, slot = _L["Plate"] } }, note = _L["Commander Endaxis_note"] },
+	{ coord = 53403090, npcId = 123464, questId = 48565, icon = "skull_grey", group = "rare_kr", label = _L["Sister Subversia"], search = _L["Sister Subversia_search"], loot = { { itemId = 153124, itemType = itemTypeToy } }, note = _L["Sister Subversia_note"] },
+	{ coord = 58007480, npcId = 120393, questId = 48627, icon = "skull_grey", group = "rare_kr", label = _L["Siegemaster Voraan"], search = _L["Siegemaster Voraan_search"], loot = {}, note = _L["Siegemaster Voraan_note"] },
+	{ coord = 54688126, npcId = 123689, questId = 48628, icon = "skull_grey", group = "rare_kr", label = _L["Talestra the Vile"], search = _L["Talestra the Vile_search"], loot = { { itemId = 153329, itemType = itemTypeTransmog, slot = _L["Dagger"] }, { itemId = 152946, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152944, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152949, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152942, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152947, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152943, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152945, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152948, itemType = itemTypeTransmog, slot = _L["Plate"] } }, note = _L["Talestra the Vile_note"] },
+	{ coord = 38145920, npcId = 122911, questId = 48563, icon = "skull_grey", group = "rare_kr", label = _L["Commander Vecaya"], search = _L["Commander Vecaya_search"], loot = { { itemId = 153299, itemType = itemTypeTransmog, slot = _L["1h Sword"] }, { itemId = 152946, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152944, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152949, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152942, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152947, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152943, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152945, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152948, itemType = itemTypeTransmog, slot = _L["Plate"] } }, note = _L["Commander Vecaya_note"] },
+	{ coord = 60802080, npcId = 125388, questId = 48629, icon = "skull_grey", group = "rare_kr", label = _L["Vagath the Betrayed"], search = _L["Vagath the Betrayed_search"], loot = { { itemId = 153114, itemType = itemTypeMisc } }, note = _L["Vagath the Betrayed_note"] },
+	{ coord = 69605750, npcId = 124804, questId = 48664, icon = "skull_grey", group = "rare_kr", label = _L["Tereck the Selector"], search = _L["Tereck the Selector_search"], loot = { { itemId = 153263, itemType = itemTypeTransmog, slot = _L["1h Axe"] }, { itemId = 152946, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152944, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152949, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152942, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152947, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152943, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152945, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152948, itemType = itemTypeTransmog, slot = _L["Plate"] } }, note = _L["Tereck the Selector_note"] },
+	{ coord = 69708050, npcId = 125479, questId = 48665, icon = "skull_grey", group = "rare_kr", label = _L["Tar Spitter"], search = _L["Tar Spitter_search"], loot = {}, note = _L["Tar Spitter_note"] },
+	{ coord = 41707020, npcId = 125820, questId = 48666, icon = "skull_grey", group = "rare_kr", label = _L["Imp Mother Laglath"], search = _L["Imp Mother Laglath_search"], loot = {}, note = _L["Imp Mother Laglath_note"] },
+	{ coord = 71063274, npcId = 126419, questId = 48667, icon = "skull_grey", group = "rare_kr", label = _L["Naroua"], search = _L["Naroua_search"], loot = { { itemId = 153190, itemType = itemTypeMisc }, { itemId = 153054, itemType = itemTypePet, speciesId = 2118 }, { itemId = 153055, itemType = itemTypePet, speciesId = 2119 }, { itemId = 152841, itemType = itemTypeMount, mountId = 975 }, { itemId = 152843, itemType = itemTypeMount, mountId = 906 }, { itemId = 152842, itemType = itemTypeMount, mountId = 974 }, { itemId = 152840, itemType = itemTypeMount, mountId = 976 } }, note = _L["Naroua_note"] },
 
 	{ coord = 43005200, npcId = 128009, questId = 0, icon = "battle_pet", group = "pet_kr", label = _L["Baneglow"], loot = nil, note = _L["Baneglow_note"] },
 	{ coord = 51506380, npcId = 128008, questId = 0, icon = "battle_pet", group = "pet_kr", label = _L["Foulclaw"], loot = nil, note = _L["Foulclaw_note"] },
@@ -274,7 +274,7 @@ nodes["ArgusSurface"] = {
 	{ coord = 58302970, npcId = 128010, questId = 0, icon = "battle_pet", group = "pet_kr", label = _L["Retch"], loot = nil, note = _L["Retch_note"] },
 
 	-- Shoot First, Loot Later
-	{ coord = 51407622, objId = 276490, questId = 48884, icon = "starChestBlue", group = "sfll_kr", label = _L["Krokul Emergency Cache"], loot = { { 153304, itemTypeTransmog, _L["1h Axe"] } }, note = _L["Krokul Emergency Cache_note"] },
+	{ coord = 51407622, objId = 276490, questId = 48884, icon = "starChestBlue", group = "sfll_kr", label = _L["Krokul Emergency Cache"], loot = { { itemId = 153304, itemType = itemTypeTransmog, slot = _L["1h Axe"] } }, note = _L["Krokul Emergency Cache_note"] },
 	{ coord = 62783753, objId = 276489, questId = 48885, icon = "starChestYellow", group = "sfll_kr", label = _L["Legion Tower Chest"], loot = nil, note = _L["Legion Tower Chest_note"] },
 	{ coord = 48555894, objId = 276491, questId = 48886, icon = "starChestYellow", group = "sfll_kr", label = _L["Lost Krokul Chest"], loot = nil, note = _L["Lost Krokul Chest_note"] },
 	{ coord = 75176975, objId = 277343, questId = 49154, icon = "starChestPurple", group = "sfll_kr", label = _L["Long-Lost Augari Treasure"], loot = nil, note = _L["Long-Lost Augari Treasure_note"] },
@@ -366,37 +366,37 @@ nodes["ArgusSurface"] = {
 }
 
 nodes["ArgusCitadelSpire"] = {
-	{ coord = 38954032, npcId = 125824, questId = 48561, icon = "skull_grey", group = "rare_kr", label = _L["Khazaduum"], search = _L["Khazaduum_search"], loot = { { 153316, itemTypeTransmog, _L["2h Sword"] }, { 152946, itemTypeTransmog, _L["Plate"] }, { 152944, itemTypeTransmog, _L["Plate"] }, { 152949, itemTypeTransmog, _L["Plate"] }, { 152942, itemTypeTransmog, _L["Plate"] }, { 152947, itemTypeTransmog, _L["Plate"] }, { 152943, itemTypeTransmog, _L["Plate"] }, { 152945, itemTypeTransmog, _L["Plate"] }, { 152948, itemTypeTransmog, _L["Plate"] } }, note = _L["Khazaduum_note"] },
+	{ coord = 38954032, npcId = 125824, questId = 48561, icon = "skull_grey", group = "rare_kr", label = _L["Khazaduum"], search = _L["Khazaduum_search"], loot = { { itemId = 153316, itemType = itemTypeTransmog, slot = _L["2h Sword"] }, { itemId = 152946, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152944, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152949, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152942, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152947, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152943, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152945, itemType = itemTypeTransmog, slot = _L["Plate"] }, { itemId = 152948, itemType = itemTypeTransmog, slot = _L["Plate"] } }, note = _L["Khazaduum_note"] },
 }
 
 -- Mac'Aree
 nodes["ArgusMacAree"] = {
-	{ coord = 44607160, npcId = 122838, questId = 48692, icon = "skull_grey", group = "rare_ma", label = _L["Shadowcaster Voruun"], search = _L["Shadowcaster Voruun_search"], loot = { { 153296, itemTypeTransmog, _L["1h Sword"] } }, note = _L["Shadowcaster Voruun_note"] },
-	{ coord = 52976684, npcId = 126815, questId = 48693, icon = "skull_grey", group = "rare_ma", label = _L["Soultwisted Monstrosity"], search = _L["Soultwisted Monstrosity_search"], loot = nil, note = _L["Soultwisted Monstrosity_note"] },
-	{ coord = 55536016, npcId = 126852, questId = 48695, icon = "skull_grey", group = "rare_ma", label = _L["Wrangler Kravos"], search = _L["Wrangler Kravos_search"], loot = { { 153269, itemTypeTransmog, _L["1h Axe"] }, { 152814, itemTypeMount, 970 } }, note = _L["Wrangler Kravos_note"] },
-	{ coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = _L["Kaara the Pale"], search = _L["Kaara the Pale_search"], loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = _L["Kaara the Pale_note"] },
-	-- { coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = _L["Kaara the Pale"], search = _L["Kaara the Pale_search"], loot = nil, note = _L["Kaara the Pale_note"] },
-	{ coord = 41121149, npcId = 126864, questId = 48702, icon = "skull_grey", group = "rare_ma", label = _L["Feasel the Muffin Thief"], search = _L["Feasel the Muffin Thief_search"], loot = { { 152998, itemTypeMisc } }, note = _L["Feasel the Muffin Thief_note"] },
-	{ coord = 36682383, npcId = 126865, questId = 48703, icon = "skull_grey", group = "rare_ma", label = _L["Vigilant Thanos"], search = _L["Vigilant Thanos_search"], loot = { { 153322, itemTypeTransmog, _L["Shield"] }, { 153183, itemTypeToy } }, note = _L["Vigilant Thanos_note"] },
-	{ coord = 63806460, npcId = 126866, questId = 48704, icon = "skull_grey", group = "rare_ma", label = _L["Vigilant Kuro"], search = _L["Vigilant Kuro_search"], loot = { { 153323, itemTypeTransmog, _L["Shield"] }, { 153183, itemTypeToy } }, note = _L["Vigilant Kuro_note"] },
-	{ coord = 33654801, npcId = 126867, questId = 48705, icon = "skull_grey", group = "rare_ma", label = _L["Venomtail Skyfin"], search = _L["Venomtail Skyfin_search"], loot = { { 152844, itemTypeMount, 973 } }, note = _L["Venomtail Skyfin_note"] },
-	{ coord = 38226435, npcId = 126868, questId = 48706, icon = "skull_grey", group = "rare_ma", label = _L["Turek the Lucid"], search = _L["Turek the Lucid_search"], loot = { { 153306, itemTypeTransmog, _L["1h Axe"] } }, note = _L["Turek the Lucid_note"] },
-	{ coord = 27192995, npcId = 126869, questId = 48707, icon = "skull_grey", group = "rare_ma", label = _L["Captain Faruq"], search = _L["Captain Faruq_search"], loot = nil, note = _L["Captain Faruq_note"] },
-	{ coord = 34943711, npcId = 126885, questId = 48708, icon = "skull_grey", group = "rare_ma", label = _L["Umbraliss"], search = _L["Umbraliss_search"], loot = nil, note = _L["Umbraliss_note"] },
-	{ coord = 70294598, npcId = 126889, questId = 48710, icon = "skull_grey", group = "rare_ma", label = _L["Sorolis the Ill-Fated"], search = _L["Sorolis the Ill-Fated_search"], loot = { { 153292, itemTypeTransmog, _L["Staff"] } }, note = _L["Sorolis the Ill-Fated_note"] },
-	{ coord = 35965897, npcId = 126896, questId = 48711, icon = "skull_grey", group = "rare_ma", label = _L["Herald of Chaos"], search = _L["Herald of Chaos_search"], loot = nil, note = _L["Herald of Chaos_note"] },
-	{ coord = 44204980, npcId = 126898, questId = 48712, icon = "skull_grey", group = "rare_ma", label = _L["Sabuul"], search = _L["Sabuul_search"], loot = { { 153190, itemTypeMisc }, { 153054, itemTypePet, 2118 }, { 153055, itemTypePet, 2119 }, { 152841, itemTypeMount, 975 }, { 152843, itemTypeMount, 906 }, { 152842, itemTypeMount, 974 }, { 152840, itemTypeMount, 976 } }, note = _L["Sabuul_note"] },
-	{ coord = 48504090, npcId = 126899, questId = 48713, icon = "skull_grey", group = "rare_ma", label = _L["Jed'hin Champion Vorusk"], search = _L["Jed'hin Champion Vorusk_search"], loot = { { 153302, itemTypeTransmog, _L["1h Sword"] } }, note = _L["Jed'hin Champion Vorusk_note"] },
-	{ coord = 58783762, npcId = 124440, questId = 48714, icon = "skull_grey", group = "rare_ma", label = _L["Overseer Y'Beda"], search = _L["Overseer Y'Beda_search"], loot = { { 153315, itemTypeTransmog, _L["2h Sword"] } }, note = _L["Overseer Y'Beda_note"] },
-	{ coord = 58003090, npcId = 125497, questId = 48716, icon = "skull_grey", group = "rare_ma", label = _L["Overseer Y'Sorna"], search = _L["Overseer Y'Sorna_search"], loot = { { 153268, itemTypeTransmog, _L["1h Axe"] } }, note = _L["Overseer Y'Sorna_note"] },
-	{ coord = 60982982, npcId = 125498, questId = 48717, icon = "skull_grey", group = "rare_ma", label = _L["Overseer Y'Morna"], search = _L["Overseer Y'Morna_search"], loot = { { 153257, itemTypeTransmog, _L["1h Mace"] } }, note = _L["Overseer Y'Morna_note"] },
-	{ coord = 61575035, npcId = 126900, questId = 48718, icon = "skull_grey", group = "rare_ma", label = _L["Instructor Tarahna"], search = _L["Instructor Tarahna_search"], loot = { { 153309, itemTypeTransmog, _L["1h Mace"] }, { 153179, itemTypeToy }, { 153180, itemTypeToy }, { 153181, itemTypeToy } }, note = _L["Instructor Tarahna_note"] },
-	{ coord = 66742845, npcId = 126908, questId = 48719, icon = "skull_grey", group = "rare_ma", label = _L["Zul'tan the Numerous"], search = _L["Zul'tan the Numerous_search"], loot = nil, note = _L["Zul'tan the Numerous_note"] },
-	{ coord = 56801450, npcId = 126910, questId = 48720, icon = "skull_grey", group = "rare_ma", label = _L["Commander Xethgar"], search = _L["Commander Xethgar_search"], loot = nil, note = _L["Commander Xethgar_note"] },
-	{ coord = 49870953, npcId = 126912, questId = 48721, icon = "skull_grey", group = "rare_ma", label = _L["Skreeg the Devourer"], search = _L["Skreeg the Devourer_search"], loot = { { 152904, itemTypeMount, 980 } }, note = _L["Skreeg the Devourer_note"] },
-	{ coord = 43846065, npcId = 126862, questId = 48700, icon = "skull_grey", group = "rare_ma", label = _L["Baruut the Bloodthirsty"], search = _L["Baruut the Bloodthirsty_search"], loot = { { 153193, itemTypeToy } }, note = _L["Baruut the Bloodthirsty_note"] },
-	{ coord = 30124019, npcId = 126887, questId = 48709, icon = "skull_grey", group = "rare_ma", label = _L["Ataxon"], search = _L["Ataxon_search"], loot = { { 153056, itemTypePet, 2120 } }, note = _L["Ataxon_note"] },
-	{ coord = 49505280, npcId = 126913, questId = 48935, icon = "skull_grey", group = "rare_ma", label = _L["Slithon the Last"], search = _L["Slithon the Last_search"], loot = { { 153203, itemTypeMisc } }, note = _L["Slithon the Last_note"] },
+	{ coord = 44607160, npcId = 122838, questId = 48692, icon = "skull_grey", group = "rare_ma", label = _L["Shadowcaster Voruun"], search = _L["Shadowcaster Voruun_search"], loot = { { itemId = 153296, itemType = itemTypeTransmog, slot = _L["1h Sword"] } }, note = _L["Shadowcaster Voruun_note"] },
+	{ coord = 52976684, npcId = 126815, questId = 48693, icon = "skull_grey", group = "rare_ma", label = _L["Soultwisted Monstrosity"], search = _L["Soultwisted Monstrosity_search"], loot = {}, note = _L["Soultwisted Monstrosity_note"] },
+	{ coord = 55536016, npcId = 126852, questId = 48695, icon = "skull_grey", group = "rare_ma", label = _L["Wrangler Kravos"], search = _L["Wrangler Kravos_search"], loot = { { itemId = 153269, itemType = itemTypeTransmog, slot = _L["1h Axe"] }, { itemId = 152814, itemType = itemTypeMount, mountId = 970 } }, note = _L["Wrangler Kravos_note"] },
+	{ coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = _L["Kaara the Pale"], search = _L["Kaara the Pale_search"], loot = { { itemId = 153190, itemType = itemTypeMisc }, { itemId = 153054, itemType = itemTypePet, speciesId = 2118 }, { itemId = 153055, itemType = itemTypePet, speciesId = 2119 }, { itemId = 152841, itemType = itemTypeMount, mountId = 975 }, { itemId = 152843, itemType = itemTypeMount, mountId = 906 }, { itemId = 152842, itemType = itemTypeMount, mountId = 974 }, { itemId = 152840, itemType = itemTypeMount, mountId = 976 } }, note = _L["Kaara the Pale_note"] },
+	-- { coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = _L["Kaara the Pale"], search = _L["Kaara the Pale_search"], loot = {}, note = _L["Kaara the Pale_note"] },
+	{ coord = 41121149, npcId = 126864, questId = 48702, icon = "skull_grey", group = "rare_ma", label = _L["Feasel the Muffin Thief"], search = _L["Feasel the Muffin Thief_search"], loot = { { itemId = 152998, itemType = itemTypeMisc } }, note = _L["Feasel the Muffin Thief_note"] },
+	{ coord = 36682383, npcId = 126865, questId = 48703, icon = "skull_grey", group = "rare_ma", label = _L["Vigilant Thanos"], search = _L["Vigilant Thanos_search"], loot = { { itemId = 153322, itemType = itemTypeTransmog, slot = _L["Shield"] }, { itemId = 153183, itemType = itemTypeToy } }, note = _L["Vigilant Thanos_note"] },
+	{ coord = 63806460, npcId = 126866, questId = 48704, icon = "skull_grey", group = "rare_ma", label = _L["Vigilant Kuro"], search = _L["Vigilant Kuro_search"], loot = { { itemId = 153323, itemType = itemTypeTransmog, slot = _L["Shield"] }, { itemId = 153183, itemType = itemTypeToy } }, note = _L["Vigilant Kuro_note"] },
+	{ coord = 33654801, npcId = 126867, questId = 48705, icon = "skull_grey", group = "rare_ma", label = _L["Venomtail Skyfin"], search = _L["Venomtail Skyfin_search"], loot = { { itemId = 152844, itemType = itemTypeMount, mountId = 973 } }, note = _L["Venomtail Skyfin_note"] },
+	{ coord = 38226435, npcId = 126868, questId = 48706, icon = "skull_grey", group = "rare_ma", label = _L["Turek the Lucid"], search = _L["Turek the Lucid_search"], loot = { { itemId = 153306, itemType = itemTypeTransmog, slot = _L["1h Axe"] } }, note = _L["Turek the Lucid_note"] },
+	{ coord = 27192995, npcId = 126869, questId = 48707, icon = "skull_grey", group = "rare_ma", label = _L["Captain Faruq"], search = _L["Captain Faruq_search"], loot = {}, note = _L["Captain Faruq_note"] },
+	{ coord = 34943711, npcId = 126885, questId = 48708, icon = "skull_grey", group = "rare_ma", label = _L["Umbraliss"], search = _L["Umbraliss_search"], loot = {}, note = _L["Umbraliss_note"] },
+	{ coord = 70294598, npcId = 126889, questId = 48710, icon = "skull_grey", group = "rare_ma", label = _L["Sorolis the Ill-Fated"], search = _L["Sorolis the Ill-Fated_search"], loot = { { itemId = 153292, itemType = itemTypeTransmog, slot = _L["Staff"] } }, note = _L["Sorolis the Ill-Fated_note"] },
+	{ coord = 35965897, npcId = 126896, questId = 48711, icon = "skull_grey", group = "rare_ma", label = _L["Herald of Chaos"], search = _L["Herald of Chaos_search"], loot = {}, note = _L["Herald of Chaos_note"] },
+	{ coord = 44204980, npcId = 126898, questId = 48712, icon = "skull_grey", group = "rare_ma", label = _L["Sabuul"], search = _L["Sabuul_search"], loot = { { itemId = 153190, itemType = itemTypeMisc }, { itemId = 153054, itemType = itemTypePet, speciesId = 2118 }, { itemId = 153055, itemType = itemTypePet, speciesId = 2119 }, { itemId = 152841, itemType = itemTypeMount, mountId = 975 }, { itemId = 152843, itemType = itemTypeMount, mountId = 906 }, { itemId = 152842, itemType = itemTypeMount, mountId = 974 }, { itemId = 152840, itemType = itemTypeMount, mountId = 976 } }, note = _L["Sabuul_note"] },
+	{ coord = 48504090, npcId = 126899, questId = 48713, icon = "skull_grey", group = "rare_ma", label = _L["Jed'hin Champion Vorusk"], search = _L["Jed'hin Champion Vorusk_search"], loot = { { itemId = 153302, itemType = itemTypeTransmog, slot = _L["1h Sword"] } }, note = _L["Jed'hin Champion Vorusk_note"] },
+	{ coord = 58783762, npcId = 124440, questId = 48714, icon = "skull_grey", group = "rare_ma", label = _L["Overseer Y'Beda"], search = _L["Overseer Y'Beda_search"], loot = { { itemId = 153315, itemType = itemTypeTransmog, slot = _L["2h Sword"] } }, note = _L["Overseer Y'Beda_note"] },
+	{ coord = 58003090, npcId = 125497, questId = 48716, icon = "skull_grey", group = "rare_ma", label = _L["Overseer Y'Sorna"], search = _L["Overseer Y'Sorna_search"], loot = { { itemId = 153268, itemType = itemTypeTransmog, slot = _L["1h Axe"] } }, note = _L["Overseer Y'Sorna_note"] },
+	{ coord = 60982982, npcId = 125498, questId = 48717, icon = "skull_grey", group = "rare_ma", label = _L["Overseer Y'Morna"], search = _L["Overseer Y'Morna_search"], loot = { { itemId = 153257, itemType = itemTypeTransmog, slot = _L["1h Mace"] } }, note = _L["Overseer Y'Morna_note"] },
+	{ coord = 61575035, npcId = 126900, questId = 48718, icon = "skull_grey", group = "rare_ma", label = _L["Instructor Tarahna"], search = _L["Instructor Tarahna_search"], loot = { { itemId = 153309, itemType = itemTypeTransmog, slot = _L["1h Mace"] }, { itemId = 153179, itemType = itemTypeToy }, { itemId = 153180, itemType = itemTypeToy }, { itemId = 153181, itemType = itemTypeToy } }, note = _L["Instructor Tarahna_note"] },
+	{ coord = 66742845, npcId = 126908, questId = 48719, icon = "skull_grey", group = "rare_ma", label = _L["Zul'tan the Numerous"], search = _L["Zul'tan the Numerous_search"], loot = {}, note = _L["Zul'tan the Numerous_note"] },
+	{ coord = 56801450, npcId = 126910, questId = 48720, icon = "skull_grey", group = "rare_ma", label = _L["Commander Xethgar"], search = _L["Commander Xethgar_search"], loot = {}, note = _L["Commander Xethgar_note"] },
+	{ coord = 49870953, npcId = 126912, questId = 48721, icon = "skull_grey", group = "rare_ma", label = _L["Skreeg the Devourer"], search = _L["Skreeg the Devourer_search"], loot = { { itemId = 152904, itemType = itemTypeMount, mountId = 980 } }, note = _L["Skreeg the Devourer_note"] },
+	{ coord = 43846065, npcId = 126862, questId = 48700, icon = "skull_grey", group = "rare_ma", label = _L["Baruut the Bloodthirsty"], search = _L["Baruut the Bloodthirsty_search"], loot = { { itemId = 153193, itemType = itemTypeToy } }, note = _L["Baruut the Bloodthirsty_note"] },
+	{ coord = 30124019, npcId = 126887, questId = 48709, icon = "skull_grey", group = "rare_ma", label = _L["Ataxon"], search = _L["Ataxon_search"], loot = { { itemId = 153056, itemType = itemTypePet, speciesId = 2120 } }, note = _L["Ataxon_note"] },
+	{ coord = 49505280, npcId = 126913, questId = 48935, icon = "skull_grey", group = "rare_ma", label = _L["Slithon the Last"], search = _L["Slithon the Last_search"], loot = { { itemId = 153203, itemType = itemTypeMisc, forceUnknown = true } }, note = _L["Slithon the Last_note"] },
 
 	{ coord = 60007110, npcId = 128015, questId = 0, icon = "battle_pet", group = "pet_ma", label = _L["Gloamwing"], loot = nil, note = _L["Gloamwing_note"] },
 	{ coord = 67604390, npcId = 128013, questId = 0, icon = "battle_pet", group = "pet_ma", label = _L["Bucky"], loot = nil, note = _L["Bucky_note"] },
@@ -405,7 +405,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 31903120, npcId = 128017, questId = 0, icon = "battle_pet", group = "pet_ma", label = _L["Corrupted Blood of Argus"], loot = nil, note = _L["Corrupted Blood of Argus_note"] },
 	{ coord = 36005410, npcId = 128016, questId = 0, icon = "battle_pet", group = "pet_ma", label = _L["Shadeflicker"], loot = nil, note = _L["Shadeflicker_note"] },
 	
-	{ coord = 42316334, npcId = 127037, questId = 0, icon = "shadowmend", group = "npc_ma", label = _L["Nabiru"], loot = { { 152096, itemTypeMisc } }, note = _L["Nabiru_note"] },
+	{ coord = 42316334, npcId = 127037, questId = 0, icon = "shadowmend", group = "npc_ma", label = _L["Nabiru"], loot = { { itemId = 152096, itemType = itemTypeMisc } }, note = _L["Nabiru_note"] },
 	
 	-- Shoot First, Loot Later
 	{ coord = 42900549, objId = 276223, questId = 48743, icon = "starChestBlue", group = "sfll_ma", label = _L["Eredar Treasure Cache"], loot = nil, note = _L["Eredar Treasure Cache_note"] },
@@ -413,9 +413,9 @@ nodes["ArgusMacAree"] = {
 	{ coord = 61127256, objId = 276225, questId = 48745, icon = "starChestYellow", group = "sfll_ma", label = _L["Student's Surprising Surplus"], loot = nil, note = _L["Student's Surprising Surplus_note"] },
 	{ coord = 40275146, objId = 276226, questId = 48747, icon = "starChestBlue", group = "sfll_ma", label = _L["Void-Tinged Chest"], loot = nil, note = _L["Void-Tinged Chest_note"] },
 	{ coord = 70305974, objId = 276227, questId = 48748, icon = "starChestBlank", group = "sfll_ma", label = _L["Augari Secret Stash"], loot = nil, note = _L["Augari Secret Stash_note"] },
-	{ coord = 57047684, objId = 276228, questId = 48749, icon = "starChestBlank", group = "sfll_ma", label = _L["Desperate Eredar's Cache"], loot = { { 153267, itemTypeTransmog, _L["1h Axe"] } }, note = _L["Desperate Eredar's Cache_note"] },
+	{ coord = 57047684, objId = 276228, questId = 48749, icon = "starChestBlank", group = "sfll_ma", label = _L["Desperate Eredar's Cache"], loot = { { itemId = 153267, itemType = itemTypeTransmog, slot = _L["1h Axe"] } }, note = _L["Desperate Eredar's Cache_note"] },
 	{ coord = 27274014, objId = 276229, questId = 48750, icon = "starChestBlank", group = "sfll_ma", label = _L["Shattered House Chest"], loot = nil, note = _L["Shattered House Chest_note"] },
-	{ coord = 43345447, objId = 276230, questId = 48751, icon = "starChestBlank", group = "sfll_ma", label = _L["Doomseeker's Treasure"], loot = { { 153313, itemTypeTransmog, _L["2h Sword"] } }, note = _L["Doomseeker's Treasure_note"] },
+	{ coord = 43345447, objId = 276230, questId = 48751, icon = "starChestBlank", group = "sfll_ma", label = _L["Doomseeker's Treasure"], loot = { { itemId = 153313, itemType = itemTypeTransmog, slot = _L["2h Sword"] } }, note = _L["Doomseeker's Treasure_note"] },
 	{ coord = 70632744, objId = 277327, questId = 49129, icon = "starChestPurple", group = "sfll_ma", label = _L["Augari-Runed Chest"], loot = nil, note = _L["Augari-Runed Chest_note"] },
 	{ coord = 62132247, objId = 277340, questId = 49151, icon = "starChestPurple", group = "sfll_ma", label = _L["Secret Augari Chest"], loot = nil, note = _L["Secret Augari Chest_note"] },
 	{ coord = 40856975, objId = 277342, questId = 49153, icon = "starChestPurple", group = "sfll_ma", label = _L["Augari Goods"], loot = nil, note = _L["Augari Goods_note"] },
@@ -481,6 +481,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 62053268, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_62053268_note"] },
 	{ coord = 60964354, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_60964354_note"] },
 	{ coord = 64445956, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_64445956_note"] },
+	{ coord = 65354194, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_65354194_note"] },
 	-- Void-Seeped Cache / Treasure Chest
 	-- 49264
 	{ coord = 38143985, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_38143985_note"] },
@@ -501,48 +502,9 @@ nodes["ArgusMacAree"] = {
 	{ coord = 18794171, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_18794171_note"] },
 	{ coord = 25293498, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_25293498_note"] },
 	{ coord = 35283586, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_35283586_note"] },
+	{ coord = 24654126, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_24654126_note"] },
 
 }
-
-local function prepareNodesData()
-	numSearches = 0;
-	for mapId,mapFile in pairs( nodes ) do
-		local numNodes = #nodes[mapId];
-		nodes[mapId][1]["lookup"] = {};
-		local lookup = nodes[mapId][1]["lookup"];
-		for i = 1,numNodes do
-			local node = nodes[mapId][i];
-			node["allLootKnown"] = true;
-			if ( node["group"]:find( "rare" ) ) then
-				node["lfgGroups"] = {};
-				node["numLfgGroups"] = 0;
-				node["ratioLfgGroups"] = 0.0;
-				node["confUp"] = 0.0;
-				node["up"] = false;
-				node["seen"] = false;
-				nodeRef.rares[node["npcId"]] = node;
-			end
-			if ( i < numNodes ) then
-				node["nextNode"] = nodes[mapId][i+1];
-			else
-				node["nextNode"] = nil;
-			end
-			lookup[node["coord"]] = node;
-		end
-	end
-end
-
--- lazy and inefficient as fuck, i know
-local function GetNodeByCoord( mapFile, coord )
-	if ( nodes[mapFile] ) then
-		for i,node in ipairs(nodes[mapFile]) do
-			if ( node["coord"] == coord ) then
-				return node;
-			end
-		end
-	end
-	return nil
-end
 
 --
 --
@@ -578,20 +540,22 @@ local function playerHasLoot( loot )
 	if ( loot == nil ) then
 		-- no loot no need
 		return true
-	elseif ( loot[2] == itemTypeMount ) then
+	elseif ( loot["forceUnknown"] ) then
+		return false;
+	elseif ( loot["itemType"] == itemTypeMount ) then
 		-- check mount known
-		local n,_,_,_,_,_,_,_,_,_,hasMount,j=C_MountJournal.GetMountInfoByID( loot[3] );
+		local n,_,_,_,_,_,_,_,_,_,hasMount,j=C_MountJournal.GetMountInfoByID( loot["mountId"] );
 		return hasMount;
-	elseif ( loot[2] == itemTypePet ) then
+	elseif ( loot["itemType"] == itemTypePet ) then
 		-- check pet quantity
-		local n,m = C_PetJournal.GetNumCollectedInfo( loot[3] );
+		local n,m = C_PetJournal.GetNumCollectedInfo( loot["speciesId"] );
 		return n >= 1;
-	elseif ( loot[2] == itemTypeToy ) then
+	elseif ( loot["itemType"] == itemTypeToy ) then
 		-- check toy known
-		return PlayerHasToy( loot[1] );
-	elseif ( isCanIMogItloaded == true and loot[2] == itemTypeTransmog ) then
+		return PlayerHasToy( loot["itemId"] );
+	elseif ( isCanIMogItloaded == true and loot["itemType"] == itemTypeTransmog ) then
 		-- check transmog known with canimogit
-		local _,itemLink = GetItemInfo( loot[1] );
+		local _,itemLink = GetItemInfo( loot["itemId"] );
 		if ( itemLink ~= nil ) then
 			if ( CanIMogIt:PlayerKnowsTransmog( itemLink ) or not CanIMogIt:CharacterCanLearnTransmog( itemLink ) ) then
 				return true;
@@ -637,6 +601,89 @@ local function getCurrentTimeSlot( decimals, offset )
 	else
 		return floor( slot );
 	end
+end
+
+local function updateLoot( node )
+	local total = 0;
+	local failed = 0;
+	node["allLootKnown"] = true;
+	if ((node["loot"] ~= nil) and (type(node["loot"]) == "table") ) then
+		local ii;
+		for ii = 1, #node["loot"] do
+			total = total + 1;
+			local _, itemLink = GetItemInfo( node["loot"][ii]["itemId"] );
+			if ( not itemLink ) then failed = failed + 1 end
+			if ( not playerHasLoot( node["loot"][ii] ) ) then
+				node["allLootKnown"] = false;
+			end
+		end
+	end
+	if ( node["missingForCoA"] ) then
+		node["allLootKnown"] = false;
+	end
+	return total, failed;
+end
+
+local trackAchievements = CreateFrame("Frame");
+trackAchievements:SetScript("OnEvent", function( self, event, ... )
+	--print( event );
+	--print( ... );
+end );
+local function updateCommanderOfArgusCriteria()
+	-- commander of argus achievement criteria
+	local numCriteria = GetAchievementNumCriteria( 12078 );
+	for i = 1, numCriteria do
+		local name, _, completed, _, _, _, _, npcId, _, criteriaID = GetAchievementCriteriaInfo( 12078, i );
+		if ( nodeRef.rares[npcId] ) then
+			if ( completed and nodeRef.rares[npcId]["missingForCoA"] ) then
+				nodeRef.rares[npcId]["missingForCoA"] = false;
+				updateLoot( nodeRef.rares[npcId] );
+			else
+				nodeRef.rares[npcId]["missingForCoA"] = not completed;
+			end
+		end
+	end
+end
+
+local function prepareNodesData()
+	numSearches = 0;
+	for mapId,mapFile in pairs( nodes ) do
+		local numNodes = #nodes[mapId];
+		nodes[mapId][1]["lookup"] = {};
+		local lookup = nodes[mapId][1]["lookup"];
+		for i = 1,numNodes do
+			local node = nodes[mapId][i];
+			node["allLootKnown"] = true;
+			if ( node["group"]:find( "rare" ) ) then
+				node["lfgGroups"] = {};
+				node["numLfgGroups"] = 0;
+				node["ratioLfgGroups"] = 0.0;
+				node["confUp"] = 0.0;
+				node["up"] = false;
+				node["seen"] = false;
+				nodeRef.rares[node["npcId"]] = node;
+			end
+			if ( i < numNodes ) then
+				node["nextNode"] = nodes[mapId][i+1];
+			else
+				node["nextNode"] = nil;
+			end
+			lookup[node["coord"]] = node;
+		end
+	end
+	updateCommanderOfArgusCriteria();
+end
+
+-- lazy and inefficient as fuck, i know
+local function GetNodeByCoord( mapFile, coord )
+	if ( nodes[mapFile] ) then
+		for i,node in ipairs(nodes[mapFile]) do
+			if ( node["coord"] == coord ) then
+				return node;
+			end
+		end
+	end
+	return nil
 end
 
 --
@@ -696,46 +743,46 @@ function Argus:OnEnter(mapFile, coord)
 		local ii;
 		local loot = node["loot"];
 		for ii = 1, #loot do
-			local _, itemLink, _, _, _, _, _, _, _, _ = GetItemInfo( loot[ii][1] );
+			local _, itemLink, _, _, _, _, _, _, _, _ = GetItemInfo( loot[ii]["itemId"] );
 			if ( not itemLink ) then
 				itemLink = "Retrieving data ...";
 				itemDataMissing = true;
 			end
 			-- loot
-			if ( loot[ii][2] == itemTypeMount ) then
+			if ( loot[ii]["itemType"] == itemTypeMount ) then
 				-- check mount known
-				local n,_,_,_,_,_,_,_,_,_,c,j=C_MountJournal.GetMountInfoByID( loot[ii][3] );
+				local n,_,_,_,_,_,_,_,_,_,c,j=C_MountJournal.GetMountInfoByID( loot[ii]["mountId"] );
 				if ( c == true ) then
 					tooltip:AddLine( itemLink .. " " .. _L["(Mount known)"], nil, nil, nil, true)
 				else
 					tooltip:AddLine( itemLink .. " " .. _L["(Mount missing)"], nil, nil, nil, true)
 				end
-			elseif ( loot[ii][2] == itemTypePet ) then
+			elseif ( loot[ii]["itemType"] == itemTypePet ) then
 				-- check pet quantity
-				local n,m = C_PetJournal.GetNumCollectedInfo( loot[ii][3] );
+				local n,m = C_PetJournal.GetNumCollectedInfo( loot[ii]["speciesId"] );
 				tooltip:AddLine( itemLink .. " (" .. _L["Pet"] .. " " .. n .. "/" .. m .. ")", nil, nil, nil, true)
-			elseif ( loot[ii][2] == itemTypeToy ) then
+			elseif ( loot[ii]["itemType"] == itemTypeToy ) then
 				-- check toy known
-				if ( PlayerHasToy( loot[ii][1] ) == true ) then
+				if ( PlayerHasToy( loot[ii]["itemId"] ) == true ) then
 					tooltip:AddLine( itemLink .. " " .. _L["(Toy known)"], nil, nil, nil, true)
 				else
 					tooltip:AddLine( itemLink .. " " .. _L["(Toy missing)"], nil, nil, nil, true)
 				end
-			elseif ( isCanIMogItloaded == true and loot[ii][2] == itemTypeTransmog ) then
+			elseif ( isCanIMogItloaded == true and loot[ii]["itemType"] == itemTypeTransmog ) then
 				-- check transmog known with canimogit
-				-- local _,itemLink = GetItemInfo( loot[ii][1] );
+				-- local _,itemLink = GetItemInfo( loot[ii]["itemId"] );
 				if ( itemLink ~= _L["Retrieving data ..."] ) then
 					if ( CanIMogIt:PlayerKnowsTransmog( itemLink ) ) then
-						tooltip:AddLine( itemLink .. " " .. string.format( _L["(itemLinkGreen)"], loot[ii][3] ), nil, nil, nil, true)
+						tooltip:AddLine( itemLink .. " " .. string.format( _L["(itemLinkGreen)"], loot[ii]["slot"] ), nil, nil, nil, true)
 					else
-						tooltip:AddLine( itemLink .. " " .. string.format( _L["(itemLinkRed)"], loot[ii][3] ), nil, nil, nil, true)
+						tooltip:AddLine( itemLink .. " " .. string.format( _L["(itemLinkRed)"], loot[ii]["slot"] ), nil, nil, nil, true)
 					end
 				else
-					tooltip:AddLine( itemLink .. " (" .. loot[ii][3] .. ")", nil, nil, nil, true)
+					tooltip:AddLine( itemLink .. " (" .. loot[ii]["slot"] .. ")", nil, nil, nil, true)
 				end
-			elseif ( loot[ii][2] == itemTypeTransmog ) then
+			elseif ( loot[ii]["itemType"] == itemTypeTransmog ) then
 				-- show transmog without check
-				tooltip:AddLine( itemLink .. " (" .. loot[ii][3] .. ")", nil, nil, nil, true)
+				tooltip:AddLine( itemLink .. " (" .. loot[ii]["slot"] .. ")", nil, nil, nil, true)
 			else
 				-- default show itemLink
 				tooltip:AddLine( itemLink, nil, nil, nil, true)
@@ -1632,6 +1679,14 @@ local options = {
 					order = 33,
 					width = "full",
 				},
+				hideKnowLoot = {
+					type = "toggle",
+					arg = "hideKnowLoot",
+					name = _L["options_toggle_hideKnowLoot"],
+					desc = _L["options_toggle_hideKnowLoot_desc"],
+					order = 33,
+					width = "full",
+				},
 			},
 		},
 		TooltipGroup = {
@@ -1699,18 +1754,9 @@ local function cacheItems()
 	local total = 0;
 	for mapId,mapFile in pairs( nodes ) do
 		for i,node in ipairs( nodes[mapId] ) do
-			node["allLootKnown"] = true;
-			if ((node["loot"] ~= nil) and (type(node["loot"]) == "table") ) then
-				local ii;
-				for ii = 1, #node["loot"] do
-					total = total + 1;
-					local _, itemLink = GetItemInfo( node["loot"][ii][1] );
-					if ( not itemLink ) then failed = failed + 1 end
-					if ( not playerHasLoot( node["loot"][ii] ) ) then
-						node["allLootKnown"] = false;
-					end
-				end
-			end
+			local t, f = updateLoot( node );
+			total = total + t;
+			failed = failed + f;
 			-- preload localized npc names
 			if ( node["npcId"] ~= nil ) then
 				getCreatureNamebyID( node["npcId"] );
@@ -1785,11 +1831,9 @@ function Argus:OnInitialize()
 	finderFrame:RegisterEvent("LFG_LIST_SEARCH_FAILED");
 	finderFrame:RegisterEvent("LFG_LIST_ENTRY_EXPIRED_TIMEOUT");
 	finderFrame:RegisterEvent("LFG_LIST_ENTRY_EXPIRED_TOO_MANY_PLAYERS");
+	--trackAchievements:RegisterEvent("CRITERIA_EARNED");
+	--trackAchievements:RegisterEvent("CRITERIA_COMPLETE");
 	RegisterAddonMessagePrefix( ADDON_MSG_PREFIX );
-	--for k,v in pairs( ADDON_MSG_CMD ) do
-		-- print( "register " .. v);
-		--RegisterAddonMessagePrefix( ADDON_MSG_PREFIX .. v );
-	--end
 end
 
 function Argus:WorldEnter()
@@ -1815,17 +1859,18 @@ function Argus:RegisterWithHandyNotes()
 				node = t[1]["lookup"][prestate]["nextNode"];
 			else
 				checkResetNPCGroupCounts();
+				updateCommanderOfArgusCriteria();
 				node = t[1]
 			end
 
 			while node do
-                if (node["questId"] and self.db.profile[node["group"]] and not Argus:HasBeenLooted(currentMapFile,node)) then
+                if ( self.db.profile[node["group"]] and Argus:ShowNode( currentMapFile, node ) ) then
 					-- preload items
 					-- local allLootKnown = true
                     --if ( false and (node["loot"] ~= nil) and (type(node["loot"]) == "table") ) then
 					--	local ii
 					--	for ii = 1, #node["loot"] do
-					--		GetIcon(node["loot"][ii][1])
+					--		GetIcon(node["loot"][ii]["itemId"])
 					--		if ( not playerHasLoot( node["loot"][ii] ) ) then
 					--			allLootKnown = false
 					--		end
@@ -1887,17 +1932,15 @@ function Argus:Refresh()
     self:SendMessage("HandyNotes_NotifyUpdate", "HandyNotesArgus")
 end
 
-function Argus:HasBeenLooted(mapFile,node)
-    if (self.db.profile.alwaysshowtreasures and (string.find(node["group"], "treasure") ~= nil)) then return false end
-    if (self.db.profile.alwaysshowrares and (string.find(node["group"], "rare") ~= nil)) then return false end
-	if (self.db.profile.alwaysshowsfll and (string.find(node["group"], "sfll") ~= nil)) then return false end
-    -- if (node["questId"] and node["questId"] == 0) then return false end
-    if (Argus.db.char[mapFile .. "_" .. node["coord"] .. "_" .. node["questId"]] and self.db.profile.save) then return true end
-    if (IsQuestFlaggedCompleted(node["questId"])) then
-        return true
-    end
-
-    return false
+function Argus:ShowNode( mapFile, node )
+	if ( not self.db.profile[node["group"]] ) then return false end
+    if ( self.db.profile.alwaysshowtreasures and (string.find(node["group"], "treasure") ~= nil) ) then return true end
+    if ( self.db.profile.alwaysshowrares and (string.find(node["group"], "rare") ~= nil) ) then return true end
+	if ( self.db.profile.alwaysshowsfll and (string.find(node["group"], "sfll") ~= nil) ) then return true end
+    if ( self.db.char[mapFile .. "_" .. node["coord"] .. "_" .. node["questId"]] and self.db.profile.save ) then return false end
+	if ( self.db.profile.hideKnowLoot and node["allLootKnown"] == true and node["loot"] ~= nil ) then return false end
+    if ( IsQuestFlaggedCompleted( node["questId"] ) ) then return false end
+    return true
 end
 
 function Argus:LoadCheck()
