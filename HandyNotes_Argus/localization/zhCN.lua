@@ -502,6 +502,7 @@ _L["48351_42645361_note"] = "洞穴内。入口在西南。";
 _L["48351_38126342_note"] = "清醒者图瑞克地下室内";
 _L["48351_42395752_note"] = "建筑物内";
 _L["48351_39175934_note"] = "建筑物废墟内";
+_L["48351_43555993_note"] = "纳毕鲁洞穴内"
 -- 48357
 _L["48357_49412387_note"] = "";
 _L["48357_47672180_note"] = "";
@@ -555,6 +556,7 @@ _L["48361_18794171_note"] = "外面，建筑物后面";
 _L["48361_25293498_note"] = "";
 _L["48361_35283586_note"] = "乌伯拉利斯后面"
 _L["48361_24654126_note"] = "";
+_L["48361_37754868_note"] = "下面的洞穴区域"
 
 --
 --	KEEP THESE ENGLISH FOR THE GROUP BROWSER IN EU/US!! CHINA & CO ADJUST
@@ -569,6 +571,7 @@ _L["Invasion Point: Bonich"] = "侵入点：博尼克";
 _L["Invasion Point: Cen'gar"] = "侵入点：森加";
 _L["Greater Invasion Point: Mistress Alluradel"] = "大型侵入点：妖女奥露拉黛儿";
 _L["Greater Invasion Point: Matron Folnuna"] = "大型侵入点：主母芙努娜";
+_L["Greater Invasion Point: Sotanathor"] = "大型侵入点：索塔纳索尔";
 
 _L["invasion_val_search"] = { "侵入点：瓦尔", "瓦尔" };
 _L["invasion_aurinor_search"] = { "侵入点：奥雷诺", "奥雷诺" };
@@ -578,6 +581,7 @@ _L["invasion_bonich_search"] = { "侵入点：博尼克", "博尼克" };
 _L["invasion_cengar_search"] = { "侵入点：森加", "森加" };
 _L["invasion_alluradel_search"] = { "大型侵入点：妖女奥露拉黛儿", "妖女奥露拉黛儿", "mistress alluradel" };
 _L["invasion_folnuna_search"] = { "大型侵入点：主母芙努娜", "主母芙努娜", "matron folnuna" };
+_L["invasion_sotanathor_search"] = { "大型侵入点：索塔纳索尔", "索塔纳索尔", "sotanathor" };
 
 --
 --
@@ -701,4 +705,6 @@ _L["options_toggle_show_debug_desc"] = "显示除错信息";
 _L["options_toggle_hideKnowLoot"] = "隐藏稀有，如果全部拾取收集完毕";
 _L["options_toggle_hideKnowLoot_desc"] = "当全部拾取收集完毕时隐藏全部稀有。";
 
+_L["options_toggle_alwaysTrackCoA"] = "总是追踪阿古斯指挥官";
+_L["options_toggle_alwaysTrackCoA_desc"] = "总是追踪阿古斯指挥官成就，帐号完成成就仍追踪，但不是根据角色。";
 end

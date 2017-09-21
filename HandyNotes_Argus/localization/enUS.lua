@@ -502,6 +502,7 @@ _L["48351_42645361_note"] = "In a cave. Entrance is southwest from here.";
 _L["48351_38126342_note"] = "Inside Tureks cellar";
 _L["48351_42395752_note"] = "Inside building";
 _L["48351_39175934_note"] = "Inside building ruin";
+_L["48351_43555993_note"] = "In Naribu's cave"
 -- 48357
 _L["48357_49412387_note"] = "";
 _L["48357_47672180_note"] = "";
@@ -555,6 +556,7 @@ _L["48361_18794171_note"] = "Outside, behind building";
 _L["48361_25293498_note"] = "";
 _L["48361_35283586_note"] = "Behind Umbraliss"
 _L["48361_24654126_note"] = "";
+_L["48361_37754868_note"] = "Down in the cave area"
 
 --
 --	KEEP THESE ENGLISH FOR THE GROUP BROWSER IN EU/US!! CHINA & CO ADJUST
@@ -567,8 +569,9 @@ _L["Invasion Point: Sangua"] = "Invasion Point: Sangua";
 _L["Invasion Point: Naigtal"] = "Invasion Point: Naigtal";
 _L["Invasion Point: Bonich"] = "Invasion Point: Bonich";
 _L["Invasion Point: Cen'gar"] = "Invasion Point: Cen'gar";
-_L["Greater Invasion Point: Mistress Alluradel"] = "Greater Invasion Point: Mistress Alluradel";
-_L["Greater Invasion Point: Matron Folnuna"] = "Greater Invasion Point: Matron Folnuna";
+_L["Greater Invasion Point: Mistress Alluradel"] = "Greater Invasion: Alluradel";
+_L["Greater Invasion Point: Matron Folnuna"] = "Greater Invasion: Folnuna";
+_L["Greater Invasion Point: Sotanathor"] = "Greater Invasion: Sotanathor";
 
 _L["invasion_val_search"] = { "val", "invasion.*val", "val.*invasion" };
 _L["invasion_aurinor_search"] = { "aurinor", "aurinor" };
@@ -578,6 +581,7 @@ _L["invasion_bonich_search"] = { "bonich", "bonich" };
 _L["invasion_cengar_search"] = { "cen", "cen.*gar" };
 _L["invasion_alluradel_search"] = { "radel", "alluradel" };
 _L["invasion_folnuna_search"] = { "fol", "folnuna" };
+_L["invasion_sotanathor_search"] = { "sot", "sotana" };
 
 --
 --
@@ -701,4 +705,6 @@ _L["options_toggle_show_debug_desc"] = "Show debug stuff";
 _L["options_toggle_hideKnowLoot"] = "Hide rare, if all loot known";
 _L["options_toggle_hideKnowLoot_desc"] = "Hide all rares for which all loot is known.";
 
+_L["options_toggle_alwaysTrackCoA"] = "Always track Commander of Argus";
+_L["options_toggle_alwaysTrackCoA_desc"] = "Always track Commander of Argus, even if the achievement is complete on the account, but not on the character.";
 end

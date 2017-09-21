@@ -16,4 +16,5 @@ localization\deDE.lua
 localization\zhCN.lua
 localization\zhTW.lua
 localization\koKR.lua
+localization\ruRU.lua
 HandyNotes_Argus.lua

@@ -1,5 +1,5 @@
 -- Thanks to all who provide usable code
-local VERSION = "0.22.5";
+local VERSION = "0.22.8";
 
 local _G = getfenv(0)
 -- Libraries
@@ -237,7 +237,7 @@ nodes["ArgusCore"] = {
 	{ coord = 77975620, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = _L["48390_77975620_note"] },
 	{ coord = 77246412, questId = 48390, icon = "treasure", group = "treasure_aw", label = "48390", loot = nil, note = _L["48390_77246412_note"] },
 	-- 48391
-	{ coord = 64135867, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_64135867_note"] },
+	{ coord = 64145876, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_64135867_note"] },
 	{ coord = 67424761, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_67404790_note"] },
 	{ coord = 63615622, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_63615622_note"] },
 	{ coord = 65005049, questId = 48391, icon = "treasure", group = "treasure_aw", label = "48391", loot = nil, note = _L["48391_65005049_note"] },
@@ -376,7 +376,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 55536016, npcId = 126852, questId = 48695, icon = "skull_grey", group = "rare_ma", label = _L["Wrangler Kravos"], search = _L["Wrangler Kravos_search"], loot = { { itemId = 153269, itemType = itemTypeTransmog, slot = _L["1h Axe"] }, { itemId = 152814, itemType = itemTypeMount, mountId = 970 } }, note = _L["Wrangler Kravos_note"] },
 	{ coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = _L["Kaara the Pale"], search = _L["Kaara the Pale_search"], loot = { { itemId = 153190, itemType = itemTypeMisc }, { itemId = 153054, itemType = itemTypePet, speciesId = 2118 }, { itemId = 153055, itemType = itemTypePet, speciesId = 2119 }, { itemId = 152841, itemType = itemTypeMount, mountId = 975 }, { itemId = 152843, itemType = itemTypeMount, mountId = 906 }, { itemId = 152842, itemType = itemTypeMount, mountId = 974 }, { itemId = 152840, itemType = itemTypeMount, mountId = 976 } }, note = _L["Kaara the Pale_note"] },
 	-- { coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = _L["Kaara the Pale"], search = _L["Kaara the Pale_search"], loot = {}, note = _L["Kaara the Pale_note"] },
-	{ coord = 41121149, npcId = 126864, questId = 48702, icon = "skull_grey", group = "rare_ma", label = _L["Feasel the Muffin Thief"], search = _L["Feasel the Muffin Thief_search"], loot = { { itemId = 152998, itemType = itemTypeMisc } }, note = _L["Feasel the Muffin Thief_note"] },
+	{ coord = 41121149, npcId = 126864, questId = 48702, icon = "skull_grey", group = "rare_ma", label = _L["Feasel the Muffin Thief"], search = _L["Feasel the Muffin Thief_search"], loot = { { itemId = 152998, itemType = itemTypeMisc, forceUnknown = true } }, note = _L["Feasel the Muffin Thief_note"] },
 	{ coord = 36682383, npcId = 126865, questId = 48703, icon = "skull_grey", group = "rare_ma", label = _L["Vigilant Thanos"], search = _L["Vigilant Thanos_search"], loot = { { itemId = 153322, itemType = itemTypeTransmog, slot = _L["Shield"] }, { itemId = 153183, itemType = itemTypeToy } }, note = _L["Vigilant Thanos_note"] },
 	{ coord = 63806460, npcId = 126866, questId = 48704, icon = "skull_grey", group = "rare_ma", label = _L["Vigilant Kuro"], search = _L["Vigilant Kuro_search"], loot = { { itemId = 153323, itemType = itemTypeTransmog, slot = _L["Shield"] }, { itemId = 153183, itemType = itemTypeToy } }, note = _L["Vigilant Kuro_note"] },
 	{ coord = 33654801, npcId = 126867, questId = 48705, icon = "skull_grey", group = "rare_ma", label = _L["Venomtail Skyfin"], search = _L["Venomtail Skyfin_search"], loot = { { itemId = 152844, itemType = itemTypeMount, mountId = 973 } }, note = _L["Venomtail Skyfin_note"] },
@@ -450,6 +450,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 38126342, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_38126342_note"] },
 	{ coord = 42395752, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_42395752_note"] },
 	{ coord = 39175934, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_39175934_note"] },
+	{ coord = 43555993, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_43555993_note"] },
 	-- 48357
 	{ coord = 49412387, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_49412387_note"] },
 	{ coord = 47672180, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_47672180_note"] },
@@ -503,6 +504,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 25293498, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_25293498_note"] },
 	{ coord = 35283586, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_35283586_note"] },
 	{ coord = 24654126, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_24654126_note"] },
+	{ coord = 37754868, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_37754868_note"] },
 
 }
 
@@ -631,15 +633,20 @@ trackAchievements:SetScript("OnEvent", function( self, event, ... )
 end );
 local function updateCommanderOfArgusCriteria()
 	-- commander of argus achievement criteria
+	local _,_,accountCompleted = GetAchievementInfo( 12078 );
 	local numCriteria = GetAchievementNumCriteria( 12078 );
 	for i = 1, numCriteria do
 		local name, _, completed, _, _, _, _, npcId, _, criteriaID = GetAchievementCriteriaInfo( 12078, i );
+		if ( not Argus.db.profile.alwaysTrackCoA and accountCompleted ) then
+			completed = true;
+		end
 		if ( nodeRef.rares[npcId] ) then
 			if ( completed and nodeRef.rares[npcId]["missingForCoA"] ) then
 				nodeRef.rares[npcId]["missingForCoA"] = false;
 				updateLoot( nodeRef.rares[npcId] );
 			else
 				nodeRef.rares[npcId]["missingForCoA"] = not completed;
+				updateLoot( nodeRef.rares[npcId] );
 			end
 		end
 	end
@@ -983,13 +990,13 @@ local function LFGcreate( button, node )
 		elseif ( c == false ) then
 			print( string.format( _L["chatmsg_group_created"], node["label"] ) );
 			-- 16 = custom
-			local desc;
+			local desc = "";
 			if ( string.find( node["group"], "rare" ) ) then
 				desc = string.format( _L["listing_desc_rare"], node["label"] ) .. " Created with HandyNotes_Argus ##rare:" .. node["npcId"] .. "#hna:" .. VERSION;
 			elseif ( string.find( node["group"], "invasion" ) ) then
 				desc = string.format( _L["listing_desc_invasion"], node["label"] ) .. " Created with HandyNotes_Argus ##invasion:" .. node["invasionId"] .. "#hna:" .. VERSION;
 			end
-			C_LFGList.CreateListing( 16, node["label"], 0, 0, "", desc, true)
+			C_LFGList.CreateListing( 16, node["label"]:sub(1,31), 0, 0, "", desc:sub(1,200), true );
 		end
 	end
 end
@@ -1160,6 +1167,8 @@ updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
 			 poiId == 5359 or poiId == 5370 or
 			 -- alluradel
 			 poiId == 5375 or
+			 -- sotanathor
+			 poiId == 5380 or
 			 -- folnuna
 			 poiId == 5381
 			) then
@@ -1184,6 +1193,8 @@ updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
 						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Invasion Point: Cen'gar"], search = _L["invasion_cengar_search"] };
 					elseif ( self.poiID == 5375 ) then
 						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Greater Invasion Point: Mistress Alluradel"], search = _L["invasion_alluradel_search"] };
+					elseif ( self.poiID == 5380 ) then
+						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Greater Invasion Point: Sotanathor"], search = _L["invasion_sotanathor_search"] };
 					elseif ( self.poiID == 5381 ) then
 						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Greater Invasion Point: Matron Folnuna"], search = _L["invasion_folnuna_search"] };
 					else
@@ -1687,6 +1698,14 @@ local options = {
 					order = 33,
 					width = "full",
 				},
+				alwaysTrackCoA = {
+					type = "toggle",
+					arg = "alwaysTrackCoA",
+					name = _L["options_toggle_alwaysTrackCoA"],
+					desc = _L["options_toggle_alwaysTrackCoA_desc"],
+					order = 33,
+					width = "full",
+				},
 			},
 		},
 		TooltipGroup = {
@@ -1812,6 +1831,7 @@ function Argus:OnInitialize()
 			leave_group_on_search = false,
 			show_debug = false,
 			include_player_seen = false,
+			alwaysTrackCoA = false,
         },
     }
 
@@ -1859,7 +1879,9 @@ function Argus:RegisterWithHandyNotes()
 				node = t[1]["lookup"][prestate]["nextNode"];
 			else
 				checkResetNPCGroupCounts();
-				updateCommanderOfArgusCriteria();
+				--if ( Argus.db.profile.alwaysTrackCoA ) then
+					updateCommanderOfArgusCriteria();
+				--end
 				node = t[1]
 			end
 
@@ -1938,7 +1960,7 @@ function Argus:ShowNode( mapFile, node )
     if ( self.db.profile.alwaysshowrares and (string.find(node["group"], "rare") ~= nil) ) then return true end
 	if ( self.db.profile.alwaysshowsfll and (string.find(node["group"], "sfll") ~= nil) ) then return true end
     if ( self.db.char[mapFile .. "_" .. node["coord"] .. "_" .. node["questId"]] and self.db.profile.save ) then return false end
-	if ( self.db.profile.hideKnowLoot and node["allLootKnown"] == true and node["loot"] ~= nil ) then return false end
+	if ( self.db.profile.hideKnowLoot and node["allLootKnown"] == true and node["loot"] ~= nil and string.find(node["group"], "rare") ~= nil ) then return false end
     if ( IsQuestFlaggedCompleted( node["questId"] ) ) then return false end
     return true
 end

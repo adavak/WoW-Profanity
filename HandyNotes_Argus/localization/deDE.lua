@@ -528,8 +528,9 @@ _L["Invasion Point: Sangua"] = "Invasion Point: Sangua";
 _L["Invasion Point: Naigtal"] = "Invasion Point: Naigtal";
 _L["Invasion Point: Bonich"] = "Invasion Point: Bonich";
 _L["Invasion Point: Cen'gar"] = "Invasion Point: Cen'gar";
-_L["Greater Invasion Point: Mistress Alluradel"] = "Greater Invasion Point: Mistress Alluradel";
-_L["Greater Invasion Point: Matron Folnuna"] = "Greater Invasion Point: Matron Folnuna";
+_L["Greater Invasion Point: Mistress Alluradel"] = "Greater Invasion: Alluradel";
+_L["Greater Invasion Point: Matron Folnuna"] = "Greater Invasion: Folnuna";
+_L["Greater Invasion Point: Sotanathor"] = "Greater Invasion: Sotanathor";
 
 _L["invasion_val_search"] = { "val", "invasion.*val", "val.*invasion" };
 _L["invasion_aurinor_search"] = { "aurinor", "aurinor" };
@@ -539,6 +540,7 @@ _L["invasion_bonich_search"] = { "bonich", "bonich" };
 _L["invasion_cengar_search"] = { "cen", "cen.*gar" };
 _L["invasion_alluradel_search"] = { "radel", "alluradel" };
 _L["invasion_folnuna_search"] = { "fol", "folnuna" };
+_L["invasion_sotanathor_search"] = { "sot", "sotana" };
 
 --
 --
