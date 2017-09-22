@@ -282,6 +282,7 @@ _L["47752_57005472_note"] = "Under the rock outcropping, on the tiny lip of land
 _L["47752_59695196_note"] = "Near to Xeth'tal, behind the rocks.";
 _L["47752_51425958_note"] = "";
 _L["47752_55525237_note"] = "Lower level in the area. Need to jump through green shit. Annoying chest. Start at Xeth'tal.";
+_L["47752_58375051_note"] = "";
 -- 47753
 _L["47753_53137304_note"] = "";
 _L["47753_55228114_note"] = "";
@@ -291,6 +292,7 @@ _L["47753_58597958_note"] = "Behind demon spike";
 _L["47753_58197157_note"] = "";
 _L["47753_52737591_note"] = "Behind rocks";
 _L["47753_58048036_note"] = "";
+_L["47753_60297610_note"] = "";
 -- 47997
 _L["47997_45876777_note"] = "Under rock, next to bridge";
 _L["47997_45797753_note"] = "";
@@ -303,6 +305,7 @@ _L["47997_41548379_note"] = "";
 _L["47997_46458665_note"] = "Jump over the rocks to reach this chest.";
 _L["47997_40357414_note"] = "";
 _L["47997_44198653_note"] = "";
+_L["47997_46787984_note"] = "";
 -- 47999
 _L["47999_62592581_note"] = "";
 _L["47999_59763951_note"] = "";
@@ -330,6 +333,7 @@ _L["48000_73577146_note"] = "";
 _L["48000_71846166_note"] = "Climb up the tipped pillar";
 _L["48000_67886231_note"] = "Behind pillar";
 _L["48000_74996922_note"] = "";
+_L["48000_62946824_note"] = "In the upper cave. Ride up the rocks east from here to reach the upper cave.";
 -- 48336
 _L["48336_33575511_note"] = "Xenadar upper level, outside";
 _L["48336_32047441_note"] = "";
@@ -355,6 +359,7 @@ _L["48339_64934217_note"] = "Inside tree trunk";
 _L["48339_67713454_note"] = "";
 _L["48339_72493605_note"] = "";
 _L["48339_44864342_note"] = "";
+_L["48339_46094082_note"] = "";
 
 -- Mac'Aree
 _L["Shadowcaster Voruun"] = "Shadowcaster Voruun";
@@ -503,6 +508,7 @@ _L["48351_38126342_note"] = "Inside Tureks cellar";
 _L["48351_42395752_note"] = "Inside building";
 _L["48351_39175934_note"] = "Inside building ruin";
 _L["48351_43555993_note"] = "In Naribu's cave"
+_L["48351_35535717_note"] = "On 2nd floor";
 -- 48357
 _L["48357_49412387_note"] = "";
 _L["48357_47672180_note"] = "";
@@ -535,6 +541,7 @@ _L["48362_62053268_note"] = "Upper terrain level";
 _L["48362_60964354_note"] = "Inside building";
 _L["48362_64445956_note"] = "Inside building";
 _L["48362_65354194_note"] = "";
+_L["48362_63924532_note"] = "";
 -- Void-Seeped Cache / Treasure Chest
 -- 49264
 _L["49264_38143985_note"] = "";
@@ -557,6 +564,7 @@ _L["48361_25293498_note"] = "";
 _L["48361_35283586_note"] = "Behind Umbraliss"
 _L["48361_24654126_note"] = "";
 _L["48361_37754868_note"] = "Down in the cave area"
+_L["48361_39174733_note"] = "Down in the cave area";
 
 --
 --	KEEP THESE ENGLISH FOR THE GROUP BROWSER IN EU/US!! CHINA & CO ADJUST
@@ -707,4 +715,6 @@ _L["options_toggle_hideKnowLoot_desc"] = "Hide all rares for which all loot is k
 
 _L["options_toggle_alwaysTrackCoA"] = "Always track Commander of Argus";
 _L["options_toggle_alwaysTrackCoA_desc"] = "Always track Commander of Argus, even if the achievement is complete on the account, but not on the character.";
+_L["Missing for CoALink"] = "Missing for %s";
+
 end
