@@ -564,7 +564,7 @@ _L["48361_25293498_note"] = "";
 _L["48361_35283586_note"] = "乌伯拉利斯后方"
 _L["48361_24654126_note"] = "";
 _L["48361_37754868_note"] = "下方的洞穴区域"
-_L["48361_39174733_note"] = "Down in the cave area";
+_L["48361_39174733_note"] = "下方的洞穴区域";
 
 --
 --	KEEP THESE ENGLISH FOR THE GROUP BROWSER IN EU/US!! CHINA & CO ADJUST
