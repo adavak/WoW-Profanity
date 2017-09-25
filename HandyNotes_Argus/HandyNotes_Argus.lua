@@ -810,7 +810,7 @@ function Argus:OnEnter( mapFile, coord )
 		for ii = 1, #loot do
 			local _, itemLink, _, _, _, _, _, _, _, _ = GetItemInfo( loot[ii]["itemId"] );
 			if ( not itemLink ) then
-				itemLink = "Retrieving data ...";
+				itemLink = _L["Retrieving data ..."];
 				itemDataMissing = true;
 			end
 			-- loot
