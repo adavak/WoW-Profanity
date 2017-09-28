@@ -320,6 +320,8 @@ _L["47999_64632319_note"] = "Inside building";
 _L["47999_51533583_note"] = "Outside building, over the litte ooze lake";
 _L["47999_60422354_note"] = "";
 _L["47999_62763812_note"] = "Inside building";
+_L["47999_60492781_note"] = "";
+_L["47999_46768337_note"] = "";
 -- 48000
 _L["48000_70907370_note"] = "";
 _L["48000_74136790_note"] = "";
@@ -361,6 +363,7 @@ _L["48339_67713454_note"] = "";
 _L["48339_72493605_note"] = "";
 _L["48339_44864342_note"] = "";
 _L["48339_46094082_note"] = "";
+_L["48339_70503063_note"] = "";
 
 -- Mac'Aree
 _L["Shadowcaster Voruun"] = "Shadowcaster Voruun";
@@ -525,6 +528,8 @@ _L["48357_54951750_note"] = "";
 _L["48357_46381509_note"] = "";
 _L["48357_50021442_note"] = "";
 _L["48357_52631644_note"] = "";
+_L["48357_45981325_note"] = "";
+_L["48357_44571860_note"] = "";
 -- 48371
 _L["48371_48604971_note"] = "";
 _L["48371_49865494_note"] = "";
@@ -551,6 +556,7 @@ _L["48362_65354194_note"] = "";
 _L["48362_63924532_note"] = "";
 _L["48362_67893170_note"] = "";
 _L["48362_65974679_note"] = "Inside building";
+_L["48362_68404122_note"] = "";
 -- Void-Seeped Cache / Treasure Chest
 -- 49264
 _L["49264_38143985_note"] = "";
@@ -591,6 +597,7 @@ _L["Invasion Point: Cen'gar"] = "Invasion Point: Cen'gar";
 _L["Greater Invasion Point: Mistress Alluradel"] = "Greater Invasion: Alluradel";
 _L["Greater Invasion Point: Matron Folnuna"] = "Greater Invasion: Folnuna";
 _L["Greater Invasion Point: Sotanathor"] = "Greater Invasion: Sotanathor";
+_L["Greater Invasion Point: Inquisitor Meto"] = "Greater Invasion: Meto";
 
 _L["invasion_val_search"] = { "val", "invasion.*val", "val.*invasion" };
 _L["invasion_aurinor_search"] = { "aurinor", "aurinor" };
@@ -601,6 +608,7 @@ _L["invasion_cengar_search"] = { "cen", "cen.*gar" };
 _L["invasion_alluradel_search"] = { "radel", "alluradel" };
 _L["invasion_folnuna_search"] = { "fol", "folnuna" };
 _L["invasion_sotanathor_search"] = { "sot", "sotana" };
+_L["invasion_meto_search"] = { "meto", "meto" };
 
 --
 --
