@@ -360,7 +360,7 @@ _L["48339_44864342_note"] = "";
 -- Mac'Aree
 _L["Shadowcaster Voruun"] = "Темный чародей Воруун";
 _L["Shadowcaster Voruun_search"] = { "vor", "ваоруун", "voruun", "vorun" };
-_L["Shadowcaster Voruun_note"] = "Долго ресается. До 5 минут.";
+_L["Shadowcaster Voruun_note"] = "";
 _L["Soultwisted Monstrosity"] = "Искаженное чудовище";
 _L["Soultwisted Monstrosity_search"] = { "mon", "искаженное чудовище", "monstro" };
 _L["Soultwisted Monstrosity_note"] = "";

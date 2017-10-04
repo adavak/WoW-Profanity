@@ -349,7 +349,7 @@ _L["48339_44864342_note"] = "";
 -- Mac'Aree
 _L["Shadowcaster Voruun"] = "暗影施法者沃魯恩";
 _L["Shadowcaster Voruun_search"] = { "暗影施法者沃魯恩", "暗影施法者" };
-_L["Shadowcaster Voruun_note"] = "5分鐘刷新時間";
+_L["Shadowcaster Voruun_note"] = "";
 _L["Soultwisted Monstrosity"] = "曲魂巨怪";
 _L["Soultwisted Monstrosity_search"] = { "曲魂巨怪", "曲魂" };
 _L["Soultwisted Monstrosity_note"] = "";

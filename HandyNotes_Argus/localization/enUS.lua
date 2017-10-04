@@ -132,6 +132,9 @@ _L["48382_68026624_note"] = "Inside legion structure";
 _L["48382_64506868_note"] = "Outside";
 _L["48382_62666823_note"] = "Inside Building";
 _L["48382_60096945_note"] = "Outside, behind building";
+_L["48382_62146938_note"] = "";
+_L["48382_69496785_note"] = "";
+_L["48382_58806467_note"] = "Inside Building";
 -- 48383
 _L["48383_56903570_note"] = "";
 _L["48383_57633179_note"] = "";
@@ -153,12 +156,14 @@ _L["48384_66621709_note"] = "Inside Imp cave, next to Mother Rosula";
 _L["48384_63682571_note"] = "In front of Houndmaster Kerrax cave";
 _L["48384_61862236_note"] = "Outside, next to Chief Alchemist Munculus";
 _L["48384_64132738_note"] = "";
+_L["48384_63522090_note"] = "Back end of Kerrax cave";
 -- 48385
 _L["48385_50605720_note"] = "";
 _L["48385_55544743_note"] = "";
 _L["48385_57135124_note"] = "";
 _L["48385_55915425_note"] = "";
 _L["48385_48195451_note"] = "";
+_L["48385_57825901_note"] = "";
 -- 48387
 _L["48387_69403965_note"] = "";
 _L["48387_66643654_note"] = "";
@@ -168,6 +173,7 @@ _L["48387_63613643_note"] = "";
 _L["48387_73404669_note"] = "Jump over the ooze";
 _L["48387_67954006_note"] = "";
 _L["48387_63603642_note"] = "";
+_L["48387_72404207_note"] = "";
 -- 48388
 _L["48388_51502610_note"] = "";
 _L["48388_59261743_note"] = "";
@@ -176,6 +182,7 @@ _L["48388_55841722_note"] = "";
 _L["48388_55622042_note"] = "Near Valsuran, jump up the rocky slope";
 _L["48388_59661398_note"] = "";
 _L["48388_54102803_note"] = "Near Aivals plattform";
+_L["48388_55922675_note"] = "";
 -- 48389
 _L["48389_64305040_note"] = "In Vargas cave";
 _L["48389_60254351_note"] = "";
@@ -185,6 +192,7 @@ _L["48389_65345192_note"] = "In cave behind Varga";
 _L["48389_64114242_note"] = "Under rocks";
 _L["48389_58734323_note"] = "On small piece of land within ooze";
 _L["48389_62955007_note"] = "On green ooze shore";
+_L["48389_64254720_note"] = "";
 -- 48390
 _L["48390_81306860_note"] = "On ship";
 _L["48390_80406152_note"] = "";
@@ -197,6 +205,7 @@ _L["48390_72215680_note"] = "Inside building";
 _L["48390_73277299_note"] = "Behind Rel'var";
 _L["48390_77975620_note"] = "Down the slope and further over the cliffs";
 _L["48390_77246412_note"] = "Be careful on the way back. Don't jump down the cliffs!";
+_L["48390_76595659_note"] = "Inside Xanarian's building";
 -- 48391
 _L["48391_64135867_note"] = "In Ven'orn spider cave";
 _L["48391_67404790_note"] = "Spider area, in a small cave next to the northern exit";
@@ -293,6 +302,7 @@ _L["47753_58197157_note"] = "";
 _L["47753_52737591_note"] = "Behind rocks";
 _L["47753_58048036_note"] = "";
 _L["47753_60297610_note"] = "";
+_L["47753_56827212_note"] = "";
 -- 47997
 _L["47997_45876777_note"] = "Under rock, next to bridge";
 _L["47997_45797753_note"] = "";
@@ -306,6 +316,7 @@ _L["47997_46458665_note"] = "Jump over the rocks to reach this chest.";
 _L["47997_40357414_note"] = "";
 _L["47997_44198653_note"] = "";
 _L["47997_46787984_note"] = "";
+_L["47997_42737546_note"] = "";
 -- 47999
 _L["47999_62592581_note"] = "";
 _L["47999_59763951_note"] = "";
@@ -322,6 +333,9 @@ _L["47999_60422354_note"] = "";
 _L["47999_62763812_note"] = "Inside building";
 _L["47999_60492781_note"] = "";
 _L["47999_46768337_note"] = "";
+_L["47999_59433273_note"] = "Up on the cliff";
+_L["47999_58442866_note"] = "Inside building";
+_L["47999_48613092_note"] = "";
 -- 48000
 _L["48000_70907370_note"] = "";
 _L["48000_74136790_note"] = "";
@@ -337,6 +351,7 @@ _L["48000_67886231_note"] = "Behind pillar";
 _L["48000_74996922_note"] = "";
 _L["48000_62946824_note"] = "In the upper cave. Ride up the rocks east from here to reach the upper cave.";
 _L["48000_69386278_note"] = "";
+_L["48000_67656999_note"] = "Ride up the slope and over the tipped pillars to reach this chest.";
 -- 48336
 _L["48336_33575511_note"] = "Xenadar upper level, outside";
 _L["48336_32047441_note"] = "";
@@ -351,6 +366,7 @@ _L["48336_37176401_note"] = "Under debris";
 _L["48336_28247134_note"] = "";
 _L["48336_30276403_note"] = "Inside escape pod";
 _L["48336_34566305_note"] = "";
+_L["48336_36605881_note"] = "Xenadar upper level, outside";
 -- 48339
 _L["48339_68533891_note"] = "";
 _L["48339_63054240_note"] = "";
@@ -368,7 +384,7 @@ _L["48339_70503063_note"] = "";
 -- Mac'Aree
 _L["Shadowcaster Voruun"] = "Shadowcaster Voruun";
 _L["Shadowcaster Voruun_search"] = { "vor", "voruun", "vorun" };
-_L["Shadowcaster Voruun_note"] = "5 minute respawn timer!";
+_L["Shadowcaster Voruun_note"] = "";
 _L["Soultwisted Monstrosity"] = "Soultwisted Monstrosity";
 _L["Soultwisted Monstrosity_search"] = { "mon", "monstro" };
 _L["Soultwisted Monstrosity_note"] = "";
@@ -493,6 +509,9 @@ _L["48346_50107580_note"] = "";
 _L["48346_53328001_note"] = "In cellar";
 _L["48346_55297347_note"] = "";
 _L["48346_52696161_note"] = "";
+_L["48346_54806710_note"] = "";
+_L["48346_51677163_note"] = "";
+_L["48346_57397517_note"] = "";
 -- 48350
 _L["48350_59622088_note"] = "Inside building under staircase";
 _L["48350_60493338_note"] = "Inside building";
@@ -503,6 +522,7 @@ _L["48350_53332740_note"] = "Under tree";
 _L["48350_58574078_note"] = "";
 _L["48350_63262000_note"] = "Inside building";
 _L["48350_54952484_note"] = "";
+_L["48350_63332255_note"] = "Inside red hut";
 -- 48351
 _L["48351_43637134_note"] = "";
 _L["48351_34205929_note"] = "On 2nd floor, where Herald of Chaos resides.";
@@ -515,6 +535,9 @@ _L["48351_42395752_note"] = "Inside building";
 _L["48351_39175934_note"] = "Inside building ruin";
 _L["48351_43555993_note"] = "In Naribu's cave";
 _L["48351_35535717_note"] = "On 2nd floor";
+_L["48351_43666847_note"] = "Inside building ruin";
+_L["48351_38386704_note"] = "";
+_L["48351_35635604_note"] = "On 2nd floor";
 -- 48357
 _L["48357_49412387_note"] = "";
 _L["48357_47672180_note"] = "";
@@ -530,6 +553,9 @@ _L["48357_50021442_note"] = "";
 _L["48357_52631644_note"] = "";
 _L["48357_45981325_note"] = "";
 _L["48357_44571860_note"] = "";
+_L["48357_53491281_note"] = "";
+_L["48357_45241327_note"] = "";
+_L["48357_48251289_note"] = "Bottom level, near Skreeg";
 -- 48371
 _L["48371_48604971_note"] = "";
 _L["48371_49865494_note"] = "";
@@ -543,6 +569,8 @@ _L["48371_59405863_note"] = "";
 _L["48371_19694227_note"] = "Inside building";
 _L["48371_24763858_note"] = "Inside building ruins";
 _L["48371_50575594_note"] = "";
+_L["48371_28913361_note"] = "";
+_L["48371_32644686_note"] = "";
 -- 48362
 _L["48362_66682786_note"] = "Inside building, next to Zul'tan the Numerous";
 _L["48362_62134077_note"] = "Inside building";
@@ -557,6 +585,10 @@ _L["48362_63924532_note"] = "";
 _L["48362_67893170_note"] = "";
 _L["48362_65974679_note"] = "Inside building";
 _L["48362_68404122_note"] = "";
+_L["48362_61924258_note"] = "Inside building";
+_L["48362_67235673_note"] = "Inside building";
+_L["48362_70243379_note"] = "";
+_L["48362_69304993_note"] = "Inside building, on middle floor";
 -- Void-Seeped Cache / Treasure Chest
 -- 49264
 _L["49264_38143985_note"] = "";
@@ -598,6 +630,7 @@ _L["Greater Invasion Point: Mistress Alluradel"] = "Greater Invasion: Alluradel"
 _L["Greater Invasion Point: Matron Folnuna"] = "Greater Invasion: Folnuna";
 _L["Greater Invasion Point: Sotanathor"] = "Greater Invasion: Sotanathor";
 _L["Greater Invasion Point: Inquisitor Meto"] = "Greater Invasion: Meto";
+_L["Greater Invasion Point: Pit Lord Vilemus"] = "Greater Invasion: Vilemus";
 
 _L["invasion_val_search"] = { "val", "invasion.*val", "val.*invasion" };
 _L["invasion_aurinor_search"] = { "aurinor", "aurinor" };
@@ -609,6 +642,7 @@ _L["invasion_alluradel_search"] = { "radel", "alluradel" };
 _L["invasion_folnuna_search"] = { "fol", "folnuna" };
 _L["invasion_sotanathor_search"] = { "sot", "sotana" };
 _L["invasion_meto_search"] = { "meto", "meto" };
+_L["invasion_vilemus_search"] = { "vil", "vilemus" };
 
 --
 --
