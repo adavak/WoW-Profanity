@@ -1,5 +1,5 @@
 -- Thanks to all who provide usable code
-local VERSION = "0.23.4";
+local VERSION = "0.23.5";
 
 local _G = getfenv(0)
 -- Libraries
@@ -174,6 +174,7 @@ nodes["ArgusCore"] = {
 	{ coord = 62146938, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = _L["48382_62146938_note"] },
 	{ coord = 69496785, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = _L["48382_69496785_note"] },
 	{ coord = 58806467, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = _L["48382_58806467_note"] },
+	{ coord = 57796495, questId = 48382, icon = "treasure", group = "treasure_aw", label = "48382", loot = nil, note = _L["48382_57796495_note"] },
 	-- 48383
 	{ coord = 56853581, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_56903570_note"] },
 	{ coord = 57633179, questId = 48383, icon = "treasure", group = "treasure_aw", label = "48383", loot = nil, note = _L["48383_57633179_note"] },
@@ -208,7 +209,6 @@ nodes["ArgusCore"] = {
 	{ coord = 66643654, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_66643654_note"] },
 	{ coord = 69003348, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_68983342_note"] },
 	{ coord = 65522831, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_65522831_note"] },
-	{ coord = 63613643, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_63613643_note"] },
 	{ coord = 73404669, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_73404669_note"] },
 	{ coord = 67954006, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_67954006_note"] },
 	{ coord = 63603642, questId = 48387, icon = "treasure", group = "treasure_aw", label = "48387", loot = nil, note = _L["48387_63603642_note"] },
@@ -343,6 +343,7 @@ nodes["ArgusSurface"] = {
 	{ coord = 59433273, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_59433273_note"] },
 	{ coord = 58442866, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_58442866_note"] },
 	{ coord = 48613092, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_48613092_note"] },
+	{ coord = 57642617, questId = 47999, icon = "treasure", group = "treasure_kr", label = "47999", loot = nil, note = _L["47999_57642617_note"] },
 	-- 48000
 	{ coord = 70907370, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_70907370_note"] },
 	{ coord = 74136790, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_74136790_note"] },
@@ -387,6 +388,7 @@ nodes["ArgusSurface"] = {
 	{ coord = 44864342, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_44864342_note"] },
 	{ coord = 46094082, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_46094082_note"] },
 	{ coord = 70503063, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_70503063_note"] },
+	{ coord = 61876413, questId = 48339, icon = "treasure", group = "treasure_kr", label = "48339", loot = nil, note = _L["48339_61876413_note"] },
 
 }
 
