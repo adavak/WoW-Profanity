@@ -1,5 +1,5 @@
--- Thanks to all who provide usable code
-local VERSION = "0.23.5";
+-- For the gnomes!!!
+local VERSION = "0.24.0";
 
 local _G = getfenv(0)
 -- Libraries
@@ -461,6 +461,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 54806710, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_54806710_note"] },
 	{ coord = 51677163, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_51677163_note"] },
 	{ coord = 57397517, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_57397517_note"] },
+	{ coord = 61047074, questId = 48346, icon = "treasure", group = "treasure_ma", label = "48346", loot = nil, note = _L["48346_61047074_note"] },
 	-- 48350
 	{ coord = 59622088, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_59622088_note"] },
 	{ coord = 60493338, questId = 48350, icon = "treasure", group = "treasure_ma", label = "48350", loot = nil, note = _L["48350_60493338_note"] },
@@ -563,6 +564,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 37754868, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_37754868_note"] },
 	{ coord = 39174733, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_39174733_note"] },
 	{ coord = 28794425, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_28784425_note"] },
+	{ coord = 32583679, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_32583679_note"] },
 
 }
 
@@ -585,22 +587,66 @@ local invasionLoot = {
 	{ itemId = 153320, itemType = itemTypeTransmog, slot = _L["2h Mace"] },
 };
 nodes["InvasionPointVal"] = {
-	{ coord = 53893794, questId = 0, icon = "skull_grey", group = "invasion", invasionId = 5360, label = _L["Invasion Point: Val"], searchMaxAge = 3600*2, search = _L["invasion_val_search"], loot = invasionLoot, note = nil },
+	{ coord = 53893794, questId = 0, icon = "skull_grey", group = "invasion", poiId = 5360, label = _L["Invasion Point: Val"], searchMaxAge = 3600*2, search = _L["invasion_val_search"], loot = invasionLoot, note = nil },
 }
 nodes["InvasionPointAurinor"] = {
-	{ coord = 23485069, questId = 0, icon = "skull_grey", group = "invasion", invasionId = 5367, label = _L["Invasion Point: Aurinor"], searchMaxAge = 3600*2, search = _L["invasion_aurinor_search"], loot = invasionLoot, note = nil },
+	{ coord = 23485069, questId = 0, icon = "skull_grey", group = "invasion", poiId = 5367, label = _L["Invasion Point: Aurinor"], searchMaxAge = 3600*2, search = _L["invasion_aurinor_search"], loot = invasionLoot, note = nil },
 }
 nodes["InvasionPointSangua"] = {
-	{ coord = 50005000, questId = 0, icon = "skull_grey", group = "invasion", invasionId = 5350, label = _L["Invasion Point: Sangua"], searchMaxAge = 3600*2, search = _L["invasion_sangua_search"], loot = invasionLoot, note = nil },
+	{ coord = 50005000, questId = 0, icon = "skull_grey", group = "invasion", poiId = 5350, label = _L["Invasion Point: Sangua"], searchMaxAge = 3600*2, search = _L["invasion_sangua_search"], loot = invasionLoot, note = nil },
 }
 nodes["InvasionPointNaigtal"] = {
-	{ coord = 66605793, questId = 0, icon = "skull_grey", group = "invasion", invasionId = 5368, label = _L["Invasion Point: Naigtal"], searchMaxAge = 3600*2, search = _L["invasion_naigtal_search"], loot = invasionLoot, note = nil },
+	{ coord = 66605793, questId = 0, icon = "skull_grey", group = "invasion", poiId = 5368, label = _L["Invasion Point: Naigtal"], searchMaxAge = 3600*2, search = _L["invasion_naigtal_search"], loot = invasionLoot, note = nil },
 }
 nodes["InvasionPointBonich"] = {
-	{ coord = 45165586, questId = 0, icon = "skull_grey", group = "invasion", invasionId = 5366, label = _L["Invasion Point: Bonich"], searchMaxAge = 3600*2, search = _L["invasion_bonich_search"], loot = invasionLoot, note = nil },
+	{ coord = 45165586, questId = 0, icon = "skull_grey", group = "invasion", poiId = 5366, label = _L["Invasion Point: Bonich"], searchMaxAge = 3600*2, search = _L["invasion_bonich_search"], loot = invasionLoot, note = nil },
 }
 nodes["InvasionPointCengar"] = {
-	{ coord = 59256574, questId = 0, icon = "skull_grey", group = "invasion", invasionId = 5359, label = _L["Invasion Point: Cen'gar"], searchMaxAge = 3600*2, search = _L["invasion_cengar_search"], loot = invasionLoot, note = nil },
+	{ coord = 59256574, questId = 0, icon = "skull_grey", group = "invasion", poiId = 5359, label = _L["Invasion Point: Cen'gar"], searchMaxAge = 3600*2, search = _L["invasion_cengar_search"], loot = invasionLoot, note = nil },
+}
+
+local worldmapPOI = {
+	[5284] = { npcId = 0, group = "bsrare", label = _L["Malgrazoth"], search = _L["bsrare_malgrazoth_search"] },
+	[5285] = { npcId = 0, group = "bsrare", label = _L["Salethan the Broodwalker"], search = _L["bsrare_salethan_search"] },
+	[5286] = { npcId = 0, group = "bsrare", label = _L["Malorus the Soulkeeper"], search = _L["bsrare_malorus_search"] },
+	[5287] = { npcId = 0, group = "bsrare", label = _L["Emberfire"], search = _L["bsrare_emberfire_search"] },
+	[5288] = { npcId = 0, group = "bsrare", label = _L["Potionmaster Gloop"], search = _L["bsrare_gloop_search"] },
+	[5292] = { npcId = 0, group = "bsrare", label = _L["Dreadblade Annihilator"], search = _L["bsrare_dreadbladeannihilator_search"] },
+	[5293] = { npcId = 0, group = "bsrare", label = _L["Felbringer Xar'thok"], search = _L["bsrare_xarthok_search"] },
+	[5294] = { npcId = 0, group = "bsrare", label = _L["Xorogun the Flamecarver"], search = _L["bsrare_xorogun_search"] },
+	[5295] = { npcId = 0, group = "bsrare", label = _L["Corrupted Bonebreaker"], search = _L["bsrare_corruptedbonebreaker_search"] },
+	[5296] = { npcId = 0, group = "bsrare", label = _L["Felcaller Zelthae"], search = _L["bsrare_zelthae_search"] },
+	[5297] = { npcId = 0, group = "bsrare", label = _L["Dreadeye"], search = _L["bsrare_dreadeye_search"] },
+	[5298] = { npcId = 0, group = "bsrare", label = _L["Lord Hel'Nurath"], search = _L["bsrare_helnurath_search"] },
+	[5299] = { npcId = 0, group = "bsrare", label = _L["Imp Mother Bruva"], search = _L["bsrare_bruva_search"] },
+	[5300] = { npcId = 0, group = "bsrare", label = _L["Flllurlokkr"], search = _L["bsrare_flllurlokkr_search"] },
+	[5301] = { npcId = 0, group = "bsrare", label = _L["Aqueux"], search = _L["bsrare_aqueux_search"] },
+	[5303] = { npcId = 0, group = "bsrare", label = _L["Grossir"], search = _L["bsrare_grossir_search"] },
+	[5304] = { npcId = 0, group = "bsrare", label = _L["Lady Eldrathe"], search = _L["bsrare_eldrathe_search"] },
+	[5305] = { npcId = 0, group = "bsrare", label = _L["Somber Dawn"], search = _L["bsrare_somberdawn_search"] },
+	[5306] = { npcId = 0, group = "bsrare", label = _L["Duke Sithizi"], search = _L["bsrare_dukesithizi_search"] },
+	[5307] = { npcId = 0, group = "bsrare", label = _L["Eye of Gurgh"], search = _L["bsrare_eyeofgurgh_search"] },
+	[5308] = { npcId = 0, group = "bsrare", label = _L["Brother Badatin"], search = _L["bsrare_badatin_search"] },
+	--[xxxx] = { npcId = 0, group = "bsrare", label = _L["xxxx"], search = _L["bsrare__search"] },
+	
+	[5360] = { group = "invasion", label = _L["Invasion Point: Val"], search = _L["invasion_val_search"] },
+	[5372] = { group = "invasion", label = _L["Invasion Point: Val"], search = _L["invasion_val_search"] },
+	[5367] = { group = "invasion", label = _L["Invasion Point: Aurinor"], search = _L["invasion_aurinor_search"] },
+	[5373] = { group = "invasion", label = _L["Invasion Point: Aurinor"], search = _L["invasion_aurinor_search"] },
+	[5369] = { group = "invasion", label = _L["Invasion Point: Sangua"], search = _L["invasion_sangua_search"] },
+	[5350] = { group = "invasion", label = _L["Invasion Point: Sangua"], search = _L["invasion_sangua_search"] },
+	[5368] = { group = "invasion", label = _L["Invasion Point: Naigtal"], search = _L["invasion_naigtal_search"] },
+	[5374] = { group = "invasion", label = _L["Invasion Point: Naigtal"], search = _L["invasion_naigtal_search"] },
+	[5366] = { group = "invasion", label = _L["Invasion Point: Bonich"], search = _L["invasion_bonich_search"] },
+	[5371] = { group = "invasion", label = _L["Invasion Point: Bonich"], search = _L["invasion_bonich_search"] },
+	[5359] = { group = "invasion", label = _L["Invasion Point: Cen'gar"], search = _L["invasion_cengar_search"] },
+	[5370] = { group = "invasion", label = _L["Invasion Point: Cen'gar"], search = _L["invasion_cengar_search"] },
+	[5375] = { group = "invasion", label = _L["Greater Invasion Point: Mistress Alluradel"], search = _L["invasion_alluradel_search"] },
+	[5376] = { group = "invasion", label = _L["Greater Invasion Point: Occularus"], search = _L["invasion_occularus_search"] },
+	[5377] = { group = "invasion", label = _L["Greater Invasion Point: Pit Lord Vilemus"], search = _L["invasion_vilemus_search"] },
+	[5379] = { group = "invasion", label = _L["Greater Invasion Point: Inquisitor Meto"], search = _L["invasion_meto_search"] },
+	[5380] = { group = "invasion", label = _L["Greater Invasion Point: Sotanathor"], search = _L["invasion_sotanathor_search"] },
+	[5381] = { group = "invasion", label = _L["Greater Invasion Point: Matron Folnuna"], search = _L["invasion_folnuna_search"] },
 }
 
 --
@@ -1110,7 +1156,9 @@ local function LFGcreate( button, node )
 			if ( string.find( node["group"], "rare" ) ) then
 				desc = string.format( _L["listing_desc_rare"], node["label"] ) .. " Created with HandyNotes_Argus ##rare:" .. node["npcId"] .. "#hna:" .. VERSION;
 			elseif ( string.find( node["group"], "invasion" ) ) then
-				desc = string.format( _L["listing_desc_invasion"], node["label"] ) .. " Created with HandyNotes_Argus ##invasion:" .. node["invasionId"] .. "#hna:" .. VERSION;
+				desc = string.format( _L["listing_desc_invasion"], node["label"] ) .. " Created with HandyNotes_Argus ##invasion:" .. node["poiId"] .. "#hna:" .. VERSION;
+			elseif ( string.find( node["group"], "bsrare" ) ) then
+				desc = string.format( _L["listing_desc_rare"], node["label"] ) .. " Created with HandyNotes_Argus ##poi:" .. node["poiId"] .. "#hna:" .. VERSION;
 			end
 			C_LFGList.CreateListing( 16, node["label"]:sub(1,31), 0, 0, "", desc:sub(1,200), true );
 		end
@@ -1170,9 +1218,15 @@ local function LFGbrowseMatches( matches, node, lfgcat )
 		menu = {
 			{ text = _L["Groups found:"], isTitle = true, notCheckable = true },
 		};
-		table.sort( matches, function( a, b )
-			return a.age < b.age;
-		end );
+		if ( node["group"] == "invasion" ) then
+			table.sort( matches, function( a, b )
+				return a.numMembers > b.numMembers;
+			end );
+		else
+			table.sort( matches, function( a, b )
+				return a.age < b.age;
+			end );
+		end
 		for k,v in ipairs( matches ) do
 			table.insert( menu, genGroupBrowserOption( v ) );
 			-- print( v["name"] );
@@ -1273,67 +1327,23 @@ updateInvasionPOI:SetScript("OnEvent", function( self, event, ... )
 	local numPOI = GetNumMapLandmarks();
 	for i = 1, numPOI do
 		local landmarkType, name, description, textureIndex, x, y, maplinkID, showInBattleMap,_,_,poiId,_,something = C_WorldMap.GetMapLandmarkInfo( i );
-		if ( -- val
-			 poiId == 5360 or poiId == 5372	or
-			 -- aurinor
-			 poiId == 5367 or poiId == 5373 or
-			 -- sangua
-			 poiId == 5350 or poiId == 5369 or
-			 -- naigtal
-			 poiId == 5368 or poiId == 5374 or
-			 -- bonich
-			 poiId == 5366 or poiId == 5371 or
-			 -- cen'gar
-			 poiId == 5359 or poiId == 5370 or
-			 -- alluradel
-			 poiId == 5375 or
-			 -- vilemus
-			 poiId == 5377 or
-			 -- meto
-			 poiId == 5379 or
-			 -- sotanathor
-			 poiId == 5380 or
-			 -- folnuna
-			 poiId == 5381
-			) then
-			-- print( description );
-			local invasionPOI = _G["WorldMapFramePOI" .. i];
-			if ( invasionPOI and not invasionPOI.handyNotesArgus ) then
-				invasionPOI.handyNotesArgus = true;
-				invasionPOI:RegisterForClicks("LeftButtonDown", "LeftButtonUp");
-				invasionPOI:SetScript("OnMouseDown", function(self, button)
-					local searchNeedle = "";
-					if ( self.poiID == 5360 or self.poiID == 5372 ) then
-						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Invasion Point: Val"], search = _L["invasion_val_search"] };
-					elseif ( self.poiID == 5367 or self.poiID == 5373 ) then
-						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Invasion Point: Aurinor"], search = _L["invasion_aurinor_search"] };
-					elseif ( self.poiID == 5369 or self.poiID == 5350 ) then
-						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Invasion Point: Sangua"], search = _L["invasion_sangua_search"] };
-					elseif ( self.poiID == 5368 or self.poiID == 5374 ) then
-						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Invasion Point: Naigtal"], search = _L["invasion_naigtal_search"] };
-					elseif ( self.poiID == 5366 or self.poiID == 5371 ) then
-						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Invasion Point: Bonich"], search = _L["invasion_bonich_search"] };
-					elseif ( self.poiID == 5359 or self.poiID == 5370 ) then
-						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Invasion Point: Cen'gar"], search = _L["invasion_cengar_search"] };
-					elseif ( self.poiID == 5375 ) then
-						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Greater Invasion Point: Mistress Alluradel"], search = _L["invasion_alluradel_search"] };
-					elseif ( self.poiID == 5377 ) then
-						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Greater Invasion Point: Pit Lord Vilemus"], search = _L["invasion_vilemus_search"] };
-					elseif ( self.poiID == 5379 ) then
-						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Greater Invasion Point: Inquisitor Meto"], search = _L["invasion_meto_search"] };
-					elseif ( self.poiID == 5380 ) then
-						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Greater Invasion Point: Sotanathor"], search = _L["invasion_sotanathor_search"] };
-					elseif ( self.poiID == 5381 ) then
-						finderFrame.searchNode = { invasionId = self.poiID, group = "invasion", label = _L["Greater Invasion Point: Matron Folnuna"], search = _L["invasion_folnuna_search"] };
-					else
-						return false;
+		local invasionPOI = _G["WorldMapFramePOI" .. i];
+		if ( invasionPOI and not invasionPOI.handyNotesArgus ) then
+			invasionPOI.handyNotesArgus = true;
+			invasionPOI:RegisterForClicks("LeftButtonDown", "LeftButtonUp");
+			invasionPOI:SetScript("OnMouseDown", function(self, button)
+				if ( worldmapPOI[self.poiID] ) then
+					worldmapPOI[self.poiID]["poiId"] = self.poiID;
+					finderFrame.searchNode = worldmapPOI[self.poiID];
+				else
+					if ( self.poiID and self.name ) then
+						debugMsg( self.poiID .. " - " .. self.name );
 					end
-					
-					local languages = C_LFGList.GetLanguageSearchFilter();
-					C_LFGList.Search( LFG_CAT_CUSTOM, LFGListSearchPanel_ParseSearchTerms ( finderFrame.searchNode["search"][1] ), nil, nil, allLanguages );
-					
-				end );
-			end
+					return false;
+				end
+				local languages = C_LFGList.GetLanguageSearchFilter();
+				C_LFGList.Search( LFG_CAT_CUSTOM, LFGListSearchPanel_ParseSearchTerms ( finderFrame.searchNode["search"][1] ), nil, nil, allLanguages );
+			end );
 		end
 	end
 end );

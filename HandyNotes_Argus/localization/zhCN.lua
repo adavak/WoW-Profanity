@@ -514,6 +514,7 @@ _L["48346_52696161_note"] = "";
 _L["48346_54806710_note"] = "";
 _L["48346_51677163_note"] = "";
 _L["48346_57397517_note"] = "";
+_L["48346_61047074_note"] = "树下";
 -- 48350
 _L["48350_59622088_note"] = "建筑物内楼梯下";
 _L["48350_60493338_note"] = "建筑物内";
@@ -616,6 +617,7 @@ _L["48361_24654126_note"] = "";
 _L["48361_37754868_note"] = "下方的洞穴区域";
 _L["48361_39174733_note"] = "下方的洞穴区域";
 _L["48361_28784425_note"] = "";
+_L["48361_32583679_note"] = "";
 
 --
 --	KEEP THESE ENGLISH FOR THE GROUP BROWSER IN EU/US!! CHINA & CO ADJUST
@@ -633,6 +635,7 @@ _L["Greater Invasion Point: Matron Folnuna"] = "大型侵入点：主母芙努�
 _L["Greater Invasion Point: Sotanathor"] = "大型侵入点：索塔纳索尔";
 _L["Greater Invasion Point: Inquisitor Meto"] = "大型侵入点：审判官梅托";
 _L["Greater Invasion Point: Pit Lord Vilemus"] = "大型侵入点：深渊领主维尔姆斯";
+_L["Greater Invasion Point: Occularus"] = "大型侵入点：奥库拉鲁斯";
 
 _L["invasion_val_search"] = { "侵入点：瓦尔", "瓦尔" };
 _L["invasion_aurinor_search"] = { "侵入点：奥雷诺", "奥雷诺" };
@@ -645,6 +648,50 @@ _L["invasion_folnuna_search"] = { "大型侵入点：主母芙努娜", "主母�
 _L["invasion_sotanathor_search"] = { "大型侵入点：索塔纳索尔", "索塔纳索尔", "sotanathor" };
 _L["invasion_meto_search"] = { "大型侵入点：审判官梅托", "审判官梅托", "meto" };
 _L["invasion_vilemus_search"] = { "大型侵入点：深渊领主维尔姆斯", "深渊领主维尔姆斯", "pit lord vilemus" };
+_L["invasion_occularus_search"] = { "大型侵入点：奥库拉鲁斯", "奥库拉鲁斯", "occularus"  };
+
+_L["Dreadblade Annihilator"] = "恐刃歼灭者";
+_L["bsrare_dreadbladeannihilator_search"] = { "恐刃歼灭者", "dreadblade annihilator" };
+_L["Salethan the Broodwalker"] = "巢行者萨尔杉";
+_L["bsrare_salethan_search"] = { "巢行者萨尔杉", "salethan the broodwalker", };
+_L["Corrupted Bonebreaker"] = "腐化的碎骨者";
+_L["bsrare_corruptedbonebreaker_search"] = { "腐化的碎骨者", "corrupted bonebreaker" };
+_L["Flllurlokkr"] = "弗鲁洛克";
+_L["bsrare_flllurlokkr_search"] = { "弗鲁洛克", "flllurlokkr" };
+_L["Grossir"] = "格罗希尔";
+_L["bsrare_grossir_search"] = { "格罗希尔", "grossir" };
+_L["Eye of Gurgh"] = "格尔之眼";
+_L["bsrare_eyeofgurgh_search"] = { "格尔之眼", "eye of gurgh" };
+_L["Somber Dawn"] = "阴郁黎明";
+_L["bsrare_somberdawn_search"] = { "阴郁黎明", "somber dawn" };
+_L["Felcaller Zelthae"] = "邪能召唤者泽尔萨";
+_L["bsrare_zelthae_search"] = { "邪能召唤者泽尔萨", "felcaller zelthae" };
+_L["Duke Sithizi"] = "西塞兹公爵";
+_L["bsrare_dukesithizi_search"] = { "西塞兹公爵", "duke sithizi" };
+_L["Lord Hel'Nurath"] = "赫尔努拉斯";
+_L["bsrare_helnurath_search"] = { "赫尔努拉斯", "lord hel'nurath" };
+_L["Imp Mother Bruva"] = "鬼母布鲁瓦";
+_L["bsrare_bruva_search"] = { "鬼母布鲁瓦", "imp mother bruva" };
+_L["Potionmaster Gloop"] = "药剂大师格洛普";
+_L["bsrare_gloop_search"] = { "药剂大师格洛普", "potionmaster gloop" };
+_L["Dreadeye"] = "恐眼";
+_L["bsrare_dreadeye_search"] = { "恐眼", "dreadeye" };
+_L["Malorus the Soulkeeper"] = "囚魂者玛洛鲁斯";
+_L["bsrare_malorus_search"] = { "囚魂者玛洛鲁斯", "malorus the soulkeeper" };
+_L["Brother Badatin"] = "巴达丁大师";
+_L["bsrare_badatin_search"] = { "巴达丁大师", "brother badatin" };
+_L["Felbringer Xar'thok"] = "邪能使者萨尔索克";
+_L["bsrare_xarthok_search"] = { "邪能使者萨尔索克", "felbringer xar'thok" };
+_L["Malgrazoth"] = "玛尔戈拉佐斯";
+_L["bsrare_malgrazoth_search"] = { "玛尔戈拉佐斯", "malgrazoth" };
+_L["Emberfire"] = "烬火";
+_L["bsrare_emberfire_search"] = { "烬火", "emberfire" };
+_L["Xorogun the Flamecarver"] = "刻焰者克索诺古恩";
+_L["bsrare_xorogun_search"] = { "刻焰者克索诺古恩", "xorogun the flamecarver" };
+_L["Lady Eldrathe"] = "艾黛拉丝夫人";
+_L["bsrare_eldrathe_search"] = { "艾黛拉丝夫人", "lady eldrathe" };
+_L["Aqueux"] = "阿奎克斯";
+_L["bsrare_aqueux_search"] = { "阿奎克斯", "aqueux" };
 
 --
 --
