@@ -293,7 +293,7 @@ _L["47752_51425958_note"] = "";
 _L["47752_55525237_note"] = "Lower level in the area. Need to jump through green shit. Annoying chest. Start at Xeth'tal.";
 _L["47752_58375051_note"] = "";
 -- 47753
-_L["47753_53137304_note"] = "";
+_L["47753_53167308_note"] = "";
 _L["47753_55228114_note"] = "";
 _L["47753_59267341_note"] = "";
 _L["47753_56118037_note"] = "Outside Talestra building";
@@ -353,6 +353,7 @@ _L["48000_74996922_note"] = "";
 _L["48000_62946824_note"] = "In the upper cave. Ride up the rocks east from here to reach the upper cave.";
 _L["48000_69386278_note"] = "";
 _L["48000_67656999_note"] = "Ride up the slope and over the tipped pillars to reach this chest.";
+_L["48000_69218397_note"] = "";
 -- 48336
 _L["48336_33575511_note"] = "Xenadar upper level, outside";
 _L["48336_32047441_note"] = "";
@@ -541,6 +542,7 @@ _L["48351_35535717_note"] = "On 2nd floor";
 _L["48351_43666847_note"] = "Inside building ruin";
 _L["48351_38386704_note"] = "";
 _L["48351_35635604_note"] = "On 2nd floor";
+_L["48351_33795558_note"] = "";
 -- 48357
 _L["48357_49412387_note"] = "";
 _L["48357_47672180_note"] = "";
@@ -592,6 +594,7 @@ _L["48362_61924258_note"] = "Inside building";
 _L["48362_67235673_note"] = "Inside building";
 _L["48362_70243379_note"] = "";
 _L["48362_69304993_note"] = "Inside building, on middle floor";
+_L["48362_61395555_note"] = "Inside building";
 -- Void-Seeped Cache / Treasure Chest
 -- 49264
 _L["49264_38143985_note"] = "";
@@ -618,6 +621,7 @@ _L["48361_37754868_note"] = "Down in the cave area";
 _L["48361_39174733_note"] = "Down in the cave area";
 _L["48361_28784425_note"] = "";
 _L["48361_32583679_note"] = "";
+_L["48361_19804660_note"] = "";
 
 --
 --	KEEP THESE ENGLISH FOR THE GROUP BROWSER IN EU/US!! CHINA & CO ADJUST
@@ -692,6 +696,12 @@ _L["Lady Eldrathe"] = "Lady Eldrathe";
 _L["bsrare_eldrathe_search"] = { "eld", "eldrat" };
 _L["Aqueux"] = "Aqueux";
 _L["bsrare_aqueux_search"] = { "aq", "aqueux" };
+_L["Doombringer Zar'thoz"] = "Doombringer Zar'thoz";
+_L["bsrare_zarthoz_search"] = { "zar", "zar'?th?oz" };
+_L["Felmaw Emberfiend"] = "Felmaw Emberfiend";
+_L["bsrare_felmawemberfiend_search"] = { "m", "felmaw", "emberfiend" };
+_L["Inquisitor Chillbane"] = "Inquisitor Chillbane";
+_L["bsrare_chillbane_search"] = { "chillbane", "chillbane" };
 
 --
 --

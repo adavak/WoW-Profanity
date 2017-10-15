@@ -135,6 +135,7 @@ _L["48382_60096945_note"] = "외부, 건물 뒤편";
 _L["48382_62146938_note"] = "";
 _L["48382_69496785_note"] = "";
 _L["48382_58806467_note"] = "건물 내부";
+_L["48382_57796495_note"] = "";
 -- 48383
 _L["48383_56903570_note"] = "";
 _L["48383_57633179_note"] = "";
@@ -169,7 +170,6 @@ _L["48387_69403965_note"] = "";
 _L["48387_66643654_note"] = "";
 _L["48387_68983342_note"] = "";
 _L["48387_65522831_note"] = "다리 밑";
-_L["48387_63613643_note"] = "";
 _L["48387_73404669_note"] = "수액을 뛰어 넘으세요";
 _L["48387_67954006_note"] = "";
 _L["48387_63603642_note"] = "";
@@ -336,6 +336,7 @@ _L["47999_46768337_note"] = "";
 _L["47999_59433273_note"] = "절벽 위";
 _L["47999_58442866_note"] = "건물 내부";
 _L["47999_48613092_note"] = "";
+_L["47999_57642617_note"] = "절벽 위";
 -- 48000
 _L["48000_70907370_note"] = "";
 _L["48000_74136790_note"] = "";
@@ -380,6 +381,7 @@ _L["48339_72493605_note"] = "";
 _L["48339_44864342_note"] = "";
 _L["48339_46094082_note"] = "";
 _L["48339_70503063_note"] = "";
+_L["48339_61876413_note"] = "";
 
 -- Mac'Aree
 _L["Shadowcaster Voruun"] = "흑마술사 보룬";
@@ -512,6 +514,7 @@ _L["48346_52696161_note"] = "";
 _L["48346_54806710_note"] = "";
 _L["48346_51677163_note"] = "";
 _L["48346_57397517_note"] = "";
+_L["48346_61047074_note"] = "나무 아래";
 -- 48350
 _L["48350_59622088_note"] = "건물 내부 계단 아래";
 _L["48350_60493338_note"] = "건물 내부";
@@ -614,6 +617,7 @@ _L["48361_24654126_note"] = "";
 _L["48361_37754868_note"] = "동굴 지역에서 아래로"
 _L["48361_39174733_note"] = "동굴 지역에서 아래로";
 _L["48361_28784425_note"] = "";
+_L["48361_32583679_note"] = "";
 
 --
 --	KEEP THESE ENGLISH FOR THE GROUP BROWSER IN EU/US!! CHINA & CO ADJUST
@@ -645,6 +649,49 @@ _L["invasion_sotanathor_search"] = { "소타나토르", "소타나토르" };
 _L["invasion_occularus_search"] = { "오큘라러스", "오쿨라러스" };
 _L["invasion_meto_search"] = { "메토", "매토" };
 _L["invasion_vilemus_search"] = { "바일머스", "바일머스" };
+
+_L["Dreadblade Annihilator"] = "공포칼날 파멸자";
+_L["bsrare_dreadbladeannihilator_search"] = { "공포칼날", "파멸자" };
+_L["Salethan the Broodwalker"] = "무리방랑자 살레단";
+_L["bsrare_salethan_search"] = { "무리방랑자", "살레단" };
+_L["Corrupted Bonebreaker"] = "타락한 뼈파괴자";
+_L["bsrare_corruptedbonebreaker_search"] = { "뼈", "뼈파괴자" };
+_L["Flllurlokkr"] = "플루르로크르";
+_L["bsrare_flllurlokkr_search"] = { "플루르", "로크르" };
+_L["Grossir"] = "그로시르";
+_L["bsrare_grossir_search"] = { "그로시르", "그로시르" };
+_L["Eye of Gurgh"] = "구르그의 눈";
+_L["bsrare_eyeofgurgh_search"] = { "구르그", "구르그" };
+_L["Somber Dawn"] = "흐릿한 여명";
+_L["bsrare_somberdawn_search"] = { "흐릿", "여명" };
+_L["Felcaller Zelthae"] = "지옥소환사 젤타이";
+_L["bsrare_zelthae_search"] = { "지옥소환사", "젤타이" };
+_L["Duke Sithizi"] = "공작 시티지";
+_L["bsrare_dukesithizi_search"] = { "공작", "시티지" };
+_L["Lord Hel'Nurath"] = "군주 헬누라스";
+_L["bsrare_helnurath_search"] = { "헬누라스", "핼누라스" };
+_L["Imp Mother Bruva"] = "임프 어미 브루바";
+_L["bsrare_bruva_search"] = { "브루바", "부르바" };
+_L["Potionmaster Gloop"] = "물약의 달인 글룹";
+_L["bsrare_gloop_search"] = { "글룹", "글룹" };
+_L["Dreadeye"] = "공포눈";
+_L["bsrare_dreadeye_search"] = { "공포눈", "공포눈" };
+_L["Malorus the Soulkeeper"] = "영혼지킴이 말로러스";
+_L["bsrare_malorus_search"] = { "영혼지킴이", "말로러스" };
+_L["Brother Badatin"] = "수사 배다틴";
+_L["bsrare_badatin_search"] = { "배다틴", "베다틴" };
+_L["Felbringer Xar'thok"] = "지옥소환사 자르토크";
+_L["bsrare_xarthok_search"] = { "자르토크", "자르토크" };
+_L["Malgrazoth"] = "말그라조스";
+_L["bsrare_malgrazoth_search"] = { "말그라조스", "말그라조스" };
+_L["Emberfire"] = "잿불불꽃";
+_L["bsrare_emberfire_search"] = { "잿불불꽃", "잿불불꽃" };
+_L["Xorogun the Flamecarver"] = "화염조각사 조로군";
+_L["bsrare_xorogun_search"] = { "조로군", "조로군" };
+_L["Lady Eldrathe"] = "여군주 엘드라스";
+_L["bsrare_eldrathe_search"] = { "엘드라스", "앨드라스" };
+_L["Aqueux"] = "아퀘욱스";
+_L["bsrare_aqueux_search"] = { "아퀘욱스", "아퀘옥스" };
 
 --
 --

@@ -1,5 +1,5 @@
 -- For the gnomes!!!
-local VERSION = "0.24.0";
+local VERSION = "0.24.1";
 
 local _G = getfenv(0)
 -- Libraries
@@ -300,7 +300,7 @@ nodes["ArgusSurface"] = {
 	{ coord = 55525237, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = _L["47752_55525237_note"] },
 	{ coord = 58375051, questId = 47752, icon = "treasure", group = "treasure_kr", label = "47752", loot = nil, note = _L["47752_58375051_note"] },
 	-- 47753
-	{ coord = 53137304, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = _L["47753_53137304_note"] },
+	{ coord = 53167308, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = _L["47753_53167308_note"] },
 	{ coord = 55228114, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = _L["47753_55228114_note"] },
 	{ coord = 59267341, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = _L["47753_59267341_note"] },
 	{ coord = 56118037, questId = 47753, icon = "treasure", group = "treasure_kr", label = "47753", loot = nil, note = _L["47753_56118037_note"] },
@@ -360,6 +360,7 @@ nodes["ArgusSurface"] = {
 	{ coord = 62946824, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_62946824_note"] },
 	{ coord = 69386278, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_69386278_note"] },
 	{ coord = 67656999, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_67656999_note"] },
+	{ coord = 69218397, questId = 48000, icon = "treasure", group = "treasure_kr", label = "48000", loot = nil, note = _L["48000_69218397_note"] },
 	-- 48336
 	{ coord = 33575511, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_33575511_note"] },
 	{ coord = 32047441, questId = 48336, icon = "treasure", group = "treasure_kr", label = "48336", loot = nil, note = _L["48336_32047441_note"] },
@@ -488,6 +489,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 43666847, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_43666847_note"] },
 	{ coord = 38386704, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_38386704_note"] },
 	{ coord = 35635604, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_35635604_note"] },
+	{ coord = 33795558, questId = 48351, icon = "treasure", group = "treasure_ma", label = "48351", loot = nil, note = _L["48351_33795558_note"] },
 	-- 48357
 	{ coord = 49412387, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_49412387_note"] },
 	{ coord = 47672180, questId = 48357, icon = "treasure", group = "treasure_ma", label = "48357", loot = nil, note = _L["48357_47672180_note"] },
@@ -539,6 +541,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 67235673, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_67235673_note"] },
 	{ coord = 70243379, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_70243379_note"] },
 	{ coord = 69304993, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_69304993_note"] },
+	{ coord = 61395555, questId = 48362, icon = "treasure", group = "treasure_ma", label = "48362", loot = nil, note = _L["48362_61395555_note"] },
 	-- Void-Seeped Cache / Treasure Chest
 	-- 49264
 	{ coord = 38143985, questId = 49264, icon = "treasure", group = "treasure_ma", label = "49264", loot = nil, note = _L["49264_38143985_note"] },
@@ -565,6 +568,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 39174733, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_39174733_note"] },
 	{ coord = 28794425, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_28784425_note"] },
 	{ coord = 32583679, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_32583679_note"] },
+	{ coord = 19804660, questId = 48361, icon = "treasure", group = "treasure_ma", label = "48361", loot = nil, note = _L["48361_19804660_note"] },
 
 }
 
@@ -611,6 +615,9 @@ local worldmapPOI = {
 	[5286] = { npcId = 0, group = "bsrare", label = _L["Malorus the Soulkeeper"], search = _L["bsrare_malorus_search"] },
 	[5287] = { npcId = 0, group = "bsrare", label = _L["Emberfire"], search = _L["bsrare_emberfire_search"] },
 	[5288] = { npcId = 0, group = "bsrare", label = _L["Potionmaster Gloop"], search = _L["bsrare_gloop_search"] },
+	[5289] = { npcId = 0, group = "bsrare", label = _L["Felmaw Emberfiend"], search = _L["bsrare_felmawemberfiend_search"] },
+	[5290] = { npcId = 0, group = "bsrare", label = _L["Inquisitor Chillbane"], search = _L["bsrare_chillbane_search"] },
+	[5291] = { npcId = 0, group = "bsrare", label = _L["Doombringer Zar'thoz"], search = _L["bsrare_zarthoz_search"] },
 	[5292] = { npcId = 0, group = "bsrare", label = _L["Dreadblade Annihilator"], search = _L["bsrare_dreadbladeannihilator_search"] },
 	[5293] = { npcId = 0, group = "bsrare", label = _L["Felbringer Xar'thok"], search = _L["bsrare_xarthok_search"] },
 	[5294] = { npcId = 0, group = "bsrare", label = _L["Xorogun the Flamecarver"], search = _L["bsrare_xorogun_search"] },
