@@ -561,6 +561,7 @@ _L["48357_44571860_note"] = "";
 _L["48357_53491281_note"] = "";
 _L["48357_45241327_note"] = "";
 _L["48357_48251289_note"] = "底层，吞噬者斯克里格旁边";
+_L["48357_44952483_note"] = "";
 -- 48371
 _L["48371_48604971_note"] = "";
 _L["48371_49865494_note"] = "";
@@ -702,6 +703,8 @@ _L["Felmaw Emberfiend"] = "魔喉烬魔";
 _L["bsrare_felmawemberfiend_search"] = { "魔喉烬魔", "felmaw emberfiend" };
 _L["Inquisitor Chillbane"] = "审判官奇尔班";
 _L["bsrare_chillbane_search"] = { "审判官奇尔班", "inquisitor chillbane" };
+_L["Brood Mother Nix"] = "巢母妮克丝";
+_L["bsrare_broodmothernix_search"] = { "巢母妮克丝", "brood mother nix" };
 
 --
 --
