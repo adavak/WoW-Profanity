@@ -1,5 +1,5 @@
 -- For the gnomes!!!
-local VERSION = "0.25.0";
+local VERSION = "0.26.0";
 
 local _G = getfenv(0)
 -- Libraries
@@ -680,7 +680,8 @@ local ADDON_MSG_CMD = {
 	sendVer = "SV",
 	getRares = "GR",
 	sendRares = "SR"
-}
+};
+local PLAYERS = {};
 
 --
 --
@@ -691,6 +692,15 @@ local ADDON_MSG_CMD = {
 local function debugMsg( msg )
 	if ( Argus.db.profile.show_debug ) then
 		print( msg );
+	end
+end
+
+local function versionToNumber( version )
+	local v1, v2, v3 = version:match("(%d+)%.(%d+)%.(%d+)");
+	if ( v1 and v2 and v3 ) then
+		return tonumber(v1) * 10000 + tonumber(v2) * 100 + tonumber(v3);
+	else
+		return 0;
 	end
 end
 
@@ -742,7 +752,7 @@ local function formatAge( age )
 	end
 end
 
-local function getCurrentTimeSlot( decimals, offset )
+local function __getCurrentTimeSlot( decimals, offset )
 	-- 09:02 - 13:02 = 0
 	-- 13:02 - 17:02 = 1
 	-- 17:02 - 21:02 = 2
@@ -1052,6 +1062,7 @@ local function checkResetNPCGroupCounts()
 	if ( lastRareResetSlot ~= currentTimeSlot ) then
 		resetNPCGroupCounts();
 		lastRareResetSlot = currentTimeSlot;
+		PLAYERS = {};
 	end
 end
 
@@ -1305,7 +1316,7 @@ finderFrame:SetScript("OnEvent", function( self, event, ... )
 			finderFrame.searchNode = nil;
 		end
 	elseif ( event == "LFG_LIST_SEARCH_FAILED" ) then
-		print( _L["chatmsg_search_failed"] );
+		debugMsg( _L["chatmsg_search_failed"] );
 	elseif ( event == "PLAYER_TARGET_CHANGED" ) then
 		if ( UnitHealth("target") == UnitHealthMax("target") and not UnitAffectingCombat("target") ) then
 			local guid = UnitGUID("target");
@@ -1385,11 +1396,11 @@ end );
 --
 --
 
-local commGetRares = function( channel )
+local function commGetRares( channel )
 	SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.getRares .. "=" .. VERSION, channel );
 end
 
-local commSendRares = function( channel )
+local function commSendRares( channel )
 	local s = "";
 	local now = getCurrentTimeSlot();
 	for npcId, node in pairs( nodeRef.rares ) do
@@ -1406,36 +1417,37 @@ local commSendRares = function( channel )
 	end
 end
 
-local commSendVersion = function( channel )
+local function commGetVersion( channel, nextCmd )
+	SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.getVer .. "=" .. nextCmd, channel );
+end
+
+local function commSendVersion( channel )
 	SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.sendVer .. "=" .. VERSION, channel );
 end
 
-local communicator = CreateFrame("Frame");
-communicator:SetScript("OnEvent", function( self, event, ... )
-	if ( event == "PLAYER_ENTERING_WORLD" ) then
-		if ( IsInGuild() ) then
-			commSendVersion( "GUILD" );
-			commGetRares( "GUILD" );
+local function commHandleCmd( channel, cmd, msg, target )
+	if ( cmd == ADDON_MSG_CMD.getVer ) then
+		local nextCmd = msg;
+		commSendVersion( channel );
+		commHandleCmd( channel, nextCmd, "", target );
+	elseif ( cmd == ADDON_MSG_CMD.sendVer ) then
+		-- debugMsg( target .. " -> " .. versionToNumber( msg ) );
+		if ( target ) then
+			if ( not PLAYERS[target] ) then
+				PLAYERS[target] = { version = 0, tries = 0 };
+			end
+			PLAYERS[target]["version"] = versionToNumber( msg );
 		end
-	elseif ( event == "GROUP_JOINED" or event == "__GROUP_ROSTER_UPDATE" ) then
-		commSendVersion( "RAID" );
-		commGetRares( "RAID" );
-	elseif ( event == "CHAT_MSG_ADDON" ) then
-		local prefix, rawmsg, channel, playerRealm, player = ...
-		if ( playerRealm == MYSELF ) then
-			-- ignore myself
+	elseif ( cmd == ADDON_MSG_CMD.getRares ) then
+		commSendRares( channel );
+	elseif ( cmd == ADDON_MSG_CMD.sendRares ) then
+		if ( not PLAYERS[target] ) then
+			PLAYERS[target] = { version = 0, tries = 0 };
+			commGetVersion( channel, ADDON_MSG_CMD.getRares );
 			return;
-		end
-		local cmd = rawmsg:sub(1,2);
-		local msg = "";
-		if ( rawmsg:len() >= 4 ) then
-			msg = rawmsg:sub(4,-1);
-		end
-		if ( cmd == ADDON_MSG_CMD.getRares ) then
-			commSendRares( channel );
-		elseif ( cmd == ADDON_MSG_CMD.sendRares ) then
+		elseif ( PLAYERS[target]["version"] and PLAYERS[target]["version"] >= 2600 ) then
 			--print( ... );
-			--print( "parseRares:" .. msg );
+			--debugMsg( "parseRares:" .. msg );
 			local now = getCurrentTimeSlot();
 			msg:gsub("(%d+):(%d);", function ( npcId, timeSlot )
 				npcId = tonumber( npcId );
@@ -1459,7 +1471,36 @@ communicator:SetScript("OnEvent", function( self, event, ... )
 					--print("unknown npcid " .. npcId);
 				end
 			end );
+		else
+			-- print("ignore rares");
 		end
+	end
+end
+
+local communicator = CreateFrame("Frame");
+communicator:SetScript("OnEvent", function( self, event, ... )
+	if ( event == "PLAYER_ENTERING_WORLD" ) then
+		if ( IsInGuild() ) then
+			commGetVersion( "GUILD", ADDON_MSG_CMD.getRares );
+			-- commSendVersion( "GUILD" );
+			-- commGetRares( "GUILD" );
+		end
+	elseif ( event == "GROUP_JOINED" or event == "__GROUP_ROSTER_UPDATE" ) then
+		commGetVersion( "RAID", ADDON_MSG_CMD.getRares );
+		-- commSendVersion( "RAID" );
+		-- commGetRares( "RAID" );
+	elseif ( event == "CHAT_MSG_ADDON" ) then
+		local prefix, rawmsg, channel, playerRealm, player = ...
+		if ( playerRealm == MYSELF or prefix ~= ADDON_MSG_PREFIX ) then
+			-- ignore myself and other addons
+			return;
+		end
+		local cmd = rawmsg:sub(1,2);
+		local msg = "";
+		if ( rawmsg:len() >= 4 ) then
+			msg = rawmsg:sub(4,-1);
+		end
+		commHandleCmd( channel, cmd, msg, playerRealm );
 	end
 end );
 
