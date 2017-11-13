@@ -1,5 +1,5 @@
 -- For the gnomes!!!
-local VERSION = "0.26.0";
+local VERSION = "0.26.1";
 
 local _G = getfenv(0)
 -- Libraries
@@ -131,7 +131,7 @@ nodes["ArgusCore"] = {
 	{ coord = 63042455, npcId = 127288, questId = 48821, icon = "skull_grey", group = "rare_aw", label = _L["Houndmaster Kerrax"], search = _L["Houndmaster Kerrax_search"], loot = { { itemId = 152790, itemType = itemTypeMount, mountId = 955 } }, note = _L["Houndmaster Kerrax_note"] },
 	{ coord = 55702190, npcId = 127300, questId = 48824, icon = "skull_grey", group = "rare_aw", label = _L["Void Warden Valsuran"], search = _L["Void Warden Valsuran_search"], loot = { { itemId = 153319, itemType = itemTypeTransmog, slot = _L["2h Mace"] }, { itemId = 152886, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152888, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152884, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152889, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152885, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152881, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152887, itemType = itemTypeTransmog, slot = _L["Cloth"] }, { itemId = 152883, itemType = itemTypeTransmog, slot = _L["Cloth"] } }, note = _L["Void Warden Valsuran_note"] },
 	{ coord = 61392095, npcId = 127376, questId = 48865, icon = "skull_grey", group = "rare_aw", label = _L["Chief Alchemist Munculus"], search = _L["Chief Alchemist Munculus_search"], loot = {}, note = _L["Chief Alchemist Munculus_note"] },
-	{ coord = 54823915, npcId = 127581, questId = 48966, icon = "skull_grey", group = "rare_aw", label = _L["The Many-Faced Devourer"], search = _L["The Many-Faced Devourer_search"], loot = { { itemId = 153195, itemType = itemTypePet, speciesId = 2136, forceUnknown = true } }, note = _L["The Many-Faced Devourer_note"] },
+	{ coord = 54823915, npcId = 127581, questId = 48966, icon = "skull_grey", group = "rare_aw", label = _L["The Many-Faced Devourer"], search = _L["The Many-Faced Devourer_search"], loot = { { itemId = 153195, itemType = itemTypePet, speciesId = 2136 } }, note = _L["The Many-Faced Devourer_note"] },
 	{ coord = 77567478, npcId = nil, questId = 48967, icon = "portalGreen", group = "portal_aw", label = _L["Portal to Squadron Commander Vishax"], loot = {}, note = _L["Portal to Squadron Commander Vishax_note"] },
 	{ coord = 84368118, npcId = 127700, questId = 48967, icon = "skull_grey", group = "rare_aw", label = _L["Squadron Commander Vishax"], search = _L["Squadron Commander Vishax_search"], loot = { { itemId = 153253, itemType = itemTypeToy } }, note = _L["Squadron Commander Vishax_note"] },
 	{ coord = 58001200, npcId = 127703, questId = 48968, icon = "skull_grey", group = "rare_aw", label = _L["Doomcaster Suprax"], search = _L["Doomcaster Suprax_search"], loot = { { itemId = 153194, itemType = itemTypeToy } }, note = _L["Doomcaster Suprax_note"] },
@@ -403,7 +403,7 @@ nodes["ArgusMacAree"] = {
 	{ coord = 52976684, npcId = 126815, questId = 48693, icon = "skull_grey", group = "rare_ma", label = _L["Soultwisted Monstrosity"], search = _L["Soultwisted Monstrosity_search"], loot = {}, note = _L["Soultwisted Monstrosity_note"] },
 	{ coord = 55536016, npcId = 126852, questId = 48695, icon = "skull_grey", group = "rare_ma", label = _L["Wrangler Kravos"], search = _L["Wrangler Kravos_search"], loot = { { itemId = 153269, itemType = itemTypeTransmog, slot = _L["1h Axe"] }, { itemId = 152814, itemType = itemTypeMount, mountId = 970 } }, note = _L["Wrangler Kravos_note"] },
 	{ coord = 38705580, npcId = 126860, questId = 48697, icon = "skull_grey", group = "rare_ma", label = _L["Kaara the Pale"], search = _L["Kaara the Pale_search"], loot = { { itemId = 153190, itemType = itemTypeMisc }, { itemId = 153054, itemType = itemTypePet, speciesId = 2118 }, { itemId = 153055, itemType = itemTypePet, speciesId = 2119 }, { itemId = 152841, itemType = itemTypeMount, mountId = 975 }, { itemId = 152843, itemType = itemTypeMount, mountId = 906 }, { itemId = 152842, itemType = itemTypeMount, mountId = 974 }, { itemId = 152840, itemType = itemTypeMount, mountId = 976 } }, note = _L["Kaara the Pale_note"] },
-	{ coord = 41121149, npcId = 126864, questId = 48702, icon = "skull_grey", group = "rare_ma", label = _L["Feasel the Muffin Thief"], search = _L["Feasel the Muffin Thief_search"], loot = { { itemId = 152998, itemType = itemTypeMisc, forceUnknown = true } }, note = _L["Feasel the Muffin Thief_note"] },
+	{ coord = 41121149, npcId = 126864, questId = 48702, icon = "skull_grey", group = "rare_ma", label = _L["Feasel the Muffin Thief"], search = _L["Feasel the Muffin Thief_search"], loot = { { itemId = 152998, itemType = itemTypeMisc } }, note = _L["Feasel the Muffin Thief_note"] },
 	{ coord = 36682383, npcId = 126865, questId = 48703, icon = "skull_grey", group = "rare_ma", label = _L["Vigilant Thanos"], search = _L["Vigilant Thanos_search"], loot = { { itemId = 153322, itemType = itemTypeTransmog, slot = _L["Shield"] }, { itemId = 153183, itemType = itemTypeToy } }, note = _L["Vigilant Thanos_note"] },
 	{ coord = 63806460, npcId = 126866, questId = 48704, icon = "skull_grey", group = "rare_ma", label = _L["Vigilant Kuro"], search = _L["Vigilant Kuro_search"], loot = { { itemId = 153323, itemType = itemTypeTransmog, slot = _L["Shield"] }, { itemId = 153183, itemType = itemTypeToy } }, note = _L["Vigilant Kuro_note"] },
 	{ coord = 33654801, npcId = 126867, questId = 48705, icon = "skull_grey", group = "rare_ma", label = _L["Venomtail Skyfin"], search = _L["Venomtail Skyfin_search"], loot = { { itemId = 152844, itemType = itemTypeMount, mountId = 973 } }, note = _L["Venomtail Skyfin_note"] },
@@ -1431,7 +1431,7 @@ local function commHandleCmd( channel, cmd, msg, target )
 		commSendVersion( channel );
 		commHandleCmd( channel, nextCmd, "", target );
 	elseif ( cmd == ADDON_MSG_CMD.sendVer ) then
-		-- debugMsg( target .. " -> " .. versionToNumber( msg ) );
+		debugMsg( target .. " -> " .. msg );
 		if ( target ) then
 			if ( not PLAYERS[target] ) then
 				PLAYERS[target] = { version = 0, tries = 0 };
