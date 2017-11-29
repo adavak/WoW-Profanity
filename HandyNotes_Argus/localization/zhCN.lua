@@ -706,6 +706,21 @@ _L["bsrare_chillbane_search"] = { "审判官奇尔班", "inquisitor chillbane" }
 _L["Brood Mother Nix"] = "巢母妮克丝";
 _L["bsrare_broodmothernix_search"] = { "巢母妮克丝", "brood mother nix" };
 
+_L["Lord Kazzak"] = "末日领主卡扎克";
+_L["kazzak_search"] = { "末日领主卡扎克", "lord kazzak" };
+_L["Azuregos"] = "艾索雷葛斯";
+_L["azuregos_search"] = { "艾索雷葛斯", "azuregos" };
+_L["Dragons of Nightmare"] = "梦魇之龙";
+_L["dragonsofnightmare_search"] = { "梦魇之龙", "伊森德雷", "莱索恩", "艾莫莉丝", "泰拉尔", "梦魇" };
+_L["Ysondre"] = "伊森德雷";
+_L["ysondre_search"] = { "伊森德雷", "ysondre" };
+_L["Lethon"] = "莱索恩";
+_L["lethon_search"] = { "莱索恩", "lethon" };
+_L["Emeriss"] = "艾莫莉丝";
+_L["emeriss_search"] = { "艾莫莉丝", "emeriss" };
+_L["Taerar"] = "泰拉尔";
+_L["taerar_search"] = { "泰拉尔", "taerar" };
+
 --
 --
 -- INTERFACE
@@ -734,7 +749,13 @@ _L["Fist"] = "拳套";
 _L["Polearm"] = "长柄武器";
 _L["Bow"] = "弓";
 _L["Gun"] = "枪";
+_L["Wand"] = "魔杖";
 _L["Crossbow"] = "弩";
+_L["Ring"] = "戒指";
+_L["Amulet"] = "项链";
+_L["Cloak"] = "披风";
+_L["Trinket"] = "饰品";
+_L["Off Hand"] = "副手";
 
 _L["groupBrowserOptionOne"] = "%s - %s 人(%d秒)";
 _L["groupBrowserOptionMore"] = "%s - %s 人(%d秒)";
@@ -831,5 +852,12 @@ _L["options_toggle_hideKnowLoot_desc"] = "当全部拾取收集完毕时隐藏�
 _L["options_toggle_alwaysTrackCoA"] = "总是追踪阿古斯指挥官";
 _L["options_toggle_alwaysTrackCoA_desc"] = "总是追踪阿古斯指挥官成就，帐号完成成就仍追踪，但不是根据角色。";
 _L["Missing for CoALink"] = "%s缺少的";
+
+_L["options_toggle_birthday13"] = "魔兽世界13周年世界首领";
+_L["options_toggle_birthday13_desc"] = "切换艾索雷葛斯，末日领主卡扎克和梦魇之龙";
+_L["options_toggle_alwaysShowBirthday13"] = "- 忽略今日已拾取";
+_L["options_toggle_alwaysShowBirthday13_desc"] = "";
+_L["Shared"] = "共享";
+_L["Somewhere"] = "某处";
 
 end

@@ -1,5 +1,5 @@
 -- For the gnomes!!!
-local VERSION = "0.26.1";
+local VERSION = "0.26.5";
 
 local _G = getfenv(0)
 -- Libraries
@@ -87,6 +87,7 @@ local itemTypePet = 1;
 local itemTypeMount = 2;
 local itemTypeToy = 3;
 local itemTypeTransmog = 4;
+local itemTypeTitle = 5;
 
 local allLanguages = {
 	deDE = true,
@@ -660,6 +661,112 @@ local worldmapPOI = {
 
 --
 --
+--	13th Anniversary
+--
+--
+
+local kazzakLoot = {
+	{ itemId = 150379, itemType = itemTypeTransmog, slot = _L["Mail"] },
+	{ itemId = 150380, itemType = itemTypeTransmog, slot = _L["Cloak"] },
+	{ itemId = 150381, itemType = itemTypeTransmog, slot = _L["Leather"] },
+	{ itemId = 150382, itemType = itemTypeTransmog, slot = _L["Leather"] },
+	{ itemId = 150383, itemType = itemTypeTransmog, slot = _L["Staff"] },
+	{ itemId = 150384, itemType = itemTypeTransmog, slot = _L["Ring"] },
+	{ itemId = 150385, itemType = itemTypeTransmog, slot = _L["Cloth"] },
+	{ itemId = 150386, itemType = itemTypeTransmog, slot = _L["Cloth"] },
+	{ itemId = 150426, itemType = itemTypeTransmog, slot = _L["Trinket"] },
+	{ itemId = 150427, itemType = itemTypeTransmog, slot = _L["1h Mace"] },
+};
+
+local azuregosLoot = {
+	{ itemId = 150417, itemType = itemTypeTransmog, slot = _L["Cloak"] },
+	{ itemId = 150419, itemType = itemTypeTransmog, slot = _L["Cloth"] },
+	{ itemId = 150421, itemType = itemTypeTransmog, slot = _L["2h Sword"] },
+	{ itemId = 150422, itemType = itemTypeTransmog, slot = _L["Plate"] },
+	{ itemId = 150423, itemType = itemTypeTransmog, slot = _L["Dagger"] },
+	{ itemId = 150424, itemType = itemTypeTransmog, slot = _L["Wand"] },
+	{ itemId = 150425, itemType = itemTypeTransmog, slot = _L["Cloth"] },
+	{ itemId = 150428, itemType = itemTypeTransmog, slot = _L["Fist"] },
+	{ itemId = 150543, itemType = itemTypeTransmog, slot = _L["Leather"] },
+	{ itemId = 150544, itemType = itemTypeTransmog, slot = _L["Mail"] },
+	{ itemId = 150545, itemType = itemTypeTransmog, slot = _L["Ring"] },
+};
+
+local dragonsofnightmareLoot = {
+	{ itemType = itemTypeTitle, title = " " },
+	{ itemType = itemTypeTitle, title = _L["Ysondre"] },
+	{ itemId = 150387, itemType = itemTypeTransmog, slot = _L["Plate"] },
+	{ itemId = 150389, itemType = itemTypeTransmog, slot = _L["Mail"] },
+	{ itemId = 150391, itemType = itemTypeTransmog, slot = _L["Cloth"] },
+	{ itemId = 150396, itemType = itemTypeTransmog, slot = _L["Leather"] },
+	{ itemId = 150397, itemType = itemTypeTransmog, slot = _L["Cloth"] },
+	{ itemId = 150409, itemType = itemTypeTransmog, slot = _L["Off Hand"] },
+	{ itemType = itemTypeTitle, title = " " },
+	{ itemType = itemTypeTitle, title = _L["Lethon"] },
+	{ itemId = 150398, itemType = itemTypeTransmog, slot = _L["Leather"] },
+	{ itemId = 150399, itemType = itemTypeTransmog, slot = _L["Cloth"] },
+	{ itemId = 150400, itemType = itemTypeTransmog, slot = _L["Mail"] },
+	{ itemId = 150401, itemType = itemTypeTransmog, slot = _L["Leather"] },
+	{ itemId = 150402, itemType = itemTypeTransmog, slot = _L["Plate"] },
+	{ itemId = 150407, itemType = itemTypeTransmog, slot = _L["Amulet"] },
+	{ itemId = 150429, itemType = itemTypeTransmog, slot = _L["Dagger"] },
+	{ itemType = itemTypeTitle, title = " " },
+	{ itemType = itemTypeTitle, title = _L["Emeriss"] },
+	{ itemId = 150404, itemType = itemTypeTransmog, slot = _L["Ring"] },
+	{ itemId = 150405, itemType = itemTypeTransmog, slot = _L["Leather"] },
+	{ itemId = 150406, itemType = itemTypeTransmog, slot = _L["Mail"] },
+	{ itemId = 150410, itemType = itemTypeTransmog, slot = _L["Plate"] },
+	{ itemId = 150415, itemType = itemTypeTransmog, slot = _L["Leather"] },
+	{ itemId = 150416, itemType = itemTypeTransmog, slot = _L["Cloth"] },
+	{ itemType = itemTypeTitle, title = " " },
+	{ itemType = itemTypeTitle, title = _L["Taerar"] },
+	{ itemId = 150390, itemType = itemTypeTransmog, slot = _L["Plate"] },
+	{ itemId = 150392, itemType = itemTypeTransmog, slot = _L["Ring"] },
+	{ itemId = 150394, itemType = itemTypeTransmog, slot = _L["Cloth"] },
+	{ itemId = 150395, itemType = itemTypeTransmog, slot = _L["Leather"] },
+	{ itemId = 150414, itemType = itemTypeTransmog, slot = _L["Mail"] },
+	{ itemId = 150413, itemType = itemTypeTransmog, slot = _L["Plate"] },
+	{ itemType = itemTypeTitle, title = " " },
+	{ itemType = itemTypeTitle, title = _L["Shared"] },
+	{ itemId = 150388, itemType = itemTypeTransmog, slot = _L["Trinket"] }, -- ylet
+	{ itemId = 150393, itemType = itemTypeTransmog, slot = _L["1h Sword"] }, -- ylet
+	{ itemId = 150403, itemType = itemTypeTransmog, slot = _L["Crossbow"] }, -- ylet
+	{ itemId = 150408, itemType = itemTypeTransmog, slot = _L["Staff"] }, -- yle
+	{ itemId = 150411, itemType = itemTypeTransmog, slot = _L["Cloak"] }, -- ylet
+	{ itemId = 150412, itemType = itemTypeTransmog, slot = _L["1h Mace"] }, -- yle
+}
+
+nodes["BlastedLands"] = {
+	{ coord = 32274901, questId = 47461, npcId = 12397, icon = "skull_grey", group = "birthday13", label = _L["Lord Kazzak"], searchMaxAge = 3600*2, search = _L["kazzak_search"], loot = kazzakLoot, note = nil },
+}
+
+nodes["Aszhara"] = {
+	{ coord = 48778429, questId = 47462, npcId = 121820, icon = "skull_grey", group = "birthday13", label = _L["Azuregos"], searchMaxAge = 3600*2, search = _L["azuregos_search"], loot = azuregosLoot, note = nil },
+}
+
+-- taerar 14890
+-- emeriss 14889
+-- ysondre 14887 47463
+-- lethon 14888
+
+nodes["Duskwood"] = {
+	{ coord = 47533989, questId = 47463, icon = "skull_grey", group = "birthday13", label = _L["Dragons of Nightmare"], searchMaxAge = 3600*2, search = _L["dragonsofnightmare_search"], loot = dragonsofnightmareLoot, note = nil },
+}
+
+nodes["Hinterlands"] = {
+	{ coord = 62922546, questId = 47463, icon = "skull_grey", group = "birthday13", label = _L["Dragons of Nightmare"], searchMaxAge = 3600*2, search = _L["dragonsofnightmare_search"], loot = dragonsofnightmareLoot, note = nil },
+}
+
+nodes["Ashenvale"] = {
+	{ coord = 93634059, questId = 47463, icon = "skull_grey", group = "birthday13", label = _L["Dragons of Nightmare"], searchMaxAge = 3600*2, search = _L["dragonsofnightmare_search"], loot = dragonsofnightmareLoot, note = nil },
+}
+
+nodes["Feralas"] = {
+	{ coord = 50831161, questId = 47463, icon = "skull_grey", group = "birthday13", label = _L["Dragons of Nightmare"], searchMaxAge = 3600*2, search = _L["dragonsofnightmare_search"], loot = dragonsofnightmareLoot, note = nil },
+}
+
+--
+--
 --	Globals
 --
 --
@@ -803,11 +910,13 @@ local function updateLoot( node )
 	if ((node["loot"] ~= nil) and (type(node["loot"]) == "table") ) then
 		local ii;
 		for ii = 1, #node["loot"] do
-			total = total + 1;
-			local _, itemLink = GetItemInfo( node["loot"][ii]["itemId"] );
-			if ( not itemLink ) then failed = failed + 1 end
-			if ( not playerHasLoot( node["loot"][ii] ) ) then
-				node["allLootKnown"] = false;
+			if ( node["loot"][ii]["itemId"] ) then
+				total = total + 1;
+				local _, itemLink = GetItemInfo( node["loot"][ii]["itemId"] );
+				if ( not itemLink ) then failed = failed + 1 end
+				if ( not playerHasLoot( node["loot"][ii] ) ) then
+					node["allLootKnown"] = false;
+				end
 			end
 		end
 	end
@@ -838,6 +947,7 @@ local function prepareNodesData()
 	numSearches = 0;
 	for mapId,mapFile in pairs( nodes ) do
 		local numNodes = #nodes[mapId];
+		--debugMsg( mapId );
 		nodes[mapId][1]["lookup"] = {};
 		local lookup = nodes[mapId][1]["lookup"];
 		for i = 1,numNodes do
@@ -934,13 +1044,18 @@ function Argus:OnEnter( mapFile, coord )
 		local ii;
 		local loot = node["loot"];
 		for ii = 1, #loot do
-			local _, itemLink, _, _, _, _, _, _, _, _ = GetItemInfo( loot[ii]["itemId"] );
-			if ( not itemLink ) then
+			local itemLink;
+			if ( loot[ii]["itemId"] ) then
+				_, itemLink, _, _, _, _, _, _, _, _ = GetItemInfo( loot[ii]["itemId"] );
+				if ( not itemLink ) then
 				itemLink = _L["Retrieving data ..."];
-				itemDataMissing = true;
+					itemDataMissing = true;
+				end
 			end
 			-- loot
-			if ( loot[ii]["itemType"] == itemTypeMount ) then
+			if ( loot[ii]["itemType"] == itemTypeTitle ) then
+				tooltip:AddLine( loot[ii]["title"] );
+			elseif ( loot[ii]["itemType"] == itemTypeMount ) then
 				-- check mount known
 				local n,_,_,_,_,_,_,_,_,_,c,j=C_MountJournal.GetMountInfoByID( loot[ii]["mountId"] );
 				if ( c == true ) then
@@ -1202,7 +1317,8 @@ local function LFGcreate( button, node )
 			elseif ( string.find( node["group"], "bsrare" ) ) then
 				desc = string.format( _L["listing_desc_rare"], node["label"] ) .. " Created with HandyNotes_Argus ##poi:" .. node["poiId"] .. "#hna:" .. VERSION;
 			end
-			C_LFGList.CreateListing( 16, node["label"]:sub(1,31), 820, 0, "", desc:sub(1,200), true );
+			local overallILvl, equippedILvl, pvpILvl = GetAverageItemLevel();
+			C_LFGList.CreateListing( 16, node["label"]:sub(1,31), math.min( equippedILvl, 820 ), 0, "", desc:sub(1,200), true );
 		end
 	end
 end
@@ -1260,7 +1376,7 @@ local function LFGbrowseMatches( matches, node, lfgcat )
 		menu = {
 			{ text = _L["Groups found:"], isTitle = true, notCheckable = true },
 		};
-		if ( node["group"] == "invasion" ) then
+		if ( node["group"] == "invasion" or node["group"] == "birthday13" ) then
 			table.sort( matches, function( a, b )
 				return a.numMembers > b.numMembers;
 			end );
@@ -1613,11 +1729,13 @@ function Argus:OnClick(button, down, mapFile, coord)
         ToggleDropDownMenu(1, nil, HandyNotes_ArgusDropdownMenu, self, 0, 0)
 	elseif button == "MiddleButton" and down then
 		-- create group
-		if ( node["group"]:find("rare") ~= nil or node["group"]:find("invasion") ~= nil) then
+		if ( node["group"]:find("rare") ~= nil or node["group"]:find("invasion") ~= nil or node["group"]:find("birthday13") ~= nil ) then
 			LFGcreate( nil, node );
 		end
 	elseif button == "LeftButton" and down then
-		if ( node["group"]:find("rare") ~= nil or node["group"]:find("invasion") ~= nil) then
+		if ( node["group"]:find("rare") ~= nil or
+			node["group"]:find("invasion") ~= nil or
+			node["group"]:find("birthday13") ~= nil ) then
 			-- find group
 			LFGsearch( nil, node );
 		end
@@ -1897,7 +2015,7 @@ local options = {
 					arg = "nodeRareGlow",
 					name = _L["options_toggle_nodeRareGlow"],
 					desc = _L["options_toggle_nodeRareGlow_desc"],
-					order = 33,
+					order = 34,
 					width = "full",
 				},
 				hideKnowLoot = {
@@ -1905,7 +2023,7 @@ local options = {
 					arg = "hideKnowLoot",
 					name = _L["options_toggle_hideKnowLoot"],
 					desc = _L["options_toggle_hideKnowLoot_desc"],
-					order = 33,
+					order = 35,
 					width = "full",
 				},
 				alwaysTrackCoA = {
@@ -1913,7 +2031,23 @@ local options = {
 					arg = "alwaysTrackCoA",
 					name = _L["options_toggle_alwaysTrackCoA"],
 					desc = _L["options_toggle_alwaysTrackCoA_desc"],
-					order = 33,
+					order = 36,
+					width = "full",
+				},
+				birthday13 = {
+					type = "toggle",
+					arg = "birthday13",
+					name = _L["options_toggle_birthday13"],
+					desc = _L["options_toggle_birthday13_desc"],
+					order = 36,
+					width = "full",
+				},
+				alwaysShowBirthday13 = {
+					type = "toggle",
+					arg = "alwaysShowBirthday13",
+					name = _L["options_toggle_alwaysShowBirthday13"],
+					desc = _L["options_toggle_alwaysShowBirthday13_desc"],
+					order = 37,
 					width = "full",
 				},
 			},
@@ -2043,6 +2177,8 @@ function Argus:OnInitialize()
 			show_debug = false,
 			include_player_seen = false,
 			alwaysTrackCoA = false,
+			birthday13 = true,
+			alwaysShowBirthday13 = false,
         },
     }
 
@@ -2150,7 +2286,7 @@ function Argus:RegisterWithHandyNotes()
     end
 
     HandyNotes:RegisterPluginDB("HandyNotesArgus", self, options)
-    self:RegisterBucketEvent({ "LOOT_CLOSED" }, 2, "Refresh")
+    self:RegisterBucketEvent({ "LOOT_CLOSED", "PLAYER_MONEY", "SHOW_LOOT_TOAST", "SHOW_LOOT_TOAST_UPGRADE" }, 2, "Refresh")
     self:Refresh()
 end
  
@@ -2160,6 +2296,8 @@ end
 
 function Argus:ShowNode( mapFile, node )
 	if ( not self.db.profile[node["group"]] ) then return false end
+	if ( not self.db.profile.birthday13 ) then return false end
+	if ( self.db.profile.alwaysShowBirthday13 and (string.find(node["group"], "birthday13") ~= nil) ) then return true end
     if ( self.db.profile.alwaysshowtreasures and (string.find(node["group"], "treasure") ~= nil) ) then return true end
     if ( self.db.profile.alwaysshowrares and (string.find(node["group"], "rare") ~= nil) ) then return true end
 	if ( self.db.profile.alwaysshowsfll and (string.find(node["group"], "sfll") ~= nil) ) then return true end
