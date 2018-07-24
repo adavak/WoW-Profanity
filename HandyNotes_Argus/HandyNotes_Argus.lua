@@ -1,5 +1,5 @@
 -- For the gnomes!!!
-local VERSION = "0.26.5";
+local VERSION = "0.26.6";
 
 local _G = getfenv(0)
 -- Libraries
@@ -1165,10 +1165,10 @@ local function resetNPCGroupCounts()
 		end
 	end
 	if ( IsInGuild() ) then
-		SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.getRares .. "=" .. VERSION, "GUILD" );
+		C_ChatInfo.SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.getRares .. "=" .. VERSION, "GUILD" );
 	end
 	if ( IsInGroup() ) then
-		SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.getRares .. "=" .. VERSION, "RAID" );
+		C_ChatInfo.SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.getRares .. "=" .. VERSION, "RAID" );
 	end
 end
 
@@ -1452,10 +1452,10 @@ finderFrame:SetScript("OnEvent", function( self, event, ... )
 						--print( "rare seen: " .. node["label"] .. " - " .. node.seen["timeSlot"] );
 						local msg = npcId .. ':' .. node.seen["timeSlot"] .. ';';
 						if ( IsInGuild() ) then
-							SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.sendRares .. "=" .. msg, "GUILD" );
+							C_ChatInfo.SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.sendRares .. "=" .. msg, "GUILD" );
 						end
 						if ( IsInGroup() ) then
-							SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.sendRares .. "=" .. msg, "RAID" );
+							C_ChatInfo.SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.sendRares .. "=" .. msg, "RAID" );
 						end
 					end
 				end
@@ -1513,7 +1513,7 @@ end );
 --
 
 local function commGetRares( channel )
-	SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.getRares .. "=" .. VERSION, channel );
+	C_ChatInfo.SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.getRares .. "=" .. VERSION, channel );
 end
 
 local function commSendRares( channel )
@@ -1524,21 +1524,21 @@ local function commSendRares( channel )
 			s = s .. npcId .. ":" .. node["seen"]["timeSlot"] .. ";";
 		end
 		if ( s:len() > 200 ) then
-			SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.sendRares .. "=" .. s, channel );
+			C_ChatInfo.SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.sendRares .. "=" .. s, channel );
 			s = "";
 		end
 	end
 	if ( s ~= "" ) then
-		SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.sendRares .. "=" .. s, channel );
+		C_ChatInfo.SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.sendRares .. "=" .. s, channel );
 	end
 end
 
 local function commGetVersion( channel, nextCmd )
-	SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.getVer .. "=" .. nextCmd, channel );
+	C_ChatInfo.SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.getVer .. "=" .. nextCmd, channel );
 end
 
 local function commSendVersion( channel )
-	SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.sendVer .. "=" .. VERSION, channel );
+	C_ChatInfo.SendAddonMessage( ADDON_MSG_PREFIX, ADDON_MSG_CMD.sendVer .. "=" .. VERSION, channel );
 end
 
 local function commHandleCmd( channel, cmd, msg, target )
@@ -2188,7 +2188,7 @@ function Argus:OnInitialize()
 	local realm = GetRealmName();
 	MYSELF = name .. "-" .. realm;
 	lastRareResetSlot = getCurrentTimeSlot();
-	updateInvasionPOI:RegisterEvent("WORLD_MAP_UPDATE");
+	--updateInvasionPOI:RegisterEvent("WORLD_MAP_UPDATE");
 	communicator:RegisterEvent("PLAYER_ENTERING_WORLD");
 	communicator:RegisterEvent("GROUP_ROSTER_UPDATE");
 	communicator:RegisterEvent("GROUP_JOINED");
@@ -2200,7 +2200,7 @@ function Argus:OnInitialize()
 	finderFrame:RegisterEvent("LFG_LIST_ENTRY_EXPIRED_TOO_MANY_PLAYERS");
 	--trackAchievements:RegisterEvent("CRITERIA_EARNED");
 	--trackAchievements:RegisterEvent("CRITERIA_COMPLETE");
-	RegisterAddonMessagePrefix( ADDON_MSG_PREFIX );
+	C_ChatInfo.RegisterAddonMessagePrefix( ADDON_MSG_PREFIX );
 	--WorldMapTooltip:HookScript("OnShow", function()
 		-- print( "wmtt" );
 	--end );
