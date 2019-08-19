@@ -1,0 +1,17 @@
+## Interface: 80200
+## Title: Rare Share: |cffff6699Nazjatar
+## Notes: The Nazjatar extension for the Rare Share addon
+## Author: pffScrub
+## Version: v0.6.3.2
+## DefaultState: enabled
+## Dependencies: RareShare
+## SavedVariables: RareShareDB_Nazjatar
+
+locales\enUS.lua
+locales\ruRU.lua
+locales\deDE.lua
+locales\frFR.lua
+locales\koKR.lua
+locales\zhCN.lua
+
+RareShareNazjatar.lua

@@ -1,0 +1,80 @@
+local AddonName, Addon = ...
+
+if (GetLocale() == "koKR") then
+    Addon.Loc = {
+        Title = "메카곤",
+        Drills = {
+            ["Prefix"] = "Drill active at",
+            "DR-TR28",
+            "DR-TR35",
+            "DR-CC61",
+            "DR-CC73",
+            "DR-CC88",
+            "DR-JD41",
+            "DR-JD99",
+        },
+        Armories = "Armory found at",
+        Rares = {
+            [151934] = "포획꾼 기계거미",
+            [150394] = "무장한 금고봇",
+            [153200] = "부글앗뜨",
+            [151308] = "뽀각 스컬배쉬",
+            [152001] = "뼈다귀 청소부",
+            [154739] = "부식성 기계수액",
+            [151569] = "깊은물 아귀괴수",
+            [150342] = "대지파괴자 걸록",
+            [154153] = "집행자 KX-T57",
+            [151202] = "부정한 현신",
+            [151884] = "광란의 버섯",
+            [135497] = "광란의 버섯",
+            [153228] = "장비 검수자 코그스타",
+            [153205] = "보석사 거미",
+            [154701] = "게걸스러운 기계포식자",
+            [151684] = "턱파괴자",
+            [152007] = "살해톱",
+            [151933] = "고장난 야수로봇",
+            [151124] = "메카곤식 종결자",
+            [151672] = "메카란툴라",
+            [151627] = "고쳐줘 씨",
+            [151296] = "OOX-복수자/MG",
+            [153206] = "늙은 왕엄니",
+            [152764] = "산화된 갈취짐승",
+            [151702] = "파올 폰드웨이더",
+            [150575] = "우레바위",
+            [152182] = "녹슨깃털",
+            [155583] = "고철집게발",
+            [150937] = "바다모래톱",
+            [153000] = "불꽃여왕 전파거미",
+            [153226] = "강철 노래꾼 프레자",
+            [155060] = "분신 로봇",
+            [152113] = "고철모이왕",
+            [151940] = "트로그 삼촌",
+            [151625] = "고철왕",
+            [151623] = "고철왕 (탑승)",
+            [154342] = "포획꾼 기계거미 (미래 위상)",
+            [154225] = "녹슨 왕자 (미래 위상)",
+            [154968] = "무장한 금고봇 (미래 위상)",
+            [152569] = "광기 어린 트로그 (초록색)",
+            [152570] = "광기 어린 트로그 (파란색)",
+            [149847] = "광기 어린 트로그 (주황색)",
+        },
+        Config = {
+            ["Armory"] = {
+                "Enable Armory Announcements",
+                "Enables/Disables announcing armories to general chat",
+            },
+            ["Drills"] = {
+                "Enable Drill Announcements",
+                "Enables/Disables notifying of newly spawned Drills",
+            },
+            ["DrillSounds"] = {
+                "Enable Drill Sounds",
+                "Enables/Disables sounds for newly spawned drills"
+            },
+            ["DrillWaypoints"] = {
+                "Enable Drill Waypoints",
+                "Enables/Disables automatic waypoints to newly spawned drills",
+            }
+        },
+    }
+end
