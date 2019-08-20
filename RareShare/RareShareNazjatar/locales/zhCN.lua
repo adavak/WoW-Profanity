@@ -2,7 +2,7 @@ local AddonName, Addon = ...
 
 if (GetLocale() == "zhCN") then
 Addon.Loc = {
-    Title = "Nazjatar",
+    Title = "纳沙塔尔",
     Rares = {
         [152415] = "无目的阿尔加",                 
         [152681] = "泰丰努斯亲王",                  
