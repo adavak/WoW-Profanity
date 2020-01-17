@@ -2,6 +2,6 @@
 
 A git repo to log the World of Warcraft Profanity.
 
-更新到 8.2.5.31961
+更新到 8.3.0.33073
 
 检索新近更改请到 commit 里查看。
